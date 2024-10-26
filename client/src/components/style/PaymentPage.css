@@ -1,0 +1,56 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #fff;
+    text-align: center;
+  }
+  
+  .payment-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  .payment-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  
+  .pay-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .pay-button:hover {
+    background-color: #ff4a3d;
+    transform: scale(1.05);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .payment-title {
+      font-size: 2rem;
+    }
+  
+    .payment-description {
+      font-size: 1rem;
+    }
+  
+    .pay-button {
+      padding: 12px 25px;
+    }
+  }
+  

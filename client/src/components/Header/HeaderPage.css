@@ -1,0 +1,76 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", system-ui;
+  }
+  
+  .site-header {
+    padding: 1rem 2rem;
+    background-color:  #fff;
+    color: #e9691e;
+    position: relative;
+    z-index: 10;
+  }
+
+  .site-header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo Section */
+  .logo img {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  /* Site Title and Slogan */
+  .site-title {
+    text-align: center;
+  }
+  
+  .site-title h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  
+  .site-title .slogan {
+    font-size: 1rem;
+    color: #e9691e;
+  }
+  
+  /* Contact Info Section */
+  .header-contact {
+    text-align: right;
+  }
+  
+  .header-contact p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .header-contact p:first-child {
+    font-weight: bold;
+    color: #e9691e;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .site-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .logo {
+      margin-bottom: 1rem;
+    }
+  
+    .header-contact {
+      margin-top: 1rem;
+    }
+  }
+  
