@@ -1,0 +1,222 @@
+/* Sidebar styles */
+
+.d-flex {
+    position: relative;
+    padding: 20px;
+    height: auto;
+    background-color: #f5f4f4;
+    font-weight: 500;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 93vh;
+    border-radius: 10px;
+    background:#fff;
+    box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
+
+}
+
+.sidebar .profile-container{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 20px;
+    gap: 20px;
+}
+
+.sidebar .profile-container .profile-image{
+    width: 50px;
+    height: 47px;
+    border-radius: 50px;
+}
+
+.sidebar .profile-container .name{
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0;
+    color: #5f5f5f;
+}
+
+.sidebar .nav-link {
+    color: #5f5f5f;
+    font-size: 13px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover/active effects */
+}
+
+.sidebar .nav-link .bi {
+    font-size: 20px;
+}
+
+/* Logout Icon */
+.bi-box-arrow-right {
+    color: #dc3545; /* Bootstrap Danger Red - Signifying logout or exit */
+  }
+  
+  /* Settings Icon */
+  .bi-gear {
+    color: #6c757d; /* Bootstrap Secondary Gray - Neutral for settings */
+  }
+  
+  /* Analytics Icon */
+  .bi-bar-chart {
+    color: #0d6efd; /* Bootstrap Primary Blue - Highlighting importance */
+  }
+  
+  /* Documentation Icon */
+  .bi-book {
+    color: #ffc107; /* Bootstrap Warning Yellow - Drawing attention to resources */
+  }
+  
+  /* Profile Icon */
+  .bi-person-circle {
+    color: #198754; /* Bootstrap Success Green - Representing a personal area */
+  }
+  
+  /* Task List Icon */
+  .bi-card-list {
+    color: #6610f2; /* Bootstrap Purple - Representing tasks or organization */
+  }
+  
+  /* Dashboard Icon */
+  .bi-speedometer2 {
+    color: #20c997; /* Bootstrap Teal - Dynamic and engaging for dashboards */
+  }
+  
+
+/* Active link styling */
+.sidebar .nav-link.active {
+    background-color: #e9691e; /* Highlight active link */
+    color: #ffffff; /* Make the text black for contrast */
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+/* Hover effects for sidebar links */
+.sidebar .nav-link:hover {
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Main content responsive adjustments */
+.main-content {
+    width: 100%;
+    margin-left: 18em;
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+}
+
+
+.navba {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+  }
+  
+  /* Navbar Left Section */
+  .navbar-left .logo {
+    width: 200px;
+  }
+  
+  /* Navbar Center Section (Search Bar) */
+  .navbar-center .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 0px 10px;
+    box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.1);
+  }
+  
+  .navbar-center .search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #5f5f5f;
+    padding: 5px 10px;
+    font-size: 1rem;
+    width: 250px;
+  }
+  
+  .navbar-center .search-bar .search-icon {
+    font-size: 1.2rem;
+    color: #e9691e;
+    margin-right: 5px;
+  }
+  
+  /* Navbar Right Section */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .navbar-right i {
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar-right i:hover {
+    transform: scale(1.2);
+    color: #1abc9c;
+  }
+
+  
+  /* Notification Icon */
+  .notification-icon {
+    color: #e74c3c;
+  }
+  
+  /* Message Icon */
+  .message-icon {
+    color: #f1c40f;
+  }
+  
+  /* Logout Button */
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    background-color: #e9691e;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: #ecf0f1;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .logout-btn i {
+    margin-right: 5px;
+    color: #fff;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+
+
+
+ 

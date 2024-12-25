@@ -1,9 +1,12 @@
-import { Navigate } from 'react-router-dom';
 
-function PrivateRoute({ children }) {
-  const hasPaid = localStorage.getItem('hasPaid'); // Check if the user has paid
 
-  return hasPaid ? children : <Navigate to="/" />; // If not paid, redirect to homepage or payment page
-}
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+const PrivateRoute = ({ children }) => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
 
 export default PrivateRoute;

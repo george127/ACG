@@ -2,10 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import paymentRoutes from './routes/paymentRoutes.js'; // Import payment routes
 import studentRoutes from './routes/studentRoutes.js';
-
-
+import feespaymentRoutes from './routes/feesPaymentRoute.js'
+import authRoutes from './routes/authRoutes.js';
 dotenv.config(); // Load environment variables
 
 // Initialize Express app
@@ -28,14 +27,14 @@ app.get('/test', (req, res) => {
   res.send('API is running...');
 });
 
-// Use payment routes
-app.use('/api', paymentRoutes);
+app.use('/api/auth', authRoutes)
 
 // Import student routes
 app.use('/api/students', studentRoutes); // This mounts the route at /api/students
 
+app.use('/api/fees', feespaymentRoutes);
 
-// Start the server
+// Start the server 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);  

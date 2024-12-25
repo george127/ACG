@@ -154,15 +154,17 @@ function ProgramApplyingFor() {
             {errors.courseDetails}
           </Form.Control.Feedback>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <div className="Button-container">
+          <Button variant="primary" type="submit" className="btn">
             {loading ? "Submitting..." : "Submit" }
           </Button>
-          
           {showNextButton && (
-            <Button variant="success" onClick={handleNextClick}>
+              <Button variant="success" onClick={handleNextClick}  className="btn">
+
               Next
             </Button>
           )}
+          </div>
       </Form>
     </Container>
       {/* Conditional loading spinner */}

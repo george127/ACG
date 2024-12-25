@@ -1,0 +1,370 @@
+
+.dashboard-section {
+    border-radius: 10px;
+    color: #333;
+  }
+  
+  .dashboard-card {
+    display: none;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 10px;
+    box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-section {
+      padding: 15px;
+    }
+  
+    .dashboard-title {
+      font-size: 1.5rem;
+    }
+  
+    .section-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+
+   /* Welcome Container */
+.welcome-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+  grid-column: 1 / 3;
+  color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
+  text-align: center;
+  background-image: url("../StudentPortal/images/Head-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-banner .text-container{
+  width: 70%;
+  text-align: justify;
+}
+
+.welcome-banner .text-container h1{
+  font-weight: 400;
+  font-size: 2.1rem;
+}
+
+.welcome-banner .text-container span{
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.welcome-banner p {
+  margin-bottom: 10px;
+  background: rgba(255, 115, 34, 0.2); /* Semi-transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle, semi-transparent border */
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); 
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 300;
+  padding: 20px;
+}
+
+/* Student Dashboard */
+.dashboard-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-tile {
+  background-color: #fff;
+  color: #343a40;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: justify;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-tile i {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.dashboard-tile .bi-lightning-fill {
+  color: #f1c40f; /* Bright Yellow */
+  background-color: #ffec9f;
+}
+
+.dashboard-tile .bi-emoji-smile {
+  color: #f39c12; 
+  background-color: #ffec9f
+}
+
+.dashboard-tile .bi-calendar3 {
+  color: #007bff; /* Calming Blue */
+  background-color: #9bcbff;
+}
+
+.dashboard-tile .bi-bar-chart-fill {
+  color: #33ff00; /* Growth Green */
+  background-color: #2ecc71;
+}
+
+.dashboard-tile h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-tile .title{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px 0;
+  height: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #2ecc71;
+  transition: width 0.5s ease;
+}
+
+.daily-schedule ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.daily-schedule ul li {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.motivation p {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.quick-actions .actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-actions .actions a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: #ffffff;
+  color: #8e44ad;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  padding: 10px;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 600ms ease-in-out;
+}
+
+.quick-actions .actions a .bi{
+  font-size: 1rem;
+  margin: 0;
+  display: flex;
+  padding: 0;
+  color: #e9691e;
+}
+
+.quick-actions .actions a:hover {
+  background-color: #e9691e;
+  color: white;
+  transform: scale(1.1);
+}
+
+.quick-actions .actions a:hover .bi{
+  color: #fff;
+}
+
+.profile-card {
+  width: 350px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: transform 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+}
+
+.profile-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #e9691e;
+  color: #fff;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.profile-id {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  opacity: 0.8;
+}
+
+.profile-body {
+  padding: 20px;
+}
+
+.profile-body p {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.profile-body p .profile-data {
+  font-weight: 400;
+  display: grid;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.profile-body .icon {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-right: 10px;
+  background-color: #e9691e;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.profile-body .bi-envelope-fill{
+  background-color: #ffe597;
+  color: #ffbf00;
+}
+
+.profile-body .bi-mortarboard-fill{
+  background-color: #9bcbff;
+  color: #007bff;
+}
+
+.profile-body .bi-telephone-fill{
+  background-color: #caffbc;
+  color: #33ff00;
+}
+
+.profile-body .bi-geo-alt-fill{
+  background-color: #ffaaaa;
+  color: #ff0000;
+}
+
+/* Announcement Banner */
+.announcement-Date{
+  display: flex;
+  gap: 20px;
+  grid-column: 1/3;
+}
+
+.announcement-banner {
+  background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+  border: 1px solid #d1e3f8;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+  width: 100%;
+  height: 60vh;
+}
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.announcement-header h3 {
+  margin: 0;
+  color: #1d3557;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.announcement-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.announcement-content li {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #d1e3f8;
+}
+
+.announcement-content li:last-child {
+  border-bottom: none;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 12px;
+}
+
+.announcement-content div {
+  font-size: 1rem;
+  color: #333;
+}
+
+.highlight {
+  color: #e63946;
+  font-weight: bold;
+}
+
+.announcement-footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}

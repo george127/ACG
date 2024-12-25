@@ -262,9 +262,12 @@ function GuardianDetails() {
           </Col>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <div className="Button-container">
+          <Button variant="primary" type="submit" className="btn">
             {loading ? "Submitting..." : "Submit" }
           </Button>
+          </div>
+         
       </Form>
 
       {/* Modal congratulating the user */}
@@ -273,7 +276,7 @@ function GuardianDetails() {
           <Modal.Title centered>Congratulations!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Your guardian details have been successfully submitted!</p>
+          <p>Your Forms details have been successfully submitted!</p>
           <p>
             Would you like to proceed to make your fees payment, or return to
             the homepage?

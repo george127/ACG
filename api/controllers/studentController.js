@@ -1,12 +1,10 @@
-
-
 import Students from '../models/Student.js';
 
 // Controller to handle personal details
 export const PersonalDetails = async (req, res) => {
   try {
     const { personalDetails } = req.body;
-    const { email, fullName, phoneNumber, address, nationality, dob, gender } = personalDetails;
+    const { email, fullName, phone, address, nationality, dob, gender, profileImage } = personalDetails;
 
     if (!email) {
       return res.status(400).json({ message: 'Email is required' });
@@ -28,7 +26,7 @@ export const PersonalDetails = async (req, res) => {
         const updatedStudent = await Students.findOneAndUpdate(
           { "personalDetails.email": email },
           { 
-            personalDetails: { email, fullName, phoneNumber, address, nationality, dob, gender } 
+            personalDetails: { email, fullName, phone, address, nationality, dob, gender, profileImage } 
           },
           { new: true, upsert: true } // Create if not exists
         );
@@ -48,8 +46,8 @@ export const PersonalDetails = async (req, res) => {
 };
 
 // Controller to handle program application details submission
-export const ProgramApplyingFor = async (req, res) => {
-  try {
+export const ProgramApplyingFor = async (req, res) => {  
+  try {   
     const { programApplyingFor } = req.body; // Destructure programApplyingFor
     const { programName, courseDetails } = programApplyingFor; // Extract programName and courseDetails
 
@@ -179,5 +177,30 @@ export const GuardianDetails = async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ message: 'Error submitting guardian details', error: error.message });
+  }
+};
+
+
+// Controller to fetch all details for a specific student
+export const getStudentDetails = async (req, res) => {
+  try {
+    const { email } = req.params; // Extract email from request params
+
+    // Find the student document by email
+    const student = await Students.findOne({ "personalDetails.email": email });
+
+    if (!student) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+
+    res.status(200).json({
+      message: "Student details fetched successfully",
+      student,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error fetching student details",
+      error: error.message,
+    });
   }
 };

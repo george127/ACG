@@ -213,16 +213,17 @@ function EducationalBackground() {
           </Col>
         </Row>
 
-        <Button variant="primary" type="submit">
+        <div className="Button-container">
+          <Button variant="primary" type="submit" className="btn">
             {loading ? "Submitting..." : "Submit" }
           </Button>
+          {showNextButton && (
+              <Button variant="success" onClick={handleNextClick}  className="btn">
 
-        {/* Conditionally render the Next button */}
-        {showNextButton && (
-          <Button variant="primary" onClick={handleNextClick} className="mt-3">
-            Next
-          </Button>
-        )}
+              Next
+            </Button>
+          )}
+          </div>
       </Form>
     </Container>
       {/* Conditional loading spinner */}

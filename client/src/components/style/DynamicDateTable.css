@@ -1,0 +1,50 @@
+.calendar-clock-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendar-clock-container .head {
+    text-align: justify;
+    margin-bottom: 20px;
+
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .header-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .real-time-display {
+    margin-bottom: 20px;
+  }
+  
+  .real-time-item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .real-time-item h2 {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  .real-time-item p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .calendar iframe {
+    border: 1px solid #ddd;
+  }
+  

@@ -58,12 +58,12 @@ h3 {
 }
 
 /* Custom Submit Button */
-.btn-container{
+.Button-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.custom-submit-btn {
+.Button-container .btn {
     background-color: #ff6f61;
     color: #fff;
     padding: 10px 30px;
@@ -71,14 +71,12 @@ h3 {
     border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     display: inline-block;
-    width: 50%;
-    margin-top: 20px;
     text-align: center;
 }
 
-.custom-submit-btn:hover {
+.Button-container .btn:hover {
     background-color: #ff4a3d;
     transform: scale(1.05);
 }
@@ -127,5 +125,105 @@ h3 {
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  
+
+  /* General Modal Styling */
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    animation: slide-in 0.4s ease-in-out;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4caf50; /* Green background for header */
+    color: #fff;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+  
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 30px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .modal-body p:first-of-type {
+    font-weight: 500;
+    color: #4caf50;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  /* Button Styling */
+  button.btn-primary {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #ff4a3d;
+    transform: scale(1.05);
+}
+  
+  button.btn-secondary {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  button.btn-secondary:hover {
+    background-color: #ff4a3d;
+    transform: scale(1.05);
+}
+  
+  /* Add Some Animations */
+  @keyframes slide-in {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
   

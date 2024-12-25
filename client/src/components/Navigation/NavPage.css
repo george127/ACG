@@ -94,6 +94,9 @@
     background-color: #495057;
   }
 
+  .Button-container{
+    text-decoration: none;
+  }
 
   .Button-container .btn{
   background-color: #ff6f61;
@@ -103,6 +106,7 @@
     border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    text-decoration: none;
   }
   
   .Button-container .btn:hover {

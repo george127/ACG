@@ -3,20 +3,23 @@ import { Form, Row, Col, Container, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { submitPersonalDetails } from "../redux/reducers/studentSlice";
-import "./style/PersonalDetails.css"; // Import custom styles
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import storage from "../firebase"; // Import your Firebase Storage
+import "./style/PersonalDetails.css";
 
 function PersonalDetails() {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.student);
 
-  const [formData, setLocalFormData] = useState({
+  const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    phone: "",
+    phone: "",  
     dob: "",
     gender: "",
     nationality: "",
     address: "",
+    profileImage: "", // Store the uploaded image URL
   });
 
   const [errors, setErrors] = useState({});
@@ -29,7 +32,7 @@ function PersonalDetails() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setLocalFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: "" }));
     setSubmitError("");
   };
@@ -72,6 +75,10 @@ function PersonalDetails() {
       newErrors.address = "Address is required.";
       isValid = false;
     }
+    if (!formData.profileImage) {
+      newErrors.profileImage = "Profile image is required.";
+      isValid = false;
+    }
 
     setErrors(newErrors);
     return isValid;
@@ -82,12 +89,10 @@ function PersonalDetails() {
 
     if (validateForm()) {
       try {
-        // Dispatch action
         const res = await dispatch(submitPersonalDetails(formData));
 
         if (res.error) {
-          // Display error message from Redux state if action fails
-          setSubmitError("Failed to submit form. " + res.error.message);
+          setSubmitError(`Failed to submit form. ${res.error.message}`);
         } else {
           setSuccessMessage("Form submitted successfully!");
           setSubmitError("");
@@ -96,9 +101,7 @@ function PersonalDetails() {
         }
       } catch (error) {
         console.error("Error Response from Backend:", error);
-        setSubmitError(
-          error.message || "An error occurred during form submission."
-        );
+        setSubmitError(error.message || "An error occurred during form submission.");
       }
     } else {
       setSubmitError("Please correct the errors above.");
@@ -106,8 +109,43 @@ function PersonalDetails() {
   };
 
   const handleNextClick = () => {
-    navigate("/Program"); // Navigate to the next form
+    navigate("/Program");
   };
+
+  const handleProfileImageUpload = (file) => {
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+    if (!allowedTypes.includes(file.type)) {
+      setSubmitError("Invalid file type. Only JPEG, PNG, and JPG are allowed.");
+      return;
+    }
+
+    // Create a reference in Firebase storage
+    const storageRef = ref(storage, `profileImages/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log(`Upload is ${progress}% done`);
+      },
+      (error) => {
+        console.error("Upload failed", error);
+        setSubmitError("Failed to upload profile image.");
+      },
+      async () => {
+        // Get the download URL after the upload is complete
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        setFormData((prev) => ({ ...prev, profileImage: downloadURL }));
+        setSuccessMessage("Profile image uploaded successfully!");
+      }
+    );
+  };
+
+
 
   return (
     <div className="layout">
@@ -269,23 +307,49 @@ function PersonalDetails() {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
+        
+            <Col md={6}>
+              <Form.Group controlId="formProfileImage">
+                <Form.Label>Upload Profile Image</Form.Label>
+                <Form.Control
+                  type="file"
+                  name="profileImage"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      handleProfileImageUpload(file); // Call your upload handler here
+                    }
+                  }}
+                  isInvalid={!!errors.profileImage}
+                />
+              </Form.Group>
+            </Col>
           </Row>
 
-          <Button variant="primary" type="submit">
-            {loading ? "Submitting..." : "Submit" }
-          </Button>
-          
-          {showNextButton && (
-            <Button variant="success" onClick={handleNextClick}>
-              Next
-            </Button>
-          )}
+          <div className="Button-container">
+            <Button variant="primary" type="submit" className="btn">
+              {loading ? "Submitting..." : "Submit"}
+            </Button>  
+            {showNextButton && (
+              <Button
+                variant="success"
+                onClick={handleNextClick}
+                className="btn"
+              >
+                Next
+              </Button>
+            )}
+          </div>
         </Form>
       </Container>
-      
-            {/* Conditional loading spinner */}
-          {loading && <div className="loading-container"><div className="loading-spinner"></div></div>}
-          
+
+      {/* Conditional loading spinner */}
+      {loading && (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
     </div>
   );
 }
