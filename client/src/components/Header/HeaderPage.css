@@ -1,76 +1,157 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", system-ui;
-  }
-  
-  .site-header {
-    padding: 1rem 2rem;
-    background-color:  #fff;
-    color: #e9691e;
-    position: relative;
-    z-index: 10;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
 
-  .site-header .container{
-    display: flex;
-    justify-content: space-between;
+.site-header {
+  padding: 1rem 0;
+  background-color: #fff;
+  color: #e9691e;
+  position: relative;
+  z-index: 10;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header .container .logo img {
+  width: 200px;
+}
+
+.header-contact{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Container for the entire search bar */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Styling for the search and close icon buttons */
+.search-icon-button,
+.close-icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.search-icon-button span,
+.close-icon-button span{
+  margin: 0;
+  display: flex;
+  padding: 10px;
+  font-size: 18px;
+  color: #495057;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  border-radius: 50%;
+}
+
+/* Wrapper for the search input and close icon */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Styling for the search input field */
+.search-input {
+  border: none;
+  outline: none;
+  padding: 4px 8px;
+  width: 400px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e9691e;
+}
+
+/* Add hover effects for buttons */
+.search-icon-button:hover,
+.close-icon-button:hover {
+  color: #007bff; /* Light blue color */
+}
+
+
+.header-contact .Btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-contact .Btn-container .Btn{
+  border: 1px solid #e9691e;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  color: #495057;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+/* Social Media Container */
+.social-media-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Social Icon Style */
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Icon Colors */
+.twitter {
+  background-color: #1da1f2;
+}
+.linkedin {
+  background-color: #0077b5;
+}
+.github {
+  background-color: #eb2424;
+}
+.instagram {
+  background-color: #e4405f;
+}
+
+/* Hover Effects */
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
     align-items: center;
-  }
-  
-  /* Logo Section */
-  .logo img {
-    max-width: 150px;
-    height: auto;
-  }
-  
-  /* Site Title and Slogan */
-  .site-title {
     text-align: center;
   }
-  
-  .site-title h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
+
+  .logo {
+    margin-bottom: 1rem;
   }
-  
-  .site-title .slogan {
-    font-size: 1rem;
-    color: #e9691e;
-  }
-  
-  /* Contact Info Section */
+
   .header-contact {
-    text-align: right;
+    margin-top: 1rem;
   }
-  
-  .header-contact p {
-    margin: 0.2rem 0;
-    font-size: 0.9rem;
-  }
-  
-  .header-contact p:first-child {
-    font-weight: bold;
-    color: #e9691e;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .site-header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .logo {
-      margin-bottom: 1rem;
-    }
-  
-    .header-contact {
-      margin-top: 1rem;
-    }
-  }
-  
+}

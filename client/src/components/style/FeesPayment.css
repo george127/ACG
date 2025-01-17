@@ -1,0 +1,157 @@
+/* General Styles */
+.fees-page {
+  color: #333;
+}
+
+/* Overview Section */
+.fees-overview {
+  margin-bottom: 20px;
+}
+
+.fees-overview .header-container{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: #fff;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.fees-overview .header-container img{
+  width: 200px;
+  height: 200px;
+}
+
+.fees-overview .header-text .btn-container .btn{
+  font-size: 0.8rem;
+  width: 160px;
+}
+
+.fees-overview .header-text .btn-container .btn span {
+  font-size: 18px;
+ }
+
+.fees-overview h2{
+  font-size: 1.3rem;
+}
+
+.fees-overview .header-text p{
+  font-size: 0.9rem;
+  color: #716f8b;
+}
+
+.overview-cards {
+  display: grid;
+  grid-template-columns: 2fr 2fr ;
+  flex-flow: wrap;
+  gap: 40px;
+}
+
+.overview-card {
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.1);
+
+}
+
+.fees-overview .card-header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d6d6d6;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.fees-overview .card-header .line{
+  position: absolute;
+  border-bottom: 2px solid #31aa01;
+  padding: 30px;
+  bottom: 0;
+  left: 0;
+}
+
+.fees-overview .card-header .header{
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.fees-overview .card-header .text{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fees-overview .card-header .text p{
+  font-size: 0.8rem;
+  margin: 0;
+  color: #716f8b;
+}
+
+.fees-overview .card-header .text span{
+  color: #ffe864;
+}
+
+.installment-container{
+  padding: 10px 20px;
+}
+
+
+.installment-container .installment{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.installment-container .installment .icon-text{
+  font-size: 18px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 7px;
+  color: #e9691e;
+}
+
+.installment-container .installment .text-container{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.installment-container .installment .text{
+  text-align: justify;
+}
+
+.installment-container .installment .text p{
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.installment-container .installment .text span{
+  font-size: 0.9rem;
+  color: #716f8b;
+}
+
+.installment-container .btn-container .btn {
+  border: 1px solid #e9691e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  width: 130px;
+  padding: 10px;
+  font-weight: 600;
+  color: #555;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.installment-container .btn-container .btn span {
+ font-size: 16px;
+}

@@ -9,6 +9,8 @@ import Logo from "./images/appcode.png";
 import { logout } from "../../redux/reducers/authSlice"; // Import logout action
 import PaymentInfo from "./PaymentInfo";
 import Dashboard from "./Dashboard";
+import FeesPayment from "./FeesPayment";
+import ProfilePage from "./ProfilePage";
 
 const StudentPortal = () => {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -17,6 +19,16 @@ const StudentPortal = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const userEmail = user?.email;
+  const [isPaymentDropdownOpen, setIsPaymentDropdownOpen] = useState(false);
+  const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
+
+  const togglePaymentDropdown = () => {
+    setIsPaymentDropdownOpen(!isPaymentDropdownOpen);
+  };
+
+  const toggleCoursesDropdown = () => {
+    setIsCoursesDropdownOpen(!isCoursesDropdownOpen);
+  };
 
   useEffect(() => {
     if (!user?.email) return; // Ensure email is present
@@ -89,16 +101,50 @@ const StudentPortal = () => {
               </button>
             </li>
             <li className="nav-item mb-3">
-              <button
-                className={`nav-link ${
-                  activeSection === "paymentInfo" ? "active" : ""
-                }`}
-                onClick={() => setActiveSection("paymentInfo")}
-              >
-                <i className="bi bi-card-list me-2"></i>
-                Payment Info
-              </button>
+              <div className="sidebar-item">
+                <div
+                  className="dropdown-header"
+                  onClick={togglePaymentDropdown}
+                >
+                  <button
+                    className={`nav-link ${
+                      isPaymentDropdownOpen ? "active" : ""
+                    }`}
+                  >
+                    <i className="bi bi-card-list me-2"></i>
+                    Payment Info
+                    <span
+                      className={`arrow-icon ${
+                        isPaymentDropdownOpen ? "open" : ""
+                      }`}
+                    >
+                      &#9662;
+                    </span>
+                  </button>
+                </div>
+                {isPaymentDropdownOpen && (
+                  <div className="dropdown-list">
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "feespayment" ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("feespayment")}
+                    >
+                      Fees Payment
+                    </div>
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "paymentdetails" ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("paymentdetails")}
+                    >
+                      Payment Details
+                    </div>
+                  </div>
+                )}
+              </div>
             </li>
+
             <li className="nav-item mb-3">
               <button
                 className={`nav-link ${
@@ -111,27 +157,82 @@ const StudentPortal = () => {
               </button>
             </li>
             <li className="nav-item mb-3">
-              <button
-                className={`nav-link ${
-                  activeSection === "courses" ? "active" : ""
-                }`}
-                onClick={() => setActiveSection("courses")}
-              >
-                <i className="bi bi-book me-2"></i>
-                Courses
-              </button>
+              <div className="sidebar-item">
+                <div
+                  className="dropdown-header"
+                  onClick={toggleCoursesDropdown}
+                >
+                  <button
+                    className={`nav-link ${
+                      isCoursesDropdownOpen ? "active" : ""
+                    }`}
+                  >
+                    <i className="bi bi-book me-2"></i>
+                    Courses
+                    <span
+                      className={`arrow-icon ${
+                        isCoursesDropdownOpen ? "open" : ""
+                      }`}
+                    >
+                      &#9662;
+                    </span>
+                  </button>
+                </div>
+                {isCoursesDropdownOpen && (
+                  <div className="dropdown-list">
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "course Module" ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("course Module")}
+                    >
+                      course Module
+                    </div>
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "course material" ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("course material")}
+                    >
+                      course material
+                    </div>
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "Performance " ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("Performance")}
+                    >
+                      Performance
+                    </div>
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "Grade " ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("Grade")}
+                    >
+                      Grade
+                    </div>
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "Assignment " ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("Assignment")}
+                    >
+                      Assignment
+                    </div>
+                    <div
+                      className={`dropdown-item ${
+                        activeSection === "quiz " ? "active" : ""
+                      }`}
+                      onClick={() => setActiveSection("quiz")}
+                    >
+                      quiz
+                    </div>
+                  </div>
+                )}
+              </div>
             </li>
-            <li className="nav-item mb-3">
-              <button
-                className={`nav-link ${
-                  activeSection === "grades" ? "active" : ""
-                }`}
-                onClick={() => setActiveSection("grades")}
-              >
-                <i className="bi bi-bar-chart me-2"></i>
-                Grades
-              </button>
-            </li>
+
             <li className="nav-item mb-3">
               <button
                 className={`nav-link ${
@@ -162,7 +263,7 @@ const StudentPortal = () => {
           <div className="nav-container">
             <div className="navba">
               <div className="navbar-left">
-                <img src={Logo} alt="" className="logo"/>
+                <img src={Logo} alt="" className="logo" />
               </div>
               <div className="navbar-center">
                 <div className="search-bar">
@@ -187,30 +288,65 @@ const StudentPortal = () => {
               <Dashboard />
             </div>
           )}
-          {activeSection === "paymentInfo" && (
+          {activeSection === "paymentdetails" && (
             <div className="section mb-4">
-              <h2>Payment Info</h2>
               <PaymentInfo email={userEmail} />
+            </div>
+          )}
+          {activeSection === "feespayment" && (
+            <div className="section mb-4">
+              <FeesPayment />
             </div>
           )}
           {activeSection === "profile" && (
             <div className="section mb-4">
               <h2>Profile</h2>
-              <p>View and edit your personal information here.</p>
+              <ProfilePage />
             </div>
           )}
-          {activeSection === "courses" && (
-            <div className="section mb-4">
-              <h2>Courses</h2>
-              <p>View your enrolled courses and manage your schedule.</p>
+
+          {activeSection === "course Module" && (
+            <div className="section">
+              <h2>Enrolled Courses</h2>
+              <p>Here are your enrolled courses...</p>
             </div>
           )}
-          {activeSection === "grades" && (
-            <div className="section mb-4">
-              <h2>Grades</h2>
-              <p>Check your grades and academic progress.</p>
+
+          {activeSection === "course material" && (
+            <div className="section">
+              <h2>Available Courses</h2>
+              <p>Here are the courses available for enrollment...</p>
             </div>
           )}
+
+          {activeSection === "Performance" && (
+            <div className="section">
+              <h2>Completed Courses</h2>
+              <p>Here are the courses you have completed...</p>
+            </div>
+          )}
+
+          {activeSection === "Grade" && (
+            <div className="section">
+              <h2>Completed Courses</h2>
+              <p>Here are the courses you have completed...</p>
+            </div>
+          )}
+
+          {activeSection === "Assignment" && (
+            <div className="section">
+              <h2>Completed Courses</h2>
+              <p>Here are the courses you have completed...</p>
+            </div>
+          )}
+
+          {activeSection === "quiz" && (
+            <div className="section">
+              <h2>Completed Courses</h2>
+              <p>Here are the courses you have completed...</p>
+            </div>
+          )}
+
           {activeSection === "settings" && (
             <div className="section mb-4">
               <h2>Settings</h2>

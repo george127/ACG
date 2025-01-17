@@ -7,7 +7,7 @@ import feespaymentRoutes from './routes/feesPaymentRoute.js'
 import authRoutes from './routes/authRoutes.js';
 dotenv.config(); // Load environment variables
 
-// Initialize Express app
+// Initialize Express app 
 const app = express();
 
 // Middleware

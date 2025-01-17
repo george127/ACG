@@ -1,16 +1,16 @@
 import "./style/FeeSelectionPage.css";
-import HeaderPage from "./Header/HeaderPage";
-import Navigation from "./Navigation/NavPage";
-import payImage from "../assets/money-payment.png";
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
+import feeimage1 from "../assets/feeimage1.jpeg";
+import feeimage2 from "../assets/feeimage2.jpeg";
+import feeimage3 from "../assets/feeimage3.jpeg";
+import feeimage4 from "../assets/feeimage4.jpeg";
+
 function FeeSelectionPage() {
-
-
   const [showModal, setShowModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [semester, setSemester] = useState('');
-  const [installment, setInstallment] = useState('');
+  const [email, setEmail] = useState("");
+  const [semester, setSemester] = useState("");
+  const [installment, setInstallment] = useState("");
   const [amount, setAmount] = useState(null);
 
   const paymentLinks = {
@@ -20,7 +20,7 @@ function FeeSelectionPage() {
     1000: "https://paystack.com/pay/zo3jo3-xob",
     400: "https://paystack.com/pay/xty2dr4b3n",
   };
-  
+
   const handlePayment = async (amount) => {
     setAmount(amount);
     setShowModal(true); // Show the modal to collect email and semester/installment details
@@ -34,7 +34,7 @@ function FeeSelectionPage() {
         semester,
         installment,
       };
-      await axios.post('http://localhost:5000/api/fees/SaveFormData', data);
+      await axios.post("http://localhost:5000/api/fees/SaveFormData", data);
 
       // Redirect to Paystack payment link
       const paymentLink = paymentLinks[amount];
@@ -47,434 +47,208 @@ function FeeSelectionPage() {
         JSON.stringify({ email, semester, installment })
       )}`;
     } catch (error) {
-      console.error('Error during payment initialization:', error);
+      console.error("Error during payment initialization:", error);
     }
   };
 
-  
   return (
     <>
-      <HeaderPage />
-      <Navigation />
-      <div className="layout">
-        <div className="header">
-          <h1 className="text">
-            <p>Fees Structure</p>
-          </h1>
-          <p className="description">
-            AppCode&apos;s academic year consists of four semesters:
-            January-March, April-June, July-September, October-December. Fees
-            cover internet services, learning materials, activities, and support
-            services.
-          </p>
+      <div className="layout container">
+        <div className="layout-container">
+          {/* Left Section */}
+          <div className="image-grid">
+            <img src={feeimage1} alt="Placeholder 1" />
+            <img src={feeimage2} alt="Placeholder 2" />
+            <img src={feeimage3} alt="Placeholder 3" />
+            <img src={feeimage4} alt="Placeholder 4" />
+          </div>
+
+          {/* Right Section */}
+          <div className="text-content">
+            <h1>Hey there, Welcome to Our First Installment Fees Structure</h1>
+            <p>
+              Fees cover internet services, learning materials, activities, and
+              support services. AppCode&apos;s academic year consists of three
+              semesters.
+            </p>
+            <div className="payment-options">
+              <div className="payment-card">
+                <div className="payment-item">
+                  <i className="bi bi-book me-2"></i>
+                  <span>Semester One</span>
+                </div>
+                <br />
+                <div className="text">
+                  This semester focuses on foundational concepts, and basic
+                  skills development.
+                </div>
+              </div>
+              <div className="payment-card">
+                <div className="payment-item">
+                  <i className="bi bi-journal-text me-2"></i>
+                  <span>Semester Two</span>
+                </div>
+                <br />
+                <div className="text">
+                  Dive deeper into intermediate topics projects to build on your
+                  knowledge.
+                </div>
+              </div>
+              <div className="payment-card">
+                <div className="payment-item">
+                  <i className="bi bi-mortarboard me-2"></i>
+                  <span>Semester Three</span>
+                </div>
+                <br />
+                <div className="text">
+                  Advanced subjects and capstone projects are the focus,
+                  preparing you for opportunities.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="container">
-          <div className="fees-table">
-            <h2>Tuition And Other Fees</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Fees</th>
-                  <th>Amount In ghana cedis (¢)</th>
-                  <th>Amount ($)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Tuition for 1st semester</td>
-                  <td>¢5,800.00</td>
-                  <td>$750.24</td>
-                </tr>
-                <tr>
-                  <td>Tuition for 2nd semester</td>
-                  <td>¢5,300.00</td>
-                  <td>$700.41</td>
-                </tr>
-                <tr>
-                  <td>Tuition for 3rd semester</td>
-                  <td>¢5,300.00</td>
-                  <td>$700.41</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
 
-          <div className="first-semester">
-            <h3>First Semester</h3>
-            <div className="pricing-container">
-              <div className="pricing-field">
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>First installment</span>
-                      <p className="flash">Ghc 2,000</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          2000,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>Second installment</span>
-                      <p className="flash">Ghc 1,900</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          1900,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>Third installment</span>
-                      <p className="flash">Ghc 1,900</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          1900,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
+        <div className="fees-flip-cards">
+          <h2>Tuition And Other Fees</h2>
+          <br />
+          <div className="cards-container">
+            <div className="flip-card">
+              <div className="card-front">
+                <h3>1st Semester</h3>
+              </div>
+              <div className="card-back">
+                <p>Gh¢ 5,920.00</p>
+                <p>USD: $402.25</p>
+              </div>
+            </div>
+            <div className="flip-card">
+              <div className="card-front">
+                <h3>2nd Semester</h3>
+              </div>
+              <div className="card-back">
+                <p>Gh¢ 5,920.00</p>
+                <p>USD: $402.25</p>
+              </div>
+            </div>
+            <div className="flip-card">
+              <div className="card-front">
+                <h3>3rd Semester</h3>
+              </div>
+              <div className="card-back">
+                <p>Gh¢ 5,920.00</p>
+                <p>USD: $402.25</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="second-semester">
-            <h3>Second Semester</h3>
-            <div className="pricing-container">
-              <div className="pricing-field">
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>First installment</span>
-                      <p className="flash">Ghc 2,000</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          2000,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>Second installment</span>
-                      <p className="flash">Ghc 1,650</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          1650,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>Third installment</span>
-                      <p className="flash">Ghc 1,650</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          1650,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-              </div>
+        <div className="price-field">
+          <div className="pricing-item">
+            <div className="item">
+              <h2>First Installment</h2>
+              <p>
+                This initial payment includes admission processing fees,
+                administrative costs, and other essential onboarding services.
+              </p>
             </div>
           </div>
-
-          <div className="Third-semester">
-            <h3>Third Semester</h3>
-            <div className="pricing-container">
-              <div className="pricing-field">
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>First installment</span>
-                      <p className="flash">Ghc 2,000</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          2000,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>Second installment</span>
-                      <p className="flash">Ghc 1,650</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          1650,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
-
-                <div className="pricing-item">
-                  <div className="price">
-                    <div className="item">
-                      <span>Third installment</span>
-                      <p className="flash">Ghc 1,650</p>
-                    </div>
-                  </div>
-                  <p className="price-description">
-                    <div className="img-container">
-                      <img src={payImage} alt="" />
-                    </div>
-                    This initial payment covers admission fees and
-                    administrative costs.
-                  </p>
-                  <div className="btn-container">
-                    <button
-                      onClick={() =>
-                        handlePayment(
-                          1650,
-                        )
-                      }
-                      className="btn"
-                    >
-                      Make Payment
-                    </button>
-                  </div>
-                </div>
+          <div className="pricing-item">
+            <div className="item-list">
+              <div className="list">
+                <i className="bi bi-check-circle me-2"></i>
+                Access to student portal
+              </div>
+              <div className="list">
+                <i className="bi bi-check-circle me-2"></i>
+                Campus development and maintenance fee
+              </div>
+              <div className="list">
+                <i className="bi bi-check-circle me-2"></i>
+                Library and ICT services subscription
+              </div>
+              <div className="list">
+                <i className="bi bi-check-circle me-2"></i>
+                learning resources
               </div>
             </div>
-          </div>
-          <h3>Exclusive Payment Option</h3>
-          <div className="pricing-container">
-            <div className="pricing-field">
-              <div className="pricing-item">
-                <div className="price">
-                  <div className="item">
-                    <span>Second installment</span>
-                    <p className="flash">Ghc 1,000</p>
-                  </div>
-                </div>
-                <p className="price-description">
-                  <div className="img-container">
-                    <img src={payImage} alt="" />
-                  </div>
-                  This initial payment covers admission fees and administrative
-                  costs.
-                </p>
-                <div className="btn-container">
-                  <button
-                    onClick={() =>
-                      handlePayment(1000, "Exclusive", "Second installment")
-                    }
-                    className="btn"
-                  >
-                    Make Payment
-                  </button>
-                </div>
-              </div>
-
-              <div className="pricing-item">
-                <div className="price">
-                  <div className="item">
-                    <span>Third installment</span>
-                    <p className="flash">Ghc 400</p>
-                  </div>
-                </div>
-                <p className="price-description">
-                  <div className="img-container">
-                    <img src={payImage} alt="" />
-                  </div>
-                  This initial payment covers admission fees and administrative
-                  costs.
-                </p>
-                <div className="btn-container">
-                  <button
-                    onClick={() =>
-                      handlePayment(400, "Exclusive", "Third installment")
-                    }
-                    className="btn"
-                  >
-                    Make Payment
-                  </button>
-                </div>
-              </div>
+            <div className="price">
+              <p>Gh¢ 2,000.00</p>
+            </div>
+            <div className="btn-container">
+              <button onClick={() => handlePayment(2000)} className="btn">
+                Payment
+                <span className="material-symbols-outlined">east</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
       {/* Your existing components */}
-      
+
       {/* Modal Popup */}
       {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Payment Details</h2>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <select
-              value={semester}
-              onChange={(e) => setSemester(e.target.value)}
-              required
-            >
-              <option value="">Select Semester</option>
-              <option value="First Semester">First Semester</option>
-              <option value="Second Semester">Second Semester</option>
-              <option value="Third Semester">Third Semester</option>
-            </select>
-            <select
-              value={installment}
-              onChange={(e) => setInstallment(e.target.value)}
-              required
-            >
-              <option value="">Select Installment</option>
-              <option value="First Installment">First Installment</option>
-              <option value="Second Installment">Second Installment</option>
-              <option value="Third Installment">Third Installment</option>
-            </select>
-
-            <div className="btn-container">
-              <button onClick={handleSubmit} className="btn">
-                Submit and Proceed to Payment
-              </button>
-              <button onClick={() => setShowModal(false)} className="btn">
-                Cancel
-              </button>
-            </div>
-          </div>
+  <div className="modal">
+    <div className="modal-content">
+      <h2 className="modal-title">Payment Details</h2>
+      <form  className="modal-form">
+        <div className="input-group">
+          <label htmlFor="email">Email Address</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-      )}
+
+        <div className="input-group">
+          <label htmlFor="semester">Semester</label>
+          <select
+            value={semester}
+            onChange={(e) => setSemester(e.target.value)}
+            required
+          >
+            <option value="">Select Semester</option>
+            <option value="First Semester">First Semester</option>
+            <option value="Second Semester">Second Semester</option>
+            <option value="Third Semester">Third Semester</option>
+          </select>
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="installment">Installment</label>
+          <select
+            value={installment}
+            onChange={(e) => setInstallment(e.target.value)}
+            required
+          >
+            <option value="">Select Installment</option>
+            <option value="First Installment">First Installment</option>
+            <option value="Second Installment">Second Installment</option>
+            <option value="Third Installment">Third Installment</option>
+          </select>
+        </div>
+      </form>
+      <br />
+      <div className="btn-container">
+          <button onClick={handleSubmit} className="btn btn-submit">
+            Submit 
+            <span className="material-symbols-outlined">east</span>
+          </button>
+          <button
+            onClick={() => setShowModal(false)}
+            className="btn btn-cancel"
+          >
+            Cancel
+            <span className="material-symbols-outlined">east</span>
+          </button>
+        </div>
+    </div>
+  </div>
+)}
+
 
       {/* Your existing components */}
     </>

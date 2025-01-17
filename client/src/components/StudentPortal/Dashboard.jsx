@@ -99,8 +99,8 @@ const Dashboard = () => {
                 <h4>Motivational Quote</h4>
               </div>
               <p>
-                ✨ 'The beautiful thing about learning is that no one can take
-                it away from you.' - B.B. King
+                ✨ &apos; The beautiful thing about learning is that no one can take
+                it away from you. &apos; - B.B. King
               </p>
             </div>
 

@@ -1,0 +1,277 @@
+/* Container Styles */
+.innovative-payment-container {
+  border-radius: 10px;
+}
+
+/* Vertical Layout */
+.vertical-payment-info {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.vertical-payment-info .payment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ff9500;
+}
+
+.vertical-payment-info .payment-header .material-symbols-outlined {
+  font-size: 18px;
+  color: #4cdf6e;
+}
+
+/* Individual Record */
+.payment-record {
+  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+}
+
+/* Payment Row (Label + Value) */
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-row:last-child {
+  border-bottom: none;
+}
+
+.payment-row .label {
+  font-weight: 600;
+  color: #696969;
+  font-size: 0.9rem;
+}
+
+.payment-row .value {
+  color: #333;
+  font-size: 0.9em;
+}
+
+.payment-row .cash {
+  color: #4cdf6e;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.payment-row .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Loading & Error Styles */
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.loading {
+  color: #0d6efd;
+}
+
+.error {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .innovative-payment-container {
+    padding: 15px;
+  }
+}
+
+.payment-row .bi {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+
+.icon-semester {
+  color: #0d6efd;
+  background-color: #b2d1ff;
+}
+
+.icon-installment {
+  color: #ffb300;
+  background-color: #ffdc8a;
+}
+
+.icon-status {
+  color: #28a745; /* Green color for Status */
+  background-color: #c6efce;
+}
+
+.icon-transaction {
+  color: #d41e31; /* Red color for Transaction ID */
+  background-color: #f8d7da;
+}
+
+.icon-amount {
+  color: #ff4b2b; /* Tomato color for Amount Paid */
+  background-color: #ffd7be;
+}
+
+.icon-total {
+  color: #ff9500; /* Orange color for Grant Total */
+  background-color: #ffeebc;
+}
+
+/* =========================== */
+.Payment-details {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.payment-summary-card {
+  padding: 20px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  color: #333;
+  position: relative;
+}
+
+.payment-header {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.payment-header h3 {
+  text-align: justify;
+  font-size: 1.4rem;
+  color: #e9691e;
+  margin: 0;
+}
+
+.payment-header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.summary-details {
+  margin-top: 20px;
+}
+
+.summary-details .detail {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  padding: 10px;
+  width: 300px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.summary-details .label {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.summary-details .value {
+  color: #333;
+  background: rgba(255, 115, 34, 0.2); /* Semi-transparent background */
+  border: 2px solid #ff9500; /* Subtle, semi-transparent border */
+  padding: 3px 6px;
+  position: absolute;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  right: 0;
+  bottom: 0;
+  font-size: 0.8rem;
+}
+
+.payment-summary-card .image-container img {
+  width: 240px;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.summary-details .icon {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+/* ===Progress=== */
+.progress-container {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
+  border-radius: 15px;
+}
+
+.progress-history {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-history-details{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.history-details{
+  background-color: #fff;
+  box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.history-details .level{
+  font-size: 0.9rem;
+}
+
+.history-details .parent-div {
+  height: 10px;
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius: 40;
+  margin: 50;
+  border-radius: 40px;
+
+}
+
+.history-details .child-div {
+  height: 100%;
+  width: 30%; /* Use CSS variable for dynamic progress */
+  background-color: #e9691e; /* Use CSS variable for dynamic background color */
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.history-details .progress-text {
+  padding: 10px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.history-details .progress-text span{
+  font-size: 0.9rem;
+}

@@ -10,8 +10,10 @@ import PrivateRoute from './components/PrivateRoute'; // Private route for secur
 import ProgramApplyingFor from './components/ProgramApplyingFor';
 import EducationalBackground from './components/EducationalBackground';
 import GuardianDetails from './components/GuardianDetails';
-import Home from './components/Home/HomePage';    
-
+import Home from './components/Home/HomePage';  
+import Software from './components/Pages/Software';  
+import Aws from './components/Pages/Aws';
+import Azure from "./components/Pages/Azure";
 function App() {           
   return (  
     <Router>   
@@ -26,7 +28,10 @@ function App() {
         <Route path='/guardian' element={<GuardianDetails/>}/>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} /> 
-        <Route path="/StudentPortal" element={<PrivateRoute><StudentPortal/></PrivateRoute>} /> Portal secured
+        <Route path="/StudentPortal" element={<PrivateRoute><StudentPortal/></PrivateRoute>} />
+        <Route path="/Software" element={<Software />} />
+        <Route path="/Aws" element={<Aws />} />
+        <Route path="/Azure" element={<Azure />} />
       </Routes>
     </Router>
   );

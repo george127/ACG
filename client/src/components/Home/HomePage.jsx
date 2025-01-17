@@ -1,13 +1,12 @@
-import Header from '../Header/HeaderPage';
-import Navigation from '../Navigation/NavPage';
-import './HomePage.css'; // or './HomePage.module.css'
-
+import Header from "../Header/HeaderPage";
+import Navigation from "../Navigation/NavPage";
+import LandingPage from "../landingPage/LandingPage"
 const HomePage = () => {
   return (
     <div>
       <Header />
       <Navigation />
-      <h2>Welcome to My Website!</h2>
+      <LandingPage/>
     </div>
   );
 };
