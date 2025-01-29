@@ -10,6 +10,8 @@ import Javascript from "./images/Software/Javascript.png";
 import MobileApp from "./images/Software/PngItem_256506.png";
 import Image from "./images/Software/Software.png";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom"; // Use NavLink for active links
+
 
 const Software = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -33,10 +35,12 @@ const Software = () => {
     };
   }, []);
 
-  const handleScrollToSection = (sectionId) => {
+  const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
   return (
@@ -44,8 +48,14 @@ const Software = () => {
       <div id="content">
         <Header />
         <Navigation />
+        <div className="container navigate">
+            <div className="items">
+              <NavLink to="/">Home</NavLink>
+              <span className="material-symbols-outlined">arrow_and_edge</span>
+            </div>
+            <span>Software</span>
+          </div>
         <div className="software-page container">
-          {/* Sidebar */}
           <div className="sideBar-container">
             <div
               className="Sidebar"
@@ -55,7 +65,7 @@ const Software = () => {
               }}
             >
               <ul>
-                <li onClick={() => handleScrollToSection("section1")}>
+                <li onClick={() => handleScrollToSection("section1", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -66,7 +76,7 @@ const Software = () => {
                     </div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section2")}>
+                <li onClick={() => handleScrollToSection("section2", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -75,7 +85,7 @@ const Software = () => {
                     <div className="content">server-side programming</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section3")}>
+                <li onClick={() => handleScrollToSection("section3", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -86,7 +96,7 @@ const Software = () => {
                     </div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section4")}>
+                <li onClick={() => handleScrollToSection("section4", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -95,7 +105,7 @@ const Software = () => {
                     <div className="content">Learn server-side rendering.</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section5")}>
+                <li onClick={() => handleScrollToSection("section5", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -104,7 +114,7 @@ const Software = () => {
                     <div className="content">Cross-platform applications.</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section6")}>
+                <li onClick={() => handleScrollToSection("section6", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -115,7 +125,7 @@ const Software = () => {
                   </div>
                 </li>
                 
-                <li onClick={() => handleScrollToSection("section6")}>
+                <li onClick={() => handleScrollToSection("section7", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -202,10 +212,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Software/frontDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Use Link for internal routing
+import { NavLink } from "react-router-dom"; // Use NavLink for active links
 
 import "./NavPage.css"; // Import your CSS file
 
@@ -22,55 +22,82 @@ const Navigation = () => {
 
           <div className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
             <p>
-              <Link to="/" data-text="Home">
-                Home
-              </Link>
-            </p>
-            <p>
-              <Link to="/Software" data-text="Software Engineering">
+              <NavLink
+                to="/Software"
+                activeClassName="active"
+                data-text="Software Engineering"
+              >
                 Software Engineering
-              </Link>
+              </NavLink>
             </p>
             <div className="Link-dropdown">
-              <p className="drop-toggle" data-text="Cloud Engineering">Cloud Engineering</p>
+              <p className="drop-toggle" data-text="Cloud Engineering">
+                Cloud Engineering
+                <span className="material-symbols-outlined">
+                  keyboard_arrow_down
+                </span>
+              </p>
               <div className="dropdown-menu">
-                <Link to="/Aws" data-text="AWS">
-                  AWS CErtifications
-                </Link>
-                <Link to="/azure" data-text="Azure">
+                <NavLink to="/Aws" activeClassName="active" data-text="AWS">
+                  AWS Certifications
+                </NavLink>
+                <NavLink to="/Azure" activeClassName="active" data-text="Azure">
                   Microsoft Azure Certifications
-                </Link>
+                </NavLink>
               </div>
             </div>
 
             <p>
-              <Link to="/careers" data-text="Digital Marketing">
+              <NavLink
+                to="/marketing"
+                activeClassName="active"
+                data-text="Digital Marketing"
+              >
                 Digital Marketing
-              </Link>
+              </NavLink>
             </p>
             <p>
-              <Link to="/resources" data-text=" Data Analytics">
+              <NavLink
+                to="/DataAnalytics"
+                activeClassName="active"
+                data-text="Data Analytics"
+              >
                 Data Analytics
-              </Link>
+              </NavLink>
             </p>
+            <div className="Link-dropdown">
+              <p className="drop-toggle" data-text="Cyber Security">
+                Cyber Security
+                <span className="material-symbols-outlined">
+                  keyboard_arrow_down
+                </span>
+              </p>
+              <div className="dropdown-menu">
+                <NavLink to="/MicrosoftAz" activeClassName="active" data-text="AWS">
+                  Microsoft AZ 500
+                </NavLink>
+                <NavLink to="/Oscp" activeClassName="active" data-text="Azure">
+                  OSCP
+                </NavLink>
+              </div>
+            </div>
             <p>
-              <Link to="/resources" data-text=" cyber Security">
-                cyber Security
-              </Link>
-            </p>
-            <p>
-              <Link to="/resources" data-text="Forex Trading">
+              <NavLink
+                to="/forexTrading"
+                activeClassName="active"
+                data-text="Forex Trading"
+              >
                 Forex Trading
-              </Link>
+              </NavLink>
             </p>
           </div>
 
           {/* Button to navigate to payment page */}
           <div className="btn-container">
-            <Link className="btn" to="/payment">
+            <NavLink className="btn" to="/payment" activeClassName="active">
               Apply Now
               <span className="material-symbols-outlined">east</span>
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>

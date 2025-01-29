@@ -10,7 +10,8 @@ import AWS6 from "./images/Cloud/AWS-Security-Specialty.webp";
 import AWS7 from "./images/Cloud/AWS-Certified-Advanced-Networking-Specialty.png";
 import AWS8 from "./images/Cloud/AWS-Big-Data-Logo.png";
 import { useState, useEffect } from "react";
-import Image from "./images/Software/Cloud.png";
+import Image from "./images/Cloud/Cloud.png";
+import { NavLink } from "react-router-dom";
 
 const Aws = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -34,17 +35,27 @@ const Aws = () => {
     };
   }, []);
 
-  const handleScrollToSection = (sectionId) => {
+  const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+  
   return (
     <>
       <div id="content">
         <Header />
         <Navigation />
+        <div className="container navigate">
+            <div className="items">
+              <NavLink to="/">Home</NavLink>
+              <span className="material-symbols-outlined">arrow_and_edge</span>
+            </div>
+            <span>Aws</span>
+          </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -56,7 +67,7 @@ const Aws = () => {
               }}
             >
               <ul>
-                <li onClick={() => handleScrollToSection("section1")}>
+                <li onClick={() => handleScrollToSection("section1", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -65,7 +76,7 @@ const Aws = () => {
                     <div className="content">Archtect Professional</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section2")}>
+                <li onClick={() => handleScrollToSection("section2", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -74,7 +85,7 @@ const Aws = () => {
                     <div className="content">Archtect Associate</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section3")}>
+                <li onClick={() => handleScrollToSection("section3", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -83,7 +94,7 @@ const Aws = () => {
                     <div className="content">Administrator Associate.</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section4")}>
+                <li onClick={() => handleScrollToSection("section4", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -92,7 +103,7 @@ const Aws = () => {
                     <div className="content">Engineer Professional</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section5")}>
+                <li onClick={() => handleScrollToSection("section5", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -101,7 +112,7 @@ const Aws = () => {
                     <div className="content">Developer Associate.</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section6")}>
+                <li onClick={() => handleScrollToSection("section6", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -110,7 +121,7 @@ const Aws = () => {
                     <div className="content">Specialty</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section7")}>
+                <li onClick={() => handleScrollToSection("section7", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -119,7 +130,7 @@ const Aws = () => {
                     <div className="content">Networking Specialty</div>
                   </div>
                 </li>
-                <li onClick={() => handleScrollToSection("section8")}>
+                <li onClick={() => handleScrollToSection("section8", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
@@ -291,7 +302,7 @@ const Aws = () => {
                   </p>
                 </div>
                 <div className="button-container">
-                  <p className="amount">Ghc 3,500</p>
+                  <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
                     <button className="btn">
                       Learn More

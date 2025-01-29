@@ -1,16 +1,26 @@
 import "./Css/style.css";
 import Header from "../Header/HeaderPage";
 import Navigation from "../Navigation/NavPage";
-import AWS1 from "./images/Cloud/AWS-Certified-Architect-Professional.png";
-import AWS2 from "./images/Cloud/AWS-Certified-Architect-Associate.png";
-import AWS3 from "./images/Cloud/AWS-Certified-Administrator-Associate.webp";
-import AWS4 from "./images/Cloud/AWS-Certified-DevOps-Engineer-Professional.png";
-import AWS5 from "./images/Cloud/AWS-Developer-Associate.png";
-import AWS6 from "./images/Cloud/AWS-Security-Specialty.webp";
-import AWS7 from "./images/Cloud/AWS-Certified-Advanced-Networking-Specialty.png";
-import AWS8 from "./images/Cloud/AWS-Big-Data-Logo.png";
+import azure1 from "./images/Cloud/Azure/1.azure-fundamentals.png";
+import azure2 from "./images/Cloud/Azure/2.azure-administrator-associate.png";
+import azure3 from "./images/Cloud/Azure/3.security-compliance-and-identity-fundamentals.png";
+import azure4 from "./images/Cloud/Azure/4.azure-data-engineer-associate.png";
+import azure5 from "./images/Cloud/Azure/5.DP-100-Designing-and-Implementing-a-Data-Science-Solution-on-Azure.png";
+import azure6 from "./images/Cloud/Azure/6.azure-database-administrator-associate-DP-300.webp";
+import azure7 from "./images/Cloud/Azure/7.Developing Solutions for Microsoft Azure AZ-204.webp";
+import azure8 from "./images/Cloud/Azure/8.DP-500-Designing-and-Implementing-Enterprise-Scale-Analytics-Solutions-Using-Microsoft-Azure-and-Microsoft-Power-BI.png";
+import azure9 from "./images/Cloud/Azure/9.azure-network-engineer-associate AZ 700.png";
+import azure10 from "./images/Cloud/Azure/10. azure-security-engineer-associate AZ-500.png";
+import azure11 from "./images/Cloud/Azure/11.identity-and-access-administrator-associate-SC-300.png";
+import azure12 from "./images/Cloud/Azure/12.Microsoft Security Operations Analyst.SC-200.png";
+import azure13 from "./images/Cloud/Azure/13.Administering Windows Server Hybrid Core Infrastructure.AZ-800.webp";
+import azure14 from "./images/Cloud/Azure/14.azure-virtual-desktop-specialty.AZ-140.png";
+import azure15 from "./images/Cloud/Azure/15.Designing Microsoft Azure Infrastructure Solutions.AZ-305.png";
+import azure16 from "./images/Cloud/Azure/16.SC-100-Microsoft-Cybersecurity-Architect.webp";
+import azure17 from "./images/Cloud/Azure/17.CERT-Expert-DevOps-Engineer.AZ-400.png";
 import { useState, useEffect } from "react";
-import Image from "./images/Software/Cloud.png";
+import Image from "./images/Cloud/Azure.png";
+import { NavLink } from "react-router-dom";
 
 const Azure = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -34,17 +44,28 @@ const Azure = () => {
     };
   }, []);
 
-  const handleScrollToSection = (sectionId) => {
+  const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+
   return (
     <>
       <div id="content">
         <Header />
         <Navigation />
+        <div className="container navigate">
+            <div className="items">
+              <NavLink to="/">Home</NavLink>
+              <span className="material-symbols-outlined">arrow_and_edge</span>
+            </div>
+            <span>Microsoft Azure</span>
+          </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -56,77 +77,158 @@ const Azure = () => {
               }}
             >
               <ul>
-                <li onClick={() => handleScrollToSection("section1")}>
+                <li
+                  onClick={() => handleScrollToSection("section1", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified Solutions
-                    <div className="content">Archtect Professional</div>
-                  </div>
+                  <div className="items-content">AZ-900</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section2")}>
+                <li
+                  onClick={() => handleScrollToSection("section2", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified solutions
-                    <div className="content">Archtect Associate</div>
-                  </div>
+                  <div className="items-content">AZ-104</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section3")}>
+                <li
+                  onClick={() => handleScrollToSection("section3", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified SysOps
-                    <div className="content">Administrator Associate.</div>
-                  </div>
+                  <div className="items-content">SC-900</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section4")}>
+                <li
+                  onClick={() => handleScrollToSection("section4", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified DeveOps
-                    <div className="content">Engineer Professional</div>
-                  </div>
+                  <div className="items-content">DP-203</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section5")}>
+                <li
+                  onClick={() => handleScrollToSection("section5", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified Developer
-                    <div className="content">Developer Associate.</div>
-                  </div>
+                  <div className="items-content">DP-100</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section6")}>
+                <li
+                  onClick={() => handleScrollToSection("section6", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified Security
-                    <div className="content">Specialty</div>
-                  </div>
+                  <div className="items-content">DP-300</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section7")}>
+                <li
+                  onClick={() => handleScrollToSection("section7", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified advanced
-                    <div className="content">Networking Specialty</div>
-                  </div>
+                  <div className="items-content">AZ-204</div>
                 </li>
-                <li onClick={() => handleScrollToSection("section8")}>
+                <li
+                  onClick={() => handleScrollToSection("section8", -75)}
+                  className="azure"
+                >
                   <span className="material-symbols-outlined format">
                     format_indent_increase
                   </span>
-                  <div className="items-content">
-                    AWS Certified Big
-                    <div className="content">Data Specialty</div>
-                  </div>
+                  <div className="items-content">DP-500</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section9", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">AZ-700</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section10", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">AZ-500</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section11", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">SC-300</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section12", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">SC-200</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section13", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">AZ-800</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section14", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">AZ-140</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section15", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">AZ-305</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section16", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">SC-100</div>
+                </li>
+                <li
+                  onClick={() => handleScrollToSection("section17", -75)}
+                  className="azure"
+                >
+                  <span className="material-symbols-outlined format">
+                    format_indent_increase
+                  </span>
+                  <div className="items-content">AZ-400</div>
                 </li>
               </ul>
             </div>
@@ -136,48 +238,51 @@ const Azure = () => {
           <div className="main-Content">
             <div className="Content">
               <div className="course-details">
-                <h2 className="course-title">Amazon Web Services</h2>
+                <h2 className="course-title">Microsoft Azure</h2>
                 <div className="image-container">
-                  <img src={Image} alt="Front-end Development" />
+                  <img src={Image} alt="Microsoft Azure" />
                 </div>
                 <div className="course-description">
                   <div className="text">
-                    Learn to build robust and scalable applications using Amazon
-                    Web Services (AWS). This course covers everything from cloud
-                    computing fundamentals to advanced AWS services, database
+                    Learn to build robust and scalable applications using
+                    Microsoft Azure. This course covers everything from cloud
+                    computing fundamentals to advanced Azure services, database
                     integration, and deployment strategies. Gain the skills to
-                    become an AWS expert and create secure, scalable cloud
+                    become an Azure expert and create secure, scalable cloud
                     solutions. This course includes:
                     <ul>
                       <li>
-                        <strong>AWS Cloud Fundamentals:</strong> Understand core
-                        AWS services like EC2, S3, RDS, and Lambda to build and
-                        deploy applications on the cloud.
+                        <strong>Azure Cloud Fundamentals:</strong> Understand
+                        core Azure services like Virtual Machines, Azure
+                        Storage, SQL Database, and Azure App Services to build
+                        and deploy applications on the cloud.
                       </li>
                       <li>
                         <strong>Serverless Architectures:</strong> Learn to
-                        design and implement serverless applications using AWS
-                        Lambda, API Gateway, and DynamoDB.
+                        design and implement serverless applications using Azure
+                        Functions, Logic Apps, and Event Grid.
                       </li>
                       <li>
-                        <strong>Database Management:</strong> Master AWS
-                        database services such as RDS, DynamoDB, and Aurora for
-                        scalable and secure data management.
+                        <strong>Database Management:</strong> Master Azure
+                        database services such as Azure SQL Database, Cosmos DB,
+                        and Table Storage for scalable and secure data
+                        management.
                       </li>
                       <li>
                         <strong>Security and Identity Management:</strong>{" "}
-                        Explore IAM (Identity and Access Management), AWS WAF,
-                        and other tools to ensure secure applications.
+                        Explore Azure Active Directory, Azure Key Vault, and
+                        other tools to ensure secure applications.
                       </li>
                       <li>
                         <strong>Deployment Strategies:</strong> Learn to deploy
-                        applications on AWS using Elastic Beanstalk,
-                        CloudFormation, and AWS CLI.
+                        applications on Azure using Azure DevOps, Resource
+                        Manager templates, and Azure CLI.
                       </li>
                       <li>
                         <strong>Monitoring and Optimization:</strong> Utilize
-                        AWS CloudWatch and Trusted Advisor to monitor,
-                        troubleshoot, and optimize your applications.
+                        Azure Monitor, Application Insights, and Azure Advisor
+                        to monitor, troubleshoot, and optimize your
+                        applications.
                       </li>
                     </ul>
                   </div>
@@ -187,21 +292,18 @@ const Azure = () => {
               <section id="section1" className="section">
                 <div className="image-container">
                   <img
-                    src={AWS1}
-                    alt="AWS Certified Solutions Architect Professional"
+                    src={azure1}
+                    alt="Microsoft Azure Fundamentals Certification"
                   />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified Solutions Architect Professional</h2>
+                  <h2>Microsoft Azure Fundamentals</h2>
                   <p>
-                    The AWS Certified Solutions Architect Professional
-                    certification validates advanced skills in designing and
-                    deploying cloud architecture on AWS. It focuses on building
-                    secure, scalable, and cost-optimized solutions for various
-                    use cases, ensuring high performance and reliability. This
-                    certification is ideal for professionals who architect
-                    advanced cloud-based solutions and manage end-to-end
-                    projects.
+                    This certification introduces core concepts of cloud
+                    computing and Azure services. It focuses on foundational
+                    knowledge about Azure workloads, security, privacy, pricing,
+                    and support, making it ideal for beginners exploring cloud
+                    technology.
                   </p>
                 </div>
                 <div className="button-container">
@@ -218,19 +320,18 @@ const Azure = () => {
               <section id="section2" className="section">
                 <div className="image-container">
                   <img
-                    src={AWS2}
-                    alt="AWS Certified Solutions Architect Associate"
+                    src={azure2}
+                    alt="Microsoft Azure Administrator Certification"
                   />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified Solutions Architect Associate</h2>
+                  <h2>Microsoft Azure Administrator</h2>
                   <p>
-                    The AWS Certified Solutions Architect Associate
-                    certification is designed for individuals who design
-                    distributed systems on AWS. It focuses on the fundamentals
-                    of cloud architecture, covering topics such as networking,
-                    storage, and compute services, as well as best practices for
-                    security and scalability.
+                    Designed for administrators, this certification validates
+                    expertise in managing Azure resources, implementing virtual
+                    networks, and ensuring seamless integration of Azure
+                    services. Ideal for IT professionals who oversee cloud
+                    operations.
                   </p>
                 </div>
                 <div className="button-container">
@@ -247,19 +348,19 @@ const Azure = () => {
               <section id="section3" className="section">
                 <div className="image-container">
                   <img
-                    src={AWS3}
-                    alt="AWS Certified SysOps Administrator Associate"
+                    src={azure3}
+                    alt="Microsoft Security Fundamentals Certification"
                   />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified SysOps Administrator Associate</h2>
+                  <h2>
+                    Microsoft Security, Compliance, and Identity Fundamentals
+                  </h2>
                   <p>
-                    The AWS Certified SysOps Administrator Associate
-                    certification focuses on the deployment, management, and
-                    operations of AWS solutions. It validates expertise in
-                    monitoring systems, managing costs, and optimizing resource
-                    utilization, making it ideal for system administrators and
-                    operations professionals.
+                    This certification highlights security, compliance, and
+                    identity management within Azure. It provides foundational
+                    knowledge about access controls, governance, and best
+                    practices for maintaining a secure environment.
                   </p>
                 </div>
                 <div className="button-container">
@@ -275,23 +376,19 @@ const Azure = () => {
 
               <section id="section4" className="section">
                 <div className="image-container">
-                  <img
-                    src={AWS4}
-                    alt="AWS Certified DevOps Engineer Professional"
-                  />
+                  <img src={azure4} alt="Data Engineering on Microsoft Azure" />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified DevOps Engineer Professional</h2>
+                  <h2>Data Engineering on Microsoft Azure</h2>
                   <p>
-                    The AWS Certified DevOps Engineer Professional certification
-                    focuses on automating the deployment of applications and
-                    infrastructure on AWS. It covers key DevOps practices like
-                    CI/CD, infrastructure as code, and monitoring, enabling
-                    professionals to manage complex cloud environments.
+                    Learn how to design and implement data solutions on Azure
+                    using tools like Azure Data Factory, Synapse Analytics, and
+                    Databricks. This certification focuses on building secure,
+                    scalable data processing systems.
                   </p>
                 </div>
                 <div className="button-container">
-                  <p className="amount">Ghc 3,500</p>
+                  <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
                     <button className="btn">
                       Learn More
@@ -303,16 +400,20 @@ const Azure = () => {
 
               <section id="section5" className="section">
                 <div className="image-container">
-                  <img src={AWS5} alt="AWS Certified Developer Associate" />
+                  <img
+                    src={azure5}
+                    alt="Azure Data Science Solution Certification"
+                  />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified Developer Associate</h2>
+                  <h2>
+                    Designing and Implementing a Data Science Solution on Azure
+                  </h2>
                   <p>
-                    The AWS Certified Developer Associate certification is ideal
-                    for developers who build and maintain applications on AWS.
-                    It emphasizes core AWS services, application development,
-                    and debugging tools, empowering professionals to design
-                    secure and scalable cloud applications.
+                    This certification focuses on leveraging Azure Machine
+                    Learning and AI-driven services. It validates skills in
+                    creating, training, and deploying machine learning models
+                    while ensuring data integrity and security.
                   </p>
                 </div>
                 <div className="button-container">
@@ -328,21 +429,22 @@ const Azure = () => {
 
               <section id="section6" className="section">
                 <div className="image-container">
-                  <img src={AWS6} alt="AWS Certified Security Specialty" />
+                  <img
+                    src={azure6}
+                    alt="Administering Databases on Azure Certification"
+                  />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified Security Specialty</h2>
+                  <h2>Administering Relational Databases on Microsoft Azure</h2>
                   <p>
-                    The AWS Certified Security Specialty certification focuses
-                    on advanced security practices for protecting cloud
-                    environments. It covers topics such as data encryption,
-                    secure network architecture, and compliance management,
-                    ensuring professionals can secure sensitive data and
-                    applications on AWS.
+                    This certification is tailored for database administrators
+                    who manage and optimize Azure SQL databases. Learn to
+                    implement security measures, troubleshoot issues, and ensure
+                    high availability of data.
                   </p>
                 </div>
                 <div className="button-container">
-                  <p className="amount">Ghc 7,020</p>
+                  <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
                     <button className="btn">
                       Learn More
@@ -355,23 +457,21 @@ const Azure = () => {
               <section id="section7" className="section">
                 <div className="image-container">
                   <img
-                    src={AWS7}
-                    alt="AWS Certified Advanced Networking Specialty"
+                    src={azure7}
+                    alt="Developing Solutions for Azure Certification"
                   />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified Advanced Networking Specialty</h2>
+                  <h2>Developing Solutions for Microsoft Azure</h2>
                   <p>
-                    The AWS Certified Advanced Networking Specialty
-                    certification validates expertise in designing and
-                    implementing AWS and hybrid IT network architectures. It
-                    covers topics like secure connectivity, routing, and
-                    advanced troubleshooting, making it ideal for network
-                    engineers and architects.
+                    This certification validates skills in designing, building,
+                    and deploying cloud solutions using Azure SDKs, APIs, and
+                    tools like Azure DevOps. Perfect for developers working on
+                    scalable cloud applications.
                   </p>
                 </div>
                 <div className="button-container">
-                  <p className="amount">Ghc 7,020</p>
+                  <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
                     <button className="btn">
                       Learn More
@@ -383,20 +483,267 @@ const Azure = () => {
 
               <section id="section8" className="section">
                 <div className="image-container">
-                  <img src={AWS8} alt="AWS Certified Big Data Specialty" />
+                  <img
+                    src={azure8}
+                    alt="Enterprise Analytics with Azure Certification"
+                  />
                 </div>
                 <div className="text-container">
-                  <h2>AWS Certified Big Data Specialty</h2>
+                  <h2>
+                    Designing and Implementing Enterprise-Scale Analytics
+                    Solutions Using Microsoft Azure and Microsoft Power BI
+                  </h2>
                   <p>
-                    The AWS Certified Big Data Specialty certification focuses
-                    on data analytics and architecture on AWS. It covers
-                    services like Redshift, EMR, and Kinesis, validating skills
-                    in data collection, processing, and visualization for
-                    scalable and efficient big data solutions.
+                    Gain expertise in developing end-to-end analytics solutions
+                    with Azure Synapse and Power BI. This certification covers
+                    data modeling, reporting, and visualization techniques for
+                    decision-making.
                   </p>
                 </div>
                 <div className="button-container">
-                  <p className="amount">Ghc 7,020</p>
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section9" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure9}
+                    alt="Designing and Implementing Microsoft Azure Networking Solutions"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>
+                    Designing and Implementing Microsoft Azure Networking
+                    Solutions
+                  </h2>
+                  <p>
+                    Learn how to design and implement secure, scalable, and
+                    reliable networking solutions on Microsoft Azure. This
+                    certification is ideal for networking professionals seeking
+                    expertise in Azure-based network architecture.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section10" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure10}
+                    alt="Microsoft Azure Security Technologies"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>Microsoft Azure Security Technologies</h2>
+                  <p>
+                    Master the skills needed to secure Microsoft Azure
+                    environments, including threat management, identity
+                    protection, and compliance. This certification is perfect
+                    for professionals focused on Azure security.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section11" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure11}
+                    alt="Microsoft Identity and Access Administrator"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>Microsoft Identity and Access Administrator</h2>
+                  <p>
+                    Gain expertise in managing Azure identity and access
+                    solutions, including secure authentication, identity
+                    management, and governance.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section12" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure12}
+                    alt="Microsoft Security Operations Analyst"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>Microsoft Security Operations Analyst</h2>
+                  <p>
+                    Enhance your skills in monitoring and securing Azure
+                    environments. This certification is ideal for security
+                    analysts and professionals managing threat detection and
+                    response on Azure.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section13" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure13}
+                    alt="Administering Windows Server Hybrid Core Infrastructure"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>
+                    Administering Windows Server Hybrid Core Infrastructure
+                  </h2>
+                  <p>
+                    Learn how to administer and manage hybrid cloud
+                    infrastructure using Windows Server and Azure, ensuring
+                    seamless operations across on-premises and cloud
+                    environments.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section14" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure14}
+                    alt="Configuring and Operating Microsoft Azure Virtual Desktop"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>
+                    Configuring and Operating Microsoft Azure Virtual Desktop
+                  </h2>
+                  <p>
+                    Master the skills to configure and operate virtual desktops
+                    on Azure, enabling seamless remote work experiences while
+                    maintaining security and compliance.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section15" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure15}
+                    alt="Designing Microsoft Azure Infrastructure Solutions"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>Designing Microsoft Azure Infrastructure Solutions</h2>
+                  <p>
+                    Learn to design and implement comprehensive infrastructure
+                    solutions on Azure, leveraging scalability, security, and
+                    cost optimization for cloud environments.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section16" className="section">
+                <div className="image-container">
+                  <img src={azure16} alt="Microsoft Cybersecurity Architect" />
+                </div>
+                <div className="text-container">
+                  <h2>Microsoft Cybersecurity Architect</h2>
+                  <p>
+                    Develop advanced skills in architecting secure Azure
+                    environments, with a focus on threat protection, compliance,
+                    and data governance.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
+                  <div className="btn-container">
+                    <button className="btn">
+                      Learn More
+                      <span className="material-symbols-outlined">east</span>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <section id="section17" className="section">
+                <div className="image-container">
+                  <img
+                    src={azure17}
+                    alt="Designing and Implementing Microsoft DevOps Solutions"
+                  />
+                </div>
+                <div className="text-container">
+                  <h2>Designing and Implementing Microsoft DevOps Solutions</h2>
+                  <p>
+                    Gain expertise in implementing DevOps solutions on Azure,
+                    focusing on CI/CD, infrastructure automation, and monitoring
+                    for efficient and scalable deployments.
+                  </p>
+                </div>
+                <div className="button-container">
+                  <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
                     <button className="btn">
                       Learn More
