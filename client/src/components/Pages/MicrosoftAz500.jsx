@@ -5,6 +5,7 @@ import image1 from "./images/Cyber/azure-security-engineer-associate.png";
 import Image from "./images/Cyber/cyber.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Footer from "../footer/Footer";
 
 const CyberSecurity = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -42,12 +43,12 @@ const CyberSecurity = () => {
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>Microsoft Az 500</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>Microsoft Az 500</span>
+        </div>
         <div className="software-page container">
           <div className="sideBar-container">
             <div
@@ -64,9 +65,7 @@ const CyberSecurity = () => {
                   </span>
                   <div className="items-content">
                     Microsoft AZ-500
-                    <div className="content">
-                      Master Azure security.
-                    </div>
+                    <div className="content">Master Azure security.</div>
                   </div>
                 </li>
               </ul>
@@ -162,6 +161,7 @@ const CyberSecurity = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

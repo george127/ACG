@@ -4,6 +4,7 @@ import Navigation from "../Navigation/NavPage";
 import image1 from "./images/Analytics/image1.png";
 import image2 from "./images/Analytics/image3.png";
 import Image from "./images/Analytics/Data.png";
+import Footer from "../footer/Footer";
 
 import { NavLink } from "react-router-dom";
 
@@ -194,6 +195,8 @@ const DataAnalytics = () => {
           </button>
         </div>
       </div>
+      <Footer/>
+
     </>
   );
 };

@@ -1,0 +1,444 @@
+<div className="accordian">
+                      <div
+                        className="accordion accordion-flush"
+                        id="accordionFlushExample"
+                      >
+                        {/* LU1: Introduction to Frontend Development */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading1">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse1"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse1"
+                            >
+                              📌 LU1: Introduction to Frontend Development
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse1"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading1"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>
+                                Topic 1: Understanding Frontend Development
+                              </strong>
+                              <br />- What is frontend development?
+                              <br />- Difference between frontend, backend, and
+                              full-stack development
+                              <br />- Overview of modern web technologies
+                              <br />
+                              <br />
+                              <strong>
+                                Topic 2: Setting Up the Development Environment
+                              </strong>
+                              <br />- Installing VS Code & essential extensions
+                              <br />- Introduction to Git & GitHub
+                              <br />- Basic terminal commands
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Set up a GitHub
+                              repository and push your first HTML file.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU2: HTML Fundamentals */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading2">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse2"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse2"
+                            >
+                              📌 LU2: HTML Fundamentals
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse2"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading2"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>Topic 3: Basics of HTML</strong>
+                              <br />- Structure of an HTML document
+                              <br />- Headings, paragraphs, and text formatting
+                              <br />- Lists, tables, and links
+                              <br />
+                              <br />
+                              <strong>Topic 4: Forms & Inputs</strong>
+                              <br />- Form elements and attributes
+                              <br />- Input types, labels, and validation
+                              <br />- Creating a contact form
+                              <br />
+                              <br />
+                              <strong>
+                                Topic 5: Semantic HTML & Best Practices
+                              </strong>
+                              <br />- Importance of semantic HTML
+                              <br />- Using &lt;section&gt;, &lt;article&gt;,
+                              &lt;aside&gt;, &lt;nav&gt;
+                              <br />- Accessibility basics
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Build a basic webpage
+                              using semantic HTML.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU3: CSS Basics & Styling Web Pages */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading3">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse3"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse3"
+                            >
+                              📌 LU3: CSS Basics & Styling Web Pages
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse3"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading3"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>Topic 6: Introduction to CSS</strong>
+                              <br />- CSS syntax and selectors
+                              <br />- Inline, internal, and external CSS
+                              <br />- Colors, fonts, and typography
+                              <br />
+                              <br />
+                              <strong>Topic 7: CSS Box Model & Layout</strong>
+                              <br />- Understanding margin, padding, and border
+                              <br />- Display properties (block, inline, flex,
+                              grid)
+                              <br />- Positioning elements (absolute, relative,
+                              fixed, sticky)
+                              <br />
+                              <br />
+                              <strong>
+                                Topic 8: Responsive Design & Media Queries
+                              </strong>
+                              <br />- Fluid grids and flexible layouts
+                              <br />- CSS media queries for different screen
+                              sizes
+                              <br />- Mobile-first design approach
+                              <br />
+                              <br />
+                              <strong>Topic 9: CSS Flexbox & Grid</strong>
+                              <br />- Mastering Flexbox for one-dimensional
+                              layouts
+                              <br />- CSS Grid for two-dimensional layouts
+                              <br />- Combining Flexbox and Grid
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Create a fully
+                              responsive landing page using Flexbox and Grid.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU4: Advanced CSS Techniques */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading4">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse4"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse4"
+                            >
+                              📌 LU4: Advanced CSS Techniques
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse4"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading4"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>
+                                Topic 10: CSS Transitions & Animations
+                              </strong>
+                              <br />- Adding hover effects and transitions
+                              <br />- Keyframe animations
+                              <br />- Animating elements on scroll
+                              <br />
+                              <br />
+                              <strong>
+                                Topic 11: CSS Preprocessors (SCSS/SASS)
+                              </strong>
+                              <br />- Variables and nesting
+                              <br />- Using mixins and functions
+                              <br />- Structuring CSS for large projects
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Create a modern
+                              animated navigation menu.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU5: JavaScript Essentials */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading5">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse5"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse5"
+                            >
+                              📌 LU5: JavaScript Essentials
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse5"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading5"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>
+                                Topic 12: Introduction to JavaScript
+                              </strong>
+                              <br />- What is JavaScript and how it works?
+                              <br />- Variables (var, let, const)
+                              <br />- Data types and operators
+                              <br />
+                              <br />
+                              <strong>Topic 13: Control Flow & Loops</strong>
+                              <br />- Conditionals (if, else, switch)
+                              <br />- Loops (for, while, do-while)
+                              <br />- Handling user input
+                              <br />
+                              <br />
+                              <strong>Topic 14: Functions & Events</strong>
+                              <br />- Defining and calling functions
+                              <br />- Arrow functions and function expressions
+                              <br />- JavaScript events (onclick, onchange,
+                              keydown)
+                              <br />
+                              <br />
+                              <strong>Topic 15: JavaScript & The DOM</strong>
+                              <br />- Selecting elements with getElementById and
+                              querySelector
+                              <br />- Changing styles and content dynamically
+                              <br />- Handling user interactions
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Build an interactive
+                              to-do list using JavaScript and DOM manipulation.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU6: Advanced JavaScript Concepts */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading6">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse6"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse6"
+                            >
+                              📌 LU6: Advanced JavaScript Concepts
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse6"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading6"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>
+                                Topic 16: JavaScript Arrays & Objects
+                              </strong>
+                              <br />- Working with arrays and array methods
+                              (map, filter, reduce)
+                              <br />- Creating and manipulating objects
+                              <br />- JSON basics
+                              <br />
+                              <br />
+                              <strong>
+                                Topic 17: Introduction to Asynchronous
+                                JavaScript
+                              </strong>
+                              <br />- Callbacks and Promises
+                              <br />- Fetch API and handling API requests
+                              <br />- Handling errors and loading states
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Fetch data from an API
+                              and display it on a webpage.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU7: JavaScript DOM Projects */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading7">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse7"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse7"
+                            >
+                              📌 LU7: JavaScript DOM Projects
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse7"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading7"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>
+                                Topic 18: Interactive Web Elements
+                              </strong>
+                              <br />- Creating a dynamic image slider
+                              <br />- Interactive form validation
+                              <br />- Simple calculator
+                              <br />
+                              <br />
+                              <strong>
+                                Topic 19: Local Storage & Data Persistence
+                              </strong>
+                              <br />- Saving data in localStorage
+                              <br />- Creating a dark mode toggle
+                              <br />- Managing user preferences
+                              <br />
+                              <br />
+                              <strong>Exercise:</strong> Build a simple
+                              note-taking app with local storage.
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* LU8: Final Project & Deployment */}
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="flush-heading8">
+                            <button
+                              className="accordion-button collapsed"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#flush-collapse8"
+                              aria-expanded="false"
+                              aria-controls="flush-collapse8"
+                            >
+                              📌 LU8: Final Project & Deployment
+                            </button>
+                          </h2>
+                          <div
+                            id="flush-collapse8"
+                            className="accordion-collapse collapse"
+                            aria-labelledby="flush-heading8"
+                            data-bs-parent="#accordionFlushExample"
+                          >
+                            <div className="accordion-body">
+                              <strong>Topic 20: Putting It All Together</strong>
+                              <br />- Plan and structure a project
+                              <br />- Implement best practices in HTML, CSS, and
+                              JavaScript
+                              <br />- Testing and debugging
+                              <br />
+                              <br />
+                              <strong>Topic 21: Deploying Your Project</strong>
+                              <br />- Hosting static sites on GitHub Pages
+                              <br />- Introduction to Netlify and Vercel
+                              <br />- Performance optimization
+                              <br />
+                              <br />
+                              <strong>Final Project:</strong> Create a fully
+                              functional portfolio website or small web app and
+                              publish it online.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>{" "}
+
+
+
+                    /* Container Styling */
+.accordion-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Accordion Item */
+.accordion-item {
+  border: none;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Accordion Button */
+.accordion-button {
+  background: #ddd;
+  color: #575454;
+  font-size: 0.9rem;
+  padding: 15px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-button:hover {
+  background: #e9691e;
+  color: #fff;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Opened Accordion Button */
+.accordion-button:not(.collapsed) {
+  background: #e9691e;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Accordion Body */
+.accordion-body {
+  background: white;
+  font-size: 1rem;
+  color: #333;
+  box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-body strong {
+  color: #575454;
+}
+
+/* Smooth Transition */
+.accordion-collapse {
+  transition: height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}

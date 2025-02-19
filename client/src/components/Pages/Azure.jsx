@@ -21,6 +21,8 @@ import azure17 from "./images/Cloud/Azure/17.CERT-Expert-DevOps-Engineer.AZ-400.
 import { useState, useEffect } from "react";
 import Image from "./images/Cloud/Azure.png";
 import { NavLink } from "react-router-dom";
+import Footer from "../footer/Footer";
+
 
 const Azure = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -765,6 +767,8 @@ const Azure = () => {
           </button>
         </div>
       </div>
+      <Footer/>
+
     </>
   );
 };

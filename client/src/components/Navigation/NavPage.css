@@ -11,13 +11,13 @@
 .navbar {
   background: #fff;
   position: relative;
-  padding: 10px 0px;
-  z-index: 10;
+  z-index: 99999;
   transition: all 0.5s ease-in-out;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow */
   color: #495057;
   top: 0;
   position: sticky;
+  padding: 0;
 }
 
 /* Hamburger Menu for mobile */
@@ -62,6 +62,7 @@
 .nav-links .Link-dropdown {
   position: relative;
   display: inline-block;
+  padding: 15px 0;
 }
 
 /* Toggle for the dropdown */
@@ -93,12 +94,13 @@
   display: none; /* Initially hidden */
   position: absolute;
   top: 100%; /* Appears below the toggle */
+  right: 0;
   left: 0;
   background-color: #fff;
   border: none;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow */
-  min-width: 230px;
+  width: 400px;
   
 }
 
@@ -116,8 +118,12 @@
   display: block;
   padding: 10px 16px;
   text-decoration: none;
-  color: #333;
+  color: #000;
   font-size: 0.8rem;
+}
+
+.nav-links .dropdown-menu a span{
+  font-size: 18px;
 }
 
 .nav-links .dropdown-menu a:hover {
@@ -132,6 +138,13 @@
 /* Show dropdown menu when hovered or clicked */
 .nav-links .Link-dropdown:hover .dropdown-menu {
   display: block;
+}
+
+.Link-dropdown .dropdown-menu .description {
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  color: #868686;
+  margin-top: 20px;
 }
 
 .Link-dropdown p {

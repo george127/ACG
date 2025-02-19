@@ -39,10 +39,24 @@ const Navigation = () => {
               </p>
               <div className="dropdown-menu">
                 <NavLink to="/Aws" activeClassName="active" data-text="AWS">
+                  <span role="img" aria-label="lightning">
+                    ⚡️
+                  </span>{" "}
                   AWS Certifications
+                  <p className="description">
+                    Master AWS services like EC2, S3, and Lambda to elevate your
+                    cloud expertise and boost your career!
+                  </p>
                 </NavLink>
                 <NavLink to="/Azure" activeClassName="active" data-text="Azure">
+                  <span role="img" aria-label="cloud">
+                    ☁️
+                  </span>{" "}
                   Microsoft Azure Certifications
+                  <p className="description">
+                    Become proficient in Microsoft Azure's cloud platform,
+                    helping businesses manage and scale their infrastructure.
+                  </p>
                 </NavLink>
               </div>
             </div>
@@ -73,14 +87,34 @@ const Navigation = () => {
                 </span>
               </p>
               <div className="dropdown-menu">
-                <NavLink to="/MicrosoftAz" activeClassName="active" data-text="AWS">
-                  Microsoft AZ 500
+                <NavLink
+                  to="/MicrosoftAz"
+                  activeClassName="active"
+                  data-text="MicrosoftAZ"
+                >
+                  <span role="img" aria-label="shield">
+                    🛡️
+                  </span>{" "}
+                  Microsoft AZ-500
+                  <p className="description">
+                    Learn cloud security and protect Azure environments with the
+                    Microsoft Azure Security Engineer certification.
+                  </p>
                 </NavLink>
-                <NavLink to="/Oscp" activeClassName="active" data-text="Azure">
+                <NavLink to="/Oscp" activeClassName="active" data-text="OSCP">
+                  <span role="img" aria-label="hacker">
+                    💻
+                  </span>{" "}
                   OSCP
+                  <p className="description">
+                    Master penetration testing and ethical hacking with the
+                    Offensive Security Certified Professional (OSCP)
+                    certification.
+                  </p>
                 </NavLink>
               </div>
             </div>
+
             <p>
               <NavLink
                 to="/forexTrading"

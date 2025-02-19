@@ -4,6 +4,7 @@ import Navigation from "../Navigation/NavPage";
 import image1 from "./images/Cyber/image.png";
 import Image from "./images/Cyber/oscp.png";
 import { NavLink } from "react-router-dom";
+import Footer from "../footer/Footer";
 
 import { useState, useEffect } from "react";
 
@@ -43,12 +44,12 @@ const Oscp = () => {
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>OSCP</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>OSCP</span>
+        </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -66,9 +67,7 @@ const Oscp = () => {
                   </span>
                   <div className="items-content">
                     OSCP
-                    <div className="content">
-                      Master advanced penetration
-                    </div>
+                    <div className="content">Master advanced penetration</div>
                   </div>
                 </li>
               </ul>
@@ -166,6 +165,7 @@ const Oscp = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

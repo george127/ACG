@@ -5,7 +5,9 @@ import feeimage1 from "../assets/feeimage1.jpeg";
 import feeimage2 from "../assets/feeimage2.jpeg";
 import feeimage3 from "../assets/feeimage3.jpeg";
 import feeimage4 from "../assets/feeimage4.jpeg";
-
+import Footer from "../components/footer/Footer";
+import Header from "../components/Header/HeaderPage";
+import Navigation from "../components/Navigation/NavPage";
 function FeeSelectionPage() {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
@@ -53,6 +55,8 @@ function FeeSelectionPage() {
 
   return (
     <>
+    <Header/>
+    <Navigation/>
       <div className="layout container">
         <div className="layout-container">
           {/* Left Section */}
@@ -247,8 +251,10 @@ function FeeSelectionPage() {
         </div>
     </div>
   </div>
+  
 )}
 
+<Footer/>
 
       {/* Your existing components */}
     </>

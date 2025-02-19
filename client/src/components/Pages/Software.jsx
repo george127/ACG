@@ -1,6 +1,7 @@
 import "./Css/style.css";
 import Header from "../Header/HeaderPage";
 import Navigation from "../Navigation/NavPage";
+import Footer from "../footer/Footer";
 import Frontend from "./images/Software/avt.frontend.png";
 import Backend from "./images/Software/backend-development.jpg";
 import Flutter from "./images/Software/unnamed.webp";
@@ -11,7 +12,6 @@ import MobileApp from "./images/Software/PngItem_256506.png";
 import Image from "./images/Software/Software.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom"; // Use NavLink for active links
-
 
 const Software = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -38,7 +38,8 @@ const Software = () => {
   const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY;
       const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
@@ -49,12 +50,12 @@ const Software = () => {
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>Software</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>Software</span>
+        </div>
         <div className="software-page container">
           <div className="sideBar-container">
             <div
@@ -121,10 +122,11 @@ const Software = () => {
                   <div className="items-content">
                     JavaScript
                     <div className="content">
-                    A versatile language for websites.                    </div>
+                      A versatile language for websites.{" "}
+                    </div>
                   </div>
                 </li>
-                
+
                 <li onClick={() => handleScrollToSection("section7", -75)}>
                   <span className="material-symbols-outlined format">
                     format_indent_increase
@@ -240,10 +242,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Software/backendDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -259,7 +261,7 @@ const Software = () => {
                     applications for mobile devices. It involves designing and
                     building intuitive, user-friendly, and feature-rich apps
                     using platforms like Android, iOS, or cross-platform
-                    frameworks such as React Native and Flutter. Mobile apps
+                    frameworks such as React Native. Mobile apps
                     enhance user experiences, streamline services, and provide
                     businesses with a direct channel to their audiences.
                   </p>
@@ -267,10 +269,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                  <NavLink to="/Software/mobileDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -294,10 +296,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 3,500</p>
                   <div className="btn-container">
-                    <button className="btn">
+                  <NavLink to="/Software/nextJsDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -321,10 +323,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                  <NavLink to="/Software/flutterDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -348,10 +350,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 3,000</p>
                   <div className="btn-container">
-                    <button className="btn">
+                  <NavLink to="/Software/javascriptDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -375,10 +377,10 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 3,000</p>
                   <div className="btn-container">
-                    <button className="btn">
+                  <NavLink to="/Software/typescriptDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -395,6 +397,8 @@ const Software = () => {
           </button>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };

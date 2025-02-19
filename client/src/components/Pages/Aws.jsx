@@ -12,6 +12,7 @@ import AWS8 from "./images/Cloud/AWS-Big-Data-Logo.png";
 import { useState, useEffect } from "react";
 import Image from "./images/Cloud/Cloud.png";
 import { NavLink } from "react-router-dom";
+import Footer from "../footer/Footer";
 
 const Aws = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -38,24 +39,25 @@ const Aws = () => {
   const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY;
       const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
-  
+
   return (
     <>
       <div id="content">
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>Aws</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>Aws</span>
+        </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -218,10 +220,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-SA-Pro-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -247,10 +249,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                  <NavLink to="/Aws/AWS-SA-Associate-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -429,6 +431,7 @@ const Aws = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

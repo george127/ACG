@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 0fr 3fr 1fr;
   gap: 20px;
+  margin-bottom: 22em;
 }
 
 .grid-nav {

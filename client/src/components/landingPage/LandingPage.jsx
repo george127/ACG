@@ -8,7 +8,9 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <div className="grid-container container">
+        {/* == Container One */}
         <div className="grid-nav">
+          {/* == item one == */}
           <div className="navOne">
             <h3>Quick Links</h3>
             <ul>
@@ -43,6 +45,7 @@ const LandingPage = () => {
             </ul>
           </div>
 
+          {/* == item two == */}
           <div className="navTwo">
             <h3>Explore Opportunities</h3>
             <a href="">
@@ -59,6 +62,9 @@ const LandingPage = () => {
             </a>
           </div>
         </div>
+        {/* == End Container One */}
+
+        {/* == Container Two == */}
         <main className="grid-main">
           <div className="welcome-section">
             <div className="icons">
@@ -87,7 +93,11 @@ const LandingPage = () => {
           <Carousel />
           <NewsSection />
         </main>
+        {/* == End Container Two */}
+
+        {/* == Container Three == */}
         <section className="grid-section">
+          {/* == item one == */}
           <div className="section-item">
             <div className="text-container">
               <h3>Advance Your Skills in Cloud Computing</h3>
@@ -122,6 +132,7 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
+          {/* == item two == */}
           <div className="video-container">
             <iframe
               className="video-frame"
@@ -131,6 +142,8 @@ const LandingPage = () => {
               allowFullScreen
             ></iframe>
           </div>
+
+          {/* == item three == */}
           <div className="section-item">
             <div className="text-container">
               <h3>Enhance Your Skills in Forex Trading</h3>
@@ -166,6 +179,7 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
+        {/* == Container Three == */}
       </div>
     </div>
   );

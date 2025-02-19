@@ -284,22 +284,22 @@ const StudentPortal = () => {
             </div>
           </div>
           {activeSection === "dashboard" && (
-            <div className="section md-4">
+            <div className=" md-4">
               <Dashboard />
             </div>
           )}
           {activeSection === "paymentdetails" && (
-            <div className="section mb-4">
+            <div className=" mb-4">
               <PaymentInfo email={userEmail} />
             </div>
           )}
           {activeSection === "feespayment" && (
-            <div className="section mb-4">
+            <div className=" mb-4">
               <FeesPayment />
             </div>
           )}
           {activeSection === "profile" && (
-            <div className="section mb-4">
+            <div className=" mb-4">
               <h2>Profile</h2>
               <ProfilePage />
             </div>

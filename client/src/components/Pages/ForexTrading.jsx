@@ -5,6 +5,7 @@ import image1 from "./images/Cyber/banner.jpg";
 import Image from "./images/Cyber/forexTrading.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Footer from "../footer/Footer";
 
 const ForexTrading = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -42,12 +43,12 @@ const ForexTrading = () => {
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>Forex Trading</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>Forex Trading</span>
+        </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -162,6 +163,7 @@ const ForexTrading = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

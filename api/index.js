@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import studentRoutes from './routes/studentRoutes.js';
 import feespaymentRoutes from './routes/feesPaymentRoute.js'
 import authRoutes from './routes/authRoutes.js';
+import detailsRoutes from './routes/detailRoutes.js';
 dotenv.config(); // Load environment variables
 
 // Initialize Express app 
@@ -23,12 +24,13 @@ mongoose.connect(process.env.MONGO)
   });
 
 // Health check route 
-app.get('/test', (req, res) => {
+app.get('/test', (req, res) => { 
   res.send('API is running...');
 });
 
-app.use('/api/auth', authRoutes)
+app.use('/api/details', detailsRoutes); // This mounts the route at /api/details
 
+app.use('/api/auth', authRoutes)
 // Import student routes
 app.use('/api/students', studentRoutes); // This mounts the route at /api/students
 
@@ -37,5 +39,5 @@ app.use('/api/fees', feespaymentRoutes);
 // Start the server 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);  
+  console.log(`Server running on http://localhost:${PORT}`);
 });

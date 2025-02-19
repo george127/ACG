@@ -13,6 +13,8 @@ import image8 from "./images/Marketing/image8.png";
 import Image from "./images/Marketing/Marketing.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Footer from "../footer/Footer";
+
 
 const DigitalMarketing = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
@@ -437,6 +439,8 @@ const DigitalMarketing = () => {
           </button>
         </div>
       </div>
+      <Footer/>
+
     </>
   );
 };
