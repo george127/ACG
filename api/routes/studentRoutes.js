@@ -12,3 +12,4 @@ router.post('/guardianDetails', GuardianDetails);
 router.get('/:email', getStudentDetails);
 
 export default router;
+ 

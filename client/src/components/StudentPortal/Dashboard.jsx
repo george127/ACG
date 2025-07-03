@@ -55,15 +55,21 @@ const Dashboard = () => {
       <div className="welcome-container">
         <div className="welcome-banner">
           <div className="text-container">
-            <span>{greeting}</span>, <span>{user?.name}!</span>
-            <h1>Welcome To AppCode Acadamy Student Portal</h1>
-            <br />
+            <div className="welcome-greeting">
+              <span role="img" aria-label="wave">👋</span> {greeting}, <span className="user-name">{user?.name}</span>
+            </div>
+            <h1>
+              <div className="banner-item"></div>
+              Welcome to AppCode Global Student Portal
+            </h1>
             <p>
-              We’re excited to have you here. Explore your courses, check out
-              the latest updates, and make the most of your learning journey.
+              <i className="fas fa-rocket"></i> We’re excited to have you here. Explore your courses,
+              check out the latest updates, and make the most of your learning journey.
             </p>
           </div>
         </div>
+
+
 
         <div className="student-dashboard">
           <div className="dashboard-sections">
@@ -111,17 +117,29 @@ const Dashboard = () => {
                 <h4>Quick Actions</h4>
               </div>
               <div className="actions">
-                <a href="/upload-assignment">
-                  <i className="bi bi-upload"></i> Upload Assignment
-                </a>
+                <div className="btn-container">
+                  <a href="/upload-assignment" className="btn btn-submit">
+                    <i className="bi bi-upload"></i>
+                    Upload Assignment
+                    <span className="material-symbols-outlined">east</span>
+                  </a>
+                </div>
                 <br />
-                <a href="/exam-timetable">
-                  <i className="bi bi-clock"></i> View Exam Timetable
-                </a>
+                <div className="btn-container">
+                  <a href="/exam-timetable" className="btn btn-submit">
+                    <i className="bi bi-clock"></i>
+                    View Exam Timetable
+                    <span className="material-symbols-outlined">east</span>
+                  </a>
+                </div>
                 <br />
-                <a href="/library-resources">
-                  <i className="bi bi-book"></i> Library Resources
-                </a>
+                <div className="btn-container">
+                  <a href="/library-resources" className="btn btn-submit">
+                    <i className="bi bi-book"></i>
+                    Library Resources
+                    <span className="material-symbols-outlined">east</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -134,182 +152,92 @@ const Dashboard = () => {
               src={studentData.personalDetails.profileImage}
               alt="Profile Icon"
             />
-            <h2 className="profile-name">
-              {studentData.personalDetails.fullName}
-            </h2>
-            <p className="profile-id">Student ID: {user?.studentId}</p>
+            <div className="student-profile-header">
+              <h2 className="student-name">
+                <i className="fas fa-user-graduate"></i> {studentData.personalDetails.fullName}
+              </h2>
+              <p className="student-id">
+                <i className="fas fa-id-badge"></i> Student ID: {user?.studentId}
+              </p>
+            </div>
+
           </div>
           <div className="profile-body">
-            <p className="profile-admission">Admission Status:<span>Review</span></p>
-            <p>
-              <i className="bi bi-envelope-fill icon"></i> {/* Email Icon */}
-              <div className="profile-data">
+            <p className="profile-admission">
+              Admission Status:
+              <span className="status-label review">Review</span>
+            </p>
+            <div className="detail-item">
+              <div className="icon-wrapper"><i className="bi bi-envelope-fill"></i></div>
+              <div className="info-text">
                 <strong>Email</strong>
-                {studentData.personalDetails.email}
+                <p>{studentData.personalDetails.email}</p>
               </div>
-            </p>
-            <p>
-              <i className="bi bi-mortarboard-fill icon"></i>{" "}
-              {/* Program Icon */}
-              <div className="profile-data">
-                <strong>Program Name</strong>
-                {studentData.programApplyingFor.programName}
-              </div>
-            </p>
-            <p>
-              <i className="bi bi-telephone-fill icon"></i> {/* Phone Icon */}
-              <div className="profile-data">
-                <strong>PhoneNumber</strong>
-                {studentData.personalDetails.phone}
-              </div>
-            </p>
-            <p>
-              <i className="bi bi-geo-alt-fill icon"></i>{" "}
-              {/* Nationality Icon */}
-              <div className="profile-data">
-                <strong>Country</strong>
-                {studentData.personalDetails.nationality}
-              </div>
-            </p>
-          </div>
-        </div>
+            </div>
 
-        <div className="announcement-Date">
-        <div className="announcement-banner">
-          <div className="announcement-header">
-            <h3>🎉 Announcements</h3>
-          </div>
-          <div className="announcement-content">
-            <ul>
-              <li>
-                <span className="icon">📌</span>
-                <div>
-                  <strong>Upcoming:</strong> Midterm exams start on{" "}
-                  <span className="highlight">March 10th</span>.
-                </div>
-              </li>
-              <li>
-                <span className="icon">🚀</span>
-                <div>
-                  <strong>New:</strong> Advanced Web Development course{" "}
-                  <span className="highlight">launched now!</span>.
-                </div>
-              </li>
-              <li>
-                <span className="icon">🎓</span>
-                <div>
-                  <strong>Event:</strong> Career Counseling Workshop -{" "}
-                  <span className="highlight">March 15th</span>.
-                </div>
-              </li>
-            </ul>
-            <div className="announcement-footer">
-              <p>Stay updated! Check your portal for more details.</p>
+            <div className="detail-item">
+              <div className="icon-wrapper"><i className="bi bi-mortarboard-fill"></i></div>
+              <div className="info-text">
+                <strong>Program Name</strong>
+                <p>{studentData?.programApplyingFor?.programName}</p>
+              </div>
+            </div>
+            <div className="detail-item">
+              <div className="icon-wrapper"><i className="bi bi-telephone-fill"></i></div>
+              <div className="info-text">
+                <strong>PhoneNumber</strong>
+                <p>{studentData.personalDetails.phone}</p>
+              </div>
+            </div>
+            <div className="detail-item">
+              <div className="icon-wrapper"><i className="bi bi-geo-alt-fill"></i></div>
+              {/* Nationality Icon */}
+              <div className="info-text">
+                <strong>Country</strong>
+                <p>{studentData.personalDetails.nationality}</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <DynamicDateTable/>
+        <div className="announcement-date">
+          <div className="announcement-banner">
+            <div className="announcement-header">
+              <h3>📣 Announcements</h3>
+            </div>
+
+            <div className="announcement-content">
+              <ul className="announcement-list">
+                <li>
+                  <span className="icon">📌</span>
+                  <div>
+                    <strong>Upcoming:</strong> Midterm exams start on <span className="highlight">March 10th</span>.
+                  </div>
+                </li>
+                <li>
+                  <span className="icon">🚀</span>
+                  <div>
+                    <strong>New:</strong> Advanced Web Development course <span className="highlight">launched now!</span>.
+                  </div>
+                </li>
+                <li>
+                  <span className="icon">🎓</span>
+                  <div>
+                    <strong>Event:</strong> Career Counseling Workshop - <span className="highlight">March 15th</span>.
+                  </div>
+                </li>
+              </ul>
+
+              <div className="announcement-footer">
+                <p>🔔 Stay updated! Check your portal for more details.</p>
+              </div>
+            </div>
+          </div>
+
+          <DynamicDateTable />
         </div>
-        
 
       </div>
-
-      {/* <div className="dashboard-card personal-details">
-        <h2 className="section-title">Personal Details</h2>
-        <p>
-          Full Name: <span>{studentData.personalDetails.fullName}</span>
-        </p>
-        <p>
-          Email: <span>{studentData.personalDetails.email}</span>
-        </p>
-        <p>
-          Phone: <span>{studentData.personalDetails.phone}</span>
-        </p>
-        <p>
-          Address: <span>{studentData.personalDetails.address}</span>
-        </p>
-        <p>
-          Nationality: <span>{studentData.personalDetails.nationality}</span>
-        </p>
-        <p>
-          Date of Birth:{" "}
-          <span>
-            {new Date(studentData.personalDetails.dob).toLocaleDateString()}
-          </span>
-        </p>
-        <p>
-          Gender: <span>{studentData.personalDetails.gender}</span>
-        </p>
-        <p>
-          Profile Image:
-          <img
-            src={studentData.personalDetails.profileImage}
-            alt="Profile"
-            className="profile-image"
-          />
-        </p>
-      </div>
-
-      <div className="dashboard-card program-details">
-        <h2 className="section-title">Program Applying For</h2>
-        <p>
-          Program Name:{" "}
-          <span>{studentData.programApplyingFor.programName}</span>
-        </p>
-        <p>
-          Course Details:{" "}
-          <span>{studentData.programApplyingFor.courseDetails}</span>
-        </p>
-      </div>
-
-      <div className="dashboard-card educational-background">
-        <h2 className="section-title">Educational Background</h2>
-        <p>
-          Qualification:{" "}
-          <span>{studentData.educationalBackground.qualification}</span>
-        </p>
-        <p>
-          Institution:{" "}
-          <span>{studentData.educationalBackground.institution}</span>
-        </p>
-        <p>
-          Graduation Year:{" "}
-          <span>{studentData.educationalBackground.graduationYear}</span>
-        </p>
-        <p>
-          Study Area: <span>{studentData.educationalBackground.studyArea}</span>
-        </p>
-        <p>
-          Certifications:{" "}
-          <span>{studentData.educationalBackground.certifications}</span>
-        </p>
-      </div>
-
-      <div className="dashboard-card guardian-details">
-        <h2 className="section-title">Guardian Details</h2>
-        <p>
-          Full Name: <span>{studentData.guardianDetails.guardianFullName}</span>
-        </p>
-        <p>
-          Relationship: <span>{studentData.guardianDetails.relationship}</span>
-        </p>
-        <p>
-          Phone: <span>{studentData.guardianDetails.guardianPhone}</span>
-        </p>
-        <p>
-          Email: <span>{studentData.guardianDetails.guardianEmail}</span>
-        </p>
-        <p>
-          Occupation:{" "}
-          <span>{studentData.guardianDetails.guardianOccupation}</span>
-        </p>
-      </div>
-
-      <div className="dashboard-card submission-date">
-        <h2 className="section-title">Submission Date</h2>
-        <p>{studentData.date}</p>
-      </div> */}
     </div>
   );
 };

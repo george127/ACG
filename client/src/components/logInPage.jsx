@@ -2,7 +2,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginStart, loginSuccess, loginFailure } from "../redux/reducers/authSlice";
-
+import { NavLink } from "react-router-dom";
+import "./style/LogInPage.css"
+import Image from "../assets/login.png";
+import LogoImage from "../components/Header/appcode.png";
+import Header from "./Header/HeaderPage";
+import Navigation from "./Navigation/NavPage";
+import Footer from "./footer/Footer";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +17,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const { loading, error } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   // Function to validate email format
   const isValidEmail = (email) => {
@@ -72,68 +79,99 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card shadow p-4">
-            <h2 className="text-center mb-4">Login</h2>
+    <>
+      <Header />
+      <Navigation />
+      <div className="container navigate">
+        <div className="items">
+          <NavLink to="/">Home</NavLink>
+          <span className="material-symbols-outlined">arrow_and_edge</span>
+        </div>
+        <span>Log In</span>
+      </div>
+      <div className="login-container container">
+        <div className="image-container">
+          <img
+            src={Image}
+            alt="Login Background"
+            className="login-image"
+          />
+        </div>
+        <div className="login-wrapper">
+          <div className="login-card">
+            <div className="logo-container">
+              <img
+                src={LogoImage}
+                alt="Logo" />
+            </div>
+            <h2 className="login-title">Login into Your Account</h2>
 
-            {/* Success Message */}
             {successMessage && (
-              <div className="alert alert-success" role="alert">
-                {successMessage}
-              </div>
+              <div className="login-alert success">{successMessage}</div>
             )}
 
-            {/* Error Message */}
             {(error || errorMessage) && (
-              <div className="alert alert-danger" role="alert">
+              <div className="login-alert error">
                 {errorMessage || error}
               </div>
             )}
 
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
+            <form onSubmit={handleSubmit} className="login-form">
+              <div className="form-group">
                 <label htmlFor="email" className="form-label">
                   Email Address
                 </label>
                 <input
                   id="email"
                   type="email"
-                  className="form-control"
+                  className="form-input"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+
+              <div className="form-group password-group">
                 <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
                   id="password"
-                  type="password"
-                  className="form-control"
+                  type={showPassword ? "text" : "password"}
+                  className="form-input"
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <span
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "🙈" : "👁️"}
+                </span>
               </div>
-              <div className="d-grid">
-                <button type="submit" className="btn btn-primary" disabled={loading}>
+              <div className="btn-container">
+                <button type="submit" className="btn btn-submit" disabled={loading}>
                   {loading ? "Logging in..." : "Login"}
+                  <span className="material-symbols-outlined">east</span>
                 </button>
               </div>
+
             </form>
-            <div className="text-center mt-3">
-              <Link to="/signup" className="btn btn-link">
-                Create an account
-              </Link>
+
+            <div className="forgot-password">
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
+
+            <div className="signup-link">
+              Don&apos;t have an account?
+              <Link to="/signup">Create an account</Link>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

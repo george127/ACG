@@ -277,9 +277,6 @@ const StudentPortal = () => {
                   className="bi bi-bell notification-icon"
                   title="Notifications"
                 ></i>
-                <button className="logout-btn">
-                  <i className="bi bi-box-arrow-right"></i> Logout
-                </button>
               </div>
             </div>
           </div>
@@ -354,8 +351,8 @@ const StudentPortal = () => {
             </div>
           )}
           {/* Footer */}
-          <div className="footer text-center text-white p-3">
-            Copyright &copy; 2023 Your Website. All rights reserved.
+          <div className="footer">
+            <p>&copy; {new Date().getFullYear()} AppCode Student Portal. All rights reserved.</p>
           </div>
         </div>
       </>

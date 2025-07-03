@@ -29,7 +29,7 @@ import { SignUp, LogIn } from '../controllers/authController.js';
 import { validateSignUp, validateLogIn } from '../middleware/validationMiddleware.js';
 import { protect } from '../middleware/authMiddleware.js';
 
-const router = express.Router();
+const router = express.Router(); 
 
 router.post('/signup', validateSignUp, SignUp); // Added signup validation middleware
 router.post('/login', validateLogIn, LogIn);    // Added login validation middleware

@@ -62,7 +62,7 @@ const Header = () => {
               <i className="fab fa-instagram"></i>
             </a>
             <div className="Btn-container">
-            <Link className="Btn" to="/payment">
+            <Link className="Btn" to="/login">
               Login
             </Link>
           </div>
