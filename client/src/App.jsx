@@ -21,13 +21,13 @@ import Oscp from "./components/Pages/Oscp";
 import ForexTrading from "./components/Pages/ForexTrading";
 
 // == Importions for Software Engineering pages ==
-import FrontDetails from "./components/Pages/1.frontDetails";
-import BackendDetails from "./components/Pages/2.BackendDetails";
-import MobileDetails from "./components/Pages/3.MobileDetails";
-import NextJsDetails from "./components/Pages/4.NextJsDetails";
-import FlutterDetails from "./components/Pages/5.FlutterDetails";
-import JavascriptDetails from "./components/Pages/6.JavascriptDetails";
-import TypescriptDetails from "./components/Pages/7.TypescriptDetails";
+import FrontDetails from "./components/Pages/1.SE/1.frontDetails";
+import BackendDetails from "./components/Pages/1.SE/2.backendDetails";
+import MobileDetails from "./components/Pages/1.SE/3.MobileDetails";
+import NextJsDetails from "./components/Pages/1.SE/4.NextJsDetails";
+import FlutterDetails from "./components/Pages/1.SE/5.FlutterDetails";
+import JavascriptDetails from "./components/Pages/1.SE/6.JavascriptDetails";
+import TypescriptDetails from "./components/Pages/1.SE/7.TypescriptDetails";
 
 //  == Importions for Cloud Engineering pages ==
 import AWSSAProDetails from "./components/Pages/8.AWS-SA-Pro-Details";

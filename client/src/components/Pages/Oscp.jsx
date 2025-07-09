@@ -6,21 +6,42 @@ import Image from "./images/Cyber/oscp.png";
 import { NavLink } from "react-router-dom";
 import Footer from "../footer/Footer";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const Oscp = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
+  const [activeSection, setActiveSection] = useState(null);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    sectionRefs.current = sectionRefs.current.slice(0, 7);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const sidebarLimit = 0; // Adjust this value as needed
-      const maxOffset = 70; // Maximum offset for the sidebar
+      const sidebarLimit = 0;
+      const maxOffset = 70;
 
       if (scrollY > sidebarLimit) {
         setSidebarTop(Math.min(maxOffset, scrollY - sidebarLimit));
       } else {
         setSidebarTop(0);
       }
+
+      // Determine which section is in view
+      const scrollPosition = window.scrollY + 100; // Adding some offset
+
+      sectionRefs.current.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(`section${index + 1}`);
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -32,10 +53,10 @@ const Oscp = () => {
   const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   };
   return (
@@ -61,14 +82,15 @@ const Oscp = () => {
               }}
             >
               <ul>
-                <li onClick={() => handleScrollToSection("section1", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section1", -75)}
+                  className={activeSection === "section1" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     OSCP
-                    <div className="content">Master advanced penetration</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
               </ul>
             </div>
@@ -123,7 +145,9 @@ const Oscp = () => {
                 </div>
               </div>
 
-              <section id="section1" className="section">
+              <section id="section1"
+                className={`section ${activeSection === "section1" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[0] = el}>
                 <div className="image-container">
                   <img src={image1} alt="Cloud Data Analytics" />
                 </div>

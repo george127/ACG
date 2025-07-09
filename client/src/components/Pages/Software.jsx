@@ -10,23 +10,43 @@ import TypeScript from "./images/Software/Typescript_logo.png";
 import Javascript from "./images/Software/Javascript.png";
 import MobileApp from "./images/Software/PngItem_256506.png";
 import Image from "./images/Software/Software.png";
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom"; // Use NavLink for active links
+import { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 const Software = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
+  const [activeSection, setActiveSection] = useState(null);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    sectionRefs.current = sectionRefs.current.slice(0, 7);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const sidebarLimit = 0; // Adjust this value as needed
-      const maxOffset = 70; // Maximum offset for the sidebar
+      const sidebarLimit = 0;
+      const maxOffset = 70;
 
       if (scrollY > sidebarLimit) {
         setSidebarTop(Math.min(maxOffset, scrollY - sidebarLimit));
       } else {
         setSidebarTop(0);
       }
+
+      // Determine which section is in view
+      const scrollPosition = window.scrollY + 100; // Adding some offset
+
+      sectionRefs.current.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(`section${index + 1}`);
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,10 +58,10 @@ const Software = () => {
   const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   };
   return (
@@ -66,77 +86,75 @@ const Software = () => {
               }}
             >
               <ul>
-                <li onClick={() => handleScrollToSection("section1", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section1", -75)}
+                  className={activeSection === "section1" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Front End
-                    <div className="content">
-                      Learn about HTML, CSS, JavaScript
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section2", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section2", -75)}
+                  className={activeSection === "section2" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Backend
-                    <div className="content">server-side programming</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section3", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section3", -75)}
+                  className={activeSection === "section3" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Mobile Development
-                    <div className="content">
-                      App creation with React Native.
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section4", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section4", -75)}
+                  className={activeSection === "section4" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Next.js
-                    <div className="content">Learn server-side rendering.</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section5", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section5", -75)}
+                  className={activeSection === "section5" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Flutter
-                    <div className="content">Cross-platform applications.</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section6", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section6", -75)}
+                  className={activeSection === "section6" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     JavaScript
-                    <div className="content">
-                      A versatile language for websites.{" "}
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-
-                <li onClick={() => handleScrollToSection("section7", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section7", -75)}
+                  className={activeSection === "section7" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     TypeScript
-                    <div className="content">
-                      Robust and scalable applications.
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
               </ul>
             </div>
@@ -194,7 +212,9 @@ const Software = () => {
                 </div>
               </div>
 
-              <section id="section1" className="section">
+              <section id="section1"
+                className={`section ${activeSection === "section1" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[0] = el}>
                 <div className="image-container">
                   <img src={Frontend} alt="Front End Development" />
                 </div>
@@ -222,7 +242,9 @@ const Software = () => {
                 </div>
               </section>
 
-              <section id="section2" className="section">
+              <section id="section2" 
+                className={`section ${activeSection === "section2" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[1] = el}>
                 <div className="image-container">
                   <img src={Backend} alt="Backend Development" />
                 </div>
@@ -250,7 +272,9 @@ const Software = () => {
                 </div>
               </section>
 
-              <section id="section3" className="section">
+              <section id="section3" 
+                className={`section ${activeSection === "section3" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[2] = el}>
                 <div className="image-container">
                   <img src={MobileApp} alt="Mobile App Development" />
                 </div>
@@ -269,7 +293,7 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                  <NavLink to="/Software/mobileDetails" className="btn">
+                    <NavLink to="/Software/mobileDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
                     </NavLink>
@@ -277,7 +301,9 @@ const Software = () => {
                 </div>
               </section>
 
-              <section id="section4" className="section">
+              <section id="section4" 
+                className={`section ${activeSection === "section4" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[3] = el}>
                 <div className="image-container">
                   <img src={NextJS} alt="Next.js Development" />
                 </div>
@@ -296,7 +322,7 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 3,500</p>
                   <div className="btn-container">
-                  <NavLink to="/Software/nextJsDetails" className="btn">
+                    <NavLink to="/Software/nextJsDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
                     </NavLink>
@@ -304,7 +330,9 @@ const Software = () => {
                 </div>
               </section>
 
-              <section id="section5" className="section">
+              <section id="section5" 
+                className={`section ${activeSection === "section5" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[4] = el}>
                 <div className="image-container">
                   <img src={Flutter} alt="Flutter Development" />
                 </div>
@@ -323,14 +351,16 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                  <NavLink to="/Software/flutterDetails" className="btn">
+                    <NavLink to="/Software/flutterDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
                     </NavLink>
                   </div>
                 </div>
               </section>
-              <section id="section6" className="section">
+              <section id="section6" 
+                className={`section ${activeSection === "section6" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[5] = el}>
                 <div className="image-container">
                   <img src={Javascript} alt="TypeScript Development" />
                 </div>
@@ -350,14 +380,16 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 3,000</p>
                   <div className="btn-container">
-                  <NavLink to="/Software/javascriptDetails" className="btn">
+                    <NavLink to="/Software/javascriptDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
                     </NavLink>
                   </div>
                 </div>
               </section>
-              <section id="section7" className="section">
+              <section id="section7" 
+                className={`section ${activeSection === "section7" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[6] = el}>
                 <div className="image-container">
                   <img src={TypeScript} alt="TypeScript Development" />
                 </div>
@@ -377,7 +409,7 @@ const Software = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 3,000</p>
                   <div className="btn-container">
-                  <NavLink to="/Software/typescriptDetails" className="btn">
+                    <NavLink to="/Software/typescriptDetails" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
                     </NavLink>

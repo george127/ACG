@@ -3,7 +3,6 @@
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  padding: 20px;
 }
 
 .signup-container .signup-image {
@@ -14,12 +13,13 @@
 
 .signup-container .signup-wrapper {
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .signup-container .signup-card {
-  border-radius: 12px;
-  padding: 0 40px;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .signup-container .logo-container {
@@ -27,15 +27,16 @@
 }
 
 .signup-container .logo-container img {
-  width: 300px;
+  width: 160px;
   height: auto;
 }
 
 .signup-container .signup-title {
-  font-size: 23px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   margin-bottom: 24px;
   color: #333;
+  text-transform: capitalize;
 }
 
 .signup-container .signup-alert {
@@ -48,6 +49,7 @@
 .signup-container .signup-alert.error {
   background-color: #fdecea;
   color: #c62828;
+  font-weight: 500;
   border: 1px solid #e57373;
 }
 
@@ -58,7 +60,7 @@
 }
 
 .signup-container .signup-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
 }
 
@@ -67,11 +69,12 @@
   margin-bottom: 6px;
   color: #555;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .signup-container .form-input {
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
+  padding: 10px 16px;
+  font-size: 0.9rem;
   border-radius: 8px;
   border: 2px solid transparent;
   background: #ffe0cf;
@@ -99,14 +102,15 @@
 }
 
 .signup-container .btn-submit {
-  width: 100%;
-  font-size: 16px;
-  font-weight: 600;
+    width: 100%;
+  padding: 9px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
 .signup-container .login-link {
   display: flex;
+  align-items: center;
   gap: 4px;
   margin-top: 16px;
 }
@@ -114,7 +118,7 @@
 .signup-container .login-link a {
   color: #e9691e;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .signup-container .login-link a:hover {

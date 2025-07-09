@@ -18,7 +18,7 @@ import azure14 from "./images/Cloud/Azure/14.azure-virtual-desktop-specialty.AZ-
 import azure15 from "./images/Cloud/Azure/15.Designing Microsoft Azure Infrastructure Solutions.AZ-305.png";
 import azure16 from "./images/Cloud/Azure/16.SC-100-Microsoft-Cybersecurity-Architect.webp";
 import azure17 from "./images/Cloud/Azure/17.CERT-Expert-DevOps-Engineer.AZ-400.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "./images/Cloud/Azure.png";
 import { NavLink } from "react-router-dom";
 import Footer from "../footer/Footer";
@@ -26,18 +26,38 @@ import Footer from "../footer/Footer";
 
 const Azure = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
+  const [activeSection, setActiveSection] = useState(null);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    sectionRefs.current = sectionRefs.current.slice(0, 7);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const sidebarLimit = 0; // Adjust this value as needed
-      const maxOffset = 70; // Maximum offset for the sidebar
+      const sidebarLimit = 0;
+      const maxOffset = 70;
 
       if (scrollY > sidebarLimit) {
         setSidebarTop(Math.min(maxOffset, scrollY - sidebarLimit));
       } else {
         setSidebarTop(0);
       }
+
+      // Determine which section is in view
+      const scrollPosition = window.scrollY + 100; // Adding some offset
+
+      sectionRefs.current.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(`section${index + 1}`);
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,25 +69,24 @@ const Azure = () => {
   const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   };
-
   return (
     <>
       <div id="content">
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>Microsoft Azure</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>Microsoft Azure</span>
+        </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -81,156 +100,157 @@ const Azure = () => {
               <ul>
                 <li
                   onClick={() => handleScrollToSection("section1", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-900</div>
+                  className={activeSection === "section1" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-900</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section2", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
+                  className={activeSection === "section2" ? "active" : ""}>
+                  <div className="items-content"> <span className="material-symbols-outlined format">
                     format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-104</div>
+                  </span>AZ-104</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section3", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">SC-900</div>
+                  className={activeSection === "section3" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
+                    SC-900</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section4", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">DP-203</div>
+                  className={activeSection === "section4" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>DP-203</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section5", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">DP-100</div>
+                  className={activeSection === "section5" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>DP-100</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section6", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">DP-300</div>
+                  className={activeSection === "section6" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>DP-300</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section7", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-204</div>
+                  className={activeSection === "section7" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-204</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section8", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">DP-500</div>
+                  className={activeSection === "section8" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>DP-500</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section9", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-700</div>
+                  className={activeSection === "section9" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-700</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section10", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-500</div>
+                  className={activeSection === "section10" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-500</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section11", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">SC-300</div>
+                  className={activeSection === "section11" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>SC-300</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section12", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">SC-200</div>
+                  className={activeSection === "section12" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>SC-200</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section13", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-800</div>
+                  className={activeSection === "section13" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-800</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section14", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-140</div>
+                  className={activeSection === "section14" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-140</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section15", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-305</div>
+                  className={activeSection === "section15" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
+                    AZ-305</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section16", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">SC-100</div>
+                  className={activeSection === "section16" ? "active" : ""} >
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>SC-100</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
                 <li
                   onClick={() => handleScrollToSection("section17", -75)}
-                  className="azure"
-                >
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
-                  <div className="items-content">AZ-400</div>
+                  className={activeSection === "section17" ? "active" : ""}>
+                  <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>AZ-400</div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
               </ul>
             </div>
@@ -291,7 +311,9 @@ const Azure = () => {
                 </div>
               </div>
 
-              <section id="section1" className="section">
+              <section id="section1"
+                className={`section ${activeSection === "section1" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[0] = el}>
                 <div className="image-container">
                   <img
                     src={azure1}
@@ -319,7 +341,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section2" className="section">
+              <section id="section2"
+                className={`section ${activeSection === "section2" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[1] = el}>
                 <div className="image-container">
                   <img
                     src={azure2}
@@ -347,7 +371,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section3" className="section">
+              <section id="section3" 
+              className={`section ${activeSection === "section3" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[2] = el}>
                 <div className="image-container">
                   <img
                     src={azure3}
@@ -376,7 +402,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section4" className="section">
+              <section id="section4"
+               className={`section ${activeSection === "section4" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[3] = el}>
                 <div className="image-container">
                   <img src={azure4} alt="Data Engineering on Microsoft Azure" />
                 </div>
@@ -400,7 +428,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section5" className="section">
+              <section id="section5" 
+               className={`section ${activeSection === "section5" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[4] = el}>
                 <div className="image-container">
                   <img
                     src={azure5}
@@ -429,7 +459,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section6" className="section">
+              <section id="section6" 
+               className={`section ${activeSection === "section6" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[5] = el}>
                 <div className="image-container">
                   <img
                     src={azure6}
@@ -456,7 +488,8 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section7" className="section">
+              <section id="section7"  className={`section ${activeSection === "section7" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[6] = el}>
                 <div className="image-container">
                   <img
                     src={azure7}
@@ -483,7 +516,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section8" className="section">
+              <section id="section8" 
+               className={`section ${activeSection === "section8" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[7] = el}>
                 <div className="image-container">
                   <img
                     src={azure8}
@@ -513,7 +548,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section9" className="section">
+              <section id="section9"  
+              className={`section ${activeSection === "section9" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[8] = el}>
                 <div className="image-container">
                   <img
                     src={azure9}
@@ -543,7 +580,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section10" className="section">
+              <section id="section10"  
+              className={`section ${activeSection === "section10" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[9] = el}>
                 <div className="image-container">
                   <img
                     src={azure10}
@@ -570,7 +609,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section11" className="section">
+              <section id="section11" 
+               className={`section ${activeSection === "section11" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[10] = el}>
                 <div className="image-container">
                   <img
                     src={azure11}
@@ -596,7 +637,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section12" className="section">
+              <section id="section12" 
+               className={`section ${activeSection === "section12" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[11] = el}>
                 <div className="image-container">
                   <img
                     src={azure12}
@@ -623,7 +666,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section13" className="section">
+              <section id="section13" 
+               className={`section ${activeSection === "section13" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[12] = el}>
                 <div className="image-container">
                   <img
                     src={azure13}
@@ -652,7 +697,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section14" className="section">
+              <section id="section14" 
+               className={`section ${activeSection === "section14" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[13] = el}>
                 <div className="image-container">
                   <img
                     src={azure14}
@@ -680,7 +727,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section15" className="section">
+              <section id="section15" 
+               className={`section ${activeSection === "section15" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[14] = el}>
                 <div className="image-container">
                   <img
                     src={azure15}
@@ -706,7 +755,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section16" className="section">
+              <section id="section16"  
+              className={`section ${activeSection === "section16" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[15] = el}>
                 <div className="image-container">
                   <img src={azure16} alt="Microsoft Cybersecurity Architect" />
                 </div>
@@ -729,7 +780,9 @@ const Azure = () => {
                 </div>
               </section>
 
-              <section id="section17" className="section">
+              <section id="section17" 
+               className={`section ${activeSection === "section17" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[16] = el}>
                 <div className="image-container">
                   <img
                     src={azure17}
@@ -767,7 +820,7 @@ const Azure = () => {
           </button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
 
     </>
   );

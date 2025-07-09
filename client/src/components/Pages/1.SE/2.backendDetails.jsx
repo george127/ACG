@@ -1,11 +1,11 @@
-import "./Css/details.css";
-import Header from "../Header/HeaderPage";
-import Navigation from "../Navigation/NavPage";
+import "../Css/details.css";
+import Header from "../../Header/HeaderPage";
+import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "./images/Software/backend-development.jpg";
+import Image from "../images/Software/backend-development.jpg";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",

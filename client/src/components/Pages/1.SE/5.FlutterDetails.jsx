@@ -1,11 +1,11 @@
-import "./Css/details.css";
-import Header from "../Header/HeaderPage";
-import Navigation from "../Navigation/NavPage";
+import "../Css/details.css";
+import Header from "../../Header/HeaderPage";
+import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "./images/Software/next js.webp";
+import Image from "../images/Software/unnamed.webp";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -119,14 +119,14 @@ const Details = () => {
             <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>Next JS</span>
+          <span>Flutter</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="Next.js Development Course" />
+                <img src={Image} alt="Flutter Development Course" />
               </div>
 
               <div className="concept-container">
@@ -159,36 +159,35 @@ const Details = () => {
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 Full-Stack Web Development with Next.js</h3>
+                      <h3>🚀 Full-Stack Mobile App Development with Flutter</h3>
                       <p>
                         This course is designed to equip you with the skills
-                        needed to build scalable and high-performance web
-                        applications using Next.js:
+                        needed to build scalable and high-performance mobile
+                        applications using Flutter:
                       </p>
                       <div className="data-item">
-                        📌 1: Introduction to Next.js
+                        📌 1: Introduction to Flutter
                       </div>
                       <div className="data-item">
-                        📌 2: React.js Fundamentals for Next.js
+                        📌 2: Dart Programming Language Fundamentals
                       </div>
                       <div className="data-item">
-                        📌 3: Server-Side Rendering (SSR) and Static Site
-                        Generation (SSG)
+                        📌 3: Widgets and State Management in Flutter
                       </div>
                       <div className="data-item">
-                        📌 4: Next.js Routing and Dynamic Pages
+                        📌 4: Flutter Navigation and Routing
                       </div>
                       <div className="data-item">
-                        📌 5: Data Fetching in Next.js
+                        📌 5: Integrating APIs with Flutter
                       </div>
                       <div className="data-item">
-                        📌 6: API Routes and Serverless Functions
+                        📌 6: Managing Databases with Flutter
                       </div>
                       <div className="data-item">
-                        📌 7: Optimizing Performance in Next.js
+                        📌 7: Optimizing Performance in Flutter
                       </div>
                       <div className="data-item">
-                        📌 8: Deployment & Hosting Next.js Apps
+                        📌 8: Deployment & Publishing Flutter Apps
                       </div>
                     </div>
                   </div>
@@ -201,39 +200,33 @@ const Details = () => {
                       <h3>🎯 Learning Goals</h3>
                       <ul>
                         <li>
-                          ✅ Build full-stack applications with Next.js and
-                          React.js
+                          ✅ Build cross-platform mobile applications with
+                          Flutter and Dart
                         </li>
                         <li>
-                          ✅ Leverage Server-Side Rendering (SSR) and Static
-                          Site Generation (SSG)
+                          ✅ Master Flutter widgets and state management
+                          techniques
+                        </li>
+                        <li>✅ Integrate APIs and databases in Flutter apps</li>
+                        <li>✅ Implement navigation and routing in Flutter</li>
+                        <li>
+                          ✅ Optimize app performance and UI responsiveness in
+                          Flutter
                         </li>
                         <li>
-                          ✅ Implement data fetching strategies using Next.js
-                          (getServerSideProps, getStaticProps)
-                        </li>
-                        <li>✅ Master routing and dynamic pages in Next.js</li>
-                        <li>
-                          ✅ Integrate API routes and serverless functions in
-                          Next.js
-                        </li>
-                        <li>
-                          ✅ Deploy applications with Next.js on Vercel,
-                          Netlify, or other platforms
+                          ✅ Deploy and publish Flutter apps on both iOS and
+                          Android platforms
                         </li>
                       </ul>
 
                       <h4>🔥 What You’ll Build:</h4>
                       <p>This course includes hands-on projects, such as:</p>
                       <ul>
+                        <li>🌍 A Blog App with Real-time Data Fetching</li>
                         <li>
-                          🌍 A Blog Website with Server-Side Rendering (SSR)
+                          🛒 An E-Commerce Mobile App with Product Listings
                         </li>
-                        <li>
-                          🛍️ An E-Commerce Platform with Static Site Generation
-                          (SSG)
-                        </li>
-                        <li>📊 A Dashboard with Real-Time Data Fetching</li>
+                        <li>📊 A Dashboard with User Authentication</li>
                       </ul>
                     </div>
                   </div>
@@ -243,32 +236,31 @@ const Details = () => {
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in Next.js</h3>
+                      <h3>💼 Career Opportunities in Flutter</h3>
                       <p>
                         After completing this course, you’ll be ready to work in
                         the following roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Build and
-                          manage full-stack web applications using Next.js.
+                          🔹 <strong>Mobile App Developer</strong> - Build
+                          cross-platform mobile apps using Flutter and Dart.
                         </li>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Specialize in
-                          React.js and Next.js for optimized performance and
-                          SEO.
+                          🔹 <strong>Flutter Developer</strong> - Specialize in
+                          creating optimized, performant mobile applications.
                         </li>
                         <li>
-                          🔹 <strong>Backend Developer</strong> - Develop
-                          serverless API routes and manage database operations.
+                          🔹 <strong>Backend Developer</strong> - Manage APIs,
+                          databases, and backend services for Flutter apps.
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Build
-                          scalable, SEO-friendly applications for clients.
+                          🔹 <strong>Freelance Developer</strong> - Build custom
+                          mobile applications for clients using Flutter.
                         </li>
                         <li>
                           🔹 <strong>Startup Founder</strong> - Launch your own
-                          scalable web-based business using Next.js.
+                          mobile app-based business using Flutter.
                         </li>
                       </ul>
 
@@ -276,7 +268,7 @@ const Details = () => {
                       <p>
                         By the end of this course, you’ll have a portfolio of
                         real-world projects and the confidence to build
-                        production-ready web applications with Next.js!
+                        production-ready mobile apps with Flutter!
                       </p>
                     </div>
                   </div>
@@ -284,18 +276,18 @@ const Details = () => {
               </div>
             </div>
 
-            {/* == Second Item */}
+            {/* == Second Item == */}
             <div className="item">
               <div className="text">
-                <h1>Next.js Development Course</h1>
+                <h1>Flutter Development Course</h1>
                 <p>
-                  A comprehensive course on full-stack development using the
-                  Next.js framework, which is built on top of React.js. It
-                  covers both frontend and backend development, teaching you how
-                  to build highly optimized and SEO-friendly web applications.
-                  The course includes hands-on projects, dynamic routing, data
-                  fetching methods (SSR, SSG), API routes, and deployment
-                  strategies to make you a proficient Next.js developer.
+                  A comprehensive course on mobile app development using
+                  Flutter, which is an open-source framework built with Dart.
+                  This course covers both frontend and backend development,
+                  teaching you how to build highly optimized and responsive
+                  cross-platform apps. You’ll learn about widgets, state
+                  management, API integration, databases, and app deployment to
+                  both iOS and Android platforms.
                 </p>
               </div>
 
@@ -307,11 +299,12 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The Next.js Developer Certification validates your expertise
-                  in building fast, scalable web applications using Next.js. It
-                  covers frontend and backend development, routing, data
-                  fetching, and deployment. This certification helps demonstrate
-                  your skills to potential employers and clients.
+                  The Flutter Developer Certification validates your expertise
+                  in building high-performance mobile applications using
+                  Flutter. It covers frontend and backend development, state
+                  management, API routes, and deployment strategies. This
+                  certification helps demonstrate your skills to potential
+                  employers and clients.
                 </p>
               </div>
 
@@ -337,39 +330,40 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the Next.js Development Certification
+                  Benefits of completing the Flutter Development Certification
                   include:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Learn to build SEO-friendly, optimized web applications.
+                      Learn to build high-performance mobile apps for iOS and
+                      Android using Flutter.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master frontend development with Next.js and React.js.
+                      Master mobile app development with Flutter and Dart.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world project experience in building dynamic
-                      applications.
+                      Gain real-world project experience in building
+                      cross-platform applications.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your Next.js skills.
+                      Receive a certification to showcase your Flutter skills.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects as a Next.js developer.
+                      Improve your job prospects as a Flutter developer.
                     </li>
                   </ul>
                 </p>
@@ -383,11 +377,10 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers Next.js, React.js, Server-Side Rendering
-                  (SSR), Static Site Generation (SSG), and API routes.
-                  Additional topics include authentication, deployment
-                  strategies, and optimizing performance for Next.js
-                  applications.
+                  The course covers Flutter, Dart programming, state management,
+                  API integration, mobile databases, and app deployment
+                  strategies. You'll also explore performance optimization and
+                  app publishing techniques.
                 </p>
               </div>
             </div>

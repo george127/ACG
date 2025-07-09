@@ -1,11 +1,11 @@
-import "./Css/details.css";
-import Header from "../Header/HeaderPage";
-import Navigation from "../Navigation/NavPage";
+import "../Css/details.css";
+import Header from "../../Header/HeaderPage";
+import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "./images/Software/unnamed.webp";
+import Image from "../images/Software/Javascript.png";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -119,14 +119,14 @@ const Details = () => {
             <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>Flutter</span>
+          <span>JavaScript</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="Flutter Development Course" />
+                <img src={Image} alt="JavaScript Development Course" />
               </div>
 
               <div className="concept-container">
@@ -159,35 +159,35 @@ const Details = () => {
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 Full-Stack Mobile App Development with Flutter</h3>
+                      <h3>🚀 JavaScript Development Mastery</h3>
                       <p>
                         This course is designed to equip you with the skills
-                        needed to build scalable and high-performance mobile
-                        applications using Flutter:
+                        needed to master JavaScript:
                       </p>
                       <div className="data-item">
-                        📌 1: Introduction to Flutter
+                        📌 1: Introduction to JavaScript
                       </div>
                       <div className="data-item">
-                        📌 2: Dart Programming Language Fundamentals
+                        📌 2: Understanding JavaScript Variables and Data Types
                       </div>
                       <div className="data-item">
-                        📌 3: Widgets and State Management in Flutter
+                        📌 3: Functions and Scope in JavaScript
                       </div>
                       <div className="data-item">
-                        📌 4: Flutter Navigation and Routing
+                        📌 4: Asynchronous JavaScript with Promises and
+                        Async/Await
                       </div>
                       <div className="data-item">
-                        📌 5: Integrating APIs with Flutter
+                        📌 5: JavaScript DOM Manipulation
                       </div>
                       <div className="data-item">
-                        📌 6: Managing Databases with Flutter
+                        📌 6: Working with JavaScript Events
                       </div>
                       <div className="data-item">
-                        📌 7: Optimizing Performance in Flutter
+                        📌 7: JavaScript Error Handling and Debugging
                       </div>
                       <div className="data-item">
-                        📌 8: Deployment & Publishing Flutter Apps
+                        📌 8: Modern JavaScript Features (ES6 and beyond)
                       </div>
                     </div>
                   </div>
@@ -200,33 +200,39 @@ const Details = () => {
                       <h3>🎯 Learning Goals</h3>
                       <ul>
                         <li>
-                          ✅ Build cross-platform mobile applications with
-                          Flutter and Dart
+                          ✅ Master the fundamentals of JavaScript and its
+                          syntax.
                         </li>
                         <li>
-                          ✅ Master Flutter widgets and state management
-                          techniques
-                        </li>
-                        <li>✅ Integrate APIs and databases in Flutter apps</li>
-                        <li>✅ Implement navigation and routing in Flutter</li>
-                        <li>
-                          ✅ Optimize app performance and UI responsiveness in
-                          Flutter
+                          ✅ Understand how JavaScript variables, data types,
+                          and operators work.
                         </li>
                         <li>
-                          ✅ Deploy and publish Flutter apps on both iOS and
-                          Android platforms
+                          ✅ Learn how to handle asynchronous operations using
+                          promises and async/await.
+                        </li>
+                        <li>
+                          ✅ Gain proficiency in manipulating the DOM with
+                          JavaScript.
+                        </li>
+                        <li>
+                          ✅ Implement JavaScript error handling and debugging
+                          techniques.
+                        </li>
+                        <li>
+                          ✅ Keep up with modern JavaScript features, including
+                          ES6 and newer updates.
                         </li>
                       </ul>
 
                       <h4>🔥 What You’ll Build:</h4>
                       <p>This course includes hands-on projects, such as:</p>
                       <ul>
-                        <li>🌍 A Blog App with Real-time Data Fetching</li>
+                        <li>🌍 A JavaScript-based To-Do List Application</li>
+                        <li>🛍️ A Shopping Cart with Dynamic Item Additions</li>
                         <li>
-                          🛒 An E-Commerce Mobile App with Product Listings
+                          📊 A Weather Dashboard that fetches real-time data
                         </li>
-                        <li>📊 A Dashboard with User Authentication</li>
                       </ul>
                     </div>
                   </div>
@@ -236,39 +242,41 @@ const Details = () => {
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in Flutter</h3>
+                      <h3>💼 Career Opportunities in JavaScript</h3>
                       <p>
                         After completing this course, you’ll be ready to work in
                         the following roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Mobile App Developer</strong> - Build
-                          cross-platform mobile apps using Flutter and Dart.
+                          🔹 <strong>Frontend Developer</strong> - Build
+                          interactive websites using JavaScript.
                         </li>
                         <li>
-                          🔹 <strong>Flutter Developer</strong> - Specialize in
-                          creating optimized, performant mobile applications.
+                          🔹 <strong>JavaScript Developer</strong> - Specialize
+                          in JavaScript to create efficient web applications.
                         </li>
                         <li>
-                          🔹 <strong>Backend Developer</strong> - Manage APIs,
-                          databases, and backend services for Flutter apps.
+                          🔹 <strong>Full-Stack Developer</strong> - Use
+                          JavaScript in both the frontend and backend of web
+                          applications.
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Build custom
-                          mobile applications for clients using Flutter.
+                          🔹 <strong>Freelance Developer</strong> - Offer
+                          JavaScript-based development services for various
+                          clients.
                         </li>
                         <li>
-                          🔹 <strong>Startup Founder</strong> - Launch your own
-                          mobile app-based business using Flutter.
+                          🔹 <strong>Software Engineer</strong> - Create
+                          scalable and high-performance JavaScript applications.
                         </li>
                       </ul>
 
                       <h4>🚀 Take Your Skills to the Next Level</h4>
                       <p>
                         By the end of this course, you’ll have a portfolio of
-                        real-world projects and the confidence to build
-                        production-ready mobile apps with Flutter!
+                        JavaScript projects and the confidence to build
+                        production-ready applications!
                       </p>
                     </div>
                   </div>
@@ -279,15 +287,14 @@ const Details = () => {
             {/* == Second Item == */}
             <div className="item">
               <div className="text">
-                <h1>Flutter Development Course</h1>
+                <h1>JavaScript Development Course</h1>
                 <p>
-                  A comprehensive course on mobile app development using
-                  Flutter, which is an open-source framework built with Dart.
-                  This course covers both frontend and backend development,
-                  teaching you how to build highly optimized and responsive
-                  cross-platform apps. You’ll learn about widgets, state
-                  management, API integration, databases, and app deployment to
-                  both iOS and Android platforms.
+                  A comprehensive course on mastering JavaScript, covering both
+                  the fundamentals and advanced concepts. It includes topics
+                  like asynchronous programming, DOM manipulation, error
+                  handling, and modern JavaScript features (ES6+). Through
+                  hands-on projects and real-world examples, you’ll gain the
+                  skills necessary to become a proficient JavaScript developer.
                 </p>
               </div>
 
@@ -299,12 +306,11 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The Flutter Developer Certification validates your expertise
-                  in building high-performance mobile applications using
-                  Flutter. It covers frontend and backend development, state
-                  management, API routes, and deployment strategies. This
-                  certification helps demonstrate your skills to potential
-                  employers and clients.
+                  The JavaScript Developer Certification validates your
+                  expertise in mastering JavaScript. It covers both the basics
+                  and advanced techniques, and demonstrates your ability to
+                  build scalable, dynamic applications. This certification will
+                  boost your resume and attract potential employers or clients.
                 </p>
               </div>
 
@@ -316,9 +322,9 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, including hours of video lessons
-                  and hands-on coding exercises. It also includes real-world
-                  project assignments and a final capstone project.
+                  The course is 13 weeks long, with video lessons, interactive
+                  coding exercises, and project-based assignments to help you
+                  practice what you’ve learned.
                 </p>
               </div>
 
@@ -330,40 +336,40 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the Flutter Development Certification
-                  include:
+                  Benefits of completing the JavaScript Development
+                  Certification include:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Learn to build high-performance mobile apps for iOS and
-                      Android using Flutter.
+                      Build interactive, dynamic websites with JavaScript.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master mobile app development with Flutter and Dart.
+                      Master modern JavaScript features and techniques.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world project experience in building
-                      cross-platform applications.
+                      Gain real-world experience with JavaScript projects.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your Flutter skills.
+                      Receive a certification to showcase your JavaScript
+                      skills.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects as a Flutter developer.
+                      Improve your job prospects and marketability as a
+                      JavaScript developer.
                     </li>
                   </ul>
                 </p>
@@ -377,10 +383,9 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers Flutter, Dart programming, state management,
-                  API integration, mobile databases, and app deployment
-                  strategies. You'll also explore performance optimization and
-                  app publishing techniques.
+                  The course covers JavaScript, asynchronous programming
+                  (Promises, async/await), DOM manipulation, error handling,
+                  modern JavaScript features (ES6+), and debugging techniques.
                 </p>
               </div>
             </div>

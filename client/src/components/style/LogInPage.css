@@ -1,10 +1,9 @@
 /* General Container */
 .login-container {
-   display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  padding: 20px;
 }
 
 /* Image Container */
@@ -22,8 +21,8 @@
 
 .login-container .login-card {
   background-color: #ffffff;
-  border-radius: 12px;
-  padding: 0 40px;
+  padding: 40px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo Container */
@@ -32,16 +31,17 @@
 }
 
 .login-container .logo-container img {
-  width: 300px;
+  width: 160px;
   height: auto;
 }
 
 /* Title */
 .login-container .login-title {
   margin-bottom: 24px;
-  font-size: 23px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   color: #333;
+  text-transform: capitalize;
 }
 
 /* Alerts */
@@ -60,22 +60,24 @@
   background-color: #fbe9e7;
   color: #c62828;
   border: 1px solid #e57373;
+  font-size: 500;
 }
 
 /* Form */
 .login-container .login-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   position: relative;
 }
 .login-container .form-label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 500;
   color: #444;
+  font-size: 0.9rem;
 }
 .login-container .form-input {
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
+  padding: 10px 16px;
+  font-size: 0.9rem;
   border-radius: 8px;
   border: 2px solid transparent;
   background: #ffe0cf;
@@ -105,18 +107,18 @@
 /* Button */
 .login-container .btn-submit {
   width: 100%;
-  font-size: 16px;
-  font-weight: 600;
+  padding: 9px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
 /* Forgot Password */
-.login-container .forgot-password { 
+.login-container .forgot-password {
   margin-top: 16px;
 }
 
 .login-container .forgot-password a {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #868686;
   text-decoration: none;
 }
@@ -125,12 +127,13 @@
 .login-container .signup-link {
   margin-top: 16px;
   display: flex;
+  align-items: center;
   gap: 4px;
 }
 .login-container .signup-link a {
   color: #e9691e;
   text-decoration: none;
-    font-size: 14px;
+  font-size: 0.9rem;
 }
 .login-container .signup-link a:hover {
   text-decoration: underline;

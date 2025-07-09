@@ -5,6 +5,7 @@
 
 .btn-container .btn {
   border: 1px solid #e9691e;
+  background-color: #fff4ed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +13,7 @@
   font-size: 0.9rem;
   width: 170px;
   padding: 15px 15px;
+  border-radius: 0px;
   font-weight: 600;
   color: #555;
   position: relative;
@@ -77,6 +79,8 @@
 /* Glitch effect on text */
 .btn-container .btn:hover span {
   animation: glitch 1s infinite alternate;
+  color: #e9691e;
+  text-shadow: 5px 5px #e9691e, -5px;
 }
 
 @keyframes glitch {

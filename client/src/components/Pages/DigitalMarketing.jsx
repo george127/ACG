@@ -11,24 +11,45 @@ import image6 from "./images/Marketing/image6.png";
 import image7 from "./images/Marketing/image7.png";
 import image8 from "./images/Marketing/image8.png";
 import Image from "./images/Marketing/Marketing.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Footer from "../footer/Footer";
 
 
 const DigitalMarketing = () => {
   const [sidebarTop, setSidebarTop] = useState(0);
+  const [activeSection, setActiveSection] = useState(null);
+  const sectionRefs = useRef([]);
+
+  useEffect(() => {
+    sectionRefs.current = sectionRefs.current.slice(0, 7);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const sidebarLimit = 0; // Adjust this value as needed
-      const maxOffset = 70; // Maximum offset for the sidebar
+      const sidebarLimit = 0;
+      const maxOffset = 70;
 
       if (scrollY > sidebarLimit) {
         setSidebarTop(Math.min(maxOffset, scrollY - sidebarLimit));
       } else {
         setSidebarTop(0);
       }
+
+      // Determine which section is in view
+      const scrollPosition = window.scrollY + 100; // Adding some offset
+
+      sectionRefs.current.forEach((section, index) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            setActiveSection(`section${index + 1}`);
+          }
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -40,10 +61,10 @@ const DigitalMarketing = () => {
   const handleScrollToSection = (sectionId, offset = 0) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY;
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   };
   return (
@@ -52,12 +73,12 @@ const DigitalMarketing = () => {
         <Header />
         <Navigation />
         <div className="container navigate">
-            <div className="items">
-              <NavLink to="/">Home</NavLink>
-              <span className="material-symbols-outlined">arrow_and_edge</span>
-            </div>
-            <span>Digital Marketing</span>
+          <div className="items">
+            <NavLink to="/">Home</NavLink>
+            <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
+          <span>Digital Marketing</span>
+        </div>
         <div className="software-page container">
           {/* Sidebar */}
           <div className="sideBar-container">
@@ -69,92 +90,95 @@ const DigitalMarketing = () => {
               }}
             >
               <ul>
-                <li onClick={() => handleScrollToSection("section0", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section1", -75)}
+                  className={activeSection === "section1" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Full Program
-                    <div className="content">Master all aspects</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section1", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section2", -75)}
+                  className={activeSection === "section2" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Facebook
-                    <div className="content">Leverage Facebook Ads</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section2", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section3", -75)}
+                  className={activeSection === "section3" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Instagram
-                    <div className="content">Create appealing campaigns</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section3", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section4", -75)}
+                  className={activeSection === "section4" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     LinkedIn
-                    <div className="content">Target professionals</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section4", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section5", -75)}
+                  className={activeSection === "section5" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Twitter
-                    <div className="content">
-                      trending topics to boost brand
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section5", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section6", -75)}
+                  className={activeSection === "section6" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     YouTube
-                    <div className="content">
-                      Create video ads to engage users
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section6", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section7", -75)}
+                  className={activeSection === "section7" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Google Ads
-                    <div className="content">Run ads on Google Search.</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section7", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section8", -75)}
+                  className={activeSection === "section8" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     Pinterest
-                    <div className="content">
-                      Inspire users with visual content
-                    </div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
-                <li onClick={() => handleScrollToSection("section8", -75)}>
-                  <span className="material-symbols-outlined format">
-                    format_indent_increase
-                  </span>
+                <li onClick={() => handleScrollToSection("section9", -75)}
+                  className={activeSection === "section9" ? "active" : ""}>
                   <div className="items-content">
+                    <span className="material-symbols-outlined format">
+                      format_indent_increase
+                    </span>
                     TikTok
-                    <div className="content">Engage younger audiences.</div>
                   </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </li>
               </ul>
             </div>
@@ -207,7 +231,9 @@ const DigitalMarketing = () => {
                   </div>
                 </div>
               </div>
-              <section id="section0" className="section">
+              <section id="section1"
+                className={`section ${activeSection === "section1" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[0] = el}>
                 <div className="image-container">
                   <img src={image0} alt="Facebook Marketing" />
                 </div>
@@ -232,7 +258,9 @@ const DigitalMarketing = () => {
                   </div>
                 </div>
               </section>
-              <section id="section1" className="section">
+              <section id="section2"
+                className={`section ${activeSection === "section2" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[1] = el}>
                 <div className="image-container">
                   <img src={image1} alt="Facebook Marketing" />
                 </div>
@@ -257,7 +285,9 @@ const DigitalMarketing = () => {
                 </div>
               </section>
 
-              <section id="section2" className="section">
+              <section id="section3"
+                className={`section ${activeSection === "section3" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[2] = el}>
                 <div className="image-container">
                   <img src={image2} alt="Instagram Marketing" />
                 </div>
@@ -282,7 +312,9 @@ const DigitalMarketing = () => {
                 </div>
               </section>
 
-              <section id="section3" className="section">
+              <section id="section4"
+                className={`section ${activeSection === "section4" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[3] = el}>
                 <div className="image-container">
                   <img src={image3} alt="LinkedIn Marketing" />
                 </div>
@@ -306,7 +338,9 @@ const DigitalMarketing = () => {
                 </div>
               </section>
 
-              <section id="section4" className="section">
+              <section id="section5"
+                className={`section ${activeSection === "section5" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[4] = el}>
                 <div className="image-container">
                   <img src={image4} alt="Twitter Marketing" />
                 </div>
@@ -330,7 +364,9 @@ const DigitalMarketing = () => {
                 </div>
               </section>
 
-              <section id="section5" className="section">
+              <section id="section6" 
+              className={`section ${activeSection === "section6" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[5] = el}>
                 <div className="image-container">
                   <img src={image5} alt="YouTube Marketing" />
                 </div>
@@ -353,7 +389,9 @@ const DigitalMarketing = () => {
                   </div>
                 </div>
               </section>
-              <section id="section6" className="section">
+              <section id="section7" 
+              className={`section ${activeSection === "section7" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[6] = el}>
                 <div className="image-container">
                   <img src={image6} alt="Google Ads" />
                 </div>
@@ -377,7 +415,9 @@ const DigitalMarketing = () => {
                 </div>
               </section>
 
-              <section id="section7" className="section">
+              <section id="section8" 
+              className={`section ${activeSection === "section8" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[7] = el}>
                 <div className="image-container">
                   <img src={image7} alt="Pinterest" />
                 </div>
@@ -402,7 +442,9 @@ const DigitalMarketing = () => {
                 </div>
               </section>
 
-              <section id="section8" className="section">
+              <section id="section9" 
+              className={`section ${activeSection === "section9" ? "section-active" : ""}`}
+                ref={el => sectionRefs.current[8] = el}>
                 <div className="image-container">
                   <img src={image8} alt="TikTok" />
                 </div>
@@ -439,7 +481,7 @@ const DigitalMarketing = () => {
           </button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
 
     </>
   );

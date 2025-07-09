@@ -4,64 +4,109 @@ import cloudimage from "../Home/image/pngegg.png";
 import forexImage from "../Home/image/forex-icon-0.jpg";
 import { Link } from "react-router-dom";
 import NewsSection from "./NewsSection";
+import exploreImage from "../../assets/explore.png"
+import quickImage from "../../assets/quick.png";
 const LandingPage = () => {
   return (
     <div className="landing-page">
       <div className="grid-container container">
         {/* == Container One */}
         <div className="grid-nav">
-          {/* == item one == */}
-          <div className="navOne">
-            <h3>Quick Links</h3>
+          {/* == Quick Links == */}
+          <div className="nav-section navOne">
+            <h3>
+              <img src={exploreImage} alt="" />
+              Quick Links
+            </h3>
+            <br />
             <ul>
               <li>
-                <a href="">
-                  About
-                  <div className="line"></div>
-                  <span className="material-symbols-outlined">south_east</span>
+                <a href="#">
+                  <div className="link">
+                    <span className="nav-icon material-symbols-outlined">info</span>
+                    About
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </a>
               </li>
               <li>
-                <a href="">
-                  Service
-                  <div className="line"></div>
-                  <span className="material-symbols-outlined">south_east</span>
+                <a href="#">
+                  <div className="link">
+                    <span className="nav-icon material-symbols-outlined">handshake</span>
+                    Service
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </a>
               </li>
               <li>
-                <a href="">
-                  Blog
-                  <div className="line"></div>
-                  <span className="material-symbols-outlined">south_east</span>
+                <a href="#">
+                  <div className="link">
+                    <span className="nav-icon material-symbols-outlined">article</span>
+                    Blog
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </a>
               </li>
               <li>
-                <a href="">
-                  Contact
-                  <div className="line"></div>
-                  <span className="material-symbols-outlined">south_east</span>
+                <a href="#">
+                  <div className="link">
+                    <span className="nav-icon material-symbols-outlined">contact_mail</span>
+                    Contact
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* == item two == */}
-          <div className="navTwo">
-            <h3>Explore Opportunities</h3>
-            <a href="">
-              <p>Bootcamps</p>
-            </a>
-            <a href="">
-              <p>Events</p>
-            </a>
-            <a href="">
-              <p>Pre-Session</p>
-            </a>
-            <a href="">
-              <p>Workshops</p>
-            </a>
+          <div className="nav-section navTwo">
+            <br />
+            <h3>
+              <img src={quickImage} alt="" />
+              Explore Opportunities
+            </h3>
+            <br />
+            <ul>
+              <li>
+                <a href="#">
+                  <div className="link">
+                    <span className="material-symbols-outlined nav-icon">school</span>
+                    Bootcamps
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div className="link">
+                    <span className="material-symbols-outlined nav-icon">event</span>
+                    Events
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div className="link">
+                    <span className="material-symbols-outlined nav-icon">timer</span>
+                    Pre-Session
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div className="link">
+                    <span className="material-symbols-outlined nav-icon">psychology</span>
+                    Workshops
+                  </div>
+                  <span className="material-symbols-outlined arrow-icon">south_east</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+
         {/* == End Container One */}
 
         {/* == Container Two == */}

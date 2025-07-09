@@ -1,11 +1,11 @@
-import "./Css/details.css";
-import Header from "../Header/HeaderPage";
-import Navigation from "../Navigation/NavPage";
+import "../Css/details.css";
+import Header from "../../Header/HeaderPage";
+import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "./images/Software/PngItem_256506.png";
+import Image from "../images/Software/next js.webp";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -119,14 +119,14 @@ const Details = () => {
             <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>React-Native</span>
+          <span>Next JS</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="React Native Development Course" />
+                <img src={Image} alt="Next.js Development Course" />
               </div>
 
               <div className="concept-container">
@@ -159,35 +159,36 @@ const Details = () => {
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>📱 Mobile App Development with React Native</h3>
+                      <h3>🚀 Full-Stack Web Development with Next.js</h3>
                       <p>
                         This course is designed to equip you with the skills
-                        needed to build scalable and high-performance
-                        cross-platform mobile applications using React Native:
+                        needed to build scalable and high-performance web
+                        applications using Next.js:
                       </p>
                       <div className="data-item">
-                        📌 1: Introduction to React Native
+                        📌 1: Introduction to Next.js
                       </div>
                       <div className="data-item">
-                        📌 2: Building UI with React Native Components
+                        📌 2: React.js Fundamentals for Next.js
                       </div>
                       <div className="data-item">
-                        📌 3: State Management & Hooks
+                        📌 3: Server-Side Rendering (SSR) and Static Site
+                        Generation (SSG)
                       </div>
                       <div className="data-item">
-                        📌 4: Navigation & Routing in React Native
+                        📌 4: Next.js Routing and Dynamic Pages
                       </div>
                       <div className="data-item">
-                        📌 5: API Integration & Data Fetching
+                        📌 5: Data Fetching in Next.js
                       </div>
                       <div className="data-item">
-                        📌 6: State Management with Redux
+                        📌 6: API Routes and Serverless Functions
                       </div>
                       <div className="data-item">
-                        📌 7: Debugging & Performance Optimization
+                        📌 7: Optimizing Performance in Next.js
                       </div>
                       <div className="data-item">
-                        📌 8: Final Project & Real-World Applications
+                        📌 8: Deployment & Hosting Next.js Apps
                       </div>
                     </div>
                   </div>
@@ -200,27 +201,39 @@ const Details = () => {
                       <h3>🎯 Learning Goals</h3>
                       <ul>
                         <li>
-                          ✅ Build cross-platform mobile applications using
-                          React Native
+                          ✅ Build full-stack applications with Next.js and
+                          React.js
                         </li>
                         <li>
-                          ✅ Work with React Native components, styling, and
-                          animations
+                          ✅ Leverage Server-Side Rendering (SSR) and Static
+                          Site Generation (SSG)
                         </li>
-                        <li>✅ Implement navigation using React Navigation</li>
-                        <li>✅ Manage state efficiently with Redux</li>
-                        <li>✅ Fetch and integrate data from APIs</li>
                         <li>
-                          ✅ Deploy mobile apps on Android & iOS platforms
+                          ✅ Implement data fetching strategies using Next.js
+                          (getServerSideProps, getStaticProps)
+                        </li>
+                        <li>✅ Master routing and dynamic pages in Next.js</li>
+                        <li>
+                          ✅ Integrate API routes and serverless functions in
+                          Next.js
+                        </li>
+                        <li>
+                          ✅ Deploy applications with Next.js on Vercel,
+                          Netlify, or other platforms
                         </li>
                       </ul>
 
                       <h4>🔥 What You’ll Build:</h4>
                       <p>This course includes hands-on projects, such as:</p>
                       <ul>
-                        <li>📱 A Social Media App with User Authentication</li>
-                        <li>🛍️ An E-Commerce App with Payment Integration</li>
-                        <li>🚗 A Ride-Sharing App with Geolocation Features</li>
+                        <li>
+                          🌍 A Blog Website with Server-Side Rendering (SSR)
+                        </li>
+                        <li>
+                          🛍️ An E-Commerce Platform with Static Site Generation
+                          (SSG)
+                        </li>
+                        <li>📊 A Dashboard with Real-Time Data Fetching</li>
                       </ul>
                     </div>
                   </div>
@@ -230,31 +243,32 @@ const Details = () => {
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in React Native</h3>
+                      <h3>💼 Career Opportunities in Next.js</h3>
                       <p>
                         After completing this course, you’ll be ready to work in
                         the following roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>React Native Developer</strong> - Build and
-                          maintain mobile applications.
+                          🔹 <strong>Full-Stack Developer</strong> - Build and
+                          manage full-stack web applications using Next.js.
                         </li>
                         <li>
-                          🔹 <strong>Mobile App Developer</strong> - Create
-                          cross-platform apps for iOS and Android.
+                          🔹 <strong>Frontend Developer</strong> - Specialize in
+                          React.js and Next.js for optimized performance and
+                          SEO.
                         </li>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Focus on
-                          mobile UI/UX development.
+                          🔹 <strong>Backend Developer</strong> - Develop
+                          serverless API routes and manage database operations.
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Build React
-                          Native apps for clients.
+                          🔹 <strong>Freelance Developer</strong> - Build
+                          scalable, SEO-friendly applications for clients.
                         </li>
                         <li>
-                          🔹 <strong>Startup Founder</strong> - Develop and
-                          launch your own mobile-based business.
+                          🔹 <strong>Startup Founder</strong> - Launch your own
+                          scalable web-based business using Next.js.
                         </li>
                       </ul>
 
@@ -262,7 +276,7 @@ const Details = () => {
                       <p>
                         By the end of this course, you’ll have a portfolio of
                         real-world projects and the confidence to build
-                        production-ready mobile applications!
+                        production-ready web applications with Next.js!
                       </p>
                     </div>
                   </div>
@@ -273,14 +287,15 @@ const Details = () => {
             {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>React Native Development Course</h1>
+                <h1>Next.js Development Course</h1>
                 <p>
-                  A comprehensive course on mobile app development using React
-                  Native. It covers both UI/UX and backend integration, teaching
-                  you how to build dynamic cross-platform mobile applications.
-                  The course includes hands-on projects, API integration,
-                  authentication, and deployment strategies to make you a
-                  proficient React Native developer.
+                  A comprehensive course on full-stack development using the
+                  Next.js framework, which is built on top of React.js. It
+                  covers both frontend and backend development, teaching you how
+                  to build highly optimized and SEO-friendly web applications.
+                  The course includes hands-on projects, dynamic routing, data
+                  fetching methods (SSR, SSG), API routes, and deployment
+                  strategies to make you a proficient Next.js developer.
                 </p>
               </div>
 
@@ -292,11 +307,11 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The React Native Developer Certification validates your
-                  expertise in building mobile applications. It covers UI/UX
-                  development, API integration, state management,
-                  authentication, and deployment. This certification helps
-                  demonstrate your skills to potential employers and clients.
+                  The Next.js Developer Certification validates your expertise
+                  in building fast, scalable web applications using Next.js. It
+                  covers frontend and backend development, routing, data
+                  fetching, and deployment. This certification helps demonstrate
+                  your skills to potential employers and clients.
                 </p>
               </div>
 
@@ -322,38 +337,39 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the React Native Development
-                  Certification include:
+                  Benefits of completing the Next.js Development Certification
+                  include:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Learn to build scalable and dynamic mobile applications.
+                      Learn to build SEO-friendly, optimized web applications.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master front-end development using React Native.
+                      Master frontend development with Next.js and React.js.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world project experience.
+                      Gain real-world project experience in building dynamic
+                      applications.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your skills.
+                      Receive a certification to showcase your Next.js skills.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects as a React Native developer.
+                      Improve your job prospects as a Next.js developer.
                     </li>
                   </ul>
                 </p>
@@ -367,10 +383,11 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers React Native, React Navigation, Redux,
-                  Firebase, and API integration. Additional topics include
-                  authentication, push notifications, and app deployment to
-                  Google Play and Apple App Store.
+                  The course covers Next.js, React.js, Server-Side Rendering
+                  (SSR), Static Site Generation (SSG), and API routes.
+                  Additional topics include authentication, deployment
+                  strategies, and optimizing performance for Next.js
+                  applications.
                 </p>
               </div>
             </div>

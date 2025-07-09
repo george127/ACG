@@ -1,11 +1,11 @@
-import "./Css/details.css";
-import Header from "../Header/HeaderPage";
-import Navigation from "../Navigation/NavPage";
+import "../Css/details.css";
+import Header from "../../Header/HeaderPage";
+import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "./images/Software/Typescript_logo.png";
+import Image from "../images/Software/avt.frontend.png";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -119,14 +119,14 @@ const Details = () => {
             <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>TypeScript</span>
+          <span>FrontEnd</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="TypeScript Development Course" />
+                <img src={Image} alt="Front-end development course" />
               </div>
 
               <div className="concept-container">
@@ -154,158 +154,168 @@ const Details = () => {
 
                 {/* Content Section */}
                 <div className="content-wrapper">
-                  {/* Course Overview */}
                   <div
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 Full-Stack Web Development with TypeScript</h3>
-                      <p>
-                        This course is designed to equip you with the skills
-                        needed to build scalable and high-performance web
-                        applications using TypeScript:
-                      </p>
                       <div className="data-item">
-                        📌 1: Introduction to TypeScript
+                        📌 1: Introduction to Frontend Development
+                      </div>
+                      <div className="data-item">📌 2: HTML Fundamentals</div>
+                      <div className="data-item">
+                        📌 3: CSS Basics & Styling Web Pages
                       </div>
                       <div className="data-item">
-                        📌 2: TypeScript Basics and Syntax
+                        📌 4: Advanced CSS Techniques
                       </div>
                       <div className="data-item">
-                        📌 3: Working with Types in TypeScript
+                        📌 5: JavaScript Essentials
+                      </div>
+                      <div className="data-item">📌 6: Advanced JavaScript</div>
+                      <div className="data-item">
+                        📌 7: JavaScript DOM Projects
                       </div>
                       <div className="data-item">
-                        📌 4: Advanced TypeScript Features (Generics,
-                        Interfaces, etc.)
-                      </div>
-                      <div className="data-item">
-                        📌 5: TypeScript with React.js
-                      </div>
-                      <div className="data-item">
-                        📌 6: Error Handling and Debugging in TypeScript
-                      </div>
-                      <div className="data-item">
-                        📌 7: TypeScript and Node.js
-                      </div>
-                      <div className="data-item">
-                        📌 8: TypeScript Best Practices and Code Organization
+                        📌 8: Final Project & Deployment
                       </div>
                     </div>
                   </div>
-
-                  {/* Learning Objectives */}
                   <div
                     className={`content ${activeContent === 2 ? "show" : ""}`}
                   >
                     <div className="course-data">
-                      <h3>🎯 Learning Goals</h3>
+                      <div className="course-detail">
+                        <p>
+                          <strong>
+                            <i className="fas fa-info-circle"></i> Course
+                            Description:
+                          </strong>{" "}
+                          This course is designed to teach you the essentials of
+                          frontend development, including HTML, CSS, JavaScript,
+                          and React. You will learn the basics of building
+                          responsive and interactive websites, and by the end of
+                          the course, you will have a solid foundation for
+                          building modern web applications.
+                        </p>
+
+                        <p>
+                          <strong>
+                            <i className="fas fa-user-graduate"></i> Course
+                            Prerequisites:
+                          </strong>{" "}
+                          None (This course is designed for beginners)
+                        </p>
+                      </div>
+
+                      <h4>Learning Objectives:</h4>
                       <ul>
                         <li>
-                          ✅ Master TypeScript fundamentals and its integration
-                          with JavaScript
+                          Understand the basics of HTML, CSS, and JavaScript
                         </li>
                         <li>
-                          ✅ Utilize TypeScript's type system to enhance code
-                          quality and reduce errors
+                          Learn how to use tools like Git and GitHub for version
+                          control
                         </li>
                         <li>
-                          ✅ Implement advanced features like interfaces,
-                          generics, and type aliases
+                          Build responsive and mobile-friendly web pages using
+                          CSS Flexbox and Grid
                         </li>
                         <li>
-                          ✅ Learn to use TypeScript effectively with React.js
+                          Understand JavaScript fundamentals and work with the
+                          DOM
                         </li>
+                        <li>Develop web applications using React</li>
                         <li>
-                          ✅ Write clean, maintainable, and scalable TypeScript
-                          code for both front-end and back-end
-                        </li>
-                        <li>
-                          ✅ Build real-world projects using TypeScript and
-                          integrate it with frameworks like React and Node.js
+                          Deploy your projects online using modern hosting
+                          platforms
                         </li>
                       </ul>
 
-                      <h4>🔥 What You’ll Build:</h4>
-                      <p>This course includes hands-on projects, such as:</p>
+                      <h4>Course Structure:</h4>
+                      <p>
+                        This course is divided into 7 major lessons, each
+                        focusing on a key aspect of frontend development. Each
+                        lesson includes a mix of video lectures, exercises, and
+                        project work to help reinforce your learning:
+                      </p>
                       <ul>
-                        <li>
-                          🌍 A TypeScript-based React Application with Type
-                          Safety
-                        </li>
-                        <li>
-                          🛍️ An E-Commerce Platform with Backend Integration
-                          using TypeScript
-                        </li>
-                        <li>
-                          📊 A Dashboard with Real-Time Data Fetching and Type
-                          Safety
-                        </li>
+                        <li>Lesson 1: Introduction to Frontend Development</li>
+                        <li>Lesson 2: HTML Fundamentals</li>
+                        <li>Lesson 3: CSS Basics & Styling Web Pages</li>
+                        <li>Lesson 4: Advanced CSS Techniques</li>
+                        <li>Lesson 5: JavaScript Essentials</li>
+                        <li>Lesson 6: Advanced JavaScript Concepts</li>
+                        <li>Lesson 7: Introduction to React</li>
                       </ul>
+
+                      <h4>Course Delivery:</h4>
+                      <p>
+                        This course is delivered online with recorded video
+                        lessons and hands-on assignments.
+                      </p>
+
+                      <h4>Certification:</h4>
+                      <p>
+                        Upon successful completion of the course, you will
+                        receive a certificate of completion that demonstrates
+                        your knowledge of frontend development.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Career Paths */}
                   <div
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in TypeScript</h3>
+                      <h3>Job Roles After Course Completion:</h3>
                       <p>
-                        After completing this course, you’ll be ready to work in
-                        the following roles:
+                        Upon finishing this course, you will be equipped to
+                        pursue a variety of roles in the frontend development
+                        field, including:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Build and
-                          manage full-stack applications using TypeScript.
+                          <strong>Frontend Developer:</strong> Develop and
+                          maintain the user interface of websites and web
+                          applications.
                         </li>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Specialize in
-                          TypeScript with React.js to build optimized,
-                          maintainable applications.
+                          <strong>Web Developer:</strong> Build and optimize
+                          websites, ensuring good performance, user experience,
+                          and functionality.
                         </li>
                         <li>
-                          🔹 <strong>Backend Developer</strong> - Develop APIs
-                          and server-side applications with TypeScript and
-                          Node.js.
+                          <strong>UI/UX Designer:</strong> Focus on designing
+                          user-friendly, visually appealing interfaces and user
+                          experiences.
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Build
-                          scalable, maintainable applications for clients using
-                          TypeScript.
+                          <strong>React Developer:</strong> Specialize in
+                          building web applications using React.js.
                         </li>
                         <li>
-                          🔹 <strong>Startup Founder</strong> - Build a scalable
-                          business using TypeScript for both client-side and
-                          server-side code.
+                          <strong>Freelance Web Developer:</strong> Work as a
+                          freelancer, offering your services to clients for
+                          building websites and web applications.
                         </li>
                       </ul>
-
-                      <h4>🚀 Take Your Skills to the Next Level</h4>
-                      <p>
-                        By the end of this course, you’ll have a portfolio of
-                        real-world projects and the confidence to build
-                        production-ready applications using TypeScript!
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>TypeScript Development Course</h1>
+                <h1>Front-End Development Course</h1>
                 <p>
-                  A comprehensive course on full-stack development using
-                  TypeScript, which is a statically typed superset of
-                  JavaScript. It covers both frontend and backend development,
-                  teaching you how to build highly optimized, type-safe web
-                  applications. The course includes hands-on projects, advanced
-                  TypeScript features like generics and interfaces, as well as
-                  integrating TypeScript with frameworks like React.js and
-                  Node.js.
+                  A comprehensive course on front-end development that covers
+                  HTML, CSS, JavaScript, and various frameworks and libraries.
+                  It covers topics like responsive design, accessibility, and
+                  best practices. The course covers various online platforms and
+                  provides step-by-step tutorials and practice exercises. The
+                  course also offers a certificate of completion and valuable
+                  resources to help you become a successful front-end developer.
                 </p>
               </div>
 
@@ -317,15 +327,14 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The TypeScript Developer Certification validates your
-                  expertise in building type-safe, scalable web applications
-                  using TypeScript. It covers frontend and backend development,
-                  working with types, and integrating TypeScript with popular
-                  frameworks like React.js and Node.js. This certification helps
-                  demonstrate your skills to potential employers and clients.
+                  The Front-End Development Certification (FED) is an official
+                  certification by the World Wide Web Consortium (W3C) that
+                  validates advanced skills in front-end development. It covers
+                  topics like HTML, CSS, JavaScript, and various frameworks and
+                  libraries. The certification is available for both individuals
+                  and organizations.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -334,12 +343,10 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, including hours of video lessons
-                  and hands-on coding exercises. It also includes real-world
-                  project assignments and a final capstone project.
+                  The course is 13 weeks long, covering hours of videos and hours
+                  of hands-on practice exercises.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -348,45 +355,42 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the TypeScript Development
-                  Certification include:
+                  Benefits of completing the Front-End Development Certification
+                  include:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Learn to write type-safe, scalable code with TypeScript.
+                      Gain valuable experience in front-end development
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master frontend development with React.js and TypeScript.
+                      Become a certified professional in front-end development
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world project experience in building dynamic
-                      applications.
+                      Become a valuable resource for your career
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your TypeScript
-                      skills.
+                      Get a certificate of completion
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects as a TypeScript developer.
+                      Expand your knowledge and skills
                     </li>
                   </ul>
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -395,14 +399,13 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers TypeScript, React.js, Node.js, working with
-                  types, interfaces, and generics. Additional topics include
-                  error handling, debugging, and best practices for TypeScript
-                  applications.
+                  The course covers HTML, CSS, JavaScript, and various
+                  frameworks and libraries such as React and others. It also
+                  covers topics like responsive design, accessibility, and best
+                  practices.
                 </p>
               </div>
             </div>
-
             {/* == Third Item */}
             <div className="item">
               <div className="payment-details">
