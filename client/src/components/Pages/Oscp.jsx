@@ -2,7 +2,7 @@ import "./Css/style.css";
 import Header from "../Header/HeaderPage";
 import Navigation from "../Navigation/NavPage";
 import image1 from "./images/Cyber/image.png";
-import Image from "./images/Cyber/oscp.png";
+import Image from "./images/Cyber/Oscp.png";
 import { NavLink } from "react-router-dom";
 import Footer from "../footer/Footer";
 
