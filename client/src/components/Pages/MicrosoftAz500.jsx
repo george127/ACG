@@ -2,7 +2,7 @@ import "./Css/style.css";
 import Header from "../Header/HeaderPage";
 import Navigation from "../Navigation/NavPage";
 import image1 from "./images/Cyber/azure-security-engineer-associate.png";
-import Image from "./images/Cyber/cyber.png";
+import Image from "./images/Cyber/Cyber.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Footer from "../footer/Footer";
