@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const PaymentPage = () => {
   // Function to redirect user to Paystack payment page
   const handlePaystackPayment = () => {
-    window.location.href = "https://paystack.shop/pay/5if--ehzfc";
+    window.location.href = "https://paystack.shop/pay/t0lgdwrl6s";
   };
 
   return (

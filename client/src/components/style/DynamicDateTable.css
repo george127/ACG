@@ -1,7 +1,6 @@
 .calendar-clock-container {
   width: 100%;
   padding: 20px;
-  border-radius: 10px;
   background: #fff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -20,7 +19,6 @@
 
 .calendar-clock-container .real-time-item {
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
   padding: 10px 30px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12px);
