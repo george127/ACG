@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO)
   });
 
 // Health check route 
-app.get('/test', (req, res) => { 
+app.get('/', (req, res) => { 
   res.send('API is running...');
 });
 
