@@ -175,10 +175,10 @@ const DataAnalytics = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/DataAnalytics/CloudDataAnalytics" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -202,10 +202,10 @@ const DataAnalytics = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/DataAnalytics/TraditionalDataAnalytics" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>

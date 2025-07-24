@@ -277,10 +277,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/Facebook" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -304,10 +304,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/Instagram" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -330,10 +330,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/LinkedIn" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -356,10 +356,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/Twitter" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -382,10 +382,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/YouTube" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -407,10 +407,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/Google-Ads" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -434,10 +434,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/Pinterest" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -461,10 +461,10 @@ const DigitalMarketing = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 2,040</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Marketing/TikTok" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>

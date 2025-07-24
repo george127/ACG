@@ -123,7 +123,7 @@
 }
 
 .course-info h4 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #494949;
 }
@@ -304,7 +304,7 @@
 
 
 .Roles-container h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #575454;
   margin-bottom: 15px;
   text-align: left;
@@ -321,11 +321,11 @@
 }
 
 .Roles-container li {
-  font-size: 1rem;
+  font-size: 0.9rem;
   background: white;
   margin-bottom: 12px;
   padding: 12px 16px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

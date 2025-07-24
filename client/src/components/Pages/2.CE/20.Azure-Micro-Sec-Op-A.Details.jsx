@@ -2,10 +2,11 @@ import "../Css/details.css";
 import Header from "../../Header/HeaderPage";
 import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "../images/Software/Javascript.png";
+import Image from "../images/Cloud/Azure/12.Microsoft Security Operations Analyst.SC-200.png";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "../../footer/Footer";
+
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -24,19 +25,18 @@ const Details = () => {
     if (section) {
       const sectionPosition =
         section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+  
   const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,7 +45,7 @@ const Details = () => {
         formData
       );
       console.log(response.data);
-      setShowPopup(true); // Show the pop-up
+      setShowPopup(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrorMessage(true);
@@ -119,14 +119,14 @@ const Details = () => {
             <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>JavaScript</span>
+          <span>Microsoft Security Operations Analyst</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="JavaScript Development Course" />
+                <img src={Image} alt="Microsoft Security Operations Analyst" />
               </div>
 
               <div className="concept-container">
@@ -154,147 +154,151 @@ const Details = () => {
 
                 {/* Content Section */}
                 <div className="content-wrapper">
-                  {/* Course Overview */}
                   <div
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 JavaScript Development Mastery</h3>
-                      <p>
-                        This course is designed to equip you with the skills
-                        needed to master JavaScript:
-                      </p>
                       <div className="data-item">
-                        📌 1: Introduction to JavaScript
+                        📌 1: Security Operations Fundamentals
                       </div>
                       <div className="data-item">
-                        📌 2: Understanding JavaScript Variables and Data Types
+                        📌 2: Microsoft Defender Suite
                       </div>
                       <div className="data-item">
-                        📌 3: Functions and Scope in JavaScript
+                        📌 3: Azure Sentinel Implementation
                       </div>
                       <div className="data-item">
-                        📌 4: Asynchronous JavaScript with Promises and
-                        Async/Await
+                        📌 4: Threat Hunting Techniques
                       </div>
                       <div className="data-item">
-                        📌 5: JavaScript DOM Manipulation
+                        📌 5: Incident Response Procedures
                       </div>
                       <div className="data-item">
-                        📌 6: Working with JavaScript Events
+                        📌 6: Security Monitoring and Alerting
                       </div>
                       <div className="data-item">
-                        📌 7: JavaScript Error Handling and Debugging
+                        📌 7: KQL (Kusto Query Language)
                       </div>
                       <div className="data-item">
-                        📌 8: Modern JavaScript Features (ES6 and beyond)
+                        📌 8: Capstone Project and SC-200 Prep
                       </div>
                     </div>
                   </div>
-
-                  {/* Learning Objectives */}
                   <div
                     className={`content ${activeContent === 2 ? "show" : ""}`}
                   >
                     <div className="course-data">
-                      <h3>🎯 Learning Goals</h3>
+                      <div className="course-detail">
+                        <p>
+                          <strong>
+                            <i className="fas fa-info-circle"></i> Course
+                            Description:
+                          </strong>{" "}
+                          This comprehensive course teaches you to monitor, detect, investigate, and respond to security threats using Microsoft security technologies. You&apos;ll learn to use Microsoft Defender suite, Azure Sentinel, and other tools to protect organizational assets.
+                        </p>
+
+                        <p>
+                          <strong>
+                            <i className="fas fa-user-graduate"></i> Course
+                            Prerequisites:
+                          </strong>{" "}
+                          Basic understanding of security concepts and familiarity with Microsoft cloud services. Experience with security operations is helpful but not required.
+                        </p>
+                      </div>
+
+                      <h4>Learning Objectives:</h4>
                       <ul>
                         <li>
-                          ✅ Master the fundamentals of JavaScript and its
-                          syntax.
+                          Implement Microsoft Defender security solutions
                         </li>
                         <li>
-                          ✅ Understand how JavaScript variables, data types,
-                          and operators work.
+                          Configure and manage Azure Sentinel
                         </li>
                         <li>
-                          ✅ Learn how to handle asynchronous operations using
-                          promises and async/await.
+                          Develop threat hunting queries and investigations
                         </li>
                         <li>
-                          ✅ Gain proficiency in manipulating the DOM with
-                          JavaScript.
+                          Respond to security incidents using Microsoft tools
                         </li>
                         <li>
-                          ✅ Implement JavaScript error handling and debugging
-                          techniques.
+                          Create security monitoring rules and alerts
                         </li>
                         <li>
-                          ✅ Keep up with modern JavaScript features, including
-                          ES6 and newer updates.
+                          Write advanced KQL queries for security analysis
+                        </li>
+                        <li>
+                          Implement security orchestration and automation
+                        </li>
+                        <li>
+                          Prepare for Microsoft&apos;s SC-200 certification exam
                         </li>
                       </ul>
 
-                      <h4>🔥 What You’ll Build:</h4>
-                      <p>This course includes hands-on projects, such as:</p>
+                      <h4>Course Structure:</h4>
+                      <p>
+                        This 8-module course combines theoretical knowledge with
+                        hands-on security operations implementations:
+                      </p>
                       <ul>
-                        <li>🌍 A JavaScript-based To-Do List Application</li>
-                        <li>🛍️ A Shopping Cart with Dynamic Item Additions</li>
-                        <li>
-                          📊 A Weather Dashboard that fetches real-time data
-                        </li>
+                        <li>Module 1: Security Operations Fundamentals</li>
+                        <li>Module 2: Microsoft Defender Suite</li>
+                        <li>Module 3: Azure Sentinel</li>
+                        <li>Module 4: Threat Hunting</li>
+                        <li>Module 5: Incident Response</li>
+                        <li>Module 6: Security Monitoring</li>
+                        <li>Module 7: KQL for Security</li>
+                        <li>Module 8: Security Operations Project</li>
                       </ul>
+
+                      <h4>Course Delivery:</h4>
+                      <p>
+                        Instructor-led training with hands-on labs in live Microsoft security environments. Includes access to security operations tools for practical exercises.
+                      </p>
+
+                      <h4>Certification:</h4>
+                      <p>
+                        Course prepares you for Microsoft Certified: Security Operations Analyst Associate (SC-200) exam. Includes one free exam attempt voucher.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Career Paths */}
                   <div
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in JavaScript</h3>
+                      <h3>Job Roles After Course Completion:</h3>
                       <p>
-                        After completing this course, you’ll be ready to work in
-                        the following roles:
+                        Graduates of this course will be prepared for these
+                        in-demand roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Build
-                          interactive websites using JavaScript.
+                          <strong>Security Operations Analyst:</strong> Monitor and respond to security threats
                         </li>
                         <li>
-                          🔹 <strong>JavaScript Developer</strong> - Specialize
-                          in JavaScript to create efficient web applications.
+                          <strong>Threat Hunter:</strong> Proactively search for security risks
                         </li>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Use
-                          JavaScript in both the frontend and backend of web
-                          applications.
+                          <strong>Incident Responder:</strong> Investigate and mitigate security incidents
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Offer
-                          JavaScript-based development services for various
-                          clients.
+                          <strong>SIEM Specialist:</strong> Manage security information and event systems
                         </li>
                         <li>
-                          🔹 <strong>Software Engineer</strong> - Create
-                          scalable and high-performance JavaScript applications.
+                          <strong>Cloud Security Analyst:</strong> Protect cloud-based assets and services
                         </li>
                       </ul>
-
-                      <h4>🚀 Take Your Skills to the Next Level</h4>
-                      <p>
-                        By the end of this course, you’ll have a portfolio of
-                        JavaScript projects and the confidence to build
-                        production-ready applications!
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* == Second Item == */}
+            {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>JavaScript Development Course</h1>
+                <h1>Microsoft Security Operations Analyst</h1>
                 <p>
-                  A comprehensive course on mastering JavaScript, covering both
-                  the fundamentals and advanced concepts. It includes topics
-                  like asynchronous programming, DOM manipulation, error
-                  handling, and modern JavaScript features (ES6+). Through
-                  hands-on projects and real-world examples, you’ll gain the
-                  skills necessary to become a proficient JavaScript developer.
+                  Master the skills to protect organizations from modern security threats using Microsoft security technologies. This comprehensive course covers threat detection, incident response, security monitoring, and threat hunting while preparing for the SC-200 certification exam.
                 </p>
               </div>
 
@@ -306,14 +310,9 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The JavaScript Developer Certification validates your
-                  expertise in mastering JavaScript. It covers both the basics
-                  and advanced techniques, and demonstrates your ability to
-                  build scalable, dynamic applications. This certification will
-                  boost your resume and attract potential employers or clients.
+                  This course prepares you for the Microsoft Certified: Security Operations Analyst Associate certification (SC-200), validating your ability to mitigate threats using Microsoft security solutions.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -322,12 +321,9 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, with video lessons, interactive
-                  coding exercises, and project-based assignments to help you
-                  practice what you’ve learned.
+                  The course is 10 weeks long, with 50 hours of instructor-led training and 70+ hours of hands-on labs and projects.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -336,45 +332,41 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the JavaScript Development
-                  Certification include:
+                  Benefits of completing this Security Operations course:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Build interactive, dynamic websites with JavaScript.
+                      Hands-on experience with Microsoft security tools
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master modern JavaScript features and techniques.
+                      Preparation for SC-200 certification exam
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world experience with JavaScript projects.
+                      Skills for high-demand security operations roles
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your JavaScript
-                      skills.
+                      Access to Microsoft security resources
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects and marketability as a
-                      JavaScript developer.
+                      Career guidance and job placement assistance
                     </li>
                   </ul>
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -383,18 +375,15 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers JavaScript, asynchronous programming
-                  (Promises, async/await), DOM manipulation, error handling,
-                  modern JavaScript features (ES6+), and debugging techniques.
+                  Microsoft Defender for Endpoint, Microsoft Defender for Identity, Microsoft Defender for Cloud Apps, Azure Sentinel, Microsoft 365 Defender, Kusto Query Language (KQL), Azure Monitor, and Security Orchestration Automation and Response (SOAR).
                 </p>
               </div>
             </div>
-
             {/* == Third Item */}
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 3,000</div>
+                <div className="info">Ghc 8,500</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>
@@ -444,11 +433,11 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Date</option>
-                    <option value="January 5">January 5</option>
-                    <option value="February 5">February 5</option>
-                    <option value="March 5">March 5</option>
-                    <option value="April 5">April 5</option>
-                    <option value="May 5">May 5</option>
+                    <option value="January 10">January 10</option>
+                    <option value="February 10">February 10</option>
+                    <option value="March 10">March 10</option>
+                    <option value="April 10">April 10</option>
+                    <option value="May 10">May 10</option>
                   </select>
                 </div>
 
@@ -463,14 +452,14 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Time</option>
-                    <option value="Morning 8:00 AM - 11:00 PM">
-                      Morning (8:00 AM - 11:00 PM)
+                    <option value="Morning 8:00 AM - 11:00 AM">
+                      Morning (8:00 AM - 11:00 AM)
                     </option>
-                    <option value="Afternoon 1:00 PM - 3:00 PM">
-                      Afternoon (1:00 PM - 3:00 PM)
+                    <option value="Afternoon 1:00 PM - 4:00 PM">
+                      Afternoon (1:00 PM - 4:00 PM)
                     </option>
-                    <option value="Evening 4:00 PM - 7:00 PM">
-                      Evening (4:00 PM - 7:00 PM)
+                    <option value="Evening 5:00 PM - 8:00 PM">
+                      Evening (5:00 PM - 8:00 PM)
                     </option>
                   </select>
                 </div>
@@ -561,8 +550,8 @@ const Details = () => {
               <div className="course-info">
                 <h4>Course Information</h4>
                 <p>
-                  The course fee is Ghc 5,920. You will be required to pay Ghc
-                  2,000 for the first installment and Ghc 1,960 for each
+                  The course fee is Ghc 8,500. You will be required to pay Ghc
+                  3,000 for the first installment and Ghc 2,750 for each
                   additional month.
                 </p>
 
@@ -573,9 +562,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Course duration:</b> 3 months, with classes held 3 days a
-                    week (Monday to Wednesday). Students will work on a project
-                    from Thursday to Sunday and submit it the following Monday.
+                    <b>Course duration:</b> 3 months intensive program, with classes 3 days
+                    a week (Monday to Wednesday). Security project work continues through weekends.
                   </p>
                 </div>
 
@@ -597,8 +585,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Additional Notes:</b> Students need to bring their own
-                    laptop.
+                    <b>Additional Notes:</b> Students receive full access to Microsoft security
+                    operations resources. Basic security concepts understanding recommended.
                   </p>
                 </div>
 
@@ -609,7 +597,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Days:</b> Monday to Wednesday (9 hours/week)
+                    <b>Class Days:</b> Monday to Wednesday (10 hours/week)
                   </p>
                 </div>
 
@@ -620,8 +608,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Time:</b> 8:00 AM - 11:00 PM (Morning Batch) or
-                    12:00 PM - 3:00 PM (Afternoon Batch)
+                    <b>Class Time:</b> 9:00 AM - 12:30 PM (Morning Batch) or
+                    2:00 PM - 5:30 PM (Afternoon Batch)
                   </p>
                 </div>
 
@@ -635,26 +623,14 @@ const Details = () => {
                     <b>Location:</b> Accra, Mallam-Gbawe
                   </p>
                 </div>
-
-                <div className="info-text">
-                  <div className="icons">
-                    <span className="material-symbols-outlined icon-person">
-                      person
-                    </span>
-                  </div>
-                  <p>
-                    <b>Instructor:</b> John Doe (Certified Frontend Developer
-                    with 10 years of teaching experience)
-                  </p>
-                </div>
               </div>
 
               <div className="course-info">
                 <h4>Course Cancellation/Reschedule Policy</h4>
                 <p>
-                  Once payment is made, it is **non-refundable**. Students are
-                  expected to carefully review the course details before making
-                  a payment.
+                  Once payment is made, it is <strong>non-refundable</strong>.
+                  Students are expected to carefully review the course details
+                  before making a payment.
                 </p>
                 <p>
                   In the event of unforeseen circumstances, we reserve the right
@@ -662,7 +638,7 @@ const Details = () => {
                   conducted at a later date, and enrolled students will be
                   notified in advance.
                 </p>
-                <p>A minimum of 3 students is required to start a class.</p>
+                <p>A minimum of 5 students is required to start a class.</p>
               </div>
             </div>
           </div>

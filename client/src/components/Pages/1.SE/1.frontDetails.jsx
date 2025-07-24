@@ -651,18 +651,6 @@ const Details = () => {
                     <b>Location:</b> Accra, Mallam-Gbawe
                   </p>
                 </div>
-
-                <div className="info-text">
-                  <div className="icons">
-                    <span className="material-symbols-outlined icon-person">
-                      person
-                    </span>
-                  </div>
-                  <p>
-                    <b>Instructor:</b> John Doe (Certified Frontend Developer
-                    with 10 years of teaching experience)
-                  </p>
-                </div>
               </div>
 
               <div className="course-info">

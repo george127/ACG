@@ -169,10 +169,10 @@ const Oscp = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 18,000</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/CyberSecurity/Off-Secu-Certified-Pro" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>

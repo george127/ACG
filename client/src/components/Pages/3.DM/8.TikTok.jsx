@@ -2,10 +2,11 @@ import "../Css/details.css";
 import Header from "../../Header/HeaderPage";
 import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "../images/Software/Javascript.png";
+import Image from "../images/Marketing/image8.png";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "../../footer/Footer";
+
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -24,19 +25,18 @@ const Details = () => {
     if (section) {
       const sectionPosition =
         section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+  
   const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,7 +45,7 @@ const Details = () => {
         formData
       );
       console.log(response.data);
-      setShowPopup(true); // Show the pop-up
+      setShowPopup(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrorMessage(true);
@@ -116,17 +116,17 @@ const Details = () => {
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
           <div className="items">
-            <NavLink to="/Software">Software</NavLink>
+            <NavLink to="/DigitalMarketing">Digital Marketing</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>JavaScript</span>
+          <span>TikTok Marketing Certification</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="JavaScript Development Course" />
+                <img src={Image} alt="TikTok Marketing Certification" />
               </div>
 
               <div className="concept-container">
@@ -154,147 +154,146 @@ const Details = () => {
 
                 {/* Content Section */}
                 <div className="content-wrapper">
-                  {/* Course Overview */}
                   <div
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 JavaScript Development Mastery</h3>
-                      <p>
-                        This course is designed to equip you with the skills
-                        needed to master JavaScript:
-                      </p>
                       <div className="data-item">
-                        📌 1: Introduction to JavaScript
+                        📌 1: TikTok Marketing Fundamentals
                       </div>
                       <div className="data-item">
-                        📌 2: Understanding JavaScript Variables and Data Types
+                        📌 2: TikTok Business Account Setup
                       </div>
                       <div className="data-item">
-                        📌 3: Functions and Scope in JavaScript
+                        📌 3: TikTok Content Strategy & Viral Trends
                       </div>
                       <div className="data-item">
-                        📌 4: Asynchronous JavaScript with Promises and
-                        Async/Await
+                        📌 4: TikTok Advertising (Spark Ads)
                       </div>
                       <div className="data-item">
-                        📌 5: JavaScript DOM Manipulation
+                        📌 5: TikTok Analytics & Performance Tracking
                       </div>
                       <div className="data-item">
-                        📌 6: Working with JavaScript Events
+                        📌 6: TikTok Shopping & E-commerce Integration
                       </div>
                       <div className="data-item">
-                        📌 7: JavaScript Error Handling and Debugging
+                        📌 7: Influencer Collaborations & UGC
                       </div>
                       <div className="data-item">
-                        📌 8: Modern JavaScript Features (ES6 and beyond)
+                        📌 8: TikTok Certification Preparation
                       </div>
                     </div>
                   </div>
-
-                  {/* Learning Objectives */}
                   <div
                     className={`content ${activeContent === 2 ? "show" : ""}`}
                   >
                     <div className="course-data">
-                      <h3>🎯 Learning Goals</h3>
+                      <div className="course-detail">
+                        <p>
+                          <strong>
+                            <i className="fas fa-info-circle"></i> Course
+                            Description:
+                          </strong>{" "}
+                          Master TikTok marketing from content creation to paid advertising. Learn to leverage TikTok's unique algorithm, create viral content, and run successful ad campaigns. Become a certified TikTok marketing professional.
+                        </p>
+
+                        <p>
+                          <strong>
+                            <i className="fas fa-user-graduate"></i> Course
+                            Prerequisites:
+                          </strong>{" "}
+                          Basic understanding of social media. TikTok account required for practical exercises.
+                        </p>
+                      </div>
+
+                      <h4>Learning Objectives:</h4>
                       <ul>
                         <li>
-                          ✅ Master the fundamentals of JavaScript and its
-                          syntax.
+                          Set up and optimize TikTok business accounts
                         </li>
                         <li>
-                          ✅ Understand how JavaScript variables, data types,
-                          and operators work.
+                          Master TikTok content strategy and trends
                         </li>
                         <li>
-                          ✅ Learn how to handle asynchronous operations using
-                          promises and async/await.
+                          Create effective TikTok ad campaigns
                         </li>
                         <li>
-                          ✅ Gain proficiency in manipulating the DOM with
-                          JavaScript.
+                          Implement TikTok shopping features
                         </li>
                         <li>
-                          ✅ Implement JavaScript error handling and debugging
-                          techniques.
+                          Analyze TikTok analytics for optimization
                         </li>
                         <li>
-                          ✅ Keep up with modern JavaScript features, including
-                          ES6 and newer updates.
+                          Develop influencer collaboration strategies
+                        </li>
+                        <li>
+                          Prepare for TikTok certification exams
                         </li>
                       </ul>
 
-                      <h4>🔥 What You’ll Build:</h4>
-                      <p>This course includes hands-on projects, such as:</p>
+                      <h4>Course Structure:</h4>
+                      <p>
+                        This comprehensive 8-module program covers:
+                      </p>
                       <ul>
-                        <li>🌍 A JavaScript-based To-Do List Application</li>
-                        <li>🛍️ A Shopping Cart with Dynamic Item Additions</li>
-                        <li>
-                          📊 A Weather Dashboard that fetches real-time data
-                        </li>
+                        <li>Module 1: TikTok Marketing Fundamentals</li>
+                        <li>Module 2: Business Account Setup</li>
+                        <li>Module 3: Content Strategy & Trends</li>
+                        <li>Module 4: TikTok Advertising</li>
+                        <li>Module 5: Analytics & Performance</li>
+                        <li>Module 6: Shopping & E-commerce</li>
+                        <li>Module 7: Influencer Collaborations</li>
+                        <li>Module 8: Certification Prep</li>
                       </ul>
+
+                      <h4>Course Delivery:</h4>
+                      <p>
+                        Hands-on training with live TikTok account demonstrations and real campaign management.
+                      </p>
+
+                      <h4>Certification:</h4>
+                      <p>
+                        Prepares for official TikTok marketing certifications and provides our institute's certification.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Career Paths */}
                   <div
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in JavaScript</h3>
+                      <h3>Job Roles After Completion:</h3>
                       <p>
-                        After completing this course, you’ll be ready to work in
-                        the following roles:
+                        Graduates qualify for these high-demand positions:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Build
-                          interactive websites using JavaScript.
+                          <strong>TikTok Marketing Specialist</strong> - Manage brand presence on TikTok
                         </li>
                         <li>
-                          🔹 <strong>JavaScript Developer</strong> - Specialize
-                          in JavaScript to create efficient web applications.
+                          <strong>Social Media Manager</strong> - Oversee TikTok strategy
                         </li>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Use
-                          JavaScript in both the frontend and backend of web
-                          applications.
+                          <strong>Content Creator Strategist</strong> - Develop viral content plans
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Offer
-                          JavaScript-based development services for various
-                          clients.
+                          <strong>Influencer Relations Manager</strong> - Coordinate with TikTok creators
                         </li>
                         <li>
-                          🔹 <strong>Software Engineer</strong> - Create
-                          scalable and high-performance JavaScript applications.
+                          <strong>Freelance TikTok Consultant</strong> - Offer expert services to businesses
                         </li>
                       </ul>
-
-                      <h4>🚀 Take Your Skills to the Next Level</h4>
-                      <p>
-                        By the end of this course, you’ll have a portfolio of
-                        JavaScript projects and the confidence to build
-                        production-ready applications!
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* == Second Item == */}
+            {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>JavaScript Development Course</h1>
+                <h1>TikTok Marketing Certification</h1>
                 <p>
-                  A comprehensive course on mastering JavaScript, covering both
-                  the fundamentals and advanced concepts. It includes topics
-                  like asynchronous programming, DOM manipulation, error
-                  handling, and modern JavaScript features (ES6+). Through
-                  hands-on projects and real-world examples, you’ll gain the
-                  skills necessary to become a proficient JavaScript developer.
+                  Become a certified TikTok marketing professional with this comprehensive training covering organic growth and paid advertising strategies. Learn to create viral content, manage campaigns, and leverage TikTok's unique algorithm for business success.
                 </p>
               </div>
 
@@ -306,14 +305,9 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The JavaScript Developer Certification validates your
-                  expertise in mastering JavaScript. It covers both the basics
-                  and advanced techniques, and demonstrates your ability to
-                  build scalable, dynamic applications. This certification will
-                  boost your resume and attract potential employers or clients.
+                  Earn our official TikTok Marketing Certification and prepare for TikTok's own certification programs.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -322,12 +316,9 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, with video lessons, interactive
-                  coding exercises, and project-based assignments to help you
-                  practice what you’ve learned.
+                  5-week intensive program with 25 instructor-led hours and 35+ practical hours.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -336,65 +327,58 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the JavaScript Development
-                  Certification include:
+                  Key benefits of this TikTok marketing course:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Build interactive, dynamic websites with JavaScript.
+                      Hands-on with TikTok Business Suite
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master modern JavaScript features and techniques.
+                      Master viral content creation
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world experience with JavaScript projects.
+                      Learn TikTok advertising (Spark Ads)
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your JavaScript
-                      skills.
+                      Gain certification preparation
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects and marketability as a
-                      JavaScript developer.
+                      Develop portfolio-worthy TikTok campaigns
                     </li>
                   </ul>
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
                     bottom_right_click
                   </span>
-                  Technologies Covered
+                  Tools Covered
                 </h4>
                 <p>
-                  The course covers JavaScript, asynchronous programming
-                  (Promises, async/await), DOM manipulation, error handling,
-                  modern JavaScript features (ES6+), and debugging techniques.
+                  TikTok Business Suite, TikTok Ads Manager, TikTok Analytics, TikTok Shopping, Creative Center, and third-party analytics tools.
                 </p>
               </div>
             </div>
-
             {/* == Third Item */}
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 3,000</div>
+                <div className="info">Ghc 6,000</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>
@@ -444,11 +428,11 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Date</option>
-                    <option value="January 5">January 5</option>
-                    <option value="February 5">February 5</option>
-                    <option value="March 5">March 5</option>
-                    <option value="April 5">April 5</option>
-                    <option value="May 5">May 5</option>
+                    <option value="January 10">January 10</option>
+                    <option value="February 10">February 10</option>
+                    <option value="March 10">March 10</option>
+                    <option value="April 10">April 10</option>
+                    <option value="May 10">May 10</option>
                   </select>
                 </div>
 
@@ -463,14 +447,11 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Time</option>
-                    <option value="Morning 8:00 AM - 11:00 PM">
-                      Morning (8:00 AM - 11:00 PM)
+                    <option value="Morning 9:00 AM - 12:00 PM">
+                      Morning (9:00 AM - 12:00 PM)
                     </option>
-                    <option value="Afternoon 1:00 PM - 3:00 PM">
-                      Afternoon (1:00 PM - 3:00 PM)
-                    </option>
-                    <option value="Evening 4:00 PM - 7:00 PM">
-                      Evening (4:00 PM - 7:00 PM)
+                    <option value="Afternoon 2:00 PM - 5:00 PM">
+                      Afternoon (2:00 PM - 5:00 PM)
                     </option>
                   </select>
                 </div>
@@ -561,9 +542,7 @@ const Details = () => {
               <div className="course-info">
                 <h4>Course Information</h4>
                 <p>
-                  The course fee is Ghc 5,920. You will be required to pay Ghc
-                  2,000 for the first installment and Ghc 1,960 for each
-                  additional month.
+                  Course fee: Ghc 6,000 payable as Ghc 2,500 initial deposit and Ghc 1,750 monthly installments.
                 </p>
 
                 <div className="info-text">
@@ -573,9 +552,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Course duration:</b> 3 months, with classes held 3 days a
-                    week (Monday to Wednesday). Students will work on a project
-                    from Thursday to Sunday and submit it the following Monday.
+                    <b>Schedule:</b> 5 weeks, 3 sessions/week (Tue/Thu/Sat)
                   </p>
                 </div>
 
@@ -586,7 +563,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Course language:</b> English
+                    <b>Language:</b> English
                   </p>
                 </div>
 
@@ -597,8 +574,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Additional Notes:</b> Students need to bring their own
-                    laptop.
+                    <b>Requirements:</b> TikTok account (personal or business) and smartphone with TikTok app installed.
                   </p>
                 </div>
 
@@ -609,7 +585,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Days:</b> Monday to Wednesday (9 hours/week)
+                    <b>Class Days:</b> Tuesday, Thursday, Saturday
                   </p>
                 </div>
 
@@ -620,8 +596,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Time:</b> 8:00 AM - 11:00 PM (Morning Batch) or
-                    12:00 PM - 3:00 PM (Afternoon Batch)
+                    <b>Times:</b> 9AM-12PM or 2PM-5PM
                   </p>
                 </div>
 
@@ -635,34 +610,19 @@ const Details = () => {
                     <b>Location:</b> Accra, Mallam-Gbawe
                   </p>
                 </div>
-
-                <div className="info-text">
-                  <div className="icons">
-                    <span className="material-symbols-outlined icon-person">
-                      person
-                    </span>
-                  </div>
-                  <p>
-                    <b>Instructor:</b> John Doe (Certified Frontend Developer
-                    with 10 years of teaching experience)
-                  </p>
-                </div>
               </div>
 
               <div className="course-info">
-                <h4>Course Cancellation/Reschedule Policy</h4>
+                <h4>Course Policies</h4>
                 <p>
-                  Once payment is made, it is **non-refundable**. Students are
-                  expected to carefully review the course details before making
-                  a payment.
+                  <strong>Non-refundable policy:</strong> Payments are final once made.
                 </p>
                 <p>
-                  In the event of unforeseen circumstances, we reserve the right
-                  to reschedule the course. However, the course will still be
-                  conducted at a later date, and enrolled students will be
-                  notified in advance.
+                  <strong>Rescheduling:</strong> We may reschedule with advance notice to participants.
                 </p>
-                <p>A minimum of 3 students is required to start a class.</p>
+                <p>
+                  <strong>Minimum enrollment:</strong> 5 students required to commence class.
+                </p>
               </div>
             </div>
           </div>

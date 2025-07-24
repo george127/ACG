@@ -1,11 +1,12 @@
-import "./Css/details.css";
-import Header from "../Header/HeaderPage";
-import Navigation from "../Navigation/NavPage";
+import "../Css/details.css";
+import Header from "../../Header/HeaderPage";
+import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "./images/Cloud/AWS-Certified-Architect-Professional.png";
+import Image from "../images/Cloud/Azure/4.azure-data-engineer-associate.png";
 import { useState } from "react";
 import axios from "axios";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
+
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -24,19 +25,18 @@ const Details = () => {
     if (section) {
       const sectionPosition =
         section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+  
   const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,7 +45,7 @@ const Details = () => {
         formData
       );
       console.log(response.data);
-      setShowPopup(true); // Show the pop-up
+      setShowPopup(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrorMessage(true);
@@ -116,20 +116,17 @@ const Details = () => {
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
           <div className="items">
-            <NavLink to="/Aws">Aws</NavLink>
+            <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>AWS SA-Pro</span>
+          <span>Enterprise Analytics with Azure and Power BI</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img
-                  src={Image}
-                  alt="AWS Certified Solutions Architect Professional"
-                />
+                <img src={Image} alt="Enterprise Analytics with Azure and Power BI" />
               </div>
 
               <div className="concept-container">
@@ -157,143 +154,149 @@ const Details = () => {
 
                 {/* Content Section */}
                 <div className="content-wrapper">
-                  {/* Course Overview */}
                   <div
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 AWS Certified Solutions Architect Professional</h3>
-                      <p>
-                        This course is designed to help you master advanced
-                        cloud architecture principles on AWS:
-                      </p>
                       <div className="data-item">
-                        📌 1: AWS Well-Architected Framework
+                        📌 1: Enterprise Analytics Architecture
                       </div>
                       <div className="data-item">
-                        📌 2: Designing Multi-Tier Architectures
+                        📌 2: Azure Data Lake and Data Factory
                       </div>
                       <div className="data-item">
-                        📌 3: Advanced Networking & Hybrid Cloud Strategies
+                        📌 3: Azure Synapse Analytics
                       </div>
                       <div className="data-item">
-                        📌 4: Security Best Practices in AWS
+                        📌 4: Power BI Data Modeling
                       </div>
                       <div className="data-item">
-                        📌 5: Cost Optimization Strategies
+                        📌 5: Advanced Power BI Visualizations
                       </div>
                       <div className="data-item">
-                        📌 6: High Availability and Fault Tolerance
+                        📌 6: Data Security and Governance
                       </div>
                       <div className="data-item">
-                        📌 7: Disaster Recovery Planning
+                        📌 7: Performance Optimization
                       </div>
                       <div className="data-item">
-                        📌 8: Automation & Infrastructure as Code (IaC)
+                        📌 8: Capstone Project and Certification Prep
                       </div>
                     </div>
                   </div>
-
-                  {/* Learning Objectives */}
                   <div
                     className={`content ${activeContent === 2 ? "show" : ""}`}
                   >
                     <div className="course-data">
-                      <h3>🎯 Learning Goals</h3>
+                      <div className="course-detail">
+                        <p>
+                          <strong>
+                            <i className="fas fa-info-circle"></i> Course
+                            Description:
+                          </strong>{" "}
+                          This comprehensive course teaches you to design and implement end-to-end analytics solutions at enterprise scale using Microsoft Azure and Power BI. You&apos;ll learn to build modern data warehouses, create powerful data models, and develop interactive dashboards that drive business decisions.
+                        </p>
+
+                        <p>
+                          <strong>
+                            <i className="fas fa-user-graduate"></i> Course
+                            Prerequisites:
+                          </strong>{" "}
+                          Basic understanding of data concepts and familiarity with cloud services. Experience with SQL is helpful but not required.
+                        </p>
+                      </div>
+
+                      <h4>Learning Objectives:</h4>
                       <ul>
                         <li>
-                          ✅ Design highly available and scalable architectures
+                          Design enterprise-scale analytics architectures
                         </li>
                         <li>
-                          ✅ Implement security controls following AWS best
-                          practices
+                          Implement data pipelines with Azure Data Factory
                         </li>
-                        <li>✅ Optimize cost using AWS pricing models</li>
                         <li>
-                          ✅ Leverage AWS services for disaster recovery
-                          solutions
+                          Build modern data warehouses with Azure Synapse
                         </li>
-                        <li>✅ Automate infrastructure deployment using IaC</li>
                         <li>
-                          ✅ Gain hands-on experience with real-world AWS case
-                          studies
+                          Create sophisticated data models in Power BI
+                        </li>
+                        <li>
+                          Develop interactive dashboards and reports
+                        </li>
+                        <li>
+                          Implement security and governance policies
+                        </li>
+                        <li>
+                          Optimize performance of analytics solutions
+                        </li>
+                        <li>
+                          Prepare for Microsoft PL-300 and DP-500 certifications
                         </li>
                       </ul>
 
-                      <h4>🔥 What You’ll Build:</h4>
-                      <p>Real-world AWS architecture solutions, such as:</p>
+                      <h4>Course Structure:</h4>
+                      <p>
+                        This intensive 8-module program combines theory with hands-on labs:
+                      </p>
                       <ul>
-                        <li>
-                          🌐 Designing a Multi-Account AWS Strategy using AWS
-                          Organizations and Control Tower
-                        </li>
-                        <li>
-                          📦 Implementing a Secure and Scalable Data Lake using
-                          Amazon S3, Glue, and Athena
-                        </li>
-                        <li>
-                          ⚡ Building a Serverless Event-Driven Architecture
-                          with AWS Lambda, EventBridge, and Step Functions
-                        </li>
+                        <li>Module 1: Analytics Architecture Fundamentals</li>
+                        <li>Module 2: Data Ingestion and Processing</li>
+                        <li>Module 3: Modern Data Warehousing</li>
+                        <li>Module 4: Power BI Data Modeling</li>
+                        <li>Module 5: Advanced Visualization Techniques</li>
+                        <li>Module 6: Security and Governance</li>
+                        <li>Module 7: Performance Tuning</li>
+                        <li>Module 8: Real-world Implementation Project</li>
                       </ul>
+
+                      <h4>Course Delivery:</h4>
+                      <p>
+                        Instructor-led training with hands-on labs using real Azure and Power BI environments. Includes access to cloud resources for practical exercises.
+                      </p>
+
+                      <h4>Certification:</h4>
+                      <p>
+                        Prepares for Microsoft Certified: Power BI Data Analyst (PL-300) and Azure Enterprise Data Analyst (DP-500) exams. Includes one free exam attempt voucher.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Career Paths */}
                   <div
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in AWS Cloud Architecture</h3>
+                      <h3>Job Roles After Course Completion:</h3>
                       <p>
-                        After completing this certification, you’ll be qualified
-                        for roles like:
+                        Graduates will be prepared for these high-demand roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Cloud Solutions Architect</strong> - Design
-                          and implement AWS cloud solutions.
+                          <strong>Enterprise Data Analyst:</strong> Design and implement analytics solutions at scale
                         </li>
                         <li>
-                          🔹 <strong>DevOps Engineer</strong> - Automate
-                          infrastructure with AWS services.
+                          <strong>Power BI Architect:</strong> Develop complex reporting solutions
                         </li>
                         <li>
-                          🔹 <strong>Cloud Security Engineer</strong> -
-                          Implement security best practices in AWS.
+                          <strong>Azure Data Engineer:</strong> Build and optimize data pipelines
                         </li>
                         <li>
-                          🔹 <strong>Site Reliability Engineer (SRE)</strong> -
-                          Maintain high availability and scalability.
+                          <strong>Business Intelligence Developer:</strong> Create dashboards and visualizations
                         </li>
                         <li>
-                          🔹 <strong>Cloud Consultant</strong> - Advise
-                          organizations on AWS cloud adoption.
+                          <strong>Data Solutions Architect:</strong> Design end-to-end analytics platforms
                         </li>
                       </ul>
-
-                      <h4>🚀 Advance Your Cloud Career</h4>
-                      <p>
-                        By the end of this course, you’ll have the expertise to
-                        design resilient and scalable cloud architectures on
-                        AWS!
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>AWS Certified Solutions Architect Professional</h1>
+                <h1>Enterprise Analytics with Azure and Power BI</h1>
                 <p>
-                  A comprehensive certification course covering advanced AWS
-                  architecture principles, security, cost optimization, high
-                  availability, and disaster recovery. You’ll learn to design
-                  and implement scalable, fault-tolerant solutions using AWS
-                  best practices.
+                  Master the complete analytics stack from data ingestion to visualization. This course teaches you to design and implement enterprise-scale analytics solutions using Microsoft Azure services and Power BI. You&apos;ll gain hands-on experience with data lakes, warehouses, pipelines, and interactive dashboards while preparing for industry-recognized certifications.
                 </p>
               </div>
 
@@ -305,13 +308,9 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The AWS Certified Solutions Architect Professional
-                  certification validates your ability to design and implement
-                  complex AWS architectures. It demonstrates expertise in cloud
-                  security, cost optimization, and infrastructure automation.
+                  This course prepares you for both Microsoft Power BI Data Analyst (PL-300) and Azure Enterprise Data Analyst (DP-500) certifications, validating your ability to deliver complete analytics solutions.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -320,12 +319,9 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course spans 13 weeks with in-depth video lessons,
-                  hands-on labs, and real-world case studies to prepare you for
-                  the certification exam.
+                  The course is 12 weeks long, with 60 hours of instructor-led training and 90+ hours of hands-on labs and projects.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -334,39 +330,41 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Completing the AWS Solutions Architect Professional
-                  certification will:
+                  Benefits of this comprehensive analytics course:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>{" "}
-                      Boost your cloud architecture expertise.
+                      </span>
+                      End-to-end coverage of enterprise analytics
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>{" "}
-                      Increase job opportunities in cloud computing.
+                      </span>
+                      Preparation for two Microsoft certifications
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>{" "}
-                      Validate your ability to design scalable AWS
-                      architectures.
+                      </span>
+                      Hands-on with Azure and Power BI
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>{" "}
-                      Improve your skills in security, networking, and
-                      automation.
+                      </span>
+                      Real-world capstone project
+                    </li>
+                    <li>
+                      <span className="material-symbols-outlined">
+                        done_all
+                      </span>
+                      Career coaching and placement support
                     </li>
                   </ul>
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -375,19 +373,15 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers AWS core services, security best practices,
-                  cost optimization strategies, high availability, and
-                  automation using Infrastructure as Code (IaC) with AWS
-                  CloudFormation and Terraform.
+                  Azure Data Lake, Azure Data Factory, Azure Synapse Analytics, Power BI Service, Power BI Desktop, DAX, Power Query, Azure Purview, Azure Active Directory, and related Microsoft analytics technologies.
                 </p>
               </div>
             </div>
-
             {/* == Third Item */}
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 5,920</div>
+                <div className="info">Ghc 8,500</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>
@@ -437,11 +431,11 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Date</option>
-                    <option value="January 5">January 5</option>
-                    <option value="February 5">February 5</option>
-                    <option value="March 5">March 5</option>
-                    <option value="April 5">April 5</option>
-                    <option value="May 5">May 5</option>
+                    <option value="January 10">January 10</option>
+                    <option value="February 10">February 10</option>
+                    <option value="March 10">March 10</option>
+                    <option value="April 10">April 10</option>
+                    <option value="May 10">May 10</option>
                   </select>
                 </div>
 
@@ -456,14 +450,14 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Time</option>
-                    <option value="Morning 8:00 AM - 11:00 PM">
-                      Morning (8:00 AM - 11:00 PM)
+                    <option value="Morning 8:00 AM - 11:00 AM">
+                      Morning (8:00 AM - 11:00 AM)
                     </option>
-                    <option value="Afternoon 1:00 PM - 3:00 PM">
-                      Afternoon (1:00 PM - 3:00 PM)
+                    <option value="Afternoon 1:00 PM - 4:00 PM">
+                      Afternoon (1:00 PM - 4:00 PM)
                     </option>
-                    <option value="Evening 4:00 PM - 7:00 PM">
-                      Evening (4:00 PM - 7:00 PM)
+                    <option value="Evening 5:00 PM - 8:00 PM">
+                      Evening (5:00 PM - 8:00 PM)
                     </option>
                   </select>
                 </div>
@@ -554,8 +548,8 @@ const Details = () => {
               <div className="course-info">
                 <h4>Course Information</h4>
                 <p>
-                  The course fee is Ghc 5,920. You will be required to pay Ghc
-                  2,000 for the first installment and Ghc 1,960 for each
+                  The course fee is Ghc 8,500. You will be required to pay Ghc
+                  3,000 for the first installment and Ghc 2,750 for each
                   additional month.
                 </p>
 
@@ -566,9 +560,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Course duration:</b> 3 months, with classes held 3 days a
-                    week (Monday to Wednesday). Students will work on a project
-                    from Thursday to Sunday and submit it the following Monday.
+                    <b>Course duration:</b> 3 months intensive program, with classes 3 days
+                    a week (Monday to Wednesday). Project work continues through weekends.
                   </p>
                 </div>
 
@@ -590,8 +583,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Additional Notes:</b> Students need to bring their own
-                    laptop.
+                    <b>Additional Notes:</b> Students receive full access to Azure and Power BI
+                    resources. Basic data concepts understanding recommended.
                   </p>
                 </div>
 
@@ -602,7 +595,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Days:</b> Monday to Wednesday (9 hours/week)
+                    <b>Class Days:</b> Monday to Wednesday (10 hours/week)
                   </p>
                 </div>
 
@@ -613,8 +606,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Time:</b> 8:00 AM - 11:00 PM (Morning Batch) or
-                    12:00 PM - 3:00 PM (Afternoon Batch)
+                    <b>Class Time:</b> 9:00 AM - 12:30 PM (Morning Batch) or
+                    2:00 PM - 5:30 PM (Afternoon Batch)
                   </p>
                 </div>
 
@@ -628,26 +621,14 @@ const Details = () => {
                     <b>Location:</b> Accra, Mallam-Gbawe
                   </p>
                 </div>
-
-                <div className="info-text">
-                  <div className="icons">
-                    <span className="material-symbols-outlined icon-person">
-                      person
-                    </span>
-                  </div>
-                  <p>
-                    <b>Instructor:</b> John Doe (Certified Frontend Developer
-                    with 10 years of teaching experience)
-                  </p>
-                </div>
               </div>
 
               <div className="course-info">
                 <h4>Course Cancellation/Reschedule Policy</h4>
                 <p>
-                  Once payment is made, it is **non-refundable**. Students are
-                  expected to carefully review the course details before making
-                  a payment.
+                  Once payment is made, it is <strong>non-refundable</strong>.
+                  Students are expected to carefully review the course details
+                  before making a payment.
                 </p>
                 <p>
                   In the event of unforeseen circumstances, we reserve the right
@@ -655,7 +636,7 @@ const Details = () => {
                   conducted at a later date, and enrolled students will be
                   notified in advance.
                 </p>
-                <p>A minimum of 3 students is required to start a class.</p>
+                <p>A minimum of 5 students is required to start a class.</p>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import "../Css/details.css";
 import Header from "../../Header/HeaderPage";
 import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "../images/Software/Javascript.png";
+import Image from "../images/Cloud/AWS-Certified-Architect-Professional.png";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "../../footer/Footer";
@@ -116,17 +116,20 @@ const Details = () => {
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
           <div className="items">
-            <NavLink to="/Software">Software</NavLink>
+            <NavLink to="/Aws">Aws</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>JavaScript</span>
+          <span>AWS SA-Pro</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="JavaScript Development Course" />
+                <img
+                  src={Image}
+                  alt="AWS Certified Solutions Architect Professional"
+                />
               </div>
 
               <div className="concept-container">
@@ -159,35 +162,34 @@ const Details = () => {
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 JavaScript Development Mastery</h3>
+                      <h3>🚀 AWS Certified Solutions Architect Professional</h3>
                       <p>
-                        This course is designed to equip you with the skills
-                        needed to master JavaScript:
+                        This course is designed to help you master advanced
+                        cloud architecture principles on AWS:
                       </p>
                       <div className="data-item">
-                        📌 1: Introduction to JavaScript
+                        📌 1: AWS Well-Architected Framework
                       </div>
                       <div className="data-item">
-                        📌 2: Understanding JavaScript Variables and Data Types
+                        📌 2: Designing Multi-Tier Architectures
                       </div>
                       <div className="data-item">
-                        📌 3: Functions and Scope in JavaScript
+                        📌 3: Advanced Networking & Hybrid Cloud Strategies
                       </div>
                       <div className="data-item">
-                        📌 4: Asynchronous JavaScript with Promises and
-                        Async/Await
+                        📌 4: Security Best Practices in AWS
                       </div>
                       <div className="data-item">
-                        📌 5: JavaScript DOM Manipulation
+                        📌 5: Cost Optimization Strategies
                       </div>
                       <div className="data-item">
-                        📌 6: Working with JavaScript Events
+                        📌 6: High Availability and Fault Tolerance
                       </div>
                       <div className="data-item">
-                        📌 7: JavaScript Error Handling and Debugging
+                        📌 7: Disaster Recovery Planning
                       </div>
                       <div className="data-item">
-                        📌 8: Modern JavaScript Features (ES6 and beyond)
+                        📌 8: Automation & Infrastructure as Code (IaC)
                       </div>
                     </div>
                   </div>
@@ -200,38 +202,38 @@ const Details = () => {
                       <h3>🎯 Learning Goals</h3>
                       <ul>
                         <li>
-                          ✅ Master the fundamentals of JavaScript and its
-                          syntax.
+                          ✅ Design highly available and scalable architectures
                         </li>
                         <li>
-                          ✅ Understand how JavaScript variables, data types,
-                          and operators work.
+                          ✅ Implement security controls following AWS best
+                          practices
                         </li>
+                        <li>✅ Optimize cost using AWS pricing models</li>
                         <li>
-                          ✅ Learn how to handle asynchronous operations using
-                          promises and async/await.
+                          ✅ Leverage AWS services for disaster recovery
+                          solutions
                         </li>
+                        <li>✅ Automate infrastructure deployment using IaC</li>
                         <li>
-                          ✅ Gain proficiency in manipulating the DOM with
-                          JavaScript.
-                        </li>
-                        <li>
-                          ✅ Implement JavaScript error handling and debugging
-                          techniques.
-                        </li>
-                        <li>
-                          ✅ Keep up with modern JavaScript features, including
-                          ES6 and newer updates.
+                          ✅ Gain hands-on experience with real-world AWS case
+                          studies
                         </li>
                       </ul>
 
                       <h4>🔥 What You’ll Build:</h4>
-                      <p>This course includes hands-on projects, such as:</p>
+                      <p>Real-world AWS architecture solutions, such as:</p>
                       <ul>
-                        <li>🌍 A JavaScript-based To-Do List Application</li>
-                        <li>🛍️ A Shopping Cart with Dynamic Item Additions</li>
                         <li>
-                          📊 A Weather Dashboard that fetches real-time data
+                          🌐 Designing a Multi-Account AWS Strategy using AWS
+                          Organizations and Control Tower
+                        </li>
+                        <li>
+                          📦 Implementing a Secure and Scalable Data Lake using
+                          Amazon S3, Glue, and Athena
+                        </li>
+                        <li>
+                          ⚡ Building a Serverless Event-Driven Architecture
+                          with AWS Lambda, EventBridge, and Step Functions
                         </li>
                       </ul>
                     </div>
@@ -242,41 +244,39 @@ const Details = () => {
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in JavaScript</h3>
+                      <h3>💼 Career Opportunities in AWS Cloud Architecture</h3>
                       <p>
-                        After completing this course, you’ll be ready to work in
-                        the following roles:
+                        After completing this certification, you’ll be qualified
+                        for roles like:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Build
-                          interactive websites using JavaScript.
+                          🔹 <strong>Cloud Solutions Architect</strong> - Design
+                          and implement AWS cloud solutions.
                         </li>
                         <li>
-                          🔹 <strong>JavaScript Developer</strong> - Specialize
-                          in JavaScript to create efficient web applications.
+                          🔹 <strong>DevOps Engineer</strong> - Automate
+                          infrastructure with AWS services.
                         </li>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Use
-                          JavaScript in both the frontend and backend of web
-                          applications.
+                          🔹 <strong>Cloud Security Engineer</strong> -
+                          Implement security best practices in AWS.
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Offer
-                          JavaScript-based development services for various
-                          clients.
+                          🔹 <strong>Site Reliability Engineer (SRE)</strong> -
+                          Maintain high availability and scalability.
                         </li>
                         <li>
-                          🔹 <strong>Software Engineer</strong> - Create
-                          scalable and high-performance JavaScript applications.
+                          🔹 <strong>Cloud Consultant</strong> - Advise
+                          organizations on AWS cloud adoption.
                         </li>
                       </ul>
 
-                      <h4>🚀 Take Your Skills to the Next Level</h4>
+                      <h4>🚀 Advance Your Cloud Career</h4>
                       <p>
-                        By the end of this course, you’ll have a portfolio of
-                        JavaScript projects and the confidence to build
-                        production-ready applications!
+                        By the end of this course, you’ll have the expertise to
+                        design resilient and scalable cloud architectures on
+                        AWS!
                       </p>
                     </div>
                   </div>
@@ -284,17 +284,16 @@ const Details = () => {
               </div>
             </div>
 
-            {/* == Second Item == */}
+            {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>JavaScript Development Course</h1>
+                <h1>AWS Certified Solutions Architect Professional</h1>
                 <p>
-                  A comprehensive course on mastering JavaScript, covering both
-                  the fundamentals and advanced concepts. It includes topics
-                  like asynchronous programming, DOM manipulation, error
-                  handling, and modern JavaScript features (ES6+). Through
-                  hands-on projects and real-world examples, you’ll gain the
-                  skills necessary to become a proficient JavaScript developer.
+                  A comprehensive certification course covering advanced AWS
+                  architecture principles, security, cost optimization, high
+                  availability, and disaster recovery. You’ll learn to design
+                  and implement scalable, fault-tolerant solutions using AWS
+                  best practices.
                 </p>
               </div>
 
@@ -306,11 +305,10 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The JavaScript Developer Certification validates your
-                  expertise in mastering JavaScript. It covers both the basics
-                  and advanced techniques, and demonstrates your ability to
-                  build scalable, dynamic applications. This certification will
-                  boost your resume and attract potential employers or clients.
+                  The AWS Certified Solutions Architect Professional
+                  certification validates your ability to design and implement
+                  complex AWS architectures. It demonstrates expertise in cloud
+                  security, cost optimization, and infrastructure automation.
                 </p>
               </div>
 
@@ -322,9 +320,9 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, with video lessons, interactive
-                  coding exercises, and project-based assignments to help you
-                  practice what you’ve learned.
+                  The course spans 13 weeks with in-depth video lessons,
+                  hands-on labs, and real-world case studies to prepare you for
+                  the certification exam.
                 </p>
               </div>
 
@@ -336,40 +334,34 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the JavaScript Development
-                  Certification include:
+                  Completing the AWS Solutions Architect Professional
+                  certification will:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>
-                      Build interactive, dynamic websites with JavaScript.
+                      </span>{" "}
+                      Boost your cloud architecture expertise.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>
-                      Master modern JavaScript features and techniques.
+                      </span>{" "}
+                      Increase job opportunities in cloud computing.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>
-                      Gain real-world experience with JavaScript projects.
+                      </span>{" "}
+                      Validate your ability to design scalable AWS
+                      architectures.
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
-                      </span>
-                      Receive a certification to showcase your JavaScript
-                      skills.
-                    </li>
-                    <li>
-                      <span className="material-symbols-outlined">
-                        done_all
-                      </span>
-                      Improve your job prospects and marketability as a
-                      JavaScript developer.
+                      </span>{" "}
+                      Improve your skills in security, networking, and
+                      automation.
                     </li>
                   </ul>
                 </p>
@@ -383,9 +375,10 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers JavaScript, asynchronous programming
-                  (Promises, async/await), DOM manipulation, error handling,
-                  modern JavaScript features (ES6+), and debugging techniques.
+                  The course covers AWS core services, security best practices,
+                  cost optimization strategies, high availability, and
+                  automation using Infrastructure as Code (IaC) with AWS
+                  CloudFormation and Terraform.
                 </p>
               </div>
             </div>
@@ -394,7 +387,7 @@ const Details = () => {
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 3,000</div>
+                <div className="info">Ghc 5,920</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>

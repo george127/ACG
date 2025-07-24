@@ -119,7 +119,6 @@ const Dashboard = () => {
               <div className="actions">
                 <div className="btn-container">
                   <a href="/upload-assignment" className="btn btn-submit">
-                    <i className="bi bi-upload"></i>
                     Upload Assignment
                     <span className="material-symbols-outlined">east</span>
                   </a>
@@ -127,7 +126,6 @@ const Dashboard = () => {
                 <br />
                 <div className="btn-container">
                   <a href="/exam-timetable" className="btn btn-submit">
-                    <i className="bi bi-clock"></i>
                     View Exam Timetable
                     <span className="material-symbols-outlined">east</span>
                   </a>
@@ -135,7 +133,6 @@ const Dashboard = () => {
                 <br />
                 <div className="btn-container">
                   <a href="/library-resources" className="btn btn-submit">
-                    <i className="bi bi-book"></i>
                     Library Resources
                     <span className="material-symbols-outlined">east</span>
                   </a>

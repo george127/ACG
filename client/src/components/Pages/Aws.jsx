@@ -311,10 +311,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-Sys-Ops-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -341,10 +341,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-Dev-En-Pro-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -368,10 +368,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 5,920</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-Dev-Associate-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -396,10 +396,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 7,020</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-SS-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -427,10 +427,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 7,020</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-Ad-Net-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>
@@ -454,10 +454,10 @@ const Aws = () => {
                 <div className="button-container">
                   <p className="amount">Ghc 7,020</p>
                   <div className="btn-container">
-                    <button className="btn">
+                    <NavLink to="/Aws/AWS-Bi-Data-Details" className="btn">
                       Learn More
                       <span className="material-symbols-outlined">east</span>
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
               </section>

@@ -2,10 +2,11 @@ import "../Css/details.css";
 import Header from "../../Header/HeaderPage";
 import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "../images/Software/Javascript.png";
+import Image from "../images/Cloud/Azure/4.azure-data-engineer-associate.png";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "../../footer/Footer";
+
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -24,19 +25,18 @@ const Details = () => {
     if (section) {
       const sectionPosition =
         section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+  
   const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,7 +45,7 @@ const Details = () => {
         formData
       );
       console.log(response.data);
-      setShowPopup(true); // Show the pop-up
+      setShowPopup(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrorMessage(true);
@@ -119,14 +119,14 @@ const Details = () => {
             <NavLink to="/Software">Software</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>JavaScript</span>
+          <span>Data Engineering on Microsoft Azure</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="JavaScript Development Course" />
+                <img src={Image} alt="Data Engineering on Microsoft Azure" />
               </div>
 
               <div className="concept-container">
@@ -154,147 +154,168 @@ const Details = () => {
 
                 {/* Content Section */}
                 <div className="content-wrapper">
-                  {/* Course Overview */}
                   <div
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 JavaScript Development Mastery</h3>
-                      <p>
-                        This course is designed to equip you with the skills
-                        needed to master JavaScript:
-                      </p>
                       <div className="data-item">
-                        📌 1: Introduction to JavaScript
+                        📌 1: Introduction to Azure Data Engineering
                       </div>
                       <div className="data-item">
-                        📌 2: Understanding JavaScript Variables and Data Types
+                        📌 2: Azure Data Storage Solutions
                       </div>
                       <div className="data-item">
-                        📌 3: Functions and Scope in JavaScript
+                        📌 3: Azure Data Factory and Data Pipelines
                       </div>
                       <div className="data-item">
-                        📌 4: Asynchronous JavaScript with Promises and
-                        Async/Await
+                        📌 4: Azure Databricks for Big Data Processing
                       </div>
                       <div className="data-item">
-                        📌 5: JavaScript DOM Manipulation
+                        📌 5: Azure Synapse Analytics
                       </div>
                       <div className="data-item">
-                        📌 6: Working with JavaScript Events
+                        📌 6: Data Security and Compliance in Azure
                       </div>
                       <div className="data-item">
-                        📌 7: JavaScript Error Handling and Debugging
+                        📌 7: Monitoring and Optimizing Data Solutions
                       </div>
                       <div className="data-item">
-                        📌 8: Modern JavaScript Features (ES6 and beyond)
+                        📌 8: Capstone Project and Certification Preparation
                       </div>
                     </div>
                   </div>
-
-                  {/* Learning Objectives */}
                   <div
                     className={`content ${activeContent === 2 ? "show" : ""}`}
                   >
                     <div className="course-data">
-                      <h3>🎯 Learning Goals</h3>
+                      <div className="course-detail">
+                        <p>
+                          <strong>
+                            <i className="fas fa-info-circle"></i> Course
+                            Description:
+                          </strong>{" "}
+                          This comprehensive course prepares you for a career in
+                          cloud-based data engineering using Microsoft Azure. You&apos;ll
+                          learn to design and implement data storage, data
+                          processing, and data security solutions using Azure
+                          services like Azure Data Factory, Azure Databricks,
+                          Azure Synapse Analytics, and more.
+                        </p>
+
+                        <p>
+                          <strong>
+                            <i className="fas fa-user-graduate"></i> Course
+                            Prerequisites:
+                          </strong>{" "}
+                          Basic understanding of databases and data processing
+                          concepts. Familiarity with cloud concepts is helpful but
+                          not required.
+                        </p>
+                      </div>
+
+                      <h4>Learning Objectives:</h4>
                       <ul>
                         <li>
-                          ✅ Master the fundamentals of JavaScript and its
-                          syntax.
+                          Design and implement data storage solutions on Azure
                         </li>
                         <li>
-                          ✅ Understand how JavaScript variables, data types,
-                          and operators work.
+                          Create and manage data pipelines using Azure Data Factory
                         </li>
                         <li>
-                          ✅ Learn how to handle asynchronous operations using
-                          promises and async/await.
+                          Process big data using Azure Databricks
                         </li>
                         <li>
-                          ✅ Gain proficiency in manipulating the DOM with
-                          JavaScript.
+                          Implement data security, compliance, and privacy
+                          protections
                         </li>
                         <li>
-                          ✅ Implement JavaScript error handling and debugging
-                          techniques.
+                          Monitor and optimize data storage and processing
                         </li>
                         <li>
-                          ✅ Keep up with modern JavaScript features, including
-                          ES6 and newer updates.
+                          Prepare for Microsoft&apos;s DP-203 certification exam
                         </li>
                       </ul>
 
-                      <h4>🔥 What You’ll Build:</h4>
-                      <p>This course includes hands-on projects, such as:</p>
+                      <h4>Course Structure:</h4>
+                      <p>
+                        This 8-module course combines theoretical knowledge with
+                        hands-on labs using real Azure services:
+                      </p>
                       <ul>
-                        <li>🌍 A JavaScript-based To-Do List Application</li>
-                        <li>🛍️ A Shopping Cart with Dynamic Item Additions</li>
-                        <li>
-                          📊 A Weather Dashboard that fetches real-time data
-                        </li>
+                        <li>Module 1: Azure Data Engineering Fundamentals</li>
+                        <li>Module 2: Azure Data Storage Solutions</li>
+                        <li>Module 3: Data Integration with Azure Data Factory</li>
+                        <li>Module 4: Big Data Processing with Azure Databricks</li>
+                        <li>Module 5: Data Warehousing with Azure Synapse</li>
+                        <li>Module 6: Data Security and Compliance</li>
+                        <li>Module 7: Monitoring and Optimization</li>
+                        <li>Module 8: Capstone Project</li>
                       </ul>
+
+                      <h4>Course Delivery:</h4>
+                      <p>
+                        Instructor-led training with hands-on labs in live Azure
+                        environment. Includes access to Azure resources for
+                        practical exercises.
+                      </p>
+
+                      <h4>Certification:</h4>
+                      <p>
+                        Course prepares you for Microsoft Certified: Azure Data
+                        Engineer Associate (DP-203) exam. Includes one free exam
+                        attempt voucher.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Career Paths */}
                   <div
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in JavaScript</h3>
+                      <h3>Job Roles After Course Completion:</h3>
                       <p>
-                        After completing this course, you’ll be ready to work in
-                        the following roles:
+                        Graduates of this course will be prepared for these
+                        in-demand roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Build
-                          interactive websites using JavaScript.
+                          <strong>Azure Data Engineer:</strong> Design and
+                          implement data solutions using Azure data services.
                         </li>
                         <li>
-                          🔹 <strong>JavaScript Developer</strong> - Specialize
-                          in JavaScript to create efficient web applications.
+                          <strong>Cloud Data Architect:</strong> Plan and optimize
+                          cloud-based data infrastructure.
                         </li>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Use
-                          JavaScript in both the frontend and backend of web
-                          applications.
+                          <strong>Big Data Engineer:</strong> Process and analyze
+                          large datasets using Azure Databricks and Synapse.
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Offer
-                          JavaScript-based development services for various
-                          clients.
+                          <strong>Data Integration Specialist:</strong> Build and
+                          maintain ETL/ELT pipelines with Azure Data Factory.
                         </li>
                         <li>
-                          🔹 <strong>Software Engineer</strong> - Create
-                          scalable and high-performance JavaScript applications.
+                          <strong>BI Developer:</strong> Create analytics solutions
+                          using Azure data services.
                         </li>
                       </ul>
-
-                      <h4>🚀 Take Your Skills to the Next Level</h4>
-                      <p>
-                        By the end of this course, you’ll have a portfolio of
-                        JavaScript projects and the confidence to build
-                        production-ready applications!
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* == Second Item == */}
+            {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>JavaScript Development Course</h1>
+                <h1>Data Engineering on Microsoft Azure</h1>
                 <p>
-                  A comprehensive course on mastering JavaScript, covering both
-                  the fundamentals and advanced concepts. It includes topics
-                  like asynchronous programming, DOM manipulation, error
-                  handling, and modern JavaScript features (ES6+). Through
-                  hands-on projects and real-world examples, you’ll gain the
-                  skills necessary to become a proficient JavaScript developer.
+                  Master the skills to design and implement data solutions on
+                  Microsoft Azure. This comprehensive course covers all aspects
+                  of Azure data engineering including storage, processing,
+                  security, and analytics. You&apos;ll gain hands-on experience with
+                  Azure Data Factory, Azure Databricks, Azure Synapse Analytics,
+                  and other key services while preparing for the DP-203
+                  certification exam.
                 </p>
               </div>
 
@@ -306,14 +327,14 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The JavaScript Developer Certification validates your
-                  expertise in mastering JavaScript. It covers both the basics
-                  and advanced techniques, and demonstrates your ability to
-                  build scalable, dynamic applications. This certification will
-                  boost your resume and attract potential employers or clients.
+                  This course prepares you for the Microsoft Certified: Azure
+                  Data Engineer Associate certification (DP-203). The
+                  certification validates your ability to integrate, transform,
+                  and consolidate data from various structured and unstructured
+                  data systems into structures suitable for building analytics
+                  solutions.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -322,12 +343,10 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, with video lessons, interactive
-                  coding exercises, and project-based assignments to help you
-                  practice what you’ve learned.
+                  The course is 12 weeks long, with 60 hours of instructor-led
+                  training and 80+ hours of hands-on labs and projects.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -336,45 +355,41 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the JavaScript Development
-                  Certification include:
+                  Benefits of completing this Azure Data Engineering course:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Build interactive, dynamic websites with JavaScript.
+                      Hands-on experience with real Azure services
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master modern JavaScript features and techniques.
+                      Preparation for DP-203 certification exam
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world experience with JavaScript projects.
+                      Skills for high-demand cloud data engineering roles
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your JavaScript
-                      skills.
+                      Access to Azure resources for practical learning
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects and marketability as a
-                      JavaScript developer.
+                      Career guidance and job placement assistance
                     </li>
                   </ul>
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -383,18 +398,18 @@ const Details = () => {
                   Technologies Covered
                 </h4>
                 <p>
-                  The course covers JavaScript, asynchronous programming
-                  (Promises, async/await), DOM manipulation, error handling,
-                  modern JavaScript features (ES6+), and debugging techniques.
+                  Azure Data Factory, Azure Databricks, Azure Synapse Analytics,
+                  Azure Storage (Blob, Data Lake), Azure SQL Database, Cosmos DB,
+                  Azure Stream Analytics, Azure Purview, and other Azure data
+                  services.
                 </p>
               </div>
             </div>
-
             {/* == Third Item */}
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 3,000</div>
+                <div className="info">Ghc 7,500</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>
@@ -444,11 +459,11 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Date</option>
-                    <option value="January 5">January 5</option>
-                    <option value="February 5">February 5</option>
-                    <option value="March 5">March 5</option>
-                    <option value="April 5">April 5</option>
-                    <option value="May 5">May 5</option>
+                    <option value="January 10">January 10</option>
+                    <option value="February 10">February 10</option>
+                    <option value="March 10">March 10</option>
+                    <option value="April 10">April 10</option>
+                    <option value="May 10">May 10</option>
                   </select>
                 </div>
 
@@ -463,14 +478,14 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Time</option>
-                    <option value="Morning 8:00 AM - 11:00 PM">
-                      Morning (8:00 AM - 11:00 PM)
+                    <option value="Morning 8:00 AM - 11:00 AM">
+                      Morning (8:00 AM - 11:00 AM)
                     </option>
-                    <option value="Afternoon 1:00 PM - 3:00 PM">
-                      Afternoon (1:00 PM - 3:00 PM)
+                    <option value="Afternoon 1:00 PM - 4:00 PM">
+                      Afternoon (1:00 PM - 4:00 PM)
                     </option>
-                    <option value="Evening 4:00 PM - 7:00 PM">
-                      Evening (4:00 PM - 7:00 PM)
+                    <option value="Evening 5:00 PM - 8:00 PM">
+                      Evening (5:00 PM - 8:00 PM)
                     </option>
                   </select>
                 </div>
@@ -561,8 +576,8 @@ const Details = () => {
               <div className="course-info">
                 <h4>Course Information</h4>
                 <p>
-                  The course fee is Ghc 5,920. You will be required to pay Ghc
-                  2,000 for the first installment and Ghc 1,960 for each
+                  The course fee is Ghc 7,500. You will be required to pay Ghc
+                  2,500 for the first installment and Ghc 2,500 for each
                   additional month.
                 </p>
 
@@ -574,8 +589,8 @@ const Details = () => {
                   </div>
                   <p>
                     <b>Course duration:</b> 3 months, with classes held 3 days a
-                    week (Monday to Wednesday). Students will work on a project
-                    from Thursday to Sunday and submit it the following Monday.
+                    week (Monday to Wednesday). Students will work on projects
+                    and labs from Thursday to Sunday.
                   </p>
                 </div>
 
@@ -597,8 +612,9 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Additional Notes:</b> Students need to bring their own
-                    laptop.
+                    <b>Additional Notes:</b> Students will receive access to
+                    Azure resources for hands-on labs. Basic understanding of
+                    databases is recommended.
                   </p>
                 </div>
 
@@ -620,8 +636,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Time:</b> 8:00 AM - 11:00 PM (Morning Batch) or
-                    12:00 PM - 3:00 PM (Afternoon Batch)
+                    <b>Class Time:</b> 8:00 AM - 11:00 AM (Morning Batch) or
+                    1:00 PM - 4:00 PM (Afternoon Batch)
                   </p>
                 </div>
 
@@ -635,26 +651,14 @@ const Details = () => {
                     <b>Location:</b> Accra, Mallam-Gbawe
                   </p>
                 </div>
-
-                <div className="info-text">
-                  <div className="icons">
-                    <span className="material-symbols-outlined icon-person">
-                      person
-                    </span>
-                  </div>
-                  <p>
-                    <b>Instructor:</b> John Doe (Certified Frontend Developer
-                    with 10 years of teaching experience)
-                  </p>
-                </div>
               </div>
 
               <div className="course-info">
                 <h4>Course Cancellation/Reschedule Policy</h4>
                 <p>
-                  Once payment is made, it is **non-refundable**. Students are
-                  expected to carefully review the course details before making
-                  a payment.
+                  Once payment is made, it is <strong>non-refundable</strong>.
+                  Students are expected to carefully review the course details
+                  before making a payment.
                 </p>
                 <p>
                   In the event of unforeseen circumstances, we reserve the right
@@ -662,7 +666,7 @@ const Details = () => {
                   conducted at a later date, and enrolled students will be
                   notified in advance.
                 </p>
-                <p>A minimum of 3 students is required to start a class.</p>
+                <p>A minimum of 5 students is required to start a class.</p>
               </div>
             </div>
           </div>

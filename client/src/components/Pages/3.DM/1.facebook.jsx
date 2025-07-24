@@ -2,10 +2,11 @@ import "../Css/details.css";
 import Header from "../../Header/HeaderPage";
 import Navigation from "../../Navigation/NavPage";
 import { NavLink } from "react-router-dom";
-import Image from "../images/Software/Javascript.png";
+import Image from "../images/Marketing/image1.png";
 import { useState } from "react";
 import axios from "axios";
 import Footer from "../../footer/Footer";
+
 const Details = () => {
   const [formData, setFormData] = useState({
     modeOfTraining: "Physical Classroom Training",
@@ -24,19 +25,18 @@ const Details = () => {
     if (section) {
       const sectionPosition =
         section.getBoundingClientRect().top + window.scrollY;
-      const scrollToPosition = sectionPosition + offset; // Adjust with the offset value
+      const scrollToPosition = sectionPosition + offset;
       window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
     }
   };
+  
   const [showPopup, setShowPopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,7 +45,7 @@ const Details = () => {
         formData
       );
       console.log(response.data);
-      setShowPopup(true); // Show the pop-up
+      setShowPopup(true);
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrorMessage(true);
@@ -116,17 +116,17 @@ const Details = () => {
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
           <div className="items">
-            <NavLink to="/Software">Software</NavLink>
+            <NavLink to="/DigitalMarketing">Digital Marketing</NavLink>
             <span className="material-symbols-outlined">arrow_and_edge</span>
           </div>
-          <span>JavaScript</span>
+          <span>Facebook Marketing Professional</span>
         </div>
         <div className="details-page container">
           <div className="details-items">
             {/* == First Item == */}
             <div className="item">
               <div className="image-container">
-                <img src={Image} alt="JavaScript Development Course" />
+                <img src={Image} alt="Facebook Marketing Professional" />
               </div>
 
               <div className="concept-container">
@@ -154,147 +154,148 @@ const Details = () => {
 
                 {/* Content Section */}
                 <div className="content-wrapper">
-                  {/* Course Overview */}
                   <div
                     className={`content ${activeContent === 1 ? "show" : ""}`}
                   >
                     <div className="concept-data">
-                      <h3>🚀 JavaScript Development Mastery</h3>
-                      <p>
-                        This course is designed to equip you with the skills
-                        needed to master JavaScript:
-                      </p>
                       <div className="data-item">
-                        📌 1: Introduction to JavaScript
+                        📌 1: Facebook Marketing Fundamentals
                       </div>
                       <div className="data-item">
-                        📌 2: Understanding JavaScript Variables and Data Types
+                        📌 2: Business Manager & Ad Account Setup
                       </div>
                       <div className="data-item">
-                        📌 3: Functions and Scope in JavaScript
+                        📌 3: Audience Research & Targeting
                       </div>
                       <div className="data-item">
-                        📌 4: Asynchronous JavaScript with Promises and
-                        Async/Await
+                        📌 4: Ad Creative & Copywriting
                       </div>
                       <div className="data-item">
-                        📌 5: JavaScript DOM Manipulation
+                        📌 5: Campaign Structures & Strategies
                       </div>
                       <div className="data-item">
-                        📌 6: Working with JavaScript Events
+                        📌 6: Facebook Pixel & Tracking
                       </div>
                       <div className="data-item">
-                        📌 7: JavaScript Error Handling and Debugging
+                        📌 7: Analytics & Optimization
                       </div>
                       <div className="data-item">
-                        📌 8: Modern JavaScript Features (ES6 and beyond)
+                        📌 8: Scaling & Advanced Strategies
                       </div>
                     </div>
                   </div>
-
-                  {/* Learning Objectives */}
                   <div
                     className={`content ${activeContent === 2 ? "show" : ""}`}
                   >
                     <div className="course-data">
-                      <h3>🎯 Learning Goals</h3>
+                      <div className="course-detail">
+                        <p>
+                          <strong>
+                            <i className="fas fa-info-circle"></i> Course
+                            Description:
+                          </strong>{" "}
+                          This comprehensive course teaches you professional Facebook marketing strategies to grow businesses. You'll learn to create high-converting ad campaigns, target the right audiences, analyze performance metrics, and optimize for maximum ROI using Facebook's advertising platform.
+                        </p>
+
+                        <p>
+                          <strong>
+                            <i className="fas fa-user-graduate"></i> Course
+                            Prerequisites:
+                          </strong>{" "}
+                          Basic computer skills and Facebook account. No prior marketing experience required.
+                        </p>
+                      </div>
+
+                      <h4>Learning Objectives:</h4>
                       <ul>
                         <li>
-                          ✅ Master the fundamentals of JavaScript and its
-                          syntax.
+                          Set up and optimize Facebook Business Manager
                         </li>
                         <li>
-                          ✅ Understand how JavaScript variables, data types,
-                          and operators work.
+                          Create effective ad campaigns for different objectives
                         </li>
                         <li>
-                          ✅ Learn how to handle asynchronous operations using
-                          promises and async/await.
+                          Master audience targeting and segmentation
                         </li>
                         <li>
-                          ✅ Gain proficiency in manipulating the DOM with
-                          JavaScript.
+                          Design high-converting ad creatives
                         </li>
                         <li>
-                          ✅ Implement JavaScript error handling and debugging
-                          techniques.
+                          Implement Facebook Pixel for tracking
                         </li>
                         <li>
-                          ✅ Keep up with modern JavaScript features, including
-                          ES6 and newer updates.
+                          Analyze campaign performance and optimize
+                        </li>
+                        <li>
+                          Scale successful campaigns profitably
                         </li>
                       </ul>
 
-                      <h4>🔥 What You’ll Build:</h4>
-                      <p>This course includes hands-on projects, such as:</p>
+                      <h4>Course Structure:</h4>
+                      <p>
+                        This 8-module course combines theoretical knowledge with
+                        hands-on practical exercises:
+                      </p>
                       <ul>
-                        <li>🌍 A JavaScript-based To-Do List Application</li>
-                        <li>🛍️ A Shopping Cart with Dynamic Item Additions</li>
-                        <li>
-                          📊 A Weather Dashboard that fetches real-time data
-                        </li>
+                        <li>Module 1: Facebook Marketing Fundamentals</li>
+                        <li>Module 2: Business Manager Setup</li>
+                        <li>Module 3: Audience Research</li>
+                        <li>Module 4: Ad Creative Development</li>
+                        <li>Module 5: Campaign Strategies</li>
+                        <li>Module 6: Tracking Implementation</li>
+                        <li>Module 7: Performance Analysis</li>
+                        <li>Module 8: Advanced Scaling Techniques</li>
                       </ul>
+
+                      <h4>Course Delivery:</h4>
+                      <p>
+                        Instructor-led training with live demonstrations and hands-on campaign creation. Includes access to Facebook ad account for practical exercises.
+                      </p>
+
+                      <h4>Certification:</h4>
+                      <p>
+                        Course prepares you for Facebook Blueprint Certification. Includes one free exam attempt voucher.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Career Paths */}
                   <div
                     className={`content ${activeContent === 3 ? "show" : ""}`}
                   >
                     <div className="Roles-container">
-                      <h3>💼 Career Opportunities in JavaScript</h3>
+                      <h3>Job Roles After Course Completion:</h3>
                       <p>
-                        After completing this course, you’ll be ready to work in
-                        the following roles:
+                        Graduates of this course will be prepared for these
+                        in-demand roles:
                       </p>
                       <ul>
                         <li>
-                          🔹 <strong>Frontend Developer</strong> - Build
-                          interactive websites using JavaScript.
+                          <strong>Facebook Ads Specialist:</strong> Manage Facebook ad campaigns for businesses
                         </li>
                         <li>
-                          🔹 <strong>JavaScript Developer</strong> - Specialize
-                          in JavaScript to create efficient web applications.
+                          <strong>Digital Marketing Executive:</strong> Handle social media advertising
                         </li>
                         <li>
-                          🔹 <strong>Full-Stack Developer</strong> - Use
-                          JavaScript in both the frontend and backend of web
-                          applications.
+                          <strong>Media Buyer:</strong> Purchase and optimize ad space
                         </li>
                         <li>
-                          🔹 <strong>Freelance Developer</strong> - Offer
-                          JavaScript-based development services for various
-                          clients.
+                          <strong>Social Media Manager:</strong> Oversee brand presence on social platforms
                         </li>
                         <li>
-                          🔹 <strong>Software Engineer</strong> - Create
-                          scalable and high-performance JavaScript applications.
+                          <strong>Freelance Facebook Marketer:</strong> Offer services to multiple clients
                         </li>
                       </ul>
-
-                      <h4>🚀 Take Your Skills to the Next Level</h4>
-                      <p>
-                        By the end of this course, you’ll have a portfolio of
-                        JavaScript projects and the confidence to build
-                        production-ready applications!
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* == Second Item == */}
+            {/* == Second Item */}
             <div className="item">
               <div className="text">
-                <h1>JavaScript Development Course</h1>
+                <h1>Facebook Marketing Professional</h1>
                 <p>
-                  A comprehensive course on mastering JavaScript, covering both
-                  the fundamentals and advanced concepts. It includes topics
-                  like asynchronous programming, DOM manipulation, error
-                  handling, and modern JavaScript features (ES6+). Through
-                  hands-on projects and real-world examples, you’ll gain the
-                  skills necessary to become a proficient JavaScript developer.
+                  Master the art of Facebook marketing to drive business growth. This comprehensive course covers everything from setting up your Business Manager to creating high-converting ad campaigns, targeting the right audiences, and analyzing performance metrics. Gain practical skills that businesses desperately need in today's digital landscape.
                 </p>
               </div>
 
@@ -306,14 +307,9 @@ const Details = () => {
                   Certification
                 </h4>
                 <p>
-                  The JavaScript Developer Certification validates your
-                  expertise in mastering JavaScript. It covers both the basics
-                  and advanced techniques, and demonstrates your ability to
-                  build scalable, dynamic applications. This certification will
-                  boost your resume and attract potential employers or clients.
+                  This course prepares you for Facebook Blueprint Certification, validating your expertise in Facebook marketing and advertising.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -322,12 +318,9 @@ const Details = () => {
                   Duration
                 </h4>
                 <p>
-                  The course is 13 weeks long, with video lessons, interactive
-                  coding exercises, and project-based assignments to help you
-                  practice what you’ve learned.
+                  The course is 6 weeks long, with 30 hours of instructor-led training and 40+ hours of practical exercises.
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
@@ -336,65 +329,58 @@ const Details = () => {
                   Benefits
                 </h4>
                 <p>
-                  Benefits of completing the JavaScript Development
-                  Certification include:
+                  Benefits of completing this Facebook Marketing course:
                   <ul>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Build interactive, dynamic websites with JavaScript.
+                      Hands-on experience with Facebook Ads Manager
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Master modern JavaScript features and techniques.
+                      Preparation for Facebook Blueprint Certification
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Gain real-world experience with JavaScript projects.
+                      Skills for high-demand digital marketing roles
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Receive a certification to showcase your JavaScript
-                      skills.
+                      Practical campaign creation experience
                     </li>
                     <li>
                       <span className="material-symbols-outlined">
                         done_all
                       </span>
-                      Improve your job prospects and marketability as a
-                      JavaScript developer.
+                      Career guidance and job placement assistance
                     </li>
                   </ul>
                 </p>
               </div>
-
               <div className="text">
                 <h4>
                   <span className="material-symbols-outlined">
                     bottom_right_click
                   </span>
-                  Technologies Covered
+                  Tools Covered
                 </h4>
                 <p>
-                  The course covers JavaScript, asynchronous programming
-                  (Promises, async/await), DOM manipulation, error handling,
-                  modern JavaScript features (ES6+), and debugging techniques.
+                  Facebook Business Manager, Ads Manager, Audience Insights, Facebook Pixel, Creator Studio, Ads Reporting, and third-party tools for enhanced marketing capabilities.
                 </p>
               </div>
             </div>
-
             {/* == Third Item */}
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 3,000</div>
+                <div className="info">Ghc 4,500</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>
@@ -444,11 +430,11 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Date</option>
-                    <option value="January 5">January 5</option>
-                    <option value="February 5">February 5</option>
-                    <option value="March 5">March 5</option>
-                    <option value="April 5">April 5</option>
-                    <option value="May 5">May 5</option>
+                    <option value="January 10">January 10</option>
+                    <option value="February 10">February 10</option>
+                    <option value="March 10">March 10</option>
+                    <option value="April 10">April 10</option>
+                    <option value="May 10">May 10</option>
                   </select>
                 </div>
 
@@ -463,14 +449,14 @@ const Details = () => {
                     onChange={handleChange}
                   >
                     <option value="">Select Course Time</option>
-                    <option value="Morning 8:00 AM - 11:00 PM">
-                      Morning (8:00 AM - 11:00 PM)
+                    <option value="Morning 8:00 AM - 11:00 AM">
+                      Morning (8:00 AM - 11:00 AM)
                     </option>
-                    <option value="Afternoon 1:00 PM - 3:00 PM">
-                      Afternoon (1:00 PM - 3:00 PM)
+                    <option value="Afternoon 1:00 PM - 4:00 PM">
+                      Afternoon (1:00 PM - 4:00 PM)
                     </option>
-                    <option value="Evening 4:00 PM - 7:00 PM">
-                      Evening (4:00 PM - 7:00 PM)
+                    <option value="Evening 5:00 PM - 8:00 PM">
+                      Evening (5:00 PM - 8:00 PM)
                     </option>
                   </select>
                 </div>
@@ -561,8 +547,8 @@ const Details = () => {
               <div className="course-info">
                 <h4>Course Information</h4>
                 <p>
-                  The course fee is Ghc 5,920. You will be required to pay Ghc
-                  2,000 for the first installment and Ghc 1,960 for each
+                  The course fee is Ghc 4,500. You will be required to pay Ghc
+                  1,800 for the first installment and Ghc 1,350 for each
                   additional month.
                 </p>
 
@@ -573,9 +559,9 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Course duration:</b> 3 months, with classes held 3 days a
-                    week (Monday to Wednesday). Students will work on a project
-                    from Thursday to Sunday and submit it the following Monday.
+                    <b>Course duration:</b> 6 weeks, with classes held 3 days a
+                    week (Monday, Wednesday, Friday). Students will work on
+                    practical assignments between sessions.
                   </p>
                 </div>
 
@@ -597,8 +583,9 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Additional Notes:</b> Students need to bring their own
-                    laptop.
+                    <b>Additional Notes:</b> Students will need access to a
+                    Facebook account. Business Manager access will be provided
+                    for training purposes.
                   </p>
                 </div>
 
@@ -609,7 +596,7 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Days:</b> Monday to Wednesday (9 hours/week)
+                    <b>Class Days:</b> Monday, Wednesday, Friday (6 hours/week)
                   </p>
                 </div>
 
@@ -620,8 +607,8 @@ const Details = () => {
                     </span>
                   </div>
                   <p>
-                    <b>Class Time:</b> 8:00 AM - 11:00 PM (Morning Batch) or
-                    12:00 PM - 3:00 PM (Afternoon Batch)
+                    <b>Class Time:</b> 9:00 AM - 11:00 AM (Morning Batch) or
+                    4:00 PM - 6:00 PM (Evening Batch)
                   </p>
                 </div>
 
@@ -635,26 +622,14 @@ const Details = () => {
                     <b>Location:</b> Accra, Mallam-Gbawe
                   </p>
                 </div>
-
-                <div className="info-text">
-                  <div className="icons">
-                    <span className="material-symbols-outlined icon-person">
-                      person
-                    </span>
-                  </div>
-                  <p>
-                    <b>Instructor:</b> John Doe (Certified Frontend Developer
-                    with 10 years of teaching experience)
-                  </p>
-                </div>
               </div>
 
               <div className="course-info">
                 <h4>Course Cancellation/Reschedule Policy</h4>
                 <p>
-                  Once payment is made, it is **non-refundable**. Students are
-                  expected to carefully review the course details before making
-                  a payment.
+                  Once payment is made, it is <strong>non-refundable</strong>.
+                  Students are expected to carefully review the course details
+                  before making a payment.
                 </p>
                 <p>
                   In the event of unforeseen circumstances, we reserve the right
@@ -662,7 +637,7 @@ const Details = () => {
                   conducted at a later date, and enrolled students will be
                   notified in advance.
                 </p>
-                <p>A minimum of 3 students is required to start a class.</p>
+                <p>A minimum of 5 students is required to start a class.</p>
               </div>
             </div>
           </div>

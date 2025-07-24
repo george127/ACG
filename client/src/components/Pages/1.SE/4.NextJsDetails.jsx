@@ -396,7 +396,7 @@ const Details = () => {
             <div className="item">
               <div className="payment-details">
                 <div className="info">Fee:</div>
-                <div className="info">Ghc 5,920</div>
+                <div className="info">Ghc 3,500</div>
               </div>
 
               <form className="modal-form" onSubmit={handleSubmit}>
