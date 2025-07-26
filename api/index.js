@@ -13,13 +13,31 @@ dotenv.config(); // Load environment variables
 
 // Initialize Express app 
 const app = express();
-
-// Middleware
-app.use(cors({
-  origin: 'https://acg-7xkz.onrender.com/',
-  credentials: true
-}));
 app.use(express.json()); // Parse incoming JSON requests
+
+
+
+// Allow multiple origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://acg-7xkz.onrender.com'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
+
 
 // Connect to MongoDB 
 mongoose.connect(process.env.MONGO) 
