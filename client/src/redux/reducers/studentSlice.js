@@ -6,7 +6,7 @@ export const submitPersonalDetails = createAsyncThunk(
   'student/submitPersonalDetails',
   async (personalDetails, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/students/personalDetails', { personalDetails });
+      const response = await axios.post('https://acg1.onrender.com/api/students/personalDetails', { personalDetails });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -18,7 +18,7 @@ export const submitprogramApplyingFor = createAsyncThunk(
   'student/submitprogramApplyingFor',
   async (programApplyingFor, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/students/programApplyingFor', { programApplyingFor });
+      const response = await axios.post('https://acg1.onrender.com/api/students/programApplyingFor', { programApplyingFor });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -30,7 +30,7 @@ export const submitEducationalBackground = createAsyncThunk(
   'student/submitEducationalBackground',
   async (educationalBackground, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/students/educationalBackground', { educationalBackground });
+      const response = await axios.post('https://acg1.onrender.com/api/students/educationalBackground', { educationalBackground });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -42,7 +42,7 @@ export const submitGuardianDetails = createAsyncThunk(
   'student/submitGuardianDetails',
   async (guardianDetails, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/students/guardianDetails', { guardianDetails });
+      const response = await axios.post('https://acg1.onrender.com/api/students/guardianDetails', { guardianDetails });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);

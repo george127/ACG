@@ -30,7 +30,7 @@ const FeesDetailsPage = () => {
         semester,
         installment,
       };
-      await axios.post("http://localhost:5000/api/fees/SaveFormData", data);
+      await axios.post("https://acg1.onrender.com/api/fees/SaveFormData", data);
 
       // Redirect to Paystack payment link
       const paymentLink = paymentLinks[amount];

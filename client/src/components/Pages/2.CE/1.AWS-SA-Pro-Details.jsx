@@ -41,7 +41,7 @@ const Details = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/details/Info",
+        "https://acg1.onrender.com/api/details/Info",
         formData
       );
       console.log(response.data);

@@ -6,13 +6,19 @@ import studentRoutes from './routes/studentRoutes.js';
 import feespaymentRoutes from './routes/feesPaymentRoute.js'
 import authRoutes from './routes/authRoutes.js';
 import detailsRoutes from './routes/detailRoutes.js';
+import newsapiRoute from "./routes/newsapi.js";
+import gnewsRoute from "./routes/gnews.js";
+import mediastackRoute from "./routes/mediastack.js";
 dotenv.config(); // Load environment variables
 
 // Initialize Express app 
 const app = express();
 
 // Middleware
-app.use(cors()); // Allow Cross-Origin Resource Sharing
+app.use(cors({
+  origin: 'https://acg-7xkz.onrender.com/',
+  credentials: true
+}));
 app.use(express.json()); // Parse incoming JSON requests
 
 // Connect to MongoDB 
@@ -35,6 +41,11 @@ app.use('/api/auth', authRoutes)
 app.use('/api/students', studentRoutes); // This mounts the route at /api/students
 
 app.use('/api/fees', feespaymentRoutes);
+
+
+app.use("/api/newsapi", newsapiRoute);
+app.use("/api/gnews", gnewsRoute);
+app.use("/api/mediastack", mediastackRoute);
 
 // Start the server 
 const PORT = process.env.PORT || 5000;
