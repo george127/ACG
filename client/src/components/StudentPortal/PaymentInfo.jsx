@@ -16,7 +16,7 @@ const PaymentInfo = ({ email }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://acg1.onrender.com/api/fees/${email}`
+          `http://localhost:5000/api/fees/${email}`
         );
         setPaymentDetails(response.data.userForm); // Extract data from response
         setLoading(false);

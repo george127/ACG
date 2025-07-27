@@ -11,7 +11,7 @@ const NewsSection = () => {
 
  const fetchFromNewsAPI = async () => {
   try {
-    const response = await axios.get("https://acg1.onrender.com/api/newsapi");
+    const response = await axios.get("http://localhost:5000/api/newsapi");
     return response.data;
   } catch (error) {
     console.error("NewsAPI Error:", error);
@@ -21,7 +21,7 @@ const NewsSection = () => {
 
 const fetchFromGNewsAPI = async () => {
   try {
-    const response = await axios.get("https://acg1.onrender.com/api/gnews");
+    const response = await axios.get("http://localhost:5000/api/gnews");
     return response.data;
   } catch (error) {
     console.error("GNewsAPI Error:", error);
@@ -31,7 +31,7 @@ const fetchFromGNewsAPI = async () => {
 
 const fetchFromMediaStack = async () => {
   try {
-    const response = await axios.get("https://acg1.onrender.com/api/mediastack");
+    const response = await axios.get("http://localhost:5000/api/mediastack");
     return response.data;
   } catch (error) {
     console.error("MediaStack Error:", error);

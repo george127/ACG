@@ -30,7 +30,7 @@ const Dashboard = () => {
     const fetchStudentData = async () => {
       try {
         const response = await fetch(
-          `https://acg1.onrender.com/api/students/${user?.email}`
+          `http://localhost:5000/api/students/${user?.email}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch student data");
