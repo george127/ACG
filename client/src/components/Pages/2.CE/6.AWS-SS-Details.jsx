@@ -38,7 +38,7 @@ const Details = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/details/Info", formData);
+      const response = await axios.post("https://appcodeglobal-backend.onrender.com/api/details/Info", formData);
       console.log(response.data);
       setShowPopup(true);
     } catch (error) {
