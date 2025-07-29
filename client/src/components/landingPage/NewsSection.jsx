@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./NewsSection.css";
@@ -9,36 +7,55 @@ const NewsSection = () => {
   const [displayedNews, setDisplayedNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
- const fetchFromNewsAPI = async () => {
-  try {
-    const response = await axios.get("https://appcodeglobal-backend.onrender.com/api/newsapi");
-    return response.data;
-  } catch (error) {
-    console.error("NewsAPI Error:", error);
-    return [];
-  }
-};
+  const fetchFromNewsAPI = async () => {
+    try {
+      const response = await axios.get("https://newsapi.org/v2/everything", {
+        params: {
+          q: "forex",
+          language: "en",
+          sortBy: "publishedAt",
+          apiKey: "5d238b4fa6ec456fa88cacfc421ce48a",
+        },
+      });
+      return response.data.articles;
+    } catch (error) {
+      console.error("NewsAPI Error:", error);
+      return [];
+    }
+  };
 
-const fetchFromGNewsAPI = async () => {
-  try {
-    const response = await axios.get("https://appcodeglobal-backend.onrender.com/api/gnews");
-    return response.data;
-  } catch (error) {
-    console.error("GNewsAPI Error:", error);
-    return [];
-  }
-};
+  const fetchFromGNewsAPI = async () => {
+    try {
+      const response = await axios.get("https://gnews.io/api/v4/search", {
+        params: {
+          q: "cyber security",
+          lang: "en",
+          token: "0a5a1464da4cc284267e685b570fa055", // Changed to REACT_APP prefix
+        },
+      });
+      return response.data.articles;
+    } catch (error) {
+      console.error("GNewsAPI Error:", error);
+      return [];
+    }
+  };
 
-const fetchFromMediaStack = async () => {
-  try {
-    const response = await axios.get("https://appcodeglobal-backend.onrender.com/api/mediastack");
-    return response.data;
-  } catch (error) {
-    console.error("MediaStack Error:", error);
-    return [];
-  }
-};
-
+  const fetchFromMediaStack = async () => {
+    try {
+      const response = await axios.get("http://api.mediastack.com/v1/news", {
+        params: {
+          access_key: "52e6401ba26279d03666a865cce2a1dc",
+          keywords: "cloud computing",
+          languages: "en",
+          sort: "published_desc",
+        },
+      });
+      return response.data.data;
+    } catch (error) {
+      console.error("MediaStack Error:", error);
+      return [];
+    }
+  };
 
   useEffect(() => {
     const fetchNews = async () => {
