@@ -64,8 +64,8 @@ app.use(express.json()); // Parse incoming JSON requests
 
 app.use(cors({
   origin: [
-    'http://localhost:5000', // Your frontend origin
-    'https://appcodeglobal-frontend.onrender.com' // Your frontend URL if deployed
+    'http://localhost:5173', // Your frontend origin
+    'https://acg-7xkz.onrender.com' // Your frontend URL if deployed
   ],
   credentials: true
 }));
