@@ -1,131 +1,150 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "./NewsSection.css";
+import { useState, useEffect } from 'react';
+import '../landingPage/NewsSection.css';
 
 const NewsSection = () => {
-  const [news, setNews] = useState([]);
-  const [displayedNews, setDisplayedNews] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [category, setCategory] = useState('technology');
+  const [currentPage, setCurrentPage] = useState(0);
 
-  const fetchFromNewsAPI = async () => {
-    try {
-      const response = await axios.get("https://newsapi.org/v2/everything", {
-        params: {
-          q: "forex",
-          language: "en",
-          sortBy: "publishedAt",
-          apiKey: "5d238b4fa6ec456fa88cacfc421ce48a",
-        },
-      });
-      return response.data.articles;
-    } catch (error) {
-      console.error("NewsAPI Error:", error);
-      return [];
-    }
-  };
+  const API_KEY = '5d238b4fa6ec456fa88cacfc421ce48a';
+  const ARTICLES_PER_PAGE = 4;
 
-  const fetchFromGNewsAPI = async () => {
-    try {
-      const response = await axios.get("https://gnews.io/api/v4/search", {
-        params: {
-          q: "cyber security",
-          lang: "en",
-          token: "0a5a1464da4cc284267e685b570fa055", // Changed to REACT_APP prefix
-        },
-      });
-      return response.data.articles;
-    } catch (error) {
-      console.error("GNewsAPI Error:", error);
-      return [];
-    }
-  };
-
-  const fetchFromMediaStack = async () => {
-    try {
-      const response = await axios.get("http://api.mediastack.com/v1/news", {
-        params: {
-          access_key: "52e6401ba26279d03666a865cce2a1dc",
-          keywords: "cloud computing",
-          languages: "en",
-          sort: "published_desc",
-        },
-      });
-      return response.data.data;
-    } catch (error) {
-      console.error("MediaStack Error:", error);
-      return [];
-    }
-  };
+  const categories = [
+    'business', 'entertainment', 'general',
+    'health', 'science', 'sports', 'technology'
+  ];
 
   useEffect(() => {
     const fetchNews = async () => {
-      setLoading(true);
+      try {
+        setLoading(true);
+        const response = await fetch(
+          `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
+        );
 
-      // Fetch news from all sources
-      const [newsAPI, gNews, mediaStack] = await Promise.all([
-        fetchFromNewsAPI(),
-        fetchFromGNewsAPI(),
-        fetchFromMediaStack(),
-      ]);
+        if (!response.ok) {
+          throw new Error('Failed to fetch news');
+        }
 
-      // Combine and shuffle the results
-      const combinedNews = [...newsAPI, ...gNews, ...mediaStack];
-      setNews(combinedNews);
-      setDisplayedNews(combinedNews.slice(0, 4)); // Display initial articles
-      setLoading(false);
+        const data = await response.json();
+        setArticles(data.articles);
+        setCurrentPage(0); // Reset to first page when category changes
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
     };
 
     fetchNews();
-  }, []);
+  }, [category]);
 
-  const shuffleArray = (arr) => arr.sort(() => Math.random() - 0.5);
+  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
+  const startIdx = currentPage * ARTICLES_PER_PAGE;
+  const visibleArticles = articles.slice(startIdx, startIdx + ARTICLES_PER_PAGE);
 
-  useEffect(() => {
-    if (news.length > 0) {
-      const interval = setInterval(() => {
-        const shuffledNews = shuffleArray(news);
-        setDisplayedNews(shuffledNews.slice(0, 4));
-      }, 20000);
+  const goToNextPage = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
+  };
 
-      return () => clearInterval(interval);
-    }
-  }, [news]);
+  const goToPrevPage = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
+  };
 
-  const truncateText = (text, length = 100) =>
-    text && text.length > length ? text.slice(0, length) + "..." : text;
+  if (loading) {
+    return <div className="loading">Loading news...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error}</div>;
+  }
 
   return (
-    <div className="news-section">
-      {loading ? (
-        <p>Loading news...</p>
-      ) : (
-        <div className="news-container">
-          {displayedNews.map((article, index) => (
-            <div className="news-item" key={index}>
-              <div className="image-container">
-                <img
-                  src={article.urlToImage || "https://via.placeholder.com/300"}
-                  alt={article.title}
-                  className="news-image"
-                />
-                <span className="title">
-                  {truncateText(article.title, 22)}
-                </span>
-              </div>
-              <p>{truncateText(article.description, 50)}</p>
-              <div className="btn-container">
-                <a
-                  href={article.url}
-                  target="_blank"
-                  className="btn"
-                  rel="noopener noreferrer"
-                >
-                  Read
-                  <span className="material-symbols-outlined">east</span>
-                </a>
+    <div className="news-blog">
+      <header className="blog-header">
+        <h6>Latest News Blog</h6>
+        <div className="category-selector-container">
+          <div className="category-selector-wrapper">
+            <select
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="innovative-select"
+            >
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </option>
+              ))}
+            </select>
+            <div className="selector-decoration">
+              <span className="selector-label">Filter by:</span>
+              <div className="animated-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 10L12 15L17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
             </div>
-          ))}
+          </div>
+        </div>
+      </header>
+
+      <div className="articles-container">
+        {visibleArticles.map((article, index) => (
+          <article key={index} className="news-article">
+            {article.urlToImage && (
+              <div className="article-image">
+                <img src={article.urlToImage} alt={article.title} />
+              </div>
+            )}
+            <div className="article-content">
+              <h2>
+                <a href={article.url} target="_blank" rel="noopener noreferrer">
+                  {article.title}
+                </a>
+              </h2>
+              <p className="article-meta">
+                {article.source.name} • {new Date(article.publishedAt).toLocaleDateString()}
+              </p>
+              <p className="article-description">
+                <div>{article.description}</div>
+                <div className="btn-container">
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn"
+                  >
+                    Read more
+                    <span className="material-symbols-outlined">east</span>
+                  </a></div></p>
+
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {articles.length > ARTICLES_PER_PAGE && (
+        <div className="pagination-controls">
+          <button
+            onClick={goToPrevPage}
+            disabled={currentPage === 0}
+            className="pagination-button"
+          >
+            Previous
+          </button>
+          <span className="page-indicator">
+            Page {currentPage + 1} of {totalPages}
+          </span>
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages - 1}
+            className="pagination-button"
+          >
+            Next
+          </button>
         </div>
       )}
     </div>

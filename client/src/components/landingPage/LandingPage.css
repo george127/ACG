@@ -7,6 +7,7 @@
  
 .grid-nav {
    background: #fff;
+   height: 100vh;
   width: 220px;
   margin-top: 20px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
