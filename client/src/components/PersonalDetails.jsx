@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Row, Col, Container, Button, Alert } from "react-bootstrap";
+import { Form, Row, Col, Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { submitPersonalDetails } from "../redux/reducers/studentSlice";
@@ -14,7 +14,7 @@ function PersonalDetails() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    phone: "",  
+    phone: "",
     dob: "",
     gender: "",
     nationality: "",
@@ -181,7 +181,7 @@ function PersonalDetails() {
         <Form onSubmit={handleSub}>
           <Row>
             <Col md={6}>
-              <Form.Group controlId="formFullName">
+              <Form.Group controlId="formFullName" className="form-group">
                 <Form.Label>Full Name</Form.Label>
                 <Form.Control
                   type="text"
@@ -198,7 +198,7 @@ function PersonalDetails() {
             </Col>
 
             <Col md={6}>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group controlId="formBasicEmail" className="form-group">
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control
                   type="email"
@@ -217,7 +217,7 @@ function PersonalDetails() {
 
           <Row>
             <Col md={6}>
-              <Form.Group controlId="formAddress">
+              <Form.Group controlId="formAddress" className="form-group">
                 <Form.Label>Address</Form.Label>
                 <Form.Control
                   type="text"
@@ -234,7 +234,7 @@ function PersonalDetails() {
             </Col>
 
             <Col md={6}>
-              <Form.Group controlId="formPhoneNumber">
+              <Form.Group controlId="formPhoneNumber" className="form-group">
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control
                   type="tel"
@@ -253,7 +253,7 @@ function PersonalDetails() {
 
           <Row>
             <Col md={6}>
-              <Form.Group controlId="formDateOfBirth">
+              <Form.Group controlId="formDateOfBirth" className="form-group">
                 <Form.Label>Date of Birth</Form.Label>
                 <Form.Control
                   type="date"
@@ -269,7 +269,7 @@ function PersonalDetails() {
             </Col>
 
             <Col md={6}>
-              <Form.Group controlId="formGender">
+              <Form.Group controlId="formGender" className="form-group">
                 <Form.Label>Gender</Form.Label>
                 <Form.Control
                   as="select"
@@ -292,7 +292,7 @@ function PersonalDetails() {
 
           <Row>
             <Col md={6}>
-              <Form.Group controlId="formNationality">
+              <Form.Group controlId="formNationality" className="form-group">
                 <Form.Label>Nationality</Form.Label>
                 <Form.Control
                   type="text"
@@ -307,9 +307,9 @@ function PersonalDetails() {
                 </Form.Control.Feedback>
               </Form.Group>
             </Col>
-        
+
             <Col md={6}>
-              <Form.Group controlId="formProfileImage">
+              <Form.Group controlId="formProfileImage" className="form-group">
                 <Form.Label>Upload Profile Image</Form.Label>
                 <Form.Control
                   type="file"
@@ -327,18 +327,19 @@ function PersonalDetails() {
             </Col>
           </Row>
 
-          <div className="Button-container">
-            <Button variant="primary" type="submit" className="btn">
+          <div className="btn-container">
+            <button type="submit" className="btn">
               {loading ? "Submitting..." : "Submit"}
-            </Button>  
+              <span className="material-symbols-outlined">east</span>
+            </button>
             {showNextButton && (
-              <Button
-                variant="success"
+              <button
                 onClick={handleNextClick}
                 className="btn"
               >
                 Next
-              </Button>
+                <span className="material-symbols-outlined">east</span>
+              </button>
             )}
           </div>
         </Form>

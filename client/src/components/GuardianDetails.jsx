@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Form,
   Container,
-  Button,
   Alert,
   Modal,
   Row,
@@ -112,10 +111,6 @@ function GuardianDetails() {
     navigate("/fees-payment");
   };
 
-  // Redirect to home page
-  const handleHomeClick = () => {
-    navigate("/home");
-  };
 
   return (
    <div className="layout">
@@ -169,7 +164,7 @@ function GuardianDetails() {
         <Row>
           {/* Guardian Full Name */}
           <Col md={6}>
-            <Form.Group controlId="formGuardianFullName">
+            <Form.Group controlId="formGuardianFullName" className="form-group">
               <Form.Label>Guardian&apos;s Full Name</Form.Label>
               <Form.Control
                 type="text"
@@ -187,7 +182,7 @@ function GuardianDetails() {
 
           {/* Relationship to Student */}
           <Col md={6}>
-            <Form.Group controlId="formRelationship">
+            <Form.Group controlId="formRelationship" className="form-group">
               <Form.Label>Relationship to Student</Form.Label>
               <Form.Control
                 type="text"
@@ -207,7 +202,7 @@ function GuardianDetails() {
         <Row>
           {/* Guardian Phone Number */}
           <Col md={6}>
-            <Form.Group controlId="formGuardianPhone">
+            <Form.Group controlId="formGuardianPhone" className="form-group">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="tel"
@@ -225,7 +220,7 @@ function GuardianDetails() {
 
           {/* Guardian Email Address */}
           <Col md={6}>
-            <Form.Group controlId="formGuardianEmail">
+            <Form.Group controlId="formGuardianEmail" className="form-group">
               <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type="email"
@@ -245,7 +240,7 @@ function GuardianDetails() {
         <Row>
           {/* Guardian Occupation */}
           <Col md={12}>
-            <Form.Group controlId="formGuardianOccupation">
+            <Form.Group controlId="formGuardianOccupation" className="form-group">
               <Form.Label>Occupation</Form.Label>
               <Form.Control
                 type="text"
@@ -262,10 +257,10 @@ function GuardianDetails() {
           </Col>
         </Row>
 
-        <div className="Button-container">
-          <Button variant="primary" type="submit" className="btn">
+        <div className="btn-container">
+          <button  type="submit" className="btn">
             {loading ? "Submitting..." : "Submit" }
-          </Button>
+          </button>
           </div>
          
       </Form>
@@ -282,13 +277,11 @@ function GuardianDetails() {
             the homepage?
           </p>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleHomeClick}>
-            Go to Homepage
-          </Button>
-          <Button variant="primary" onClick={handlePaymentClick}>
+        <Modal.Footer className="btn-container">
+          <button className="btn" onClick={handlePaymentClick}>
             Proceed to Payment
-          </Button>
+            <span className="material-symbols-outlined">payment</span>
+          </button>
         </Modal.Footer>
       </Modal>
     </Container>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Container, Button, Alert, Row, Col } from 'react-bootstrap';
+import { Form, Container, Alert, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { submitEducationalBackground } from "../redux/reducers/studentSlice";
@@ -133,7 +133,7 @@ function EducationalBackground() {
       <Form onSubmit={handleSub}>
         <Row>
           <Col md={6}>
-            <Form.Group controlId="formQualification">
+            <Form.Group controlId="formQualification" className="form-group">
               <Form.Label>Highest Qualification</Form.Label>
               <Form.Control
                 type="text"
@@ -148,7 +148,7 @@ function EducationalBackground() {
           </Col>
 
           <Col md={6}>
-            <Form.Group controlId="formInstitution">
+            <Form.Group controlId="formInstitution" className="form-group">
               <Form.Label>Institution Name</Form.Label>
               <Form.Control
                 type="text"
@@ -165,7 +165,7 @@ function EducationalBackground() {
 
         <Row>
           <Col md={6}>
-            <Form.Group controlId="formGraduationYear">
+            <Form.Group controlId="formGraduationYear" className="form-group">
               <Form.Label>Year of Graduation</Form.Label>
               <Form.Control
                 type="number"
@@ -180,7 +180,7 @@ function EducationalBackground() {
           </Col>
 
           <Col md={6}>
-            <Form.Group controlId="formStudyArea">
+            <Form.Group controlId="formStudyArea" className="form-group">
               <Form.Label>Area of Study</Form.Label>
               <Form.Control
                 type="text"
@@ -197,7 +197,7 @@ function EducationalBackground() {
 
         <Row>
           <Col md={12}>
-            <Form.Group controlId="formCertifications">
+            <Form.Group controlId="formCertifications" className="form-group">
               <Form.Label>Additional Courses or Certifications</Form.Label>
               <Form.Control
                 as="textarea"
@@ -213,15 +213,16 @@ function EducationalBackground() {
           </Col>
         </Row>
 
-        <div className="Button-container">
-          <Button variant="primary" type="submit" className="btn">
+        <div className="btn-container">
+          <button type="submit" className="btn">
             {loading ? "Submitting..." : "Submit" }
-          </Button>
+            <span className="material-symbols-outlined">east</span>
+          </button>
           {showNextButton && (
-              <Button variant="success" onClick={handleNextClick}  className="btn">
-
+              <button onClick={handleNextClick}  className="btn">
               Next
-            </Button>
+              <span className="material-symbols-outlined">east</span>
+            </button>
           )}
           </div>
       </Form>

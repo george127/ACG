@@ -7,7 +7,6 @@
     font-size: 14px;
 }
 
-
 /* Personal Details Form Container */
 .form-container {
     padding: 30px 100px;
@@ -15,70 +14,54 @@
 }
 
 /* Section Title */
-h3 {
+.form-container h3 {
     text-align: center;
     color: #333;
     margin: 30px 0;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
 /* Input Fields */
-.form-control {
+.form-container .form-control {
     background-color: #fff;
     border: none;
-    border-radius: 50px;
-    padding: 10px 15px;
-    margin-bottom: 40px;
+    padding: 15px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
     color: #333;
     font-size: 14px;
+    border-radius: 0px;
 }
 
-.form-control:focus {
+.form-container .form-control:focus {
     outline: none;
     border-color: #f8c12d;
     box-shadow: 0 0 10px rgba(248, 193, 45, 0.5);
 }
 
 /* Form Labels */
-.form-label {
+.form-container .form-label {
     font-weight: 500;
     color: #333;
     margin-bottom: 8px;
 }
 
 /* Gender Select Dropdown */
-.form-select {
+.form-container .form-select {
     background-color: #fff;
     border: none;
-    border-radius: 50px;
-    padding: 10px 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
     color: #333;
 }
 
-/* Custom Submit Button */
-.Button-container{
-    display: flex;
-    justify-content: space-between;
-}
-
-.Button-container .btn {
-    background-color: #ff6f61;
-    color: #fff;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 14px;
-    display: inline-block;
-    text-align: center;
-}
-
-.Button-container .btn:hover {
-    background-color: #ff4a3d;
-    transform: scale(1.05);
+.form-container .btn-container .btn{
+    padding: 12px 30px;
+    width: 150px;
+    height: 40px;
+    font-size: 12px;
 }
 
 .icons-container{
@@ -91,12 +74,6 @@ h3 {
     border-right: 1px solid #ff6f61;
     padding: 0 20px 0 0;
 }
-
-.error-message {
-    color: red;
-    margin-top: 8px;
-    font-size: 14px;
-  }
 
 
   .loading-container{
@@ -186,50 +163,4 @@ h3 {
     border-top: 1px solid #e0e0e0;
   }
   
-  button.btn-primary {
-    background-color: #ff6f61;
-    color: #fff;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 14px;
-    display: inline-block;
-    text-align: center;
-  }
-  
-  button.btn-primary:hover {
-    background-color: #ff4a3d;
-    transform: scale(1.05);
-}
-  
-  button.btn-secondary {
-    background-color: #ff6f61;
-    color: #fff;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 14px;
-    display: inline-block;
-    text-align: center;
-  }
-  
-  button.btn-secondary:hover {
-    background-color: #ff4a3d;
-    transform: scale(1.05);
-}
-  
-  @keyframes slide-in {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
   

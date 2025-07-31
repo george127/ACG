@@ -16,7 +16,7 @@ function FeeSelectionPage() {
   const [amount, setAmount] = useState(null);
 
   const paymentLinks = {
-    2000: "https://paystack.com/pay/q6-vi19w9o",
+    3000: "https://paystack.shop/pay/86-n0m8di8",
     1900: "https://paystack.com/pay/ue-vftvmsa",
     1650: "https://paystack.com/pay/jmh--7kpot",
     1000: "https://paystack.com/pay/zo3jo3-xob",

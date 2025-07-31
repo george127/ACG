@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Container, Button, Alert } from "react-bootstrap";
+import { Form, Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { submitprogramApplyingFor } from "../redux/reducers/studentSlice";
@@ -83,90 +83,91 @@ function ProgramApplyingFor() {
   return (
     <div className="layout">
       <Container className="form-container">
-      <div className="icons-container">
-        <div className="icons">
-          <p>Personal Details</p>
-          <span
-            className="material-symbols-outlined"
-            style={{ color: "green" }}
-          >
-            task_alt
-          </span>
-        </div>
-        <div className="icons">
-          <p>Program Applying For</p>
-          <span
-            className="material-symbols-outlined"
-            style={{ color: formSubmitted ? "green" : "black" }}
-          >
-            {formSubmitted ? "task_alt" : "lock"}
-          </span>
-        </div>
-        <div className="icons">
-          <p>Educational Background</p>
-          <span className="material-symbols-outlined">lock</span>
-        </div>
-        <div className="icons">
-          <p>Guardian Details</p>
-          <span className="material-symbols-outlined">lock</span>
-        </div>
-      </div>
-
-      <h3>Program Applying For</h3>
-
-      {/* Show success or error message */}
-      {successMessage && <Alert variant="success">{successMessage}</Alert>}
-      {submitError && <Alert variant="danger">{submitError}</Alert>}
-
-      <Form onSubmit={handleSub}>
-        <Form.Group controlId="formProgram">
-          <Form.Label>Select Program</Form.Label>
-          <Form.Control
-            as="select"
-            name="programName"
-            onChange={handleChange}
-            isInvalid={!!errors.programName}
-            value={formData.programName}
-          >
-            <option value="">Choose a program</option>
-            <option value="software-engineering">Software Engineering</option>
-            <option value="cloud-computing">Cloud Computing</option>
-            <option value="cyber-security">Cyber Security</option>
-            <option value="data-analytics">Data Analytics</option>
-          </Form.Control>
-          <Form.Control.Feedback type="invalid">
-            {errors.programName}
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formCourseDetails">
-          <Form.Label>Why do you want to join this program?</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={3}
-            name="courseDetails"
-            placeholder="Tell us briefly why you chose this program"
-            onChange={handleChange}
-            isInvalid={!!errors.courseDetails}
-            value={formData.courseDetails}
-          />
-          <Form.Control.Feedback type="invalid">
-            {errors.courseDetails}
-          </Form.Control.Feedback>
-        </Form.Group>
-        <div className="Button-container">
-          <Button variant="primary" type="submit" className="btn">
-            {loading ? "Submitting..." : "Submit" }
-          </Button>
-          {showNextButton && (
-              <Button variant="success" onClick={handleNextClick}  className="btn">
-
-              Next
-            </Button>
-          )}
+        <div className="icons-container">
+          <div className="icons">
+            <p>Personal Details</p>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: "green" }}
+            >
+              task_alt
+            </span>
           </div>
-      </Form>
-    </Container>
+          <div className="icons">
+            <p>Program Applying For</p>
+            <span
+              className="material-symbols-outlined"
+              style={{ color: formSubmitted ? "green" : "black" }}
+            >
+              {formSubmitted ? "task_alt" : "lock"}
+            </span>
+          </div>
+          <div className="icons">
+            <p>Educational Background</p>
+            <span className="material-symbols-outlined">lock</span>
+          </div>
+          <div className="icons">
+            <p>Guardian Details</p>
+            <span className="material-symbols-outlined">lock</span>
+          </div>
+        </div>
+
+        <h3>Program Applying For</h3>
+
+        {/* Show success or error message */}
+        {successMessage && <Alert variant="success">{successMessage}</Alert>}
+        {submitError && <Alert variant="danger">{submitError}</Alert>}
+
+        <Form onSubmit={handleSub}>
+          <Form.Group controlId="formProgram" className="form-group">
+            <Form.Label>Select Program</Form.Label>
+            <Form.Control
+              as="select"
+              name="programName"
+              onChange={handleChange}
+              isInvalid={!!errors.programName}
+              value={formData.programName}
+            >
+              <option value="">Choose a program</option>
+              <option value="software-engineering">Software Engineering</option>
+              <option value="cloud-computing">Cloud Computing</option>
+              <option value="cyber-security">Cyber Security</option>
+              <option value="data-analytics">Data Analytics</option>
+            </Form.Control>
+            <Form.Control.Feedback type="invalid">
+              {errors.programName}
+            </Form.Control.Feedback>
+          </Form.Group>
+
+          <Form.Group controlId="formCourseDetails" className="form-group">
+            <Form.Label>Why do you want to join this program?</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              name="courseDetails"
+              placeholder="Tell us briefly why you chose this program"
+              onChange={handleChange}
+              isInvalid={!!errors.courseDetails}
+              value={formData.courseDetails}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.courseDetails}
+            </Form.Control.Feedback>
+          </Form.Group>
+          <div className="btn-container">
+            <button  type="submit" className="btn">
+              {loading ? "Submitting..." : "Submit"}
+              <span className="material-symbols-outlined">east</span>
+            </button>
+            {showNextButton && (
+              <button  onClick={handleNextClick} className="btn">
+                Next
+                <span className="material-symbols-outlined">arrow_forward</span>
+              </button>
+            )}
+          </div>
+        </Form>
+      </Container>
       {/* Conditional loading spinner */}
       {loading && <div className="loading-container"><div className="loading-spinner"></div></div>}
     </div>
