@@ -178,20 +178,25 @@ const fetchNews = async () => {
     setError(null);
     
     const response = await fetch(
-      `https://appcodeglobal-backend.onrender.com/api/news?category=${category}`
+      `http://localhost:5000/api/news?category=${category}`,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }
     );
 
+    // First check if response is JSON
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      throw new Error(`Expected JSON but got: ${text.substring(0, 100)}`);
+    }
+
     if (!response.ok) {
-      // Try to get error message from response
-      let errorMsg = 'Failed to fetch news';
-      try {
-        const errorData = await response.json();
-        errorMsg = errorData.error || errorData.message || errorMsg;
-      } catch (e) {
-        // If response isn't JSON, use status text
-        errorMsg = response.statusText || errorMsg;
-      }
-      throw new Error(errorMsg);
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to fetch news');
     }
 
     const data = await response.json();

@@ -65,7 +65,7 @@ app.use(express.json()); // Parse incoming JSON requests
 app.use(cors({
   origin: [
     'http://localhost:5000', // Your frontend origin
-    'https://acg-7xkz.onrender.com' // Your frontend URL if deployed
+    'https://appcodeglobal-frontend.onrender.com' // Your frontend URL if deployed
   ],
   credentials: true
 }));
@@ -93,7 +93,7 @@ app.use('/api/fees', feespaymentRoutes);
 // Import news API route
 app.use('/api/news', newapiRoute); // This mounts the route at /api/news
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// In api/index.js, change the listen line to:
+app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
+  console.log(`Server running on port ${process.env.PORT || 5000}`);
 });
