@@ -13,13 +13,23 @@ dotenv.config(); // Load environment variables
 const app = express();
 app.use(express.json()); // Parse incoming JSON requests
 
-app.use(cors({
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173', // Your frontend origin
+//     'https://acg-7xkz.onrender.com' // Your frontend URL if deployed
+//   ],
+//   credentials: true
+// }));
+
+
+app.options('*', cors({
   origin: [
-    'http://localhost:5173', // Your frontend origin
-    'https://acg-7xkz.onrender.com' // Your frontend URL if deployed
+    'http://localhost:5173',
+    'https://acg-7xkz.onrender.com'
   ],
   credentials: true
 }));
+
 
 // Connect to MongoDB 
 mongoose.connect(process.env.MONGO) 
