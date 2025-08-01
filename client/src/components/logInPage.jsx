@@ -58,6 +58,7 @@ const LoginPage = () => {
     try {
       const response = await fetch("https://appcodeglobal-backend.onrender.com/api/auth/login", {
         method: "POST",
+        credentials: 'include', 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
