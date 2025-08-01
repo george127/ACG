@@ -104,6 +104,12 @@
     100% { transform: rotate(360deg); }
   }
   
+  
+.error-message {
+    color: red;
+    margin-top: 8px;
+    font-size: 14px;
+  }
 
   /* General Modal Styling */
 .modal-content {
