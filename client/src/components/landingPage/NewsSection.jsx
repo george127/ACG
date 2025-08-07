@@ -24,11 +24,10 @@ const NewsSection = () => {
         const response = await fetch(
           `http://localhost:5000/api/news?category=${category}`,
           {
-            credentials: 'include',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
-            }
+            },
           }
         );
 

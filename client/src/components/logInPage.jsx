@@ -53,14 +53,14 @@ const LoginPage = () => {
     if (!validateInputs()) {
       return; // Do not proceed if validation fails
     }
-
+ 
     dispatch(loginStart());
     try {
-      const response = await fetch("https://appcodeglobal-backend.onrender.com/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
-        credentials: 'include', 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
+        credentials: 'include', // Required for cookies
       });
 
       const data = await response.json();

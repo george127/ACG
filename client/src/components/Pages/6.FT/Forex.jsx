@@ -41,7 +41,7 @@ const Details = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://appcodeglobal-backend.onrender.com/api/details/Info",
+        "http://localhost:5000/api/details/Info",
         formData
       );
       console.log(response.data);
