@@ -14,24 +14,22 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// CORS Configuration
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://acg-7xkz.onrender.com', // Your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // Required for cookies/sessions
+  credentials: true,
   optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
 
-// Session Configuration (with a temporary secret)
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'dev-secret-key-123', // Use env variable or fallback
+  secret: process.env.SESSION_SECRET, // Make sure this is set in your Render environment variables
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false, // Set to `true` in production (HTTPS only)
-    sameSite: 'lax', // 'none' if secure: true (cross-site)
-    maxAge: 1000 * 60 * 60 * 24, // 1 day (optional)
+    secure: true, // Set to true in production (HTTPS only)
+    sameSite: 'none', // Required for cross-site cookies
+    maxAge: 1000 * 60 * 60 * 24,
   },
 }));
 

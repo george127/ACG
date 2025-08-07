@@ -22,15 +22,15 @@ const NewsSection = () => {
         setError(null);
 
         const response = await fetch(
-          `http://localhost:5000/api/news?category=${category}`,
+          `https://acg-7euk.onrender.com/api/news?category=${category}`,
           {
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
-            },
-          }
+            }, 
+          } 
         );
-
+    
         // First check if response is JSON
         const contentType = response.headers.get('content-type');
         if (!contentType || !contentType.includes('application/json')) {
