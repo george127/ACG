@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://acg-7xkz.onrender.com', // Your frontend URL
+  origin: 'http://localhost:5173', // Your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,

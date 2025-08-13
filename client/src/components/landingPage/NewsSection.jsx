@@ -5,7 +5,7 @@ const NewsSection = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [category, setCategory] = useState('technology');
+  const [category, setCategory] = useState('technology'); 
   const [currentPage, setCurrentPage] = useState(0);
 
   const ARTICLES_PER_PAGE = 4;

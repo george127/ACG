@@ -51,7 +51,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     if (!validateInputs()) {
-      return; // Do not proceed if validation fails
+      return; // Do not proceed if validation fails 
     }
 
     dispatch(loginStart());
