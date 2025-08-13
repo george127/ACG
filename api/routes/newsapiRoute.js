@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Enhanced CORS configuration
 router.use(cors({
-  origin: ['https://acg-7xkz.onrender.com', 'http://localhost:5173'], // Add your actual frontend URLs
+  origin: ['https://acg-7euk.onrender.com', 'http://localhost:5000'], // Add your actual frontend URLs
   methods: ['GET', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
