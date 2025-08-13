@@ -7,15 +7,15 @@ import studentRoutes from './routes/studentRoutes.js';
 import feespaymentRoutes from './routes/feesPaymentRoute.js';
 import authRoutes from './routes/authRoutes.js';
 import detailsRoutes from './routes/detailRoutes.js';
-import newapiRoute from './routes/newsapiRoute.js';
+import newapiRoute from './routes/newsapiRoute.js'; 
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-
+   
 const corsOptions = {
-  origin: 'http://localhost:5173', // Your frontend URL
+  origin: 'https://acg-7xkz.onrender.com', // Your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
