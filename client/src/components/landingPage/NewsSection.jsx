@@ -24,37 +24,32 @@ const fetchNews = async () => {
     const response = await fetch(
       `https://acg-7euk.onrender.com/api/news?category=${category}`,
       {
-        headers: {
-          'Accept': 'application/json',
-        }, 
-      } 
+        headers: { 'Accept': 'application/json' },
+        credentials: 'include' // If using cookies
+      }
     );
 
-    // Check for non-JSON responses first
-    const contentType = response.headers.get('content-type');
-    if (!contentType || !contentType.includes('application/json')) {
-      const text = await response.text();
-      throw new Error(`Server error: ${text.substring(0, 100)}`);
-    }
-
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'News service unavailable');
+      const error = await response.json().catch(() => ({}));
+      throw new Error(
+        error.message || 
+        `News service error (${response.status})`
+      );
     }
 
     const data = await response.json();
     
-    // Additional check for empty or invalid data
-    if (!data.articles || !Array.isArray(data.articles)) {
+    if (!data.articles) {
       throw new Error('Invalid news data format');
     }
 
     setArticles(data.articles);
     setCurrentPage(0);
   } catch (err) {
-    setError(err.message);
+    setError(err.message.includes('Failed to fetch') 
+      ? 'Cannot connect to news service' 
+      : err.message);
     setArticles([]);
-    console.error('News fetch error:', err);
   } finally {
     setLoading(false);
   }
