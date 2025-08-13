@@ -16,43 +16,49 @@ const NewsSection = () => {
   ];
 
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        setLoading(true);
-        setError(null);
+const fetchNews = async () => {
+  try {
+    setLoading(true);
+    setError(null);
 
-        const response = await fetch(
-          `https://acg-7euk.onrender.com/api/news?category=${category}`,
-          {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            }, 
-          } 
-        );
+    const response = await fetch(
+      `https://acg-7euk.onrender.com/api/news?category=${category}`,
+      {
+        headers: {
+          'Accept': 'application/json',
+        }, 
+      } 
+    );
+
+    // Check for non-JSON responses first
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      throw new Error(`Server error: ${text.substring(0, 100)}`);
+    }
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'News service unavailable');
+    }
+
+    const data = await response.json();
     
-        // First check if response is JSON
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Expected JSON but got: ${text.substring(0, 100)}`);
-        }
+    // Additional check for empty or invalid data
+    if (!data.articles || !Array.isArray(data.articles)) {
+      throw new Error('Invalid news data format');
+    }
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to fetch news');
-        }
-
-        const data = await response.json();
-        setArticles(data.articles || []);
-        setCurrentPage(0);
-      } catch (err) {
-        setError(err.message);
-        setArticles([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+    setArticles(data.articles);
+    setCurrentPage(0);
+  } catch (err) {
+    setError(err.message);
+    setArticles([]);
+    console.error('News fetch error:', err);
+  } finally {
+    setLoading(false);
+  }
+};
 
     fetchNews();
   }, [category]);
