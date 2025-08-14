@@ -10,7 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { submitGuardianDetails } from "../redux/reducers/studentSlice";
-
+import Congratulations from "../assets/Congratulations.jpg"
 function GuardianDetails() {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.student);
@@ -94,7 +94,7 @@ function GuardianDetails() {
         // Show modal after 4 seconds
         setTimeout(() => {
           setShowModal(true);
-        }, 4000);
+        }, 2000);
       } catch (error) {
         console.error("Error Response from Backend:", error);
         setSubmitError(
@@ -268,7 +268,7 @@ function GuardianDetails() {
       {/* Modal congratulating the user */}
       <Modal show={showModal} centered>
         <Modal.Header>
-          <Modal.Title centered>Congratulations!</Modal.Title>
+          <Modal.Title centered><img src={Congratulations}/></Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <p>Your Forms details have been successfully submitted!</p>

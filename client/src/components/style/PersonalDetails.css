@@ -134,22 +134,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4caf50; 
-    color: #fff;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     text-transform: uppercase;
   }
-  
-  .modal-title {
-    font-weight: bold;
+
+  .modal-header img {
+    width: 260px;
   }
   
   .modal-body {
     padding: 30px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
     color: #333;
   }
@@ -161,12 +158,8 @@
     font-size: 1.2rem;
   }
 
-  .modal-footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px 20px;
-    background-color: #fff;
-    border-top: 1px solid #e0e0e0;
+  .modal .btn-container .btn{
+    width: 100%;
   }
   
   
