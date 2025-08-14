@@ -15,7 +15,7 @@ app.use(express.json());
    
 // Update to match your frontend domain or use a dynamic approach
 const corsOptions = {
-  origin: ['https://acg-7euk.onrender.com', 'http://localhost:5000'],
+  origin: ['https://acg-7euk.onrender.com', 'https://acg-7xkz.onrender.com'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
