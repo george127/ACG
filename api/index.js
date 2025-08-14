@@ -13,14 +13,31 @@ dotenv.config();
 const app = express();
 app.use(express.json());
    
-// Update to match your frontend domain or use a dynamic approach
+// Improved CORS configuration
 const corsOptions = {
-  origin: ['https://acg-7euk.onrender.com', 'https://acg-7xkz.onrender.com'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:5173', 
+      'https://acg-7euk.onrender.com',
+      'https://acg-7xkz.onrender.com'
+    ];
+    
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
-  optionsSuccessStatus: 204,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
+
+// Apply CORS middleware
 app.use(cors(corsOptions));
+
+// Explicitly handle OPTIONS requests
+app.options('*', cors(corsOptions));
 
 app.use(session({
   secret: process.env.SESSION_SECRET, // Make sure this is set in your Render environment variables
