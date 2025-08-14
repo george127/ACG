@@ -16,69 +16,28 @@ const NewsSection = () => {
   ];
 
   useEffect(() => {
-const fetchNews = async () => {
-  try {
-    setLoading(true);
-    setError(null);
-
-    const response = await fetch(
-      `https://acg-7euk.onrender.com/api/news?category=${category}`,
-      {
-        headers: { 'Accept': 'application/json' },
-        credentials: 'include'
-      }
-    );
-
-    if (!response.ok) {
-      let errorData;
+    const fetchNews = async () => {
       try {
-        errorData = await response.json();
-      } catch (e) {
-        errorData = { message: `HTTP error! status: ${response.status}` };
+        setLoading(true);
+        setError(null);
+        
+        // Call our backend route instead of directly calling NewsAPI
+        const response = await fetch(`https://acg-7euk.onrender.com/api/news?category=${category}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          setArticles(data.articles || []);
+          setCurrentPage(0); // Reset to first page when category changes
+        } else {
+          throw new Error(data.message || 'Failed to fetch news');
+        }
+      } catch (err) {
+        setError(err.message);
+        console.error('Error fetching news:', err);
+      } finally {
+        setLoading(false);
       }
-      
-      // Provide more specific error messages
-      if (response.status === 502) {
-        throw new Error('News service is currently unavailable. Please try again later.');
-      } else if (response.status === 500) {
-        throw new Error('Server configuration error');
-      } else {
-        throw new Error(
-          errorData.message || 
-          errorData.error ||
-          `Error fetching news (${response.status})`
-        );
-      }
-    }
-
-    const data = await response.json();
-    
-    if (!data.articles) {
-      throw new Error('Received invalid news data format');
-    }
-
-    setArticles(data.articles);
-    setCurrentPage(0);
-  } catch (err) {
-    setError(err.message);
-    setArticles([]);
-    console.error('News fetch error:', err);
-    
-    // Optionally set some fallback articles
-    if (articles.length === 0) {
-      setArticles([{
-        title: "News Service Temporarily Unavailable",
-        description: "We're unable to fetch the latest news right now. Please check back later.",
-        url: "#",
-        urlToImage: "https://via.placeholder.com/300",
-        publishedAt: new Date().toISOString(),
-        source: { name: "System" }
-      }]);
-    }
-  } finally {
-    setLoading(false);
-  }
-};
+    };
 
     fetchNews();
   }, [category]);
