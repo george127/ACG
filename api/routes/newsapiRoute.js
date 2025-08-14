@@ -18,7 +18,8 @@ router.use(express.json());
 router.get('/', async (req, res) => {
   const { category = 'technology' } = req.query;
   
-  // Better API key validation
+  console.log('Attempting to fetch news for category:', category);
+
   const apiKey = process.env.NEWS_API_KEY;
   if (!apiKey) {
     console.error('NEWS_API_KEY is missing in environment variables');
@@ -34,6 +35,9 @@ router.get('/', async (req, res) => {
     apiUrl.searchParams.set('category', category);
     apiUrl.searchParams.set('apiKey', apiKey);
 
+    console.log('Constructed NewsAPI URL (without key):', 
+      `${apiUrl.origin}${apiUrl.pathname}?${apiUrl.searchParams.toString().replace(/apiKey=[^&]*/, 'apiKey=REDACTED')}`);
+
     const response = await fetch(apiUrl, {
       headers: {
         'Accept': 'application/json',
@@ -41,34 +45,31 @@ router.get('/', async (req, res) => {
       }
     });
 
-    // Detailed response handling
-    const contentType = response.headers.get('content-type');
-    if (!contentType?.includes('application/json')) {
-      const text = await response.text();
-      console.error('NewsAPI non-JSON response:', text.substring(0, 200));
-      throw new Error(`NewsAPI responded with: ${response.status} ${response.statusText}`);
-    }
+    console.log('NewsAPI response status:', response.status);
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('NewsAPI error response:', errorData);
+      const errorData = await response.json().catch(() => ({}));
+      console.error('NewsAPI error details:', {
+        status: response.status,
+        statusText: response.statusText,
+        errorData
+      });
       throw new Error(errorData.message || `NewsAPI request failed (${response.status})`);
     }
 
-    const data = await response.json();
-    
-    // Validate response structure
-    if (!data?.articles) {
-      throw new Error('Invalid response format from NewsAPI');
-    }
+    // ... rest of your existing code ...
 
-    return res.json(data);
-    
   } catch (err) {
-    console.error('NewsAPI processing error:', err);
+    console.error('Full error details:', {
+      message: err.message,
+      stack: err.stack
+    });
     return res.status(502).json({ 
       error: 'News service unavailable',
-      details: process.env.NODE_ENV === 'development' ? err.message : undefined
+      details: process.env.NODE_ENV === 'development' ? {
+        message: err.message,
+        stack: err.stack
+      } : undefined
     });
   }
 });

@@ -25,31 +25,56 @@ const fetchNews = async () => {
       `https://acg-7euk.onrender.com/api/news?category=${category}`,
       {
         headers: { 'Accept': 'application/json' },
-        credentials: 'include' // If using cookies
+        credentials: 'include'
       }
     );
 
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(
-        error.message || 
-        `News service error (${response.status})`
-      );
+      let errorData;
+      try {
+        errorData = await response.json();
+      } catch (e) {
+        errorData = { message: `HTTP error! status: ${response.status}` };
+      }
+      
+      // Provide more specific error messages
+      if (response.status === 502) {
+        throw new Error('News service is currently unavailable. Please try again later.');
+      } else if (response.status === 500) {
+        throw new Error('Server configuration error');
+      } else {
+        throw new Error(
+          errorData.message || 
+          errorData.error ||
+          `Error fetching news (${response.status})`
+        );
+      }
     }
 
     const data = await response.json();
     
     if (!data.articles) {
-      throw new Error('Invalid news data format');
+      throw new Error('Received invalid news data format');
     }
 
     setArticles(data.articles);
     setCurrentPage(0);
   } catch (err) {
-    setError(err.message.includes('Failed to fetch') 
-      ? 'Cannot connect to news service' 
-      : err.message);
+    setError(err.message);
     setArticles([]);
+    console.error('News fetch error:', err);
+    
+    // Optionally set some fallback articles
+    if (articles.length === 0) {
+      setArticles([{
+        title: "News Service Temporarily Unavailable",
+        description: "We're unable to fetch the latest news right now. Please check back later.",
+        url: "#",
+        urlToImage: "https://via.placeholder.com/300",
+        publishedAt: new Date().toISOString(),
+        source: { name: "System" }
+      }]);
+    }
   } finally {
     setLoading(false);
   }
