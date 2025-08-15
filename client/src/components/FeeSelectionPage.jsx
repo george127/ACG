@@ -177,7 +177,7 @@ function FeeSelectionPage() {
               </div>
             </div>
             <div className="price">
-              <p>Gh¢ 2,000.00</p>
+              <p>Gh¢ 3,000.00</p>
             </div>
             <div className="btn-container">
               <button onClick={() => handlePayment(3000)} className="btn">

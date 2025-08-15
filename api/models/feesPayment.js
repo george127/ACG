@@ -1,28 +1,3 @@
-// import mongoose from 'mongoose';
-
-// const UserFormSchema = new mongoose.Schema({
-//   paystack: {
-//     email: { type: String, required: true },
-//     records: [
-//       {
-//         semester: { type: String, required: true },
-//         installment: { type: String, required: true },
-//         firstName: { type: String },
-//         lastName: { type: String },
-//         phoneNumber: { type: String },
-//         status: { type: String },
-//         amount: { type: Number },
-//         amountPaid: { type: Number },
-//         transactionId: { type: String },
-//       },
-//     ],
-//   },
-// });
-
-// const UserForm = mongoose.model('paystackDetails', UserFormSchema);
-
-// export default UserForm;
-
 import mongoose from "mongoose";
 
 const UserFormSchema = new mongoose.Schema({
