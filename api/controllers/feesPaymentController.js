@@ -132,27 +132,31 @@ export const getPaymentDetails = async (req, res) => {
 
 export const getPaymentStatus = async (req, res) => {
   try {
-    // 1. First try to get email from request body (for direct API calls)
-    // 2. Fall back to checking localStorage data sent in headers
-    const { email } = req.body || JSON.parse(req.headers['x-localstorage'] || {});
-
+    // Get email from either body or headers
+    const { email } = req.body || JSON.parse(req.headers['x-localstorage'] || '{}');
+    
     if (!email) {
       return res.status(400).json({ 
         error: "Email is required",
-        suggestion: "Make sure user is logged in and localStorage contains user data"
+        suggestion: "Please log in to access payment information"
       });
     }
 
-    // 3. Check database for payments
-    const payments = await FeesPayment.find({ email });
+    // Direct database check with semester/installment filtering
+    const payments = await UserForm.find({ 
+      email,
+      ...(req.query.semester && { semester: req.query.semester }),
+      ...(req.query.installment && { installment: req.query.installment })
+    });
 
-    // 4. Format response with additional user verification
+    // Format response
     const statusMap = payments.reduce((acc, payment) => {
       const key = `${payment.semester}-${payment.installment}`;
       acc[key] = {
         paid: true,
         paidAt: payment.paidAt,
-        reference: payment.reference // Include payment reference if available
+        reference: payment.reference,
+        amount: payment.amount // Include amount for verification
       };
       return acc;
     }, {});
@@ -160,13 +164,14 @@ export const getPaymentStatus = async (req, res) => {
     res.status(200).json({
       email,
       paymentStatus: statusMap,
-      lastChecked: new Date().toISOString()
+      freshData: true, // Flag to indicate direct DB data
+      timestamp: new Date().toISOString()
     });
   } catch (error) {
-    console.error("Payment status check failed:", error);
+    console.error("Payment status error:", error);
     res.status(500).json({ 
-      error: "Server error",
-      details: error.message 
+      error: "Payment verification failed",
+      fallback: "Using cached data may be available" 
     });
   }
 };

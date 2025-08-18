@@ -278,7 +278,7 @@
 //                   onChange={(e) => setSemester(e.target.value)}
 //                   required
 //                 >
-                  
+
 //                   <option value="First Semester">First Semester</option>
 //                   <option value="Second Semester">Second Semester</option>
 //                   <option value="Third Semester">Third Semester</option>
@@ -292,7 +292,7 @@
 //                   onChange={(e) => setInstallment(e.target.value)}
 //                   required
 //                 >
-                  
+
 //                   <option value="First Installment">First Installment</option>
 //                   <option value="Second Installment">Second Installment</option>
 //                   <option value="Third Installment">Third Installment</option>
@@ -337,52 +337,93 @@ const FeesDetailsPage = () => {
   const [paidInstallments, setPaidInstallments] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-  const initializePaymentData = async () => {
-    try {
+  // Get user email from LocalStorage and fetch payment status
+  // Modified useEffect hook
+  useEffect(() => {
+    const fetchPaymentStatus = async () => {
       const userData = JSON.parse(localStorage.getItem("user"));
-      if (!userData?.email) {
-        throw new Error("No user email found in localStorage");
-      }
+      if (!userData?.email) return;
 
       setEmail(userData.email);
-      
-      // Always fetch from API (no localStorage fallback for payments)
-      const localStorageData = JSON.stringify({
-        user: userData,
-        lastLogin: localStorage.getItem("lastLogin")
-      });
 
-      const response = await axios.get(
-        "https://acg-7euk.onrender.com/api/fees/payment-status",
-        {
-          params: { email: userData.email },
-          headers: { 'X-LocalStorage': localStorageData }
+      try {
+        // Try fresh database check first
+        const freshData = await axios.get(
+          "https://acg-7euk.onrender.com/api/fees/payment-status",
+          {
+            headers: {
+              'X-LocalStorage': JSON.stringify({ user: userData }),
+              'Content-Type': 'application/json'  // Explicitly set content type
+
+            }
+          }
+        );
+
+        if (freshData.data?.paymentStatus) {
+          setPaidInstallments(freshData.data.paymentStatus);
+          localStorage.setItem(
+            'paymentStatus',
+            JSON.stringify({
+              data: freshData.data.paymentStatus,
+              timestamp: Date.now()
+            })
+          );
+          return;
         }
-      );
+      } catch (error) {
+        console.warn("Fresh data fetch failed, trying cache...");
+      }
 
-      setPaidInstallments(response.data.paymentStatus || {});
-      
-      // Optional: Cache in localStorage (but not critical)
-      localStorage.setItem('paymentStatus', JSON.stringify(response.data.paymentStatus || {}));
-    } catch (error) {
-      console.error("Initialization error:", error);
-      // Show error message (don't fall back to localStorage)
-      alert("Could not fetch payment status. Please refresh or check your connection.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+      // Fallback to cached data
+      const cached = JSON.parse(localStorage.getItem('paymentStatus') || '{}');
+      if (cached.data) {
+        setPaidInstallments(cached.data);
 
-  initializePaymentData();
-}, []);
+        // Optional: Show warning about using cached data
+        if (Date.now() - (cached.timestamp || 0) > 3600000) { // 1 hour old
+          console.warn("Using payment data older than 1 hour");
+        }
+      }
+    };
+
+    fetchPaymentStatus();
+  }, []);
 
   const paymentLinks = {
     2000: "https://paystack.shop/pay/7faz2q19tm",
     1920: "https://paystack.shop/pay/third-installment"
   };
 
-  const handlePayment = (amount, semester, installment) => {
+  const handlePayment = async (amount, semester, installment) => {
+    // First verify payment status directly from DB
+    try {
+      const verification = await axios.get(
+        "https://acg-7euk.onrender.com/api/fees/payment-status",
+        {
+          params: { semester, installment },
+          headers: {
+            'X-LocalStorage': JSON.stringify({
+              user: JSON.parse(localStorage.getItem("user"))
+            })
+          }
+        }
+      );
+
+      const key = `${semester}-${installment}`;
+      if (verification.data?.paymentStatus?.[key]?.paid) {
+        alert("This installment is already paid!");
+        // Update local state
+        setPaidInstallments(prev => ({
+          ...prev,
+          [key]: verification.data.paymentStatus[key]
+        }));
+        return;
+      }
+    } catch (error) {
+      console.log("Proceeding with payment despite verification error");
+    }
+
+    // Proceed to payment modal
     setAmount(amount);
     setSemester(semester);
     setInstallment(installment);
@@ -438,7 +479,7 @@ useEffect(() => {
 
   const PaymentButton = ({ amount, semester, installment }) => {
     const paid = isInstallmentPaid(semester, installment);
-    
+
     return (
       <button
         className={`btn ${paid ? "btn-paid" : ""}`}
@@ -506,19 +547,19 @@ useEffect(() => {
                 </div>
               </div>
               <div className="installment-container">
-                <InstallmentRow 
+                <InstallmentRow
                   amount={2000}
                   semester="First Semester"
                   installment="First Installment"
                   PaymentButton={PaymentButton}
                 />
-                <InstallmentRow 
+                <InstallmentRow
                   amount={2000}
                   semester="First Semester"
                   installment="Second Installment"
                   PaymentButton={PaymentButton}
                 />
-                <InstallmentRow 
+                <InstallmentRow
                   amount={1920}
                   semester="First Semester"
                   installment="Third Installment"
@@ -538,19 +579,19 @@ useEffect(() => {
                 </div>
               </div>
               <div className="installment-container">
-                <InstallmentRow 
+                <InstallmentRow
                   amount={2000}
                   semester="Second Semester"
                   installment="First Installment"
                   PaymentButton={PaymentButton}
                 />
-                <InstallmentRow 
+                <InstallmentRow
                   amount={2000}
                   semester="Second Semester"
                   installment="Second Installment"
                   PaymentButton={PaymentButton}
                 />
-                <InstallmentRow 
+                <InstallmentRow
                   amount={1920}
                   semester="Second Semester"
                   installment="Third Installment"
@@ -570,19 +611,19 @@ useEffect(() => {
                 </div>
               </div>
               <div className="installment-container">
-                <InstallmentRow 
+                <InstallmentRow
                   amount={2000}
                   semester="Third Semester"
                   installment="First Installment"
                   PaymentButton={PaymentButton}
                 />
-                <InstallmentRow 
+                <InstallmentRow
                   amount={2000}
                   semester="Third Semester"
                   installment="Second Installment"
                   PaymentButton={PaymentButton}
                 />
-                <InstallmentRow 
+                <InstallmentRow
                   amount={1920}
                   semester="Third Semester"
                   installment="Third Installment"
@@ -618,8 +659,8 @@ useEffect(() => {
               </div>
             </div>
             <div className="btn-container">
-              <button 
-                onClick={handleSubmit} 
+              <button
+                onClick={handleSubmit}
                 className="btn btn-submit"
                 disabled={isLoading}
               >
@@ -652,7 +693,7 @@ const InstallmentRow = ({ amount, semester, installment, PaymentButton }) => (
       </div>
     </div>
     <div className="btn-container">
-      <PaymentButton 
+      <PaymentButton
         amount={amount}
         semester={semester}
         installment={installment}

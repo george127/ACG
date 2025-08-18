@@ -8,6 +8,6 @@ const router = express.Router();
 router.post("/webhook", handleWebhook);
 router.post("/SaveFormData", SaveFormData);
 router.get("/:email", getPaymentDetails);
-router.get("/SaveFormData", getPaymentStatus);
+router.get("/payment-status", getPaymentStatus);
 
 export default router;
