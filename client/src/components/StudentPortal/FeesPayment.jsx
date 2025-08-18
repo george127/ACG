@@ -10,11 +10,7 @@ const FeesDetailsPage = () => {
   const [amount, setAmount] = useState(null);
 
   const paymentLinks = {
-    2000: "https://paystack.com/pay/q6-vi19w9o",
-    1900: "https://paystack.com/pay/ue-vftvmsa",
-    1650: "https://paystack.com/pay/jmh--7kpot",
-    1000: "https://paystack.com/pay/zo3jo3-xob",
-    400: "https://paystack.com/pay/xty2dr4b3n",
+    2000: "https://paystack.shop/pay/7faz2q19tm",
   };
 
   const handlePayment = async (amount) => {
@@ -103,7 +99,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -120,7 +116,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -149,7 +145,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -166,7 +162,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -183,7 +179,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -212,7 +208,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -229,7 +225,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -246,7 +242,7 @@ const FeesDetailsPage = () => {
                     </div>
                   </div>
                   <div className="btn-container">
-                    <button className="btn">
+                    <button className="btn" onClick={() => handlePayment(2000)}>
                       Pay Now
                       <span className="material-symbols-outlined">east</span>
                     </button>
@@ -282,7 +278,7 @@ const FeesDetailsPage = () => {
                   onChange={(e) => setSemester(e.target.value)}
                   required
                 >
-                  <option value="">Select Semester</option>
+                  
                   <option value="First Semester">First Semester</option>
                   <option value="Second Semester">Second Semester</option>
                   <option value="Third Semester">Third Semester</option>
@@ -296,7 +292,7 @@ const FeesDetailsPage = () => {
                   onChange={(e) => setInstallment(e.target.value)}
                   required
                 >
-                  <option value="">Select Installment</option>
+                  
                   <option value="First Installment">First Installment</option>
                   <option value="Second Installment">Second Installment</option>
                   <option value="Third Installment">Third Installment</option>

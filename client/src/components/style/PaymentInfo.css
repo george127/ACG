@@ -1,77 +1,3 @@
-/* Container Styles */
-.innovative-payment-container {
-  
-}
-
-/* Vertical Layout */
-.vertical-payment-info {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 15px;
-  
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-}
-
-.vertical-payment-info .payment-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #ff9500;
-}
-
-.vertical-payment-info .payment-header .material-symbols-outlined {
-  font-size: 18px;
-  color: #4cdf6e;
-}
-
-/* Individual Record */
-.payment-record {
-  width: 100%;
-  display: grid;
-  grid-gap: 10px;
-}
-
-/* Payment Row (Label + Value) */
-.payment-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 15px 10px;
-  background-color: #ffffff;
-  
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.payment-row:last-child {
-  border-bottom: none;
-}
-
-.payment-row .label {
-  font-weight: 600;
-  color: #696969;
-  font-size: 0.9rem;
-}
-
-.payment-row .value {
-  color: #333;
-  font-size: 0.9em;
-}
-
-.payment-row .cash {
-  color: #4cdf6e;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-}
-
-.payment-row .material-symbols-outlined {
-  font-size: 18px;
-}
-
-/* Loading & Error Styles */
 .loading,
 .error {
   text-align: center;
@@ -86,50 +12,6 @@
 .error {
   color: #dc3545;
   font-weight: bold;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  .innovative-payment-container {
-    padding: 15px;
-  }
-}
-
-.payment-row .bi {
-  font-size: 1.2rem;
-  margin-right: 10px;
-  padding: 6px 14px;
-  
-}
-
-.icon-semester {
-  color: #0d6efd;
-  background-color: #b2d1ff;
-}
-
-.icon-installment {
-  color: #ffb300;
-  background-color: #ffdc8a;
-}
-
-.icon-status {
-  color: #28a745; /* Green color for Status */
-  background-color: #c6efce;
-}
-
-.icon-transaction {
-  color: #d41e31; /* Red color for Transaction ID */
-  background-color: #f8d7da;
-}
-
-.icon-amount {
-  color: #ff4b2b; /* Tomato color for Amount Paid */
-  background-color: #ffd7be;
-}
-
-.icon-total {
-  color: #ff9500; /* Orange color for Grant Total */
-  background-color: #ffeebc;
 }
 
 /* =========================== */
@@ -270,5 +152,106 @@
 }
 
 .history-details .progress-text span{
+  font-size: 0.9rem;
+}
+
+/* Add these styles to your existing CSS */
+.semester-column-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.semester-column-layout .semester-column {
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.semester-column-layout .semester-title {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.semester-column-layout .installments-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.semester-column-layout .installment-card {
+  width: 100%;
+  background: #f9f9f9;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.semester-column-layout .installment-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.semester-column-layout .installment-header h4 {
+  color: #e9691e;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.semester-column-layout .installment-header .material-symbols-outlined {
+  color: #3ace00;
+  font-size: 1.3rem;
+}
+
+.semester-column-layout .payment-record {
+  margin-bottom: 1rem;
+}
+
+.semester-column-layout .payment-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.semester-column-layout .payment-row .label {
+  color: #173755;
+  font-weight: bold;
+    font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.semester-column-layout .payment-row .label i {
+  color: #e9691e;
+  font-size: 1.2rem;
+}
+
+.semester-column-layout .payment-row .value {
+  color: #34495e;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.semester-column-layout .payment-row .cash {
+  color: #3ace00;
+}
+
+.semester-column-layout .payment-row .value .material-symbols-outlined {
+  font-size: 1.2rem;
+}
+
+.semester-column-layout .date {
+  color: #7f8c8d;
   font-size: 0.9rem;
 }

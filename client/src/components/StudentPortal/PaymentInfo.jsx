@@ -4,6 +4,7 @@ import axios from "axios";
 import "../style/PaymentInfo.css"; // CSS file for advanced styles
 import CircularProgressBar from "./CircularProgressBar";
 import PaymentImage from "./images/software-tester-tech-journalist.jpg";
+
 const PaymentInfo = ({ email }) => {
   const [paymentDetails, setPaymentDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -39,30 +40,30 @@ const PaymentInfo = ({ email }) => {
     return <p className="error">Error: {error}</p>;
   }
 
-  // Filter records for the first semester and group by installments
-  const firstSemesterRecords =
-    paymentDetails?.paystack?.records?.filter(
-      (record) => record.semester === "First Semester"
-    ) || [];
+  // Group records by semester and then by installments
+  const groupRecordsBySemester = () => {
+    const semesters = ["First Semester", "Second Semester", "Third Semester"];
+    const grouped = {};
 
-  const installmentGroups = {
-    First: firstSemesterRecords.filter(
-      (record) => record.installment === "First Installment"
-    ),
-    Second: firstSemesterRecords.filter(
-      (record) => record.installment === "Second Installment"
-    ),
-    Third: firstSemesterRecords.filter(
-      (record) => record.installment === "Third Installment"
-    ),
+    semesters.forEach(semester => {
+      const semesterRecords = paymentDetails?.paystack?.records?.filter(
+        record => record.semester === semester
+      ) || [];
+
+      grouped[semester] = {
+        First: semesterRecords.filter(record => record.installment === "First Installment"),
+        Second: semesterRecords.filter(record => record.installment === "Second Installment"),
+        Third: semesterRecords.filter(record => record.installment === "Third Installment")
+      };
+    });
+
+    return grouped;
   };
 
-  // Helper function to calculate grant total for the current and previous installments
-  const calculateGrantTotal = (
-    installmentGroups,
-    currentInstallment,
-    currentIndex
-  ) => {
+  const semesterGroups = groupRecordsBySemester();
+
+  // Helper function to calculate grant total for the current and previous installments within a semester
+  const calculateGrantTotal = (installmentGroups, currentInstallment, currentIndex) => {
     let total = 0;
 
     // Loop through all installments up to the current one
@@ -90,7 +91,7 @@ const PaymentInfo = ({ email }) => {
             <h3>Congratulations, {user?.name}</h3>
             <br />
             <p>
-              You’ve successfully made a payment of . Keep up the great
+              You've successfully made a payment. Keep up the great
               progress! Your commitment and dedication are truly commendable. We
               are excited to have you on this journey with us, and this payment
               is an important step toward your educational goals.
@@ -171,89 +172,77 @@ const PaymentInfo = ({ email }) => {
       </div>
 
       <br />
-      <div className="vertical-payment-info">
-        {Object.entries(installmentGroups).map(([installment, records]) => (
-          <div key={installment} className="installment-group">
-            <p className="payment-header">
-              {installment} Installment{" "}
-              <span className="material-symbols-outlined">stat_minus_3</span>
-            </p>
-            {records.length > 0 ? (
-              records.map((record, index) => {
-                // Calculate grant total for the current installment and index
-                const grantTotal = calculateGrantTotal(
-                  installmentGroups,
-                  installment,
-                  index
-                );
-
-                return (
-                  <div key={index} className="payment-record">
-                    <div className="payment-row">
-                      <span className="label">
-                        <i className="bi bi-calendar icon-semester"></i>{" "}
-                        Semester:
-                      </span>
-                      <span className="value">{record.semester || "N/A"}</span>
-                    </div>
-                    <div className="payment-row">
-                      <span className="label">
-                        <i className="bi bi-card-text icon-installment"></i>{" "}
-                        Installment:
-                      </span>
-                      <span className="value">
-                        {record.installment || "N/A"}
-                      </span>
-                    </div>
-                    <div className="payment-row">
-                      <span className="label">
-                        <i className="bi bi-check-circle icon-status"></i>{" "}
-                        Status:
-                      </span>
-                      <span className="value">{record.status || "N/A"}</span>
-                    </div>
-                    <div className="payment-row">
-                      <span className="label">
-                        <i className="bi bi-credit-card icon-transaction"></i>{" "}
-                        Transaction ID:
-                      </span>
-                      <span className="value">
-                        {record.transactionId || "N/A"}
-                      </span>
-                    </div>
-                    <div className="payment-row">
-                      <span className="label">
-                        <i className="bi bi-cash-stack icon-amount"></i> Amount
-                        Paid:
-                      </span>
-                      <span className="value cash">
-                        <span className="material-symbols-outlined">
-                          attach_money
-                        </span>
-                        {record.amountPaid || "N/A"}
-                      </span>
-                    </div>
-                    <div className="payment-row">
-                      <span className="label">
-                        <i className="bi bi-cash-coin icon-total"></i> Grant
-                        Total:
-                      </span>
-                      <span className="value cash">
-                        <span className="material-symbols-outlined">
-                          attach_money
-                        </span>
-                        {grantTotal}
-                      </span>
-                    </div>
-                    <div className="payment-row">
-                      <span className="value">{record.date || "N/A"}</span>
-                    </div>
+      <div className="semester-column-layout">
+        {Object.entries(semesterGroups).map(([semester, installmentGroups]) => (
+          <div key={semester} className="semester-column">
+            <h3 className="semester-title">{semester}</h3>
+            <div className="installments-row">
+              {Object.entries(installmentGroups).map(([installment, records]) => (
+                <div key={`${semester}-${installment}`} className="installment-card">
+                  <div className="installment-header">
+                    <h4>{installment} Installment</h4>
+                    <span className="material-symbols-outlined">stat_minus_3</span>
                   </div>
-                );
-              })
-            ) : (
-              <p>No records available for this installment.</p>
-            )}
+                  <div className="installment-content">
+                    {records.length > 0 ? (
+                      records.map((record, index) => {
+                        const grantTotal = calculateGrantTotal(
+                          installmentGroups,
+                          installment,
+                          index
+                        );
+
+                        return (
+                          <div key={index} className="payment-record">
+                            <div className="payment-row">
+                              <span className="label">
+                                <i className="bi bi-calendar"></i>
+                                Status:
+                                </span>
+                              <span className="value">{record.status || "N/A"}</span>
+                            </div>
+                            <div className="payment-row">
+                              <span className="label">
+                                <i className="bi bi-card-text"></i> 
+                                Transaction ID:
+                                </span>
+                              <span className="value">{record.transactionId || "N/A"}</span>
+                            </div>
+                            <div className="payment-row">
+                              <span className="label">
+                                <i className="bi bi-credit-card"></i> 
+                                Amount Paid:</span>
+                              <span className="value cash">
+                                <span className="material-symbols-outlined">
+                                  attach_money
+                                </span>
+                                {record.amountPaid || "N/A"}
+                              </span>
+                            </div>
+                            <div className="payment-row">
+                              <span className="label">
+                                <i className="bi bi-cash-coin"></i>
+                                Grant Total:</span>
+                              <span className="value cash">
+                                <span className="material-symbols-outlined">
+                                  attach_money
+                                </span>
+                                {grantTotal}
+                              </span>
+                            </div>
+                            <div className="payment-row">
+                              <span className="value date">{record.date || "N/A"}</span>
+                            </div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <p className="no-records">No payment records</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
@@ -263,9 +252,9 @@ const PaymentInfo = ({ email }) => {
 
 export default PaymentInfo;
 
-{
-  /* <span className="payment-period">
-                {paymentDetails?.paystack?.records?.length > 0
-                ? `${paymentDetails?.paystack?.records[0].semester}` : ''}
-              </span> */
-}
+
+
+
+
+
+
