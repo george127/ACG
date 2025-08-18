@@ -23,7 +23,7 @@
   height: 200px;
 }
 
-.fees-overview .header-text .btn-container .btn{
+.fees-overview .header-text .btn-container .bn{
   font-size: 0.8rem;
   width: 160px;
 }
@@ -31,6 +31,27 @@
 .fees-overview .header-text .btn-container .btn span {
   font-size: 18px;
  }
+
+
+.btn-paid {
+  background-color: #4CAF50;
+  position: relative;
+  color: white; 
+}
+
+.btn-paid::after {
+  content: "✓"; 
+  margin-left: 5px;
+    background-color: #4CAF50;
+  font-size: 0.9em;
+}
+
+.btn-paid:hover {
+  cursor: not-allowed;
+  filter: brightness(0.95);
+      background-color: #4CAF50;
+
+}
 
 .fees-overview h2{
   font-size: 1.3rem;

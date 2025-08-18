@@ -130,3 +130,43 @@ export const getPaymentDetails = async (req, res) => {
   }
 };
 
+export const getPaymentStatus = async (req, res) => {
+  try {
+    // 1. First try to get email from request body (for direct API calls)
+    // 2. Fall back to checking localStorage data sent in headers
+    const { email } = req.body || JSON.parse(req.headers['x-localstorage'] || {});
+
+    if (!email) {
+      return res.status(400).json({ 
+        error: "Email is required",
+        suggestion: "Make sure user is logged in and localStorage contains user data"
+      });
+    }
+
+    // 3. Check database for payments
+    const payments = await FeesPayment.find({ email });
+
+    // 4. Format response with additional user verification
+    const statusMap = payments.reduce((acc, payment) => {
+      const key = `${payment.semester}-${payment.installment}`;
+      acc[key] = {
+        paid: true,
+        paidAt: payment.paidAt,
+        reference: payment.reference // Include payment reference if available
+      };
+      return acc;
+    }, {});
+
+    res.status(200).json({
+      email,
+      paymentStatus: statusMap,
+      lastChecked: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error("Payment status check failed:", error);
+    res.status(500).json({ 
+      error: "Server error",
+      details: error.message 
+    });
+  }
+};

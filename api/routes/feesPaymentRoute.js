@@ -1,5 +1,5 @@
 import express from "express";
-import { handleWebhook, SaveFormData, getPaymentDetails } from "../controllers/feesPaymentController.js";
+import { handleWebhook, SaveFormData, getPaymentDetails, getPaymentStatus } from "../controllers/feesPaymentController.js";
 
 const router = express.Router();
 
@@ -8,5 +8,6 @@ const router = express.Router();
 router.post("/webhook", handleWebhook);
 router.post("/SaveFormData", SaveFormData);
 router.get("/:email", getPaymentDetails);
+router.get("/SaveFormData", getPaymentStatus);
 
 export default router;
