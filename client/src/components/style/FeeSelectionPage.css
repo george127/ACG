@@ -11,10 +11,10 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  border-radius: 0px;
   font-size: 0.9rem;
   width: 170px;
   padding: 15px 15px;
-  border-radius: 0px;
   font-weight: 600;
   color: #555;
   position: relative;
@@ -121,7 +121,6 @@
 
 .payment-card {
   background: #fff;
-  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   padding: 20px;
@@ -152,20 +151,17 @@
 .payment-card .payment-item .bi-book {
   color: #5eff00;
   background-color: #c1ff9d;
-  border-radius: 10px;
   padding: 5px 10px;
 }
 .payment-card .payment-item .bi-journal-text {
   color: #cabd00;
   background-color: #fff5b9;
-  border-radius: 10px;
   padding: 5px 10px;
 }
 
 .payment-card .payment-item .bi-mortarboard {
   color: #ff00ff;
   background-color: #ffc1ff;
-  border-radius: 10px;
   padding: 5px 10px;
 }
 
@@ -178,7 +174,6 @@
 
 .image-grid img {
   width: 48%;
-  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -254,7 +249,6 @@
   padding: 55px 10px;
   width: 200px;
   height: 190px;
-  border-radius: 50%;
   border: 5px solid #fff;
   box-shadow: 0 0px 16px rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -453,7 +447,7 @@
 /* Modal Content */
 .modal-content {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 2rem;
   width: 420px;
   max-width: 90%;
@@ -461,14 +455,6 @@
   animation: slideUp 0.5s ease-out;
   transform: scale(0.9);
   animation: scaleIn 0.5s ease-out;
-}
-
-.modal-title {
-  font-size: 2rem;
-  font-weight: 400;
-  color: #e9691e;
-  text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 /* Form */

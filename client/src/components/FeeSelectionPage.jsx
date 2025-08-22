@@ -1,5 +1,5 @@
 import "./style/FeeSelectionPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import feeimage1 from "../assets/feeimage1.jpeg";
 import feeimage2 from "../assets/feeimage2.jpeg";
@@ -13,50 +13,124 @@ function FeeSelectionPage() {
   const [email, setEmail] = useState("");
   const [semester, setSemester] = useState("");
   const [installment, setInstallment] = useState("");
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState({});
 
   const paymentLinks = {
-    3000: "https://paystack.shop/pay/86-n0m8di8",
-    1900: "https://paystack.com/pay/ue-vftvmsa",
-    1650: "https://paystack.com/pay/jmh--7kpot",
-    1000: "https://paystack.com/pay/zo3jo3-xob",
-    400: "https://paystack.com/pay/xty2dr4b3n",
+    2000: "https://paystack.shop/pay/7faz2q19tm",
+    1920: "https://paystack.shop/pay/7faz2q19tm",
   };
 
-  const handlePayment = async (amount) => {
+  // Get user email and payment status
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      try {
+        const user = JSON.parse(userData);
+        if (user.email) {
+          setEmail(user.email);
+          fetchPaymentStatus(user.email);
+        }
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+      }
+    }
+  }, []);
+
+  const fetchPaymentStatus = async (userEmail) => {
+    try {
+      const response = await axios.get(
+        `https://acg-7euk.onrender.com/api/fees/payment-status/${userEmail}`
+      );
+      console.log("Payment status received:", response.data);
+      setPaymentStatus(response.data);
+    } catch (error) {
+      console.error("Error fetching payment status:", error);
+    }
+  };
+
+  const handlePayment = (amount, semester, installment) => {
     setAmount(amount);
-    setShowModal(true); // Show the modal to collect email and semester/installment details
+    setSemester(semester);
+    setInstallment(installment);
+    setShowModal(true);
   };
 
   const handleSubmit = async () => {
-    // Send the data to the backend and store it in the database
+    setIsLoading(true);
     try {
-      const data = {
-        email,
-        semester,
-        installment,
-      };
+      const data = { email, semester, installment, amount };
       await axios.post("https://acg-7euk.onrender.com/api/fees/SaveFormData", data);
 
-      // Redirect to Paystack payment link
       const paymentLink = paymentLinks[amount];
       if (!paymentLink) {
-        console.error(`No payment link found for the amount: ${amount}`);
+        console.error(`No payment link for amount: ${amount}`);
+        setIsLoading(false);
         return;
       }
 
       window.location.href = `${paymentLink}?metadata=${encodeURIComponent(
-        JSON.stringify({ email, semester, installment })
+        JSON.stringify({ email, semester, installment, amount })
       )}`;
     } catch (error) {
-      console.error("Error during payment initialization:", error);
+      console.error("Payment initialization error:", error);
+      setIsLoading(false);
     }
   };
 
+  // Check if installment is paid
+  const isInstallmentPaid = (semester, installment) => {
+    return paymentStatus[semester] &&
+      (paymentStatus[semester][installment] === "paid" ||
+        paymentStatus[semester][installment] === "success");
+  };
+
+  // Check if ALL installments in a semester are paid
+  const isSemesterCompleted = (semester) => {
+    const installments = ["First Installment", "Second Installment", "Third Installment"];
+    return installments.every(installment => isInstallmentPaid(semester, installment));
+  };
+
+  // Check if previous installment is paid (to enable next one)
+  const isInstallmentAvailable = (semester, installment) => {
+    const installments = ["First Installment", "Second Installment", "Third Installment"];
+    const currentIndex = installments.indexOf(installment);
+
+    if (currentIndex === 0) {
+      // For first installment of Semester 1, always available
+      if (semester === "First Semester") return true;
+
+      // For first installment of other semesters, check if previous semester is completed
+      const previousSemester = semester === "Second Semester" ? "First Semester" : "Second Semester";
+      return isSemesterCompleted(previousSemester);
+    }
+
+    // For subsequent installments, check if previous installment is paid
+    const previousInstallment = installments[currentIndex - 1];
+    return isInstallmentPaid(semester, previousInstallment);
+  };
+
+  // Render payment button with appropriate status
+  const renderPaymentButton = (amount, semester, installmentName) => {
+    const isPaid = isInstallmentPaid(semester, installmentName);
+    const isAvailable = isInstallmentAvailable(semester, installmentName);
+
+    return (
+      <button
+        className={`btn ${isPaid ? "btn-paid" : !isAvailable ? "btn-disabled" : ""}`}
+        onClick={() => handlePayment(amount, semester, installmentName)}
+        disabled={isPaid || !isAvailable}
+      >
+        {isPaid ? "Paid" : "Pay Now"}
+        <span className="material-symbols-outlined">east</span>
+      </button>
+    );
+  };
   return (
     <>
-    <Header/>
-    <Navigation/>
+      <Header />
+      <Navigation />
       <div className="layout container">
         <div className="layout-container">
           {/* Left Section */}
@@ -180,10 +254,7 @@ function FeeSelectionPage() {
               <p>Gh¢ 3,000.00</p>
             </div>
             <div className="btn-container">
-              <button onClick={() => handlePayment(3000)} className="btn">
-                Payment
-                <span className="material-symbols-outlined">east</span>
-              </button>
+              {renderPaymentButton(2000, "First Semester", "First Installment")}
             </div>
           </div>
         </div>
@@ -191,70 +262,79 @@ function FeeSelectionPage() {
       {/* Your existing components */}
 
       {/* Modal Popup */}
+      {/* Payment Confirmation Modal */}
       {showModal && (
-  <div className="modal">
-    <div className="modal-content">
-      <h2 className="modal-title">Payment Details</h2>
-      <form  className="modal-form">
-        <div className="input-group">
-          <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+        <div className="modal">
+          <div className="modal-content">
+            <div className="payment-summary">
+              <div className="summary-header">
+                <div className="summary-icon">
+                  <span className="material-symbols-outlined">receipt_long</span>
+                </div>
+                <h3>Payment Summary</h3>
+              </div>
 
-        <div className="input-group">
-          <label htmlFor="semester">Semester</label>
-          <select
-            value={semester}
-            onChange={(e) => setSemester(e.target.value)}
-            required
-          >
-            <option value="">Select Semester</option>
-            <option value="First Semester">First Semester</option>
-            <option value="Second Semester">Second Semester</option>
-            <option value="Third Semester">Third Semester</option>
-          </select>
-        </div>
+              <div className="summary-content">
+                <div className="summary-item">
+                  <div className="item-icon">
+                    <span className="material-symbols-outlined">school</span>
+                  </div>
+                  <div className="item-details">
+                    <span className="item-label">Semester</span>
+                    <span className="item-value">{semester}</span>
+                  </div>
+                </div>
 
-        <div className="input-group">
-          <label htmlFor="installment">Installment</label>
-          <select
-            value={installment}
-            onChange={(e) => setInstallment(e.target.value)}
-            required
-          >
-            <option value="">Select Installment</option>
-            <option value="First Installment">First Installment</option>
-            <option value="Second Installment">Second Installment</option>
-            <option value="Third Installment">Third Installment</option>
-          </select>
-        </div>
-      </form>
-      <br />
-      <div className="btn-container">
-          <button onClick={handleSubmit} className="btn btn-submit">
-            Submit 
-            <span className="material-symbols-outlined">east</span>
-          </button>
-          <button
-            onClick={() => setShowModal(false)}
-            className="btn btn-cancel"
-          >
-            Cancel
-            <span className="material-symbols-outlined">east</span>
-          </button>
-        </div>
-    </div>
-  </div>
-  
-)}
+                <div className="summary-item">
+                  <div className="item-icon">
+                    <span className="material-symbols-outlined">payments</span>
+                  </div>
+                  <div className="item-details">
+                    <span className="item-label">Installment Plan</span>
+                    <span className="item-value">{installment}</span>
+                  </div>
+                </div>
 
-<Footer/>
+                <div className="summary-total">
+                  <div className="total-icon">
+                    <span className="material-symbols-outlined">payments</span>
+                  </div>
+                  <div className="total-details">
+                    <span className="total-label">Total Amount Due</span>
+                    <span className="total-amount">Ghc {amount?.toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="summary-footer">
+                <div className="secure-notice">
+                  <span className="material-symbols-outlined">lock</span>
+                  <span>Secure payment processed by Paystack</span>
+                </div>
+              </div>
+            </div>
+            <div className="btn-container">
+              <button
+                onClick={handleSubmit}
+                className="btn btn-submit"
+                disabled={isLoading || !email}
+              >
+                {isLoading ? "Processing..." : "Payment"}
+                <span className="material-symbols-outlined">east</span>
+              </button>
+              <button
+                onClick={() => setShowModal(false)}
+                className="btn btn-cancel"
+                disabled={isLoading}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <Footer />
 
       {/* Your existing components */}
     </>

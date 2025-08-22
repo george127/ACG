@@ -7,6 +7,7 @@ import studentRoutes from './routes/studentRoutes.js';
 import feespaymentRoutes from './routes/feesPaymentRoute.js';
 import authRoutes from './routes/authRoutes.js';
 import detailsRoutes from './routes/detailRoutes.js';
+import feesProgressRoutes from './routes/feesProgressRoute.js';
 
 dotenv.config();
 
@@ -60,6 +61,7 @@ app.use('/api/details', detailsRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/fees', feespaymentRoutes);
+app.use('/api/progress', feesProgressRoutes);
 
 // Health Check
 app.get('/', (req, res) => res.send('API is running'));

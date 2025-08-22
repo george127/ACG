@@ -297,32 +297,60 @@ const FeesDetailsPage = () => {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h2 className="modal-title">Confirm Payment Details</h2>
-            <div className="payment-summary">
-              <div className="summary-row">
-                <span>Email:</span>
-                <strong>{email}</strong>
-              </div>
-              <div className="summary-row">
-                <span>Semester:</span>
-                <strong>{semester}</strong>
-              </div>
-              <div className="summary-row">
-                <span>Installment:</span>
-                <strong>{installment}</strong>
-              </div>
-              <div className="summary-row total">
-                <span>Amount Due:</span>
-                <strong>Ghc {amount?.toLocaleString()}</strong>
-              </div>
-            </div>
+           <div className="payment-summary">
+  <div className="summary-header">
+    <div className="summary-icon">
+      <span className="material-symbols-outlined">receipt_long</span>
+    </div>
+    <h3>Payment Summary</h3>
+  </div>
+  
+  <div className="summary-content">
+    <div className="summary-item">
+      <div className="item-icon">
+        <span className="material-symbols-outlined">school</span>
+      </div>
+      <div className="item-details">
+        <span className="item-label">Semester</span>
+        <span className="item-value">{semester}</span>
+      </div>
+    </div>
+    
+    <div className="summary-item">
+      <div className="item-icon">
+        <span className="material-symbols-outlined">payments</span>
+      </div>
+      <div className="item-details">
+        <span className="item-label">Installment Plan</span>
+        <span className="item-value">{installment}</span>
+      </div>
+    </div>
+    
+    <div className="summary-total">
+      <div className="total-icon">
+        <span className="material-symbols-outlined">payments</span>
+      </div>
+      <div className="total-details">
+        <span className="total-label">Total Amount Due</span>
+        <span className="total-amount">Ghc {amount?.toLocaleString()}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div className="summary-footer">
+    <div className="secure-notice">
+      <span className="material-symbols-outlined">lock</span>
+      <span>Secure payment processed by Paystack</span>
+    </div>
+  </div>
+           </div>
             <div className="btn-container">
               <button
                 onClick={handleSubmit}
                 className="btn btn-submit"
                 disabled={isLoading || !email}
               >
-                {isLoading ? "Processing..." : "Proceed to Payment"}
+                {isLoading ? "Processing..." : "Payment"}
                 <span className="material-symbols-outlined">east</span>
               </button>
               <button
