@@ -38,8 +38,8 @@ const PaymentInfo = ({ email }) => {
         if (userEmail) {
           // Fetch both payment details and progress in parallel
           const [detailsResponse, progressResponse] = await Promise.all([
-            axios.get(`http://localhost:5000/api/fees/${userEmail}`),
-            axios.get(`http://localhost:5000/api/progress/payment-progress/${userEmail}`)
+            axios.get(`https://acg-7euk.onrender.com/api/fees/${userEmail}`),
+            axios.get(`https://acg-7euk.onrender.com/api/progress/payment-progress/${userEmail}`)
           ]);
 
           setPaymentDetails(detailsResponse.data.userForm);
