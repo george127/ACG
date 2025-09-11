@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import Student from "../models/Student.js";
 import dotenv from "dotenv";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,7 +14,7 @@ const generateToken = (id) =>
 // Generate Refresh Token
 const generateRefreshToken = (id) =>
   jwt.sign({ id }, process.env.REFRESH_SECRET, { expiresIn: "7d" });
-
+ 
 // User SignUp
 export const SignUp = async (req, res) => {
   const { name, email, password } = req.body; // Updated field names to match front-end
@@ -91,3 +92,43 @@ export const LogIn = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+
+export const checkAuthStatus = async (req, res) => {
+  try {
+    const { email } = req.body;
+    
+    if (!email) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Email is required' 
+      }); 
+    }
+
+    const student = await Student.findOne({ 
+      'personalDetails.email': email 
+    });
+ 
+    if (!student) {
+      return res.status(404).json({ 
+        success: false, 
+        message: 'User not found' 
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      user: {
+        fullName: student.personalDetails.fullName,
+        email: student.personalDetails.email,
+        profileImage: student.personalDetails.profileImage
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Server error', 
+      error: error.message 
+    });
+  }
+};   

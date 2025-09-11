@@ -64,8 +64,8 @@ import LinkedIn from "./components/Pages/3.DM/3.LinkedIn";
 import Twitter from "./components/Pages/3.DM/4.Twitter";
 import YouTube from "./components/Pages/3.DM/5.YouTube";
 import GoogleAds from "./components/Pages/3.DM/6.Google-Ads";
-import Pinterest from "./components/Pages/3.DM/7.Pinterest"; 
-import TikTok from "./components/Pages/3.DM/8.TikTok"; 
+import Pinterest from "./components/Pages/3.DM/7.Pinterest";
+import TikTok from "./components/Pages/3.DM/8.TikTok";
 
 // == Data Analytics ==
 import CloudDataAnalytics from "./components/Pages/4.DA/1.CloudDataAnalytics";
@@ -77,6 +77,10 @@ import OffSecuCertified from "./components/Pages/5.CS/Off-Secu-Certified-Pro";
 
 // == Forex Trading ==
 import Forex from "./components/Pages/6.FT/Forex";
+
+// Admin Dashboard
+import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
+
 
 function App() {
   return (
@@ -101,6 +105,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
         <Route path="/Software" element={<Software />} />
         <Route path="/Aws" element={<Aws />} />
         <Route path="/Azure" element={<Azure />} />
@@ -168,7 +173,7 @@ function App() {
 
         {/* Routes for Forex Trading */}
         <Route path="/ForexTrading/Forex-Trading" element={<Forex />} />
-        
+
       </Routes>
     </Router>
   );

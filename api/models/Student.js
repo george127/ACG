@@ -13,12 +13,12 @@ const studentSchema = new mongoose.Schema({
       enum: ["male", "female", "other"], // Restrict to specific values
       required: true, // Ensure gender is required
     }, // Gender field
-    profileImage: { type: String, required: true },    
+    profileImage: { type: String, required: true },
   },
   programApplyingFor: {
     programName: String,
-    courseDetails: String, 
-  }, 
+    courseDetails: String,
+  },
   educationalBackground: {
     qualification: String,
     institution: String,
@@ -50,6 +50,9 @@ const studentSchema = new mongoose.Schema({
       )} at ${now.toLocaleTimeString("en-US")}`;
     },
   },
-});
+});  
 
 export default mongoose.model("studentsForm", studentSchema);
+
+
+

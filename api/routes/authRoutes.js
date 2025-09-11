@@ -25,7 +25,7 @@
 
 
 import express from 'express';
-import { SignUp, LogIn } from '../controllers/authController.js';
+import { SignUp, LogIn,  checkAuthStatus} from '../controllers/authController.js';
 import { validateSignUp, validateLogIn } from '../middleware/validationMiddleware.js';
 import { protect } from '../middleware/authMiddleware.js';
 
@@ -33,7 +33,7 @@ const router = express.Router();
 
 router.post('/signup', validateSignUp, SignUp); // Added signup validation middleware
 router.post('/login', validateLogIn, LogIn);    // Added login validation middleware
-
+router.post('/check-auth', checkAuthStatus);
 router.get('/profile', protect); // Protect route to fetch user profile
 
 export default router;

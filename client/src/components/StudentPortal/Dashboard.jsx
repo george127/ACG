@@ -151,7 +151,7 @@ const Dashboard = () => {
             />
             <div className="student-profile-header">
               <h2 className="student-name">
-                <i className="fas fa-user-graduate"></i> {studentData.personalDetails.fullName}
+                <i className="fas fa-user-graduate"></i>  {user?.name}
               </h2>
               <p className="student-id">
                 <i className="fas fa-id-badge"></i> Student ID: {user?.studentId}

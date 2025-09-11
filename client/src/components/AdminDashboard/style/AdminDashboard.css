@@ -1,0 +1,390 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  height: 100vh;
+  position: fixed;
+}
+
+.admin-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #34495e;
+}
+
+.admin-sidebar-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.admin-sidebar-header p {
+  margin: 5px 0 0;
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+.admin-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-nav-item {
+  padding: 0;
+}
+
+.admin-nav-item button {
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.admin-nav-item button:hover {
+  background-color: #34495e;
+}
+
+.admin-nav-item.active button {
+  background-color: #3498db;
+}
+
+.admin-main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 20px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  padding-left: 35px;
+  border-radius: 20px;
+  width: 250px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  color: #6c757d;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.5rem;
+}
+
+.stat-icon.students {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.stat-icon.courses {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.stat-icon.revenue {
+  background-color: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+}
+
+.stat-icon.pending {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.stat-content h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.stat-content p {
+  margin: 5px 0 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.chart-card h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.chart-placeholder {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  color: #6c757d;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-placeholder.large {
+  height: 300px;
+}
+
+.revenue-summary p, 
+.student-summary p,
+.report-summary p {
+  margin: 8px 0;
+}
+
+.management-container {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.management-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.management-stats {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.stat-small {
+  text-align: center;
+}
+
+.stat-small h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.stat-small p {
+  margin: 5px 0 0;
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.table th {
+  border-top: none;
+  font-weight: 600;
+  color: #2c3e50;
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.management-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.management-footer p {
+  margin: 0;
+  color: #6c757d;
+}
+
+.settings-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.settings-card h5 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.settings-item {
+  margin-bottom: 15px;
+}
+
+.settings-item label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.system-info p {
+  margin-bottom: 8px;
+}
+
+.activity-list {
+  padding: 0;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item i {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+.activity-content p {
+  margin: 0;
+}
+
+.activity-content small {
+  color: #6c757d;
+}
+
+.performance-metrics {
+  text-align: center;
+}
+
+.metric {
+  padding: 15px;
+}
+
+.metric h5 {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0 0 5px;
+}
+
+.metric p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .admin-main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .admin-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .search-bar input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stat-icon {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .management-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .management-footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+  }
+}

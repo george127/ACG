@@ -119,6 +119,7 @@
   justify-content: space-between;
 }
 
+
 .payment-card {
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -203,10 +204,7 @@
   align-items: center;
 }
 
-.icon {
-  margin-right: 10px;
-  color: #ffd700;
-}
+
 
 @media (max-width: 768px) {
   .layout-container {

@@ -317,7 +317,7 @@ function FeeSelectionPage() {
               <button
                 onClick={handleSubmit}
                 className="btn btn-submit"
-                disabled={isLoading || !email}
+                disabled={isLoading || email}
               >
                 {isLoading ? "Processing..." : "Payment"}
                 <span className="material-symbols-outlined">east</span>
