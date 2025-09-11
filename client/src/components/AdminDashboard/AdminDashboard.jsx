@@ -65,6 +65,13 @@ const AdminDashboard = () => {
             </button>
           </li>
           
+          <li className={`admin-nav-item ${activeSection === "content" ? "active" : ""}`}>
+            <button onClick={() => setActiveSection("content")}>
+              <i className="bi bi-play-btn me-2"></i>
+              Course Content
+            </button>
+          </li>
+          
           <li className={`admin-nav-item ${activeSection === "payments" ? "active" : ""}`}>
             <button onClick={() => setActiveSection("payments")}>
               <i className="bi bi-credit-card me-2"></i>
@@ -95,6 +102,7 @@ const AdminDashboard = () => {
             {activeSection === "overview" && "Dashboard Overview"}
             {activeSection === "students" && "Student Management"}
             {activeSection === "courses" && "Course Management"}
+            {activeSection === "content" && "Course Content Management"}
             {activeSection === "payments" && "Payment Management"}
             {activeSection === "reports" && "Reports & Analytics"}
             {activeSection === "settings" && "System Settings"}
@@ -130,6 +138,12 @@ const AdminDashboard = () => {
           
           {activeSection === "courses" && (
             <CourseManagement 
+              courses={sampleCourses} 
+            />
+          )}
+          
+          {activeSection === "content" && (
+            <CourseContentManagement 
               courses={sampleCourses} 
             />
           )}
@@ -570,7 +584,7 @@ const PaymentManagement = ({ payments }) => {
   ); 
 };  
 
-// Placeholder components for other sections
+// Component for Reports & Analytics
 const ReportsAnalytics = () => (  
   <div className="management-container">
     <h3>Reports & Analytics</h3>
@@ -640,6 +654,7 @@ const ReportsAnalytics = () => (
   </div>
 );
 
+// Component for System Settings
 const SystemSettings = () => (
   <div className="management-container">
     <h3>System Settings</h3>
@@ -745,5 +760,301 @@ const SystemSettings = () => (
     </div>
   </div>
 );
+
+// NEW COMPONENT: Course Content Management
+const CourseContentManagement = ({ courses }) => {
+  const [selectedCourse, setSelectedCourse] = useState(courses[0]?.id || "");
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
+  const [contentType, setContentType] = useState("video");
+  const [contentTitle, setContentTitle] = useState("");
+  const [contentDescription, setContentDescription] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [moduleItems, setModuleItems] = useState([
+    { id: 1, title: "Introduction to Web Development", type: "video", duration: "15:30", status: "published" },
+    { id: 2, title: "HTML Basics", type: "video", duration: "22:15", status: "published" },
+    { id: 3, title: "CSS Fundamentals", type: "video", duration: "28:45", status: "published" },
+    { id: 4, title: "JavaScript Essentials", type: "video", duration: "35:20", status: "draft" },
+    { id: 5, title: "Exercise: Build a Portfolio", type: "assignment", duration: "", status: "published" },
+    { id: 6, title: "Reading: Web Standards", type: "document", duration: "", status: "published" },
+  ]);
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  };
+
+  const simulateUpload = () => {
+    setIsUploading(true);
+    setUploadProgress(0);
+    
+    const interval = setInterval(() => {
+      setUploadProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setIsUploading(false);
+          // Add new content to module items
+          if (contentTitle) {
+            const newItem = {
+              id: moduleItems.length + 1,
+              title: contentTitle,
+              type: contentType,
+              duration: contentType === "video" ? "00:00" : "",
+              status: "draft"
+            };
+            setModuleItems([...moduleItems, newItem]);
+            // Reset form
+            setContentTitle("");
+            setContentDescription("");
+            setSelectedFile(null);
+          }
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 300);
+  };
+
+  const handleUpload = (e) => {
+    e.preventDefault();
+    if (!selectedCourse) {
+      alert("Please select a course first");
+      return;
+    }
+    if (!contentTitle) {
+      alert("Please enter a title for your content");
+      return;
+    }
+    simulateUpload();
+  };
+
+  const getCourseName = (courseId) => {
+    const course = courses.find(c => c.id === parseInt(courseId));
+    return course ? course.name : "Select a course";
+  };
+
+  return (
+    <div className="management-container">
+      <div className="management-header">
+        <h3>Course Content Management</h3>
+        <button className="btn btn-success">
+          <i className="bi bi-plus-circle me-1"></i>
+          New Module
+        </button>
+      </div>
+
+      <div className="row">
+        <div className="col-md-4">
+          <div className="content-upload-card">
+            <h4>Upload New Content</h4>
+            
+            <div className="form-group mb-3">
+              <label className="form-label">Select Course</label>
+              <select 
+                className="form-select"
+                value={selectedCourse}
+                onChange={(e) => setSelectedCourse(e.target.value)}
+              >
+                <option value="">Choose a course...</option>
+                {courses.map(course => (
+                  <option key={course.id} value={course.id}>
+                    {course.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group mb-3">
+              <label className="form-label">Content Type</label>
+              <div className="content-type-selector">
+                <button 
+                  type="button"
+                  className={`btn ${contentType === 'video' ? 'btn-primary' : 'btn-outline-primary'}`}
+                  onClick={() => setContentType('video')}
+                >
+                  <i className="bi bi-play-circle me-1"></i> Video
+                </button>
+                <button 
+                  type="button"
+                  className={`btn ${contentType === 'document' ? 'btn-primary' : 'btn-outline-primary'}`}
+                  onClick={() => setContentType('document')}
+                >
+                  <i className="bi bi-file-text me-1"></i> Document
+                </button>
+                <button 
+                  type="button"
+                  className={`btn ${contentType === 'assignment' ? 'btn-primary' : 'btn-outline-primary'}`}
+                  onClick={() => setContentType('assignment')}
+                >
+                  <i className="bi bi-clipboard me-1"></i> Assignment
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handleUpload}>
+              <div className="form-group mb-3">
+                <label className="form-label">Content Title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={contentTitle}
+                  onChange={(e) => setContentTitle(e.target.value)}
+                  placeholder="Enter content title"
+                  required
+                />
+              </div>
+
+              <div className="form-group mb-3">
+                <label className="form-label">Description</label>
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  value={contentDescription}
+                  onChange={(e) => setContentDescription(e.target.value)}
+                  placeholder="Enter content description"
+                ></textarea>
+              </div>
+
+              <div className="form-group mb-3">
+                <label className="form-label">
+                  {contentType === 'video' ? 'Video File' : 
+                   contentType === 'document' ? 'Document File' : 'Assignment Instructions'}
+                </label>
+                <div className="file-upload-area">
+                  <input
+                    type="file"
+                    id="content-file"
+                    className="file-input"
+                    onChange={handleFileSelect}
+                    accept={contentType === 'video' ? 'video/*' : contentType === 'document' ? '.pdf,.doc,.docx' : '*'}
+                  />
+                  <label htmlFor="content-file" className="file-upload-label">
+                    <i className="bi bi-cloud-upload"></i>
+                    <span>{selectedFile ? selectedFile.name : 'Choose file or drag & drop here'}</span>
+                  </label>
+                </div>
+              </div>
+
+              {isUploading && (
+                <div className="upload-progress mb-3">
+                  <div className="progress">
+                    <div 
+                      className="progress-bar" 
+                      style={{ width: `${uploadProgress}%` }}
+                    >
+                      {uploadProgress}%
+                    </div>
+                  </div>
+                  <small>Uploading... {uploadProgress}% complete</small>
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                className="btn btn-primary w-100"
+                disabled={isUploading || !selectedCourse || !contentTitle}
+              >
+                {isUploading ? (
+                  <>
+                    <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                    Uploading...
+                  </>
+                ) : (
+                  <>
+                    <i className="bi bi-cloud-arrow-up me-1"></i>
+                    Upload Content
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="col-md-8">
+          <div className="content-list-card">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <h4>Course Content</h4>
+              <span className="badge bg-primary">
+                {selectedCourse ? getCourseName(selectedCourse) : "No course selected"}
+              </span>
+            </div>
+
+            {selectedCourse ? (
+              <div className="module-list">
+                {moduleItems.map((item) => (
+                  <div key={item.id} className="module-item">
+                    <div className="module-icon">
+                      {item.type === 'video' && <i className="bi bi-play-circle-fill text-primary"></i>}
+                      {item.type === 'document' && <i className="bi bi-file-text-fill text-info"></i>}
+                      {item.type === 'assignment' && <i className="bi bi-clipboard-fill text-warning"></i>}
+                    </div>
+                    <div className="module-details">
+                      <h6>{item.title}</h6>
+                      <div className="module-meta">
+                        <span className="module-type">{item.type}</span>
+                        {item.duration && <span className="module-duration">{item.duration}</span>}
+                        <span className={`module-status ${item.status}`}>
+                          {item.status}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="module-actions">
+                      <button className="btn btn-sm btn-outline-primary me-1">
+                        <i className="bi bi-pencil"></i>
+                      </button>
+                      <button className="btn btn-sm btn-outline-danger">
+                        <i className="bi bi-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="empty-state">
+                <i className="bi bi-folder-x"></i>
+                <p>Please select a course to view its content</p>
+              </div>
+            )}
+          </div>
+
+          <div className="content-stats-card mt-4">
+            <h5>Content Statistics</h5>
+            <div className="row">
+              <div className="col-md-4">
+                <div className="content-stat">
+                  <i className="bi bi-play-circle text-primary"></i>
+                  <div>
+                    <h4>{moduleItems.filter(item => item.type === 'video').length}</h4>
+                    <p>Videos</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="content-stat">
+                  <i className="bi bi-file-text text-info"></i>
+                  <div>
+                    <h4>{moduleItems.filter(item => item.type === 'document').length}</h4>
+                    <p>Documents</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="content-stat">
+                  <i className="bi bi-clipboard text-warning"></i>
+                  <div>
+                    <h4>{moduleItems.filter(item => item.type === 'assignment').length}</h4>
+                    <p>Assignments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default AdminDashboard;
