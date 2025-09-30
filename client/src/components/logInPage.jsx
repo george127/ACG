@@ -47,37 +47,84 @@ const LoginPage = () => {
     return true;
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   if (!validateInputs()) {
+  //     return; // Do not proceed if validation fails 
+  //   }
+
+  //   dispatch(loginStart());
+  //   try {
+  //     const response = await fetch("https://acg-7euk.onrender.com/api/auth/login", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ email, password }),
+  //       credentials: 'include', // Required for cookies
+  //     });
+
+  //     const data = await response.json();
+
+  //     if (response.ok) {
+  //       dispatch(loginSuccess(data.user));
+  //       setSuccessMessage("Login successful! Redirecting...");
+  //       setTimeout(() => navigate("/StudentPortal"), 1500);
+  //     } else {
+  //       dispatch(loginFailure(data.message));
+  //       setErrorMessage(data.message || "Invalid email or password.");
+  //     }
+  //   } catch (error) {
+  //     dispatch(loginFailure("An error occurred. Please try again later."));
+  //     setErrorMessage("An error occurred. Please try again later.");
+  //   }
+  // };
+
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!validateInputs()) {
-      return; // Do not proceed if validation fails 
+  if (!validateInputs()) return; // stop if invalid
+
+  dispatch(loginStart());
+  try {
+    const response = await fetch("https://acg-7euk.onrender.com/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+      credentials: 'include', // keep cookies
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      dispatch(loginFailure(data.message));
+      setErrorMessage(data.message || "Invalid email or password.");
+      return;
     }
 
-    dispatch(loginStart());
-    try {
-      const response = await fetch("https://acg-7euk.onrender.com/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-        credentials: 'include', // Required for cookies
-      });
+// after you get `data`
+console.log("Login response:", data);
 
-      const data = await response.json();
+// success
+dispatch(loginSuccess(data.user));
+setSuccessMessage("Login successful! Redirecting...");
 
-      if (response.ok) {
-        dispatch(loginSuccess(data.user));
-        setSuccessMessage("Login successful! Redirecting...");
-        setTimeout(() => navigate("/StudentPortal"), 1500);
-      } else {
-        dispatch(loginFailure(data.message));
-        setErrorMessage(data.message || "Invalid email or password.");
-      }
-    } catch (error) {
-      dispatch(loginFailure("An error occurred. Please try again later."));
-      setErrorMessage("An error occurred. Please try again later.");
-    }
-  };
+// determine role robustly
+const roleFromResponse = data?.user?.role;
+const isAdmin = roleFromResponse === "admin" || data?.user?.email === "admin@appcode.com";
+
+// destination
+const destination = isAdmin ? "/AdminDashboard" : "/StudentPortal";
+
+// optional short delay so user sees success message
+setTimeout(() => navigate(destination), 600);
+
+  } catch (error) {
+    dispatch(loginFailure("An error occurred. Please try again later."));
+    setErrorMessage("An error occurred. Please try again later.");
+  }
+};
+
 
   return (
     <>
@@ -177,3 +224,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+
+

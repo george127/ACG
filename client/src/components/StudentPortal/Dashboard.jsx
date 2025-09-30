@@ -208,19 +208,19 @@ const Dashboard = () => {
                 <li>
                   <span className="icon">📌</span>
                   <div>
-                    <strong>Upcoming:</strong> Midterm exams start on <span className="highlight">March 10th</span>.
+                    <strong>Upcoming:</strong> <div className="Text">Midterm exams start on</div> <span className="highlight">March 10th</span>.
                   </div>
                 </li>
                 <li>
                   <span className="icon">🚀</span>
                   <div>
-                    <strong>New:</strong> Advanced Web Development course <span className="highlight">launched now!</span>.
+                    <strong>New:</strong> <div className="Text">Advanced Web Development course</div> <span className="highlight">launched now!</span>.
                   </div>
                 </li>
                 <li>
                   <span className="icon">🎓</span>
                   <div>
-                    <strong>Event:</strong> Career Counseling Workshop - <span className="highlight">March 15th</span>.
+                    <strong>Event:</strong> <div className="Text">Career Counseling Workshop</div> - <span className="highlight">March 15th</span>.
                   </div>
                 </li>
               </ul>

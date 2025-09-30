@@ -4,70 +4,76 @@
 }
 
 /* Overview Section */
-.fees-overview {
+.fees-page .fees-overview {
   margin-bottom: 20px;
 }
 
-.fees-overview .header-container {
+.fees-page .fees-overview .header-container {
   display: flex;
   justify-content: center;
   gap: 10px;
   background-color: #fff;
   box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.1);
-
+  border-radius: 12px;
   padding: 20px;
 }
 
-.fees-overview .header-container img {
+.fees-page .fees-overview .header-container img {
   width: 200px;
   height: 200px;
 }
 
-.fees-overview .header-text .btn-container .bn {
+.fees-page .fees-overview .header-text .btn-container .bn {
   font-size: 0.8rem;
   width: 160px;
 }
 
-.fees-overview .header-text .btn-container .btn span {
+.fees-page .fees-overview .header-text .btn-container .btn span {
   font-size: 18px;
 }
 
-.btn-paid {
+.fees-page .btn{
+  border-radius: 5px;
+}
+
+.fees-page .btn-paid {
   background-color: #d8ffda !important;
   border: 1px solid #4caf50 !important;
   color: #1fb424 !important;
   cursor: not-allowed !important;
 }
 
-.btn-disabled {
+.fees-page .btn-disabled {
   cursor: not-allowed !important;
   opacity: 0.7;
 }
 
-.fees-overview h2 {
-  font-size: 1.3rem;
+.fees-page .fees-overview h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
 }
 
-.fees-overview .header-text p {
+.fees-page .fees-overview .header-text p {
   font-size: 0.9rem;
-  color: #716f8b;
+  color: #64748b;
 }
 
-.overview-cards {
+.fees-page .overview-cards {
   display: grid;
   grid-template-columns: 2fr 2fr;
   flex-flow: wrap;
   gap: 40px;
 }
 
-.overview-card {
+.fees-page .overview-card {
   background-color: #fff;
-
+  border-radius: 12px;
   text-align: center;
   box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.1);
 }
 
-.fees-overview .card-header {
+.fees-page .fees-overview .card-header {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #d6d6d6;
@@ -76,7 +82,7 @@
   position: relative;
 }
 
-.fees-overview .card-header .line {
+.fees-page .fees-overview .card-header .line {
   position: absolute;
   border-bottom: 2px solid #31aa01;
   padding: 30px;
@@ -84,69 +90,69 @@
   left: 0;
 }
 
-.fees-overview .card-header .header {
+.fees-page .fees-overview .card-header .header {
   font-size: 0.9rem;
   margin: 0;
   font-weight: bold;
 }
 
-.fees-overview .card-header .text {
+.fees-page .fees-overview .card-header .text {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.fees-overview .card-header .text p {
+.fees-page .fees-overview .card-header .text p {
   font-size: 0.8rem;
   margin: 0;
   color: #716f8b;
 }
 
-.fees-overview .card-header .text span {
+.fees-page .fees-overview .card-header .text span {
   color: #ffe864;
 }
 
-.installment-container {
+.fees-page .installment-container {
   padding: 10px 20px;
 }
 
-.installment-container .installment {
+.fees-page .installment-container .installment {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 15px 0;
 }
 
-.installment-container .installment .icon-text {
+.fees-page .installment-container .installment .icon-text {
   font-size: 18px;
   background-color: #f1f1f1;
   padding: 10px;
-
+  border-radius: 12px;
   color: #e9691e;
 }
 
-.installment-container .installment .text-container {
+.fees-page .installment-container .installment .text-container {
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
-.installment-container .installment .text {
+.fees-page .installment-container .installment .text {
   text-align: justify;
 }
 
-.installment-container .installment .text p {
+.fees-page .installment-container .installment .text p {
   margin: 0;
   font-size: 0.9rem;
   font-weight: bold;
 }
 
-.installment-container .installment .text span {
+.fees-page .installment-container .installment .text span {
   font-size: 0.9rem;
   color: #716f8b;
 }
 
-.installment-container .btn-container .btn {
+.fees-page .installment-container .btn-container .btn {
   border: 1px solid #e9691e;
   display: flex;
   justify-content: center;
@@ -162,12 +168,12 @@
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.installment-container .btn-container .btn span {
+.fees-page .installment-container .btn-container .btn span {
   font-size: 16px;
 }
 
 /* Payment Summary Styles */
-.payment-summary .summary-header {
+.fees-page .payment-summary .summary-header {
   display: flex;
   align-items: center;
   margin-bottom: 24px;
@@ -175,7 +181,7 @@
   border-bottom: 2px solid #f0f3ff;
 }
 
-.payment-summary .summary-icon {
+.fees-page .payment-summary .summary-icon {
   background: #e9691e;
   width: 48px;
   height: 48px;
@@ -185,25 +191,25 @@
   margin-right: 16px;
 }
 
-.payment-summary .summary-icon span {
+.fees-page .payment-summary .summary-icon span {
   color: white;
   font-size: 24px;
 }
 
-.payment-summary .summary-header h3 {
+.fees-page .payment-summary .summary-header h3 {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 600;
   color: #1f2937;
 }
 
-.payment-summary .summary-content {
+.fees-page .payment-summary .summary-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.payment-summary .summary-item {
+.fees-page .payment-summary .summary-item {
   display: flex;
   align-items: center;
   padding: 16px;
@@ -212,12 +218,12 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.payment-summary .summary-item:hover {
+.fees-page .payment-summary .summary-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
 
-.payment-summary .item-icon {
+.fees-page .payment-summary .item-icon {
   width: 40px;
   height: 40px;
   background: #f1f1f1;
@@ -228,17 +234,17 @@
   flex-shrink: 0;
 }
 
-.payment-summary .item-icon span {
+.fees-page .payment-summary .item-icon span {
   color: #e9691e;
   font-size: 20px;
 }
 
-.payment-summary .item-details {
+.fees-page .payment-summary .item-details {
   display: flex;
   flex-direction: column;
 }
 
-.payment-summary .item-label {
+.fees-page .payment-summary .item-label {
   font-size: 1.1rem;
   color: #6b7280;
   font-weight: 500;
@@ -247,13 +253,13 @@
   letter-spacing: 0.5px;
 }
 
-.payment-summary .item-value {
+.fees-page .payment-summary .item-value {
   font-size: 1rem;
   color: #1f2937;
   font-weight: 500;
 }
 
-.payment-summary .summary-total {
+.fees-page .payment-summary .summary-total {
   display: flex;
   align-items: center;
   padding: 10px;
@@ -262,7 +268,7 @@
   box-shadow: 0 8px 20px rgba(229, 187, 70, 0.2);
 }
 
-.payment-summary .total-icon {
+.fees-page .payment-summary .total-icon {
   width: 48px;
   height: 48px;
   background: rgba(255, 255, 255, 0.2);
@@ -273,17 +279,17 @@
   flex-shrink: 0;
 }
 
-.payment-summary .total-icon span {
+.fees-page .payment-summary .total-icon span {
   color: white;
   font-size: 24px;
 }
 
-.payment-summary .total-details {
+.fees-page .payment-summary .total-details {
   display: flex;
   flex-direction: column;
 }
 
-.payment-summary .total-label {
+.fees-page .payment-summary .total-label {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
@@ -292,13 +298,13 @@
   letter-spacing: 0.5px;
 }
 
-.payment-summary .total-amount {
+.fees-page .payment-summary .total-amount {
   font-size: 24px;
   color: white;
   font-weight: 700;
 }
 
-.payment-summary .summary-footer {
+.fees-page .payment-summary .summary-footer {
   margin-top: 20px;
   padding-top: 16px;
   border-top: 2px solid #f0f3ff;
@@ -306,7 +312,7 @@
   justify-content: center;
 }
 
-.payment-summary .secure-notice {
+.fees-page .payment-summary .secure-notice {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -315,7 +321,7 @@
   margin-bottom: 18px;
 }
 
-.payment-summary .secure-notice span:first-child {
+.fees-page .payment-summary .secure-notice span:first-child {
   color: #10b981;
   font-size: 18px;
 }
@@ -332,28 +338,28 @@
   }
 }
 
-.payment-summary {
+.fees-page .payment-summary {
   animation: fadeIn 0.5s ease-out;
 }
 
-.summary-item {
+.fees-page .summary-item {
   animation: fadeIn 0.5s ease-out;
   animation-fill-mode: both;
 }
 
-.summary-item:nth-child(1) {
+.fees-page .summary-item:nth-child(1) {
   animation-delay: 0.1s;
 }
 
-.summary-item:nth-child(2) {
+.fees-page .summary-item:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.summary-item:nth-child(3) {
+.fees-page .summary-item:nth-child(3) {
   animation-delay: 0.3s;
 }
 
-.summary-total {
+.fees-page .summary-total {
   animation: fadeIn 0.5s ease-out;
   animation-delay: 0.4s;
   animation-fill-mode: both;
@@ -361,26 +367,26 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .payment-summary {
+  .fees-page .payment-summary {
     padding: 16px;
   }
 
-  .summary-header {
+  .fees-page .summary-header {
     flex-direction: column;
     text-align: center;
     gap: 12px;
   }
 
-  .summary-item {
+  .fees-page .summary-item {
     padding: 12px;
   }
 
-  .item-icon {
+  .fees-page .item-icon {
     width: 36px;
     height: 36px;
   }
 
-  .total-amount {
+  .fees-page .total-amount {
     font-size: 20px;
   }
 }

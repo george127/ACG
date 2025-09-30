@@ -9,7 +9,7 @@ import authRoutes from './routes/authRoutes.js';
 import detailsRoutes from './routes/detailRoutes.js';
 import feesProgressRoutes from './routes/feesProgressRoute.js';
 import profileRoutes  from './routes/profileRoute.js'; 
-
+ 
 dotenv.config();
 
 const app = express();

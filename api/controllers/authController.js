@@ -61,6 +61,40 @@ export const SignUp = async (req, res) => {
 };
 
 // User LogIn
+// export const LogIn = async (req, res) => {
+//   const { email, password } = req.body;
+
+//   try {
+//     // Check if user exists
+//     const user = await User.findOne({ email });
+//     if (!user) return res.status(400).json({ message: "Invalid Email" });
+
+//     // Compare password
+//     const isMatch = await user.matchPassword(password);
+//     if (!isMatch) return res.status(400).json({ message: "Invalid Password" });
+
+//     // Generate tokens
+//     const token = generateToken(user._id);
+//     const refreshToken = generateRefreshToken(user._id);
+
+//     // Save refresh token in DB 
+//     user.refreshToken = refreshToken;
+//     await user.save();
+
+//     res.status(200).json({
+//       message: "Login successful",
+//       token,
+//       refreshToken,
+//       user: { name: user.name, email: user.email, studentId: user.studentId, }, // Include user details
+//     });
+//   } catch (error) {
+//     console.error("LogIn Error:", error.message || error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// };
+
+
+// In your login controller
 export const LogIn = async (req, res) => {
   const { email, password } = req.body;
 
@@ -68,6 +102,9 @@ export const LogIn = async (req, res) => {
     // Check if user exists
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Invalid Email" });
+    
+    // Check if account is active
+    if (!user.isActive) return res.status(400).json({ message: "Account is deactivated" });
 
     // Compare password
     const isMatch = await user.matchPassword(password);
@@ -81,18 +118,29 @@ export const LogIn = async (req, res) => {
     user.refreshToken = refreshToken;
     await user.save();
 
+    // Prepare user response
+    const userResponse = {
+      name: user.name, 
+      email: user.email, 
+      role: user.role
+    };
+    
+    // Add studentId only for students
+    if (user.role === 'student') {
+      userResponse.studentId = user.studentId;
+    }
+
     res.status(200).json({
       message: "Login successful",
       token,
       refreshToken,
-      user: { name: user.name, email: user.email, studentId: user.studentId, }, // Include user details
+      user: userResponse,
     });
   } catch (error) {
     console.error("LogIn Error:", error.message || error);
     res.status(500).json({ message: "Server error" });
   }
 };
-
 
 export const checkAuthStatus = async (req, res) => {
   try {
@@ -132,3 +180,28 @@ export const checkAuthStatus = async (req, res) => {
     });
   }
 };   
+
+
+// initialization script
+const createDefaultAdmin = async () => {
+  try {
+    const adminExists = await User.findOne({ email: "admin@appcode.com" });
+    if (!adminExists) {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash("Admin@1234", salt);
+      
+      await User.create({
+        name: "System Administrator",
+        email: "admin@appcode.com",
+        password: hashedPassword,
+        role: "admin"
+      });
+      console.log("Default admin account created");
+    }
+  } catch (error) {
+    console.error("Error creating default admin:", error);
+  }
+};
+
+// Call this function when your server starts
+createDefaultAdmin();

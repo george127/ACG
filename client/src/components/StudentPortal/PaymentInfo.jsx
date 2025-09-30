@@ -191,9 +191,6 @@ const PaymentInfo = ({ email }) => {
               </div>
             </div>
           </div>
-          <div className="image-container">
-            <img src={PaymentImage} alt="Payment illustration" />
-          </div>
         </div>
 
         <div className="progress-container">

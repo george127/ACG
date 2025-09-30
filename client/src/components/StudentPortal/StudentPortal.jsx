@@ -11,9 +11,15 @@ import { logout } from "../../redux/reducers/authSlice";
 import PaymentInfo from "./PaymentInfo";
 import Dashboard from "./Dashboard";
 import FeesPayment from "./FeesPayment";
+import CourseModule from "./CourseModule";
+import CourseMaterial from "./CourseMaterial";
+import CoursePerformance from "./CoursePerformance";
+import CourseAssignment from "./CourseAssignment";
+import CourseGrade from "./CourseGrade";
+import CourseQuiz from "./CourseQuiz";
+import Settings from "./Settings";
 import { useLocation } from 'react-router-dom';
-// Disable ESLint prop-types rule for this component
-/* eslint-disable react/prop-types */
+
 const ProfileModal = ({ isOpen, setIsOpen }) => {
   const [loading, setLoading] = useState(false);
   const { user } = useSelector((state) => state.auth);
@@ -1151,50 +1157,41 @@ const StudentPortal = () => {
         )}
         {activeSection === "course Module" && (
           <div className="section">
-            <h2>Enrolled Courses</h2>
-            <p>Here are your enrolled courses...</p>
+           <CourseModule/>
           </div>
         )}
 
         {activeSection === "course material" && (
           <div className="section">
-            <h2>Available Courses</h2>
-            <p>Here are the courses available for enrollment...</p>
+           <CourseMaterial/>
           </div>
         )}
 
         {activeSection === "Performance" && (
           <div className="section">
-            <h2>Completed Courses</h2>
-            <p>Here are the courses you have completed...</p>
+           <CoursePerformance/>
           </div>
         )}
 
         {activeSection === "Grade" && (
           <div className="section">
-            <h2>Completed Courses</h2>
-            <p>Here are the courses you have completed...</p>
+            <CourseGrade/>
           </div>
         )}
 
         {activeSection === "Assignment" && (
           <div className="section">
-            <h2>Completed Courses</h2>
-            <p>Here are the courses you have completed...</p>
+            <CourseAssignment/>
           </div>
         )}
 
         {activeSection === "quiz" && (
-          <div className="section">
-            <h2>Completed Courses</h2>
-            <p>Here are the courses you have completed...</p>
-          </div>
+          <CourseQuiz/>
         )}
 
         {activeSection === "settings" && (
           <div className="mb-4 section">
-            <h2>Settings</h2>
-            <p>Manage your account settings and preferences.</p>
+           <Settings/>
           </div>
         )}
         {/* Footer */}

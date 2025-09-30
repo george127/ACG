@@ -14,49 +14,51 @@
   font-weight: bold;
 }
 
-/* =========================== */
-.Payment-details {
+.Payment-container .Payment-details {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
 }
 
-.payment-summary-card {
+.Payment-container .payment-summary-card {
   padding: 20px;
-  
+  border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   color: #333;
   position: relative;
 }
 
-.payment-header {
-  text-align: justify;
+.Payment-container .payment-header {
   margin-bottom: 20px;
+  line-height: 1.6rem
 }
 
-.payment-header h3 {
-  text-align: justify;
+.Payment-container .payment-header h3 {
   font-size: 1.4rem;
-  color: #e9691e;
+  font-weight: 700;
+  color: #1e293b;
   margin: 0;
 }
 
-.payment-header p {
-  font-size: 1rem;
-  color: #666;
+.Payment-container .payment-header p {
+ font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 12px;
 }
 
-.summary-details {
+.Payment-container .summary-details {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
   padding: 1.5rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
 }
 
-.summary-details .detail {
+.Payment-container .summary-details .detail {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -65,33 +67,36 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   border-left: 4px solid transparent;
+  border-radius: 12px;
 }
 
-.summary-details .detail:hover {
+.Payment-container .summary-details .detail:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   border-left-color: #e9691e;
 }
 
-.summary-details .icon {
+.Payment-container .summary-details .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #e9691e 0%, #fbbf24 100%);
-  color: white;
+  background: #fff;
+  color: #e9691e;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.19);
   font-size: 1.5rem;
   flex-shrink: 0;
+  border-radius:6px;
 }
 
-.summary-details .detail-content {
+.Payment-container .summary-details .detail-content {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.summary-details .label {
+.Payment-container .summary-details .label {
   font-size: 0.85rem;
   color: #6c757d;
   font-weight: 500;
@@ -99,36 +104,36 @@
   letter-spacing: 0.5px;
 }
 
-.summary-details .value {
+.Payment-container .summary-details .value {
   font-size: 1.25rem;
   font-weight: 700;
   color: #2c3e50;
   letter-spacing: -0.5px;
 }
 
-.payment-summary-card .image-container img {
-  width: 240px;
-  height: auto;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
 
 /* ===Progress=== */
-.progress-container {
+.Payment-container .progress-container {
   background: #fff;
   padding: 20px;
+  border-radius: 12px;
   box-shadow: 0px 6px 6px rgba(102, 124, 150, 0.2);
 }
 
-.progress-container .progress-history {
+.Payment-container .progress-container p{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.Payment-container .progress-container .progress-history {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
 }
 
-.progress-container .progress-label {
+.Payment-container .progress-container .progress-label {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,7 +150,7 @@
   width: 200px;
 }
 
-.progress-container .progress-label::before {
+.Payment-container .progress-container .progress-label::before {
   content: '';
   position: absolute;
   top: 0;
@@ -156,12 +161,12 @@
   border-radius: 2px 2px 0 0;
 }
 
-.progress-container .progress-label:hover {
+.Payment-container .progress-container .progress-label:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.progress-container .percentage-display {
+.Payment-container .progress-container .percentage-display {
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -169,7 +174,7 @@
   position: relative;
 }
 
-.progress-container .progress-percentage {
+.Payment-container .progress-container .progress-percentage {
   font-size: 3.5rem;
   font-weight: 800;
   color: #e9691e;
@@ -181,14 +186,14 @@
   line-height: 1;
 }
 
-.progress-container .percent-symbol {
+.Payment-container .progress-container .percent-symbol {
   font-size: 1.8rem;
   font-weight: 600;
   color: #6366f1;
   margin-left: 2px;
 }
 
-.progress-container .progress-text {
+.Payment-container .progress-container .progress-text {
   font-size: 1.1rem;
   font-weight: 600;
   color: #374151;
@@ -198,7 +203,7 @@
   position: relative;
 }
 
-.progress-container .progress-subtext {
+.Payment-container .progress-container .progress-subtext {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -209,7 +214,7 @@
   font-weight: 500;
 }
 
-.progress-container .progress-subtext .material-symbols-outlined {
+.Payment-container .progress-container .progress-subtext .material-symbols-outlined {
   font-size: 1.1rem;
   color: #10b981;
 }
@@ -226,7 +231,7 @@
   }
 }
 
-.progress-container .progress-percentage {
+.Payment-container .progress-container .progress-percentage {
   animation: countUp 0.8s ease-out;
 }
 
@@ -243,68 +248,51 @@
   }
 }
 
-.progress-container .progress-label:hover .progress-percentage {
+.Payment-container .progress-container .progress-label:hover .progress-percentage {
   animation: pulse 2s infinite;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .progress-label {
+  .Payment-container .progress-label {
     padding: 15px;
     margin-top: 15px;
   }
   
-  .progress-percentage {
+  .Payment-container .progress-percentage {
     font-size: 2.8rem;
   }
   
-  .percent-symbol {
+  .Payment-container .percent-symbol {
     font-size: 1.5rem;
   }
   
-  .progress-text {
+  .Payment-container .progress-text {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .progress-percentage {
+  .Payment-container .progress-percentage {
     font-size: 2.2rem;
   }
   
-  .percent-symbol {
+  .Payment-container .percent-symbol {
     font-size: 1.2rem;
   }
   
-  .progress-text {
+  .Payment-container .progress-text {
     font-size: 0.9rem;
   }
   
-  .progress-subtext {
+  .Payment-container .progress-subtext {
     font-size: 0.8rem;
     padding: 6px 12px;
   }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .progress-label {
-    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-    border-color: #374151;
-  }
-  
-  .progress-text {
-    color: #e5e7eb;
-  }
-  
-  .progress-subtext {
-    background: #374151;
-    color: #d1d5db;
-  }
-}
-
 /* Achievement badge effect */
-.progress-label::after {
+.Payment-container .progress-label::after {
   content: '';
   position: absolute;
   top: -10px;
@@ -329,24 +317,25 @@
 }
 
 /* Payment Progress Section */
-.progress-container .payment-progress-section {
+.Payment-container .progress-container .payment-progress-section {
   background: white;
   margin: 24px 0;
 }
 
-.progress-container .payment-history-details {
+.Payment-container .progress-container .payment-history-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.progress-container .history-details {
+.Payment-container .progress-container .history-details {
   background: #f9fafb;
   padding: 10px;
   border-left: 4px solid #e9691e;
+  border-radius: 12px;
 }
 
-.progress-container .level {
+.Payment-container .progress-container .level {
   display: block;
   font-weight: 500;
   color: #1e293a;
@@ -354,7 +343,7 @@
   font-size: 0.9rem;
 }
 
-.progress-container .progress-text {
+.Payment-container .progress-container .progress-text {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
@@ -362,28 +351,30 @@
   color: #6b7280;
 }
 
-.progress-container .progress-text span:nth-child(2) {
+.Payment-container .progress-container .progress-text span:nth-child(2) {
   font-weight: 600;
   color: #e9691e;
 }
 
-.progress-container .parent-div {
+.Payment-container .progress-container .parent-div {
   width: 100%;
   height: 8px;
   background-color: #e5e7eb;
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
 }
 
-.progress-container .child-div {
+.Payment-container .progress-container .child-div {
   height: 100%;
   background: linear-gradient(90deg, #e9691e 0%, #ff9500 100%);
   transition: width 0.5s ease-in-out;
   position: relative;
   overflow: hidden;
+  border-radius: 12px;
 }
 
-.progress-container .child-div::after {
+.Payment-container .progress-container .child-div::after {
   content: "";
   position: absolute;
   top: 0;
@@ -422,38 +413,40 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .payment-progress-section {
+  .Payment-container .payment-progress-section {
     padding: 16px;
   }
   
-  .history-details {
+  .Payment-container .history-details {
     padding: 12px;
   }
 }
 
 /* Add these styles to your existing CSS */
-.semester-column-layout {
+.Payment-container .semester-column-layout {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 100%;
 }
 
-.semester-column-layout .semester-column {
+.Payment-container .semester-column-layout .semester-column {
   background: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
   padding: 1.5rem;
 }
 
-.semester-column-layout .semester-title {
-  color: #2c3e50;
+.Payment-container .semester-column-layout .semester-title {
   margin-bottom: 1.5rem;
-  font-size: 1.3rem;
   border-bottom: 1px solid #eee;
   padding-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
 }
 
-.semester-column-layout .installments-row {
+.Payment-container .semester-column-layout .installments-row {
   display: flex;
   justify-content: space-between;
   gap: 1.5rem;
@@ -461,14 +454,15 @@
   padding-bottom: 1rem;
 }
 
-.semester-column-layout .installment-card {
+.Payment-container .semester-column-layout .installment-card {
   width: 100%;
   background: #f9f9f9;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
 }
 
-.semester-column-layout .installment-header {
+.Payment-container .semester-column-layout .installment-header {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
@@ -477,28 +471,28 @@
   align-items: center;
 }
 
-.semester-column-layout .installment-header h4 {
+.Payment-container .semester-column-layout .installment-header h4 {
   color: #e9691e;
   margin: 0;
   font-size: 0.9rem;
 }
 
-.semester-column-layout .installment-header .material-symbols-outlined {
+.Payment-container .semester-column-layout .installment-header .material-symbols-outlined {
   color: #3ace00;
   font-size: 1.3rem;
 }
 
-.semester-column-layout .payment-record {
+.Payment-container .semester-column-layout .payment-record {
   margin-bottom: 1rem;
 }
 
-.semester-column-layout .payment-row {
+.Payment-container .semester-column-layout .payment-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.9rem;
 }
 
-.semester-column-layout .payment-row .label {
+.Payment-container .semester-column-layout .payment-row .label {
   color: #173755;
   font-weight: bold;
     font-size: 0.9rem;
@@ -507,52 +501,52 @@
   gap: 0.5rem;
 }
 
-.semester-column-layout .payment-row .label .material-symbols-outlined {
+.Payment-container .semester-column-layout .payment-row .label .material-symbols-outlined {
   color: #e9691e;
   font-size: 1.2rem;
 }
 
-.semester-column-layout .payment-row .value {
+.Payment-container .semester-column-layout .payment-row .value {
   color: #34495e;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
 }
 
-.semester-column-layout .payment-row .cash {
+.Payment-container .semester-column-layout .payment-row .cash {
   color: #3ace00;
 }
 
-.semester-column-layout .payment-row .value .material-symbols-outlined {
+.Payment-container .semester-column-layout .payment-row .value .material-symbols-outlined {
   font-size: 1.2rem;
 }
 
-.semester-column-layout .date {
+.Payment-container .semester-column-layout .date {
   color: #7f8c8d;
   font-size: 0.9rem;
 }
 
 
-.no-records {
+.Payment-container .no-records {
   text-align: center;
   color: #6b7280;
   background-color: #f9fafb;
 }
 
-.no-records .material-symbols-outlined {
+.Payment-container .no-records .material-symbols-outlined {
   font-size: 3rem;
   color: #9ca3af;
   opacity: 0.7;
 }
 
-.no-records p {
+.Payment-container .no-records p {
   font-weight: 500;
   color: #374151;
   font-size: 0.9rem;
 }
 
 /* Optional: Add a subtle animation */
-.no-records {
+.Payment-container .no-records {
   animation: fadeIn 0.5s ease-in-out;
 }
 
